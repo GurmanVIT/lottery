@@ -1,0 +1,125 @@
+$white: #fff;
+$primary: #6561C0;
+$color_1: #999;
+$color_2: #5264AE;
+
+.login {
+    width: 770px;
+
+    .lottery {
+        background-color: $primary;
+        padding: 25px;
+
+        h4 {
+            font-size: 28px;
+            color: $white;
+            text-align: center;
+        }
+
+        h5 {
+            font-size: 26px;
+            color: $white;
+        }
+
+        p {
+            font-size: 16px;
+            color: $white;
+            margin-bottom: 0;
+        }
+    }
+
+    .inner {
+        background-color: #F7F8FF;
+        padding: 60px 25px 25px;
+
+        .form-floating {
+            position: relative;
+
+            label {
+                padding-left: 60px;
+                margin-bottom: 5px;
+                font-size: 15px;
+            }
+
+            img {
+                position: absolute;
+                top: 22px;
+                left: 25px;
+            }
+
+            .password {
+                position: absolute;
+                top: 15px;
+            }
+
+            input {
+                border: none;
+                border-radius: 10px;
+                padding-left: 55px;
+                font-weight: 600;
+                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.73);
+
+
+                &:focus {
+                    box-shadow: none;
+                    padding-left: 55px;
+                }
+            }
+        }
+
+        .forgot_link {
+            text-align: end;
+            margin: 20px 0;
+
+            .forgot {
+                color: #707070;
+            }
+        }
+
+        .login_link {
+            .login {
+                width: 100%;
+                padding: 17px;
+                border: 2px solid #6561C0;
+                display: flex;
+                justify-content: center;
+                background-color: #6561C0;
+                color: #fff;
+                text-decoration: none;
+                font-size: larger;
+                border-radius: 13px;
+                font-weight: 600;
+            }
+        }
+
+        .register_link {
+            .register {
+                margin-top: 20px;
+                width: 100%;
+                padding: 17px;
+                border: 2px solid #6561C0;
+                display: flex;
+                justify-content: center;
+                background-color: #fff;
+                color: #6561C0;
+                text-decoration: none;
+                font-size: larger;
+                border-radius: 13px;
+                font-weight: 600;
+            }
+        }
+
+        .upper {
+            text-align: center;
+            margin-top: 30px;
+
+            img {
+                margin-bottom: 5px;
+            }
+
+            h5 {
+                color: #6561C0;
+            }
+        }
+    }
+}
