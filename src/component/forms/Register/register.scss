@@ -1,0 +1,42 @@
+.register {
+    .register_section {
+        .secound_section {
+            .inner {
+                .flex_input {
+                    .form-floating {
+                        label {
+                            padding-left: 37px;
+
+                            @media($breakpoint_350) {
+                                font-size: 12px;
+                            }
+                        }
+
+                        img {
+                            top: 19px;
+                            left: 13px;
+                        }
+
+                        .form-control {
+                            padding-right: 10px;
+                            padding-left: 33px;
+                        }
+                    }
+                }
+
+                .register_link {
+                    .register_button {
+                        span {
+                            margin-left: 10px;
+                            font-weight: 800;
+
+                            @media($breakpoint_450) {
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

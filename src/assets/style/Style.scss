@@ -1,1 +1,17 @@
+//common
+@import '../style/common.scss';
+
+//theme.scss
+@import '../style/theme.scss';
+
+//veriable.scss
+@import '../style/veriable.scss';
+
+//login
 @import '../../component//forms//Login/login.scss';
+
+//register
+@import '../../component//forms//Register/register.scss';
+
+//home_page
+@import '../../component/Home/home_page.scss';

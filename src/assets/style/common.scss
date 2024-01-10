@@ -7,11 +7,11 @@
 
 
 //breakpoints
-$breckpoint_MD: "max-width: 768px";
-$breckpoint_SM: "max-width: 576px";
+$breakpoint_MD: "max-width: 768px";
+$breakpoint_SM: "max-width: 576px";
 $breakpoint_450: "max-width: 450px";
-$breckpoint_ESM: "max-width: 385px";
-$breckpoint_340: "max-width: 355px";
+$breakpoint_ESM: "max-width: 385px";
+$breakpoint_350: "max-width: 350px";
 
 * {
     margin: 0;
@@ -19,17 +19,7 @@ $breckpoint_340: "max-width: 355px";
     box-sizing: border-box;
 }
 
-//theme.scss
-@import './theme.scss';
-
-//veriable.scss
-@import './veriable.scss';
-
-
 body {
-    display: flex;
-    justify-content: center;
-    background-color: #DCDCDC;
     // text-transform: capitalize;
     font-family: 'Kanit', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -71,10 +61,66 @@ a {
 }
 
 
+.custom_container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
-.home_page_component {
-    overflow: hidden;
+//login button
+
+@mixin login_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 13px;
+    border: 2px solid $primary;
+    background-color: $primary;
+    color: $white;
+    text-decoration: none;
+    font-size: larger;
+    border-radius: 13px;
+    font-weight: 600;
+
+    @media($breakpoint_450) {
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 400;
+        border-width: 1px;
+        border-radius: 8px;
+    }
+}
+
+
+
+//register button
+
+@mixin register_button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 13px;
+    border: 2px solid $primary;
+    display: flex;
+    justify-content: center;
+    background-color: $white;
+    color: $primary;
+    text-decoration: none;
+    font-size: larger;
+    border-radius: 13px;
+    font-weight: 700;
+
+    @media($breakpoint_450) {
+        padding: 10px;
+        font-weight: 400;
+        font-size: 17px;
+        border-width: 1px;
+        margin-top: 13px;
+        border-radius: 8px;
+    }
 }
 
 

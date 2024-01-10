@@ -1,0 +1,13 @@
+.home_page {
+    @include display(center, center);
+
+    .inner_section {
+        width: 500px;
+
+        .header_section {
+            @include display(space-between, center);
+            background: linear-gradient(60deg, rgb(101, 97, 192), rgba(101, 97, 192, 0.44));
+            padding: 20px;
+        }
+    }
+}

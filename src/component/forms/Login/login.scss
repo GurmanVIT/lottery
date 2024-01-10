@@ -2,123 +2,252 @@ $white: #fff;
 $primary: #6561C0;
 $color_1: #999;
 $color_2: #5264AE;
+$paragraph: #8B8B8B;
+$forgot: #707070;
+$page_bg: #F7F8FF;
+$input_shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.73);
+
 
 .login {
-    width: 770px;
+    @include display(center, center);
 
-    .lottery {
-        background-color: $primary;
-        padding: 25px;
+    .login_section {
+        width: 500px;
 
-        h4 {
-            font-size: 28px;
-            color: $white;
-            text-align: center;
-        }
+        .lottery {
+            background-color: $primary;
+            padding: 25px;
 
-        h5 {
-            font-size: 26px;
-            color: $white;
-        }
+            @media($breakpoint_450) {
+                padding: 20px;
+            }
 
-        p {
-            font-size: 16px;
-            color: $white;
-            margin-bottom: 0;
-        }
-    }
+            @media($breakpoint_350) {
+                padding: 15px;
+            }
 
-    .inner {
-        background-color: #F7F8FF;
-        padding: 60px 25px 25px;
+            .logo {
+                @include display(center, center);
+                padding: 10px 0;
 
-        .form-floating {
-            position: relative;
+                img {
+                    width: 180px;
 
-            label {
-                padding-left: 60px;
+                    @media($breakpoint_450) {
+                        width: 150px;
+                    }
+
+                    @media($breakpoint_350) {
+                        width: 130px;
+                    }
+                }
+            }
+
+            h5 {
+                font-size: 25px;
+                color: $white;
                 margin-bottom: 5px;
+
+                @media($breakpoint_450) {
+                    font-size: 21px;
+                }
+
+                @media($breakpoint_350) {
+                    font-size: 18px;
+                }
+            }
+
+            p {
                 font-size: 15px;
-            }
+                color: $white;
+                margin-bottom: 0;
 
-            img {
-                position: absolute;
-                top: 22px;
-                left: 25px;
-            }
+                @media($breakpoint_450) {
+                    font-size: 14px;
+                }
 
-            .password {
-                position: absolute;
-                top: 15px;
-            }
-
-            input {
-                border: none;
-                border-radius: 10px;
-                padding-left: 55px;
-                font-weight: 600;
-                box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.73);
-
-
-                &:focus {
-                    box-shadow: none;
-                    padding-left: 55px;
+                @media($breakpoint_350) {
+                    font-size: 12px;
                 }
             }
         }
 
-        .forgot_link {
-            text-align: end;
-            margin: 20px 0;
+        .secound_section {
+            .inner {
+                background-color: $page_bg;
+                padding: 45px 25px 25px;
+                height: 100vh;
 
-            .forgot {
-                color: #707070;
-            }
-        }
+                @media($breakpoint_450) {
+                    padding: 35px 20px 20px;
+                }
 
-        .login_link {
-            .login {
-                width: 100%;
-                padding: 17px;
-                border: 2px solid #6561C0;
-                display: flex;
-                justify-content: center;
-                background-color: #6561C0;
-                color: #fff;
-                text-decoration: none;
-                font-size: larger;
-                border-radius: 13px;
-                font-weight: 600;
-            }
-        }
+                @media($breakpoint_350) {
+                    padding: 30px 15px 15px;
+                }
 
-        .register_link {
-            .register {
-                margin-top: 20px;
-                width: 100%;
-                padding: 17px;
-                border: 2px solid #6561C0;
-                display: flex;
-                justify-content: center;
-                background-color: #fff;
-                color: #6561C0;
-                text-decoration: none;
-                font-size: larger;
-                border-radius: 13px;
-                font-weight: 600;
-            }
-        }
+                .form-floating {
+                    position: relative;
 
-        .upper {
-            text-align: center;
-            margin-top: 30px;
+                    label {
+                        padding-left: 60px;
+                        margin-bottom: 5px;
+                        font-size: 15px;
 
-            img {
-                margin-bottom: 5px;
-            }
+                        @media($breakpoint_450) {
+                            font-size: 13px;
+                            padding-top: 20px;
+                            padding-left: 50px;
+                        }
 
-            h5 {
-                color: #6561C0;
+                        @media($breakpoint_350) {
+                            padding-left: 45px;
+                        }
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 22px;
+                        left: 25px;
+
+                        @media($breakpoint_450) {
+                            left: 13px;
+                        }
+
+                        @media($breakpoint_350) {
+                            left: 11px;
+                        }
+                    }
+
+                    .password {
+                        position: absolute;
+                        top: 15px;
+                    }
+
+                    input {
+                        border: none;
+                        border-radius: 10px;
+                        padding-left: 55px;
+                        padding-right: 45px;
+                        font-weight: 500;
+                        box-shadow: $input_shadow;
+
+                        &:focus {
+                            padding-left: 55px;
+
+                            @media($breakpoint_450) {
+                                padding-left: 47px;
+                            }
+
+                            @media($breakpoint_350) {
+                                padding-left: 43px;
+                            }
+                        }
+
+                        @media($breakpoint_450) {
+                            font-size: 15px;
+                            padding-left: 47px;
+                        }
+
+                        @media($breakpoint_350) {
+                            padding-left: 43px;
+                        }
+                    }
+
+                    .passwod_btn {
+                        position: absolute;
+                        right: 17px;
+                        top: 15px;
+                        border: none;
+                        background-color: transparent;
+                    }
+                }
+
+                .forgot_link {
+                    text-align: end;
+                    margin: 20px 0;
+
+                    @media($breakpoint_450) {
+                        margin: 15px 0;
+                    }
+
+                    .forgot {
+                        color: $forgot;
+                        text-decoration: underline;
+
+                        @media($breakpoint_450) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .login_link {
+                    .login_button {
+                        @include login_button;
+                    }
+                }
+
+                .register_link {
+                    .register_button {
+                        @include register_button;
+                    }
+                }
+
+                .upper {
+                    text-align: center;
+                    margin-top: 30px;
+
+                    @media($breakpoint_450) {
+                        margin-top: 20px;
+                    }
+
+                    img {
+                        margin-bottom: 5px;
+                    }
+
+                    h5 {
+                        color: $primary;
+                        font-weight: 700;
+                        margin-bottom: 30px;
+
+                        @media($breakpoint_450) {
+                            font-weight: 600;
+                            margin-bottom: 15px;
+                            font-size: 15px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .checkbox {
+                    @include display(center, baseline);
+                    gap: 10px;
+
+                    @media($breakpoint_450) {
+                        align-items: center;
+                    }
+
+                    p {
+                        color: $paragraph ;
+                        margin-bottom: 0;
+
+                        @media($breakpoint_450) {
+                            font-size: 13px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 12px;
+                        }
+
+                        span {
+                            font-weight: bold;
+                            color: $primary;
+                        }
+                    }
+                }
             }
         }
     }
