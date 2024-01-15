@@ -76,7 +76,7 @@ const Lottery = () => {
                             </div>
                         </div>
                         <div className='watch'>
-                            <div className='text-center p-2'>
+                            <div className='text-center p-1'>
                                 <img src={watch} alt='watch' />
                                 <h5>Win Go 10 min</h5>
                             </div>
