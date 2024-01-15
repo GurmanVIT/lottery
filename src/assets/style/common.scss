@@ -7,8 +7,8 @@
 
 
 //breakpoints
-$breakpoint_MD: "max-width: 768px";
 $breakpoint_SM: "max-width: 576px";
+$breakpoint_500: "max-width: 500px";
 $breakpoint_450: "max-width: 450px";
 $breakpoint_ESM: "max-width: 385px";
 $breakpoint_350: "max-width: 350px";
@@ -24,6 +24,17 @@ body {
     font-family: 'Kanit', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
+
+//home_page
+.home_page {
+    max-width: 500px;
+    background-color: #F7F8FF;
+    margin: auto;
+}
+
+
+
 
 //Chrome, Safari, Edge, Opera
 input::-webkit-outer-spin-button,
@@ -121,6 +132,28 @@ a {
         margin-top: 13px;
         border-radius: 8px;
     }
+}
+
+
+// font mixin
+@mixin font {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+
+    @media($breakpoint_450) {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0px;
+    }
+}
+
+//text-overflow
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 

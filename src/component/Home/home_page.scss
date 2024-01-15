@@ -1,13 +1,303 @@
-.home_page {
-    @include display(center, center);
-
+.home_page_section {
     .inner_section {
-        width: 500px;
+        overflow: hidden;
+        background-color: $page_bg;
 
         .header_section {
             @include display(space-between, center);
-            background: linear-gradient(60deg, rgb(101, 97, 192), rgba(101, 97, 192, 0.44));
+            background: linear-gradient(60deg, rgb(101, 97, 192), rgba(73, 67, 193, 0.44));
             padding: 20px;
+
+            @media($breakpoint_450) {
+                padding: 15px 10px;
+            }
+
+            .logo {
+                img {
+                    @media($breakpoint_450) {
+                        width: 150px;
+                    }
+
+                    @media($breakpoint_ESM) {
+                        width: 130px;
+                    }
+                }
+            }
+
+            .d-flex {
+                .massage {
+                    img {
+                        @media($breakpoint_450) {
+                            width: 33px;
+                            height: 33px;
+                        }
+                    }
+                }
+
+                .download {
+                    img {
+                        @media($breakpoint_450) {
+                            width: 33px;
+                            height: 33px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .swiper {
+            .swiper-horizontal {
+                .swiper-wrapper {
+                    display: flex;
+                    white-space: nowrap;
+
+                    .swiper-slide {
+                        .card {
+                            border: none;
+
+                            .card-img {
+                                img {
+                                    @media($breakpoint_450) {
+                                        height: 200px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .flex_sec {
+            padding: 20px;
+            background-color: $page_bg;
+
+            @media($breakpoint_450) {
+                padding: 15px 10px;
+            }
+
+            .game_sec {
+                @include display(space-between, center);
+                margin-bottom: 15px;
+
+                @media($breakpoint_450) {
+                    padding: 0 20px;
+                    margin-bottom: 5px;
+                }
+
+                @media($breakpoint_ESM) {
+                    padding: 0 10px;
+                }
+
+                @media($breakpoint_350) {
+                    padding: 0;
+                }
+
+                .secound_section {
+                    text-align: center;
+
+                    .lottery_img {
+                        img {
+                            border-radius: 50%;
+                            border: 3px solid $primary;
+                            padding: 10px;
+
+                            @media($breakpoint_450) {
+                                width: 70px;
+                                padding: 5px;
+                                border: 2px solid $primary;
+                            }
+
+                            @media($breakpoint_350) {
+                                width: 65px;
+                            }
+                        }
+                    }
+
+                    .lottery_content {
+                        margin-top: 10px;
+
+                        h5 {
+                            color: $primary;
+                            font-size: 18px;
+                            font-weight: 600;
+
+                            @media($breakpoint_450) {
+                                font-size: 15px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+
+                .same_sec {
+                    text-align: center;
+
+                    .lottery_img {
+
+                        img {
+                            border-radius: 50%;
+                            border: 2px solid $content_border;
+                            padding: 10px;
+
+                            @media($breakpoint_450) {
+                                width: 70px;
+                                padding: 5px;
+                            }
+
+                            @media($breakpoint_350) {
+                                width: 65px;
+                            }
+                        }
+                    }
+
+                    .lottery_content {
+                        margin-top: 10px;
+
+                        h5 {
+                            color: $content_border;
+                            font-size: 18px;
+                            font-weight: 500;
+
+                            @media($breakpoint_450) {
+                                font-size: 15px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .card_sec {
+                width: 100%;
+                background-color: transparent;
+                margin-top: 40px;
+                position: relative;
+
+                @media($breakpoint_450) {
+                    margin-top: 15px;
+                }
+
+                .card {
+                    background-color: $card_primary;
+                    border: none;
+                    outline: none;
+                    border-radius: 14px 14px 0 0;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    position: relative;
+
+                    .card_body {
+                        padding: 20px 0 20px 20px;
+
+                        @media($breakpoint_450) {
+                            padding-left: 15px;
+                        }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            z-index: 1;
+                            background-image: url("../../assets//img//gift_img.svg");
+                        }
+
+                        h4 {
+                            margin-bottom: 0;
+                            color: $white;
+                            font-weight: 700;
+                            font-size: 30px;
+                            font-family: system-ui;
+                            position: relative;
+
+                            @media($breakpoint_450) {
+                                font-weight: 600;
+                                font-size: 26px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 24px;
+                            }
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                width: 75px;
+                                height: 3px;
+                                bottom: -23px;
+                                background-color: $white;
+                                margin: 10px 0;
+                                border-radius: 15px;
+                            }
+                        }
+
+                        p {
+                            margin: 25px 0 0 0;
+                            color: $white;
+                            font-family: system-ui;
+                            font-weight: 500;
+                            letter-spacing: 1px;
+
+                            @media($breakpoint_450) {
+                                font-size: 14px;
+                            }
+                        }
+
+                        .purple {
+                            margin: 0;
+                        }
+                    }
+
+                }
+
+                .card_footer {
+                    @include display(space-between, center);
+                    padding: 15px 20px;
+                    border-radius: 0 0 14px 14px;
+                    box-shadow: $input_shadow;
+                    background-color: $white;
+
+                    @media($breakpoint_450) {
+                        padding: 10px;
+                    }
+
+                    .card_flex {
+                        @include display(center, center);
+                        gap: 10px;
+
+                        @media($breakpoint_450) {
+                            gap: 5px;
+                        }
+
+                        h4 {
+                            @include font;
+                        }
+                    }
+
+                    .card_sec_flex {
+                        @include display(center, center);
+                        gap: 15px;
+
+                        @media($breakpoint_450) {
+                            gap: 8px;
+                        }
+
+                        h6 {
+                            @include font;
+                        }
+
+                        h5 {
+                            @include font;
+                            color: $primary ;
+                        }
+                    }
+                }
+            }
         }
     }
 }

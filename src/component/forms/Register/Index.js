@@ -26,7 +26,7 @@ const Register = () => {
     };
 
     return (
-        <>
+        <div className='home_page'>
             <div className='register login'>
                 <div className='register_section login_section'>
                     <div className='lottery'>
@@ -114,7 +114,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,0 +1,107 @@
+.information_detail {
+    padding: 0 20px;
+
+    @media($breakpoint_450) {
+        padding: 0 10px;
+    }
+
+    .information {
+        margin-top: 30px;
+
+        @media($breakpoint_450) {
+            margin-top: 15px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 30px;
+
+            @media($breakpoint_450) {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .card_secound {
+            @include display(space-between, center);
+            background-color: $white;
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: $input_shadow;
+            margin-bottom: 15px;
+
+            @media($breakpoint_450) {
+                padding: 10px;
+                margin-bottom: 8px;
+            }
+
+            @media($breakpoint_350) {
+                padding: 8px 10px;
+            }
+
+            .winning_card {
+                @include display(center, center);
+                gap: 10px;
+
+                @media($breakpoint_450) {
+                    gap: 5px;
+                }
+
+                img {
+                    @media($breakpoint_450) {
+                        width: 50px;
+                    }
+
+                    @media($breakpoint_350) {
+                        width: 45px;
+                    }
+
+                }
+
+                h4 {
+                    @include font;
+                }
+            }
+
+            .amount_winning {
+                .receive {
+                    @include display(center, center);
+                    gap: 15px;
+                    margin-bottom: 7px;
+
+                    @media($breakpoint_450) {
+                        gap: 5px;
+                        margin-bottom: 4px;
+                    }
+
+                    h5 {
+                        @include font;
+                    }
+
+                    h6 {
+                        @include font;
+                        color: $primary;
+                    }
+                }
+
+                .amount {
+                    text-align: end;
+
+                    h6 {
+                        font-size: 15px;
+                        letter-spacing: 1.5px;
+                        font-weight: bold;
+                        color: $paragraph;
+                        margin-bottom: 0;
+
+                        @media($breakpoint_450) {
+                            font-size: 13px;
+                            letter-spacing: 0.8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

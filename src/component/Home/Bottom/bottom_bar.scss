@@ -1,0 +1,83 @@
+.bottom_bar {
+
+    .MuiBox-root {
+        .MuiBottomNavigation-root {
+            background-color: $bottom_bar;
+            padding: 64px 10px 45px;
+
+            @media($breakpoint_450) {
+                padding: 48px 0px 30px;
+            }
+
+            .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
+                @media($breakpoint_450) {
+                    min-width: auto;
+                }
+            }
+
+            a {
+                gap: 6px;
+                padding: 0;
+
+                &:hover {
+                    color: $disable_button;
+                }
+
+                .css-imwso6-MuiBottomNavigationAction-label {
+                    color: $disable_button;
+                }
+            }
+
+            img {
+                @media($breakpoint_450) {
+                    width: 20px;
+                }
+            }
+
+            .promotion {
+                img {
+                    @media($breakpoint_450) {
+                        width: 40px;
+                    }
+                }
+            }
+
+            button {
+                @media($breakpoint_450) {
+                    min-width: auto;
+                }
+
+                &:not(:disabled) {
+                    color: $disable_button ;
+                    gap: 6px;
+                    padding: 0px;
+                }
+
+                .MuiBottomNavigationAction-label {
+                    letter-spacing: .5px;
+                }
+
+                .css-8je8zh-MuiTouchRipple-root {
+                    display: none;
+                }
+            }
+
+            .Mui-selected {
+                color: $white !important;
+                font-size: 14px;
+                letter-spacing: .5px;
+                padding: 0;
+            }
+
+
+
+            .promotion {
+                margin-top: -28px;
+
+                @media($breakpoint_450) {
+                    margin-top: -20px;
+                }
+            }
+        }
+    }
+}
