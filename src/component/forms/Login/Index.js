@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (loginSuccess.status == 1) {
+    if (loginSuccess != null && loginSuccess.status == 1) {
       navigation("/otp");
     }
   }, [loginSuccess]);
