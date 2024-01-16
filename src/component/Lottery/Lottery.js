@@ -7,6 +7,12 @@ import headphone from '../../assets/img/headphone.svg';
 import refresh from '../../assets/img/refresh.svg';
 import flat from '../../assets/img/Flat.svg';
 import watch from '../../assets/img/watch.svg';
+import coin_1 from '../../assets/img/coin_1.svg';
+import coin_2 from '../../assets/img/coin_2.svg';
+import coin_3 from '../../assets/img/coin_3.svg';
+import coin_4 from '../../assets/img/coin_4.svg';
+import coin_5 from '../../assets/img/coin_5.svg';
+import coin_6 from '../../assets/img/coin_6.svg';
 
 
 
@@ -82,8 +88,21 @@ const Lottery = () => {
                             </div>
                         </div>
                     </div>
-                    <div className=''>
-
+                    <div className='mixing_card'>
+                        <div className='win_number'>
+                            <h3>Win Go 1 min</h3>
+                            <div className='coin_img'>
+                                <img src={coin_1} alt='coin_1' />
+                                <img src={coin_2} alt='coin_2' />
+                                <img src={coin_3} alt='coin_3' />
+                                <img src={coin_4} alt='coin_4' />
+                                <img src={coin_5} alt='coin_5' />
+                                <img src={coin_6} alt='coin_6' />
+                            </div>
+                        </div>
+                        <div className='play'>
+                            <button> HOW TO PLAY</button>
+                        </div>
                     </div>
                 </div>
             </div>

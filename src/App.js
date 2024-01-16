@@ -5,6 +5,7 @@ import Register from "./component/forms/Register/Index";
 import Index from './component/Home/Index';
 import Lottery from './component/Lottery/Lottery';
 import OTP from "./component/forms/OTP/Index";
+import Forgot from './component/forms/Forgot/Index';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/otp" element={<OTP />} />
+          <Route path="/forgot" element={<Forgot />} />
         </Routes>
       </Router>
     </>

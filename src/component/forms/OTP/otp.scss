@@ -118,12 +118,24 @@
 
             .login_button {
                 @include login_button;
+                padding: 9px;
+                font-weight: 500;
+                border-radius: 9px;
+                margin-top: 10px;
 
                 @media($breakpoint_450) {
-                    padding: 9px;
+                    padding: 8px;
                 }
+            }
 
-                @media($breakpoint_ESM) {
+            .register {
+                @include register_button;
+                padding: 9px;
+                border-width: 1px;
+                font-weight: 500;
+                border-radius: 9px;
+
+                @media($breakpoint_450) {
                     padding: 8px;
                 }
             }

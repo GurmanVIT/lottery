@@ -16,8 +16,6 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState()
 
-
-
     const [checked, setChecked] = useState(false);
 
     const handleChange = () => {
