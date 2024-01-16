@@ -1,32 +1,38 @@
-// import React from 'react';
-// import logo from '../../../assets/img/logo.svg';
+import React from 'react';
+import DG from '../../../assets/img/DG.svg';
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
+import email_icon from "../../../assets/img/email_icon.svg";
 
 
-// const Forgot = () => {
+const Forgot = () => {
 
-//     return (
-//         <div className='otp'>
-//             <div className='screen_otp'>
-//                 <div className='lottery'>
-//                     <div className='logo'>
-//                         <img src={logo} alt='logo' />
-//                     </div>
-//                     <h5>Enter verification code</h5>
-//                     <p>Enter 6-digit code we just texted to your email address.</p>
-//                 </div>
+    return (
+        <div className='forgot_sec'>
+            <div className='screen_forgot'>
+                <div className='lottery'>
+                    <div className='logo'>
+                        <img src={DG} alt='DG' />
+                        <h2>Dapic games</h2>
+                    </div>
+                    <h5>Forgot</h5>
+                </div>
 
-//                 <FloatingLabel
-//                     controlId="floatingInput"
-//                     label="ENTER YOUR  EMAIL ADDRESS"
-//                     className="mb-3"
-//                 >
-//                     <img src={email_icon} alt='email' />
-//                     <Form.Control type="email" placeholder="name@example.com" />
-//                 </FloatingLabel>
-//                 <button type='submit' className='login_button'>Forgot</button>
-//             </div>
-//         </div>
-//     );
-// };
+                <div className='inner'>
 
-// export default Forgot;
+                    <FloatingLabel
+                        controlId="floatingInput"
+                        label="ENTER YOUR  EMAIL ADDRESS"
+                        className="mb-3"
+                    >
+                        <img src={email_icon} alt='email' />
+                        <Form.Control type="email" placeholder="name@example.com" />
+                    </FloatingLabel>
+                    <button type='button' className='login_button mt-4'>Forgot</button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Forgot;

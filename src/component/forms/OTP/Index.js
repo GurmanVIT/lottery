@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../../assets/img/logo.svg";
+import DG from "../../../assets/img/DG.svg";
 import OTPInput from "react-otp-input";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,8 +46,9 @@ const Index = () => {
         <div className="otp">
             <div className="screen_otp">
                 <div className="lottery">
-                    <div className="logo">
-                        <img src={logo} alt="logo" />
+                    <div className='logo'>
+                        <img src={DG} alt='DG' />
+                        <h2>Dapic games</h2>
                     </div>
                     <h5>Enter verification code</h5>
                     <p>Enter 6-digit code we just texted to your email address.</p>

@@ -5,7 +5,7 @@ import password_icon from "../../../assets/img/password_icon.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { Link, useNavigate } from "react-router-dom";
 import support from "../../../assets/img/support.svg";
-import logo from "../../../assets/img/logo.svg";
+import DG from "../../../assets/img/DG.svg";
 
 import { VisibilityTwoTone, VisibilityOffTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
@@ -63,8 +63,9 @@ const Login = () => {
             <div className="login">
                 <div className="login_section">
                     <div className="lottery">
-                        <div className="logo">
-                            <img src={logo} alt="logo" />
+                        <div className='logo'>
+                            <img src={DG} alt='DG' />
+                            <h2>Dapic games</h2>
                         </div>
                         <h5>Register</h5>
                         <p>Please register by email</p>

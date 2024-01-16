@@ -19,17 +19,44 @@
 
             .logo {
                 @include display(center, center);
-                padding: 10px 0;
+                gap: 5px;
+                margin-bottom: 10px;
+
+                @media($breakpoint_ESM) {
+                    gap: 0px;
+
+                }
 
                 img {
-                    width: 180px;
-
-                    @media ($breakpoint_450) {
-                        width: 150px;
+                    @media($breakpoint_ESM) {
+                        height: 30px;
+                        width: 50px;
                     }
 
-                    @media ($breakpoint_350) {
-                        width: 130px;
+                    @media($breakpoint_350) {
+                        height: 25px;
+                        width: 45px;
+                    }
+                }
+
+                h2 {
+                    color: $white;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_450) {
+                        font-size: 26px;
+                    }
+
+                    @media($breakpoint_ESM) {
+                        font-size: 21px;
+                    }
+
+                    @media($breakpoint_350) {
+                        font-size: 19px;
                     }
                 }
             }

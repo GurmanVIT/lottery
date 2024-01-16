@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
 import massage from '../../assets/img/massage.svg';
 import download from '../../assets/img/download.svg';
 import banner from '../../assets/img/banner.svg';
@@ -9,27 +8,19 @@ import slots from '../../assets/img/slots.svg';
 import sports from '../../assets/img/sports.svg';
 import card_img from '../../assets/img/card_img.svg';
 import card_bg_img from '../../assets/img/card_bg_img.svg';
-
-
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
+import DG from '../../assets/img/DG.svg';
 
 
 const Home_page = () => {
-
-
-
 
     return (
         <div className='home_page_section'>
             <div className='inner_section'>
                 <div className='header_section'>
                     <div className='logo'>
-                        <img src={logo} alt='logo' />
+                        <img src={DG} alt='DG' />
+                        <h2>Dapic games</h2>
                     </div>
                     <div className='d-flex'>
                         <div className='massage me-2'>

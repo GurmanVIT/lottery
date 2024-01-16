@@ -12,14 +12,49 @@
                 padding: 15px 10px;
             }
 
+            @media($breakpoint_ESM) {
+                padding: 12px 10px;
+            }
+
             .logo {
+                @include display(center, center);
+                gap: 5px;
+
+                @media($breakpoint_ESM) {
+                    gap: 0px;
+
+                }
+
                 img {
+                    @media($breakpoint_ESM) {
+                        height: 30px;
+                        width: 50px;
+                    }
+
+                    @media($breakpoint_350) {
+                        height: 25px;
+                        width: 45px;
+                    }
+                }
+
+                h2 {
+                    color: $white;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+
                     @media($breakpoint_450) {
-                        width: 150px;
+                        font-size: 26px;
                     }
 
                     @media($breakpoint_ESM) {
-                        width: 130px;
+                        font-size: 21px;
+                    }
+
+                    @media($breakpoint_350) {
+                        font-size: 19px;
                     }
                 }
             }

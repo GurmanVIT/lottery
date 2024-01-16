@@ -1,0 +1,177 @@
+.forgot_sec {
+    @include display(center, center);
+
+    .screen_forgot {
+        width: 100%;
+        max-width: 500px;
+
+        .lottery {
+            background-color: $primary;
+            padding: 25px;
+
+            @media ($breakpoint_450) {
+                padding: 20px;
+            }
+
+            @media ($breakpoint_350) {
+                padding: 15px;
+            }
+
+            .logo {
+                @include display(center, center);
+                gap: 5px;
+                margin-bottom: 10px;
+
+                @media($breakpoint_ESM) {
+                    gap: 0px;
+
+                }
+
+                img {
+                    @media($breakpoint_ESM) {
+                        height: 30px;
+                        width: 50px;
+                    }
+
+                    @media($breakpoint_350) {
+                        height: 25px;
+                        width: 45px;
+                    }
+                }
+
+                h2 {
+                    color: $white;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_450) {
+                        font-size: 26px;
+                    }
+
+                    @media($breakpoint_ESM) {
+                        font-size: 21px;
+                    }
+
+                    @media($breakpoint_350) {
+                        font-size: 19px;
+                    }
+                }
+            }
+
+            h5 {
+                font-size: 25px;
+                color: $white;
+                margin-bottom: 0;
+
+                @media ($breakpoint_450) {
+                    font-size: 21px;
+                }
+
+                @media ($breakpoint_350) {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .inner {
+            background-color: $page_bg;
+            padding: 50px 25px 25px;
+            height: 100vh;
+
+            @media($breakpoint_450) {
+                padding: 40px 20px 20px;
+            }
+
+            @media($breakpoint_350) {
+                padding: 35px 15px 15px;
+            }
+
+            .form-floating {
+                position: relative;
+
+                label {
+                    padding-left: 60px;
+                    margin-bottom: 5px;
+                    font-size: 15px;
+
+                    @media($breakpoint_450) {
+                        font-size: 13px;
+                        padding-top: 20px;
+                        padding-left: 50px;
+                    }
+
+                    @media($breakpoint_350) {
+                        padding-left: 45px;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    top: 21px;
+                    left: 25px;
+
+                    @media($breakpoint_450) {
+                        left: 13px;
+                    }
+
+                    @media($breakpoint_350) {
+                        left: 11px;
+                    }
+                }
+
+                .password {
+                    position: absolute;
+                    top: 15px;
+                }
+
+                input {
+                    border: none;
+                    border-radius: 10px;
+                    padding-left: 55px;
+                    padding-right: 45px;
+                    font-weight: 500;
+                    box-shadow: $input_shadow;
+
+                    &:focus {
+                        padding-left: 55px;
+
+                        @media($breakpoint_450) {
+                            padding-left: 47px;
+                        }
+
+                        @media($breakpoint_350) {
+                            padding-left: 43px;
+                        }
+                    }
+
+                    @media($breakpoint_450) {
+                        font-size: 15px;
+                        padding-left: 47px;
+                    }
+
+                    @media($breakpoint_350) {
+                        padding-left: 43px;
+                    }
+                }
+
+                .passwod_btn {
+                    position: absolute;
+                    right: 17px;
+                    top: 15px;
+                    border: none;
+                    background-color: transparent;
+                }
+            }
+
+            button {
+                @include login_button;
+                padding: 10px;
+                border-radius: 11px;
+                font-weight: 500;
+            }
+        }
+    }
+}
