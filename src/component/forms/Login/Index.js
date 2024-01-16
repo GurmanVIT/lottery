@@ -13,8 +13,21 @@ import { loginUser } from "../../../redux/loginSlice";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState();
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [isValid, setIsValid] = useState(false);
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    // Regular expression for basic email validation
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
+    const isValidEmail = emailRegex.test(newEmail);
+    setIsValid(isValidEmail);
+  };
+
   const loginSuccess = useSelector((state) => state.login.data);
 
   const navigation = useNavigate();
@@ -69,10 +82,16 @@ const Login = () => {
                   type="email"
                   placeholder="name@example.com"
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    handleEmailChange(e);
                   }}
                 />
               </FloatingLabel>
+
+              {email.length != 0 && !isValid ? (
+                <p style={{ color: "red" }}>Invalid email address</p>
+              ) : (
+                ""
+              )}
 
               <FloatingLabel controlId="floatingPassword" label="PASSWORD">
                 <img src={password_icon} alt="password" className="password" />

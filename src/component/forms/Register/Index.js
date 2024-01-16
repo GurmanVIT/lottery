@@ -14,13 +14,25 @@ import { signupUser } from "../../../redux/signupSlice";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-  const [firsName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [firsName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [sponsorId, setSponsorId] = useState();
   const [position, setPosition] = useState();
+
+  const [isValid, setIsValid] = useState(false);
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    // Regular expression for basic email validation
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
+    const isValidEmail = emailRegex.test(newEmail);
+    setIsValid(isValidEmail);
+  };
 
   const [checked, setChecked] = useState(false);
 
@@ -41,16 +53,20 @@ const Register = () => {
   };
 
   const onSignUpClick = () => {
-    const payload = {
-      email: email,
-      firstName: firsName,
-      lastName: lastName,
-      password: password,
-      sponserId: sponsorId,
-      position: selectedOption,
-    };
-    console.log("Payload signup ===> ", payload);
-    dispatch(signupUser(payload));
+    if (password != confirmPassword) {
+      alert("Your confirm password not matched");
+    } else {
+      const payload = {
+        email: email,
+        firstName: firsName,
+        lastName: lastName,
+        password: password,
+        sponserId: sponsorId,
+        position: selectedOption,
+      };
+      console.log("Payload signup ===> ", payload);
+      dispatch(signupUser(payload));
+    }
   };
 
   useEffect(() => {
@@ -112,9 +128,15 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => handleEmailChange(e)}
                 />
               </FloatingLabel>
+
+              {email.length != 0 && !isValid ? (
+                <p style={{ color: "red" }}>Invalid email address</p>
+              ) : (
+                ""
+              )}
 
               <FloatingLabel
                 controlId="floatingPassword"
