@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     login: loginReducer,
     signup: signupReducer,
-    otp: otpReducer,
+    otpReducer: otpReducer,
   },
 });
 
