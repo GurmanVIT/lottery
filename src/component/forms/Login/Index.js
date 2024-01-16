@@ -130,7 +130,7 @@ const Login = () => {
                                 </button>
                             </FloatingLabel>
                             <div className="forgot_link">
-                                <Link to="/" className="forgot">
+                                <Link to="/forgot" className="forgot">
                                     Forgot Password?
                                 </Link>
                             </div>

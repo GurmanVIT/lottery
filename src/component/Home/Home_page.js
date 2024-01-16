@@ -10,6 +10,7 @@ import card_img from '../../assets/img/card_img.svg';
 import card_bg_img from '../../assets/img/card_bg_img.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import DG from '../../assets/img/DG.svg';
+import { Link } from 'react-router-dom';
 
 
 const Home_page = () => {
@@ -22,12 +23,18 @@ const Home_page = () => {
                         <img src={DG} alt='DG' />
                         <h2>Dapic games</h2>
                     </div>
-                    <div className='d-flex'>
+                    <div className='d-flex align-items-center'>
                         <div className='massage me-2'>
                             <img src={massage} alt='massage' />
                         </div>
-                        <div className='download'>
+                        {/* <div className='download'>
                             <img src={download} alt='download' />
+                        </div> */}
+
+                        <div className='logout'>
+                            <Link to="/login">
+                                <h6>Logout</h6>
+                            </Link>
                         </div>
                     </div>
                 </div>
