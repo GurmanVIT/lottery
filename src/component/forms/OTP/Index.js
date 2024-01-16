@@ -35,12 +35,23 @@ const Index = () => {
         }
     };
 
+<<<<<<< HEAD
     useEffect(() => {
         console.log("OTP Success ===> ", otpSuccess);
         if (otpSuccess != null && otpSuccess.status == 1) {
             navigation("/index");
         }
     }, [otpSuccess]);
+=======
+  useEffect(() => {
+    console.log("OTP Success ===> ", otpSuccess);
+    if (otpSuccess != null && otpSuccess.status == 1) {
+      navigation("/index");
+    } else if (otpSuccess != null) {
+      alert(otpSuccess.message);
+    }
+  }, [otpSuccess]);
+>>>>>>> 367c1a6b09f50efca4ab225abaff2601e9cb7061
 
     return (
         <div className="otp">

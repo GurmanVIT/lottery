@@ -10,6 +10,7 @@ import DG from "../../../assets/img/DG.svg";
 import { VisibilityTwoTone, VisibilityOffTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../../../redux/signupSlice";
+import { checkSponsor } from "../../../redux/checkSponsorIdSlice";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,10 +20,12 @@ const Register = () => {
   const [firsName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [sponsorId, setSponsorId] = useState();
+  const [sponsorId, setSponsorId] = useState("");
   const [position, setPosition] = useState();
 
   const [isValid, setIsValid] = useState(false);
+
+  const navigation = useNavigate();
 
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
@@ -41,8 +44,7 @@ const Register = () => {
   };
 
   const signupSuccess = useSelector((state) => state.signup.data);
-
-  const navigation = useNavigate();
+  const sponsorResponse = useSelector((state) => state.sponsorReducer.data);
 
   const dispatch = useDispatch();
 
@@ -53,9 +55,36 @@ const Register = () => {
   };
 
   const onSignUpClick = () => {
-    if (password != confirmPassword) {
+    if (!isValid) {
+      alert("Email not valid");
+    } else if (firsName.length == 0) {
+      alert("Please enter first name");
+    } else if (firsName.length == 0) {
+      alert("Please enter last name");
+    } else if (password != confirmPassword) {
       alert("Your confirm password not matched");
+    } else if (sponsorId.length == 0) {
+      alert("Please enter sponsor id");
+    } else if (selectedOption == null) {
+      alert("Please select position");
     } else {
+      const payload = sponsorId;
+      dispatch(checkSponsor(payload));
+    }
+  };
+
+  useEffect(() => {
+    console.log("SignUp Success ===>", signupSuccess);
+    if (signupSuccess != null && signupSuccess.status == 1) {
+      navigation("/otp");
+    } else if (signupSuccess != null) {
+      alert(signupSuccess.message);
+    }
+  }, [signupSuccess]);
+
+  useEffect(() => {
+    console.log("Sponsor Response ===>", sponsorResponse);
+    if (sponsorResponse != null && sponsorResponse.status == 1) {
       const payload = {
         email: email,
         firstName: firsName,
@@ -66,15 +95,10 @@ const Register = () => {
       };
       console.log("Payload signup ===> ", payload);
       dispatch(signupUser(payload));
+    } else if (sponsorResponse != null) {
+      alert("Invalid Sponsor ID");
     }
-  };
-
-  useEffect(() => {
-    console.log("SignUp Success ===>", signupSuccess);
-    if (signupSuccess != null && signupSuccess.status == 1) {
-      navigation("/otp");
-    }
-  }, [signupSuccess]);
+  }, [sponsorResponse]);
 
   return (
     <div className="home_page">

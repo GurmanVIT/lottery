@@ -22,6 +22,7 @@ const Login = () => {
         const newEmail = e.target.value;
         setEmail(newEmail);
 
+<<<<<<< HEAD
         // Regular expression for basic email validation
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
         const isValidEmail = emailRegex.test(newEmail);
@@ -29,6 +30,51 @@ const Login = () => {
     };
 
     const loginSuccess = useSelector((state) => state.login.data);
+=======
+    // Regular expression for basic email validation
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
+    const isValidEmail = emailRegex.test(newEmail);
+    setIsValid(isValidEmail);
+  };
+
+  const loginSuccess = useSelector((state) => state.login.data);
+
+  const navigation = useNavigate();
+
+  console.log("Login Response ===> ", loginSuccess);
+
+  const dispatch = useDispatch();
+
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
+
+  const onLoginClick = () => {
+    if (email.length == 0) {
+      alert("Please enter email!");
+    } else if (password.length == 0) {
+      alert("Please enter password");
+    } else {
+      const payload = {
+        email: email,
+        password: password,
+        fcmToken: "Anmol",
+      };
+      console.log("Payload Login ===> ", payload);
+      dispatch(loginUser(payload));
+    }
+  };
+
+  useEffect(() => {
+    if (loginSuccess != null && loginSuccess.status == 1) {
+      navigation("/otp");
+    } else if (loginSuccess != null) {
+      alert(loginSuccess.message);
+    }
+  }, [loginSuccess]);
+>>>>>>> 367c1a6b09f50efca4ab225abaff2601e9cb7061
 
     const navigation = useNavigate();
 
