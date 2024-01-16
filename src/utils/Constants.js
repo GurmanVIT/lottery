@@ -6,3 +6,4 @@ export const loginApi = "v1/user/login";
 export const otpApi = "v1/user/emailVerify";
 export const signupApi = "v1/user/signup";
 export const checkSponsorIdApi = "v1/user/checkSponserId";
+export const forgotPasswordApi = "v1/user/forgotPassword";
