@@ -73,7 +73,7 @@ const Index = () => {
                     <br />
                     <br />
                     <button
-                        type="submit"
+                        type="button"
                         className="login_button mt-5"
                         onClick={() => onOtpClick()}
                     >
