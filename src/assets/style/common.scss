@@ -7,11 +7,11 @@
 
 
 //breakpoints
-$breckpoint_MD: "max-width: 768px";
-$breckpoint_SM: "max-width: 576px";
+$breakpoint_SM: "max-width: 576px";
+$breakpoint_500: "max-width: 500px";
 $breakpoint_450: "max-width: 450px";
-$breckpoint_ESM: "max-width: 385px";
-$breckpoint_340: "max-width: 355px";
+$breakpoint_ESM: "max-width: 385px";
+$breakpoint_350: "max-width: 350px";
 
 * {
     margin: 0;
@@ -19,21 +19,23 @@ $breckpoint_340: "max-width: 355px";
     box-sizing: border-box;
 }
 
-//theme.scss
-@import './theme.scss';
-
-//veriable.scss
-@import './veriable.scss';
-
-
 body {
-    display: flex;
-    justify-content: center;
-    background-color: #DCDCDC;
     // text-transform: capitalize;
     font-family: 'Kanit', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
+
+//home_page
+.home_page {
+    max-width: 500px;
+    background-color: #F7F8FF;
+    margin: auto;
+    padding-bottom: 75px;
+}
+
+
+
 
 //Chrome, Safari, Edge, Opera
 input::-webkit-outer-spin-button,
@@ -71,9 +73,87 @@ a {
 }
 
 
+.custom_container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
-.home_page_component {
+//login button
+
+@mixin login_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 13px;
+    border: 2px solid $primary;
+    background-color: $primary;
+    color: $white;
+    text-decoration: none;
+    font-size: larger;
+    border-radius: 13px;
+    font-weight: 600;
+
+    @media($breakpoint_450) {
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 400;
+        border-width: 1px;
+        border-radius: 8px;
+    }
+}
+
+
+
+//register button
+
+@mixin register_button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 13px;
+    border: 2px solid $primary;
+    display: flex;
+    justify-content: center;
+    background-color: $white;
+    color: $primary;
+    text-decoration: none;
+    font-size: larger;
+    border-radius: 13px;
+    font-weight: 700;
+
+    @media($breakpoint_450) {
+        padding: 10px;
+        font-weight: 400;
+        font-size: 17px;
+        border-width: 1px;
+        margin-top: 13px;
+        border-radius: 8px;
+    }
+}
+
+
+// font mixin
+@mixin font {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+
+    @media($breakpoint_450) {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0px;
+    }
+}
+
+//text-overflow
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 

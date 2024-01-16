@@ -1,1 +1,35 @@
+//common
+@import '../style/common.scss';
+
+//theme.scss
+@import '../style/theme.scss';
+
+//veriable.scss
+@import '../style/veriable.scss';
+
+//login
 @import '../../component//forms//Login/login.scss';
+
+//register
+@import '../../component//forms//Register/register.scss';
+
+//home_page
+@import '../../component/Home/home_page.scss';
+
+//last_sec
+@import '../../component//Home/Winner/last_sec.scss';
+
+//earning
+@import '../../component/Home/Winner/Earning.scss';
+
+//information
+@import '../../component/Home/Information/information.scss';
+
+//bottom_bar
+@import '../../component//Home/Bottom/bottom_bar.scss';
+
+//lottery
+@import '../../component//Lottery/lottery.scss';
+
+//otp
+@import '../../component//forms//OTP/otp.scss';

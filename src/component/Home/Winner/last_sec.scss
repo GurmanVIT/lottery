@@ -1,0 +1,66 @@
+.bottom_sec {
+    padding: 20px;
+
+    @media($breakpoint_450) {
+        padding: 15px 10px;
+    }
+
+    .last_sec {
+
+        .card_last {
+            @include display(space-between, center);
+            background-color: $white;
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: $input_shadow;
+            margin-bottom: 15px;
+
+            @media($breakpoint_450) {
+                padding: 7px 10px;
+                margin-bottom: 8px;
+            }
+
+            .winning_card_last {
+                @include display(center, center);
+                gap: 10px;
+
+                @media($breakpoint_450) {
+                    gap: 5px;
+                }
+
+                h4 {
+                    @include font;
+
+                    @media($breakpoint_450) {
+                        font-size: 13px;
+                    }
+                }
+
+                img {
+                    @media($breakpoint_450) {
+                        width: 50px;
+                    }
+
+                    @media($breakpoint_350) {
+                        width: 45px;
+                    }
+                }
+            }
+
+            .amount_winning {
+                p {
+                    background-color: $card_primary;
+                    padding: 8px 35px;
+                    margin-bottom: 0;
+                    color: $white;
+                    border-radius: 10px;
+
+                    @media($breakpoint_450) {
+                        padding: 5px 20px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
