@@ -3,44 +3,43 @@ import logo from "../../../assets/img/logo.svg";
 import OTPInput from "react-otp-input";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { otpVerify } from "../../../redux/otpSlice";
+import { otpAuth, otpVerify } from "../../../redux/otpSlice";
 
 const Index = () => {
     const [otp, setOtp] = useState("");
     const signupSuccess = useSelector((state) => state.signup.data);
     const loginSuccess = useSelector((state) => state.login.data);
-    const otpSuccess = useSelector((state) => state.otp.data);
+    const otpSuccess = useSelector((state) => state.otpReducer.data);
 
     const dispatch = useDispatch();
     const navigation = useNavigate();
 
     const onOtpClick = () => {
-        // const type = signupSuccess != null ? 1 : 3;
-        // const id =
-        //   signupSuccess != null ? signupSuccess.data._id : loginSuccess.data._id;
-        // const payload = {
-        //   type: type, //1 for user verification and 3 for login verifications
-        //   otp: otp,
-        //   _id: id,
-        //   fcmToken: "Anmol",
-        // };
-
-        // console.log("OTP Payload ===> ", payload);
-
+        console.log("klflkdsj");
         if (otp.length < 6) {
             alert("Please enter valid otp");
         } else {
-            navigation("/index");
-        }
+            const type = signupSuccess != null ? 1 : 3;
+            const id =
+                signupSuccess != null ? signupSuccess.data._id : loginSuccess.data._id;
+            const payload = {
+                type: type, //1 for user verification and 3 for login verifications
+                otp: otp,
+                _id: id,
+                fcmToken: "Anmol",
+            };
 
-        // dispatch(otpVerify(payload));
+            console.log("OTP Payload ===> ", payload);
+            dispatch(otpAuth(payload));
+            //   //   navigation("/index");
+        }
     };
 
     useEffect(() => {
         console.log("OTP Success ===> ", otpSuccess);
-        // if (otpSuccess != null && otpSuccess.status == 1) {
-        //   navigation("/index");
-        // }
+        if (otpSuccess != null && otpSuccess.status == 1) {
+            navigation("/index");
+        }
     }, [otpSuccess]);
 
     return (

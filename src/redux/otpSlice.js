@@ -3,20 +3,19 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ApiBaseUrl, otpApi } from "../utils/Constants";
 
-export const otpVerify = createAsyncThunk("otpVerify", async (payload) => {
-  console.log("Payload Slice ===>", payload);
+export const otpAuth = createAsyncThunk("otpAuth", async (payload) => {
   try {
+    console.log("OTP Payload ===> ", payload);
     const response = await axios.put(ApiBaseUrl + otpApi, payload);
-    console.log("OTP ===>", response.data);
+    console.log("OTP Response ===> ", response.data);
     return response.data;
   } catch (error) {
-    console.log("Error ===>", error.response.data);
     throw error.response.data;
   }
 });
 
 const otpSlice = createSlice({
-  name: "otp",
+  name: "otpReducer",
 
   initialState: {
     isLoading: false,
@@ -24,15 +23,15 @@ const otpSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(otpVerify.pending, (state) => {
+      .addCase(otpAuth.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(otpVerify.fulfilled, (state, action) => {
+      .addCase(otpAuth.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
       })
-      .addCase(otpVerify.rejected, (state, action) => {
-        console.log("Error", action);
+      .addCase(otpAuth.rejected, (state, action) => {
+        console.log("Error", action.payload);
         state.isError = true;
       });
   },
