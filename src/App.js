@@ -4,6 +4,7 @@ import Login from "./component/forms/Login/Index";
 import Register from "./component/forms/Register/Index";
 import Index from './component/Home/Index';
 import Lottery from './component/Lottery/Lottery';
+import OTP from "./component/forms/OTP/Index";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/lottery" element={<Lottery />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/otp" element={<OTP />} />
         </Routes>
       </Router>
     </>
