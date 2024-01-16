@@ -43,18 +43,26 @@ const Login = () => {
   };
 
   const onLoginClick = () => {
-    const payload = {
-      email: email,
-      password: password,
-      fcmToken: "Anmol",
-    };
-    console.log("Payload Login ===> ", payload);
-    dispatch(loginUser(payload));
+    if (email.length == 0) {
+      alert("Please enter email!");
+    } else if (password.length == 0) {
+      alert("Please enter password");
+    } else {
+      const payload = {
+        email: email,
+        password: password,
+        fcmToken: "Anmol",
+      };
+      console.log("Payload Login ===> ", payload);
+      dispatch(loginUser(payload));
+    }
   };
 
   useEffect(() => {
     if (loginSuccess != null && loginSuccess.status == 1) {
       navigation("/otp");
+    } else if (loginSuccess != null) {
+      alert(loginSuccess.message);
     }
   }, [loginSuccess]);
 

@@ -40,6 +40,8 @@ const Index = () => {
     console.log("OTP Success ===> ", otpSuccess);
     if (otpSuccess != null && otpSuccess.status == 1) {
       navigation("/index");
+    } else if (otpSuccess != null) {
+      alert(otpSuccess.message);
     }
   }, [otpSuccess]);
 
