@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import email_icon from "../../../assets/img/email_icon.svg";
 import password_icon from "../../../assets/img/password_icon.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import support from "../../../assets/img/support.svg";
 import logo from "../../../assets/img/logo.svg";
 
 import { VisibilityTwoTone, VisibilityOffTwoTone } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../../redux/loginSlice";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
+  const loginSuccess = useSelector((state) => state.login.data);
+
+  const navigation = useNavigate();
+
+  console.log("Login Response ===> ", loginSuccess);
 
   const dispatch = useDispatch();
 
@@ -22,7 +29,21 @@ const Login = () => {
     setChecked(!checked);
   };
 
-  const onLoginClick = () => {};
+  const onLoginClick = () => {
+    const payload = {
+      email: email,
+      password: password,
+      fcmToken: "Anmol",
+    };
+    console.log("Payload Login ===> ", payload);
+    dispatch(loginUser(payload));
+  };
+
+  useEffect(() => {
+    if (loginSuccess.status == 1) {
+      navigation("/otp");
+    }
+  }, [loginSuccess]);
 
   return (
     <>
@@ -44,7 +65,13 @@ const Login = () => {
                 className="mb-3"
               >
                 <img src={email_icon} alt="email" />
-                <Form.Control type="email" placeholder="name@example.com" />
+                <Form.Control
+                  type="email"
+                  placeholder="name@example.com"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingPassword" label="PASSWORD">
@@ -79,9 +106,9 @@ const Login = () => {
                 </Link>
               </div>
               <div className="login_link">
-                <Link to="/" className="login_button">
+                <button className="login_button" onClick={() => onLoginClick()}>
                   Login
-                </Link>
+                </button>
               </div>
               <div className="register_link">
                 <Link to="/register" className="register_button">
