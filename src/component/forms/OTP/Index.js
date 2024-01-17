@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import DG from "../../../assets/img/DG.svg";
+import logo from "../../../assets/img/logo.svg";
 import OTPInput from "react-otp-input";
+import { width } from "@mui/system";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { otpAuth, otpVerify } from "../../../redux/otpSlice";
@@ -38,7 +39,7 @@ const Index = () => {
   useEffect(() => {
     console.log("OTP Success ===> ", otpSuccess);
     if (otpSuccess != null && otpSuccess.status == 1) {
-      navigation("/index");
+      navigation("/home_page");
     } else if (otpSuccess != null) {
       alert(otpSuccess.message);
     }
@@ -49,8 +50,7 @@ const Index = () => {
       <div className="screen_otp">
         <div className="lottery">
           <div className="logo">
-            <img src={DG} alt="DG" />
-            <h2>Dapic games</h2>
+            <img src={logo} alt="logo" />
           </div>
           <h5>Enter verification code</h5>
           <p>Enter 6-digit code we just texted to your email address.</p>
