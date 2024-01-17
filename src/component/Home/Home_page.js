@@ -10,10 +10,23 @@ import card_img from '../../assets/img/card_img.svg';
 import card_bg_img from '../../assets/img/card_bg_img.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import DG from '../../assets/img/DG.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { clearData } from '../../redux/loginSlice';
 
 
 const Home_page = () => {
+
+    const dispatch = useDispatch();
+    const navigation = useNavigate()
+
+    const logout = () => {
+        dispatch(clearData())
+        setTimeout(() => {
+            navigation('/login')
+        }, 500)
+    }
+
 
     return (
         <div className='home_page_section'>
@@ -32,7 +45,7 @@ const Home_page = () => {
                         </div> */}
 
                         <div className='logout'>
-                            <Link to="/login">
+                            <Link onClick={() => logout()}>
                                 <h6>Logout</h6>
                             </Link>
                         </div>

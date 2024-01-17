@@ -31,14 +31,13 @@ const Index = () => {
 
             console.log("OTP Payload ===> ", payload);
             dispatch(otpAuth(payload));
-            //   //   navigation("/index");
         }
     };
 
     useEffect(() => {
         console.log("OTP Success ===> ", otpSuccess);
         if (otpSuccess != null && otpSuccess.status == 1) {
-            navigation("/index");
+            navigation("/home_page");
         } else if (otpSuccess != null) {
             alert(otpSuccess.message);
         }
@@ -81,7 +80,7 @@ const Index = () => {
                     >
                         Submit
                     </button>
-                    <button type="submit" className="register">
+                    <button type="button" className="register">
                         Resend Code
                     </button>
                 </form>
