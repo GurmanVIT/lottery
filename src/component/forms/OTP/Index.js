@@ -76,12 +76,12 @@ const Index = () => {
           <br />
           <button
             type="button"
-            className="login_button mt-5"
+            className="login_button"
             onClick={() => onOtpClick()}
           >
             Submit
           </button>
-          <button type="submit" className="register">
+          <button type="button" className="register">
             Resend Code
           </button>
         </form>
