@@ -84,7 +84,7 @@
 
         .secound_sec {
             background-color: $page_bg;
-            height: 100vh;
+            // height: 100vh;
             padding: 20px;
             position: relative;
 
@@ -299,21 +299,195 @@
             }
 
             .mixing_card {
-                @include display(space-between, center);
-                border-radius: 12px 12px 0 0;
-                margin-top: 20px;
-                padding: 20px;
-                background: linear-gradient(191deg, #6A66C2 -86.72%, #9793FF 72.22%);
 
-                .win_number {
-                    h3 {
-                        color: $white;
-                        font-size: 18px;
-                        font-weight: 700;
-                        line-height: normal;
+                .win_card {
+                    @include display(space-between, center);
+                    border-radius: 12px 12px 0 0;
+                    margin-top: 20px;
+                    padding: 25px 20px;
+                    background: linear-gradient(191deg, #6A66C2 -86.72%, #9793FF 72.22%);
+                    border-bottom: 3px dashed $white;
+
+                    .win_number {
+
+                        h3 {
+                            color: $white;
+                            font-size: 20px;
+                            font-weight: 700;
+                            line-height: normal;
+                            margin-bottom: 15px;
+                        }
+
+                        .coin_img {
+                            display: flex;
+
+                            .text_move {
+                                position: relative;
+
+                                img {
+                                    margin-right: 10px;
+                                }
+
+                                h6 {
+                                    margin-bottom: 0;
+                                    color: $white;
+                                    position: absolute;
+                                    left: 15px;
+                                    bottom: 12px;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
                     }
 
-                    .coin_img {}
+                    .play {
+                        button {
+                            border: none;
+                            background-color: $white;
+                            color: $primary;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 700;
+                            padding: 7px 15px;
+                            border-radius: 25px;
+                        }
+                    }
+                }
+
+                .timing {
+                    background-color: $mixing_card;
+                    border-radius: 0 0 12px 12px;
+                    padding: 20px 20px 15px;
+
+                    h5 {
+                        color: $white;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        margin-bottom: 5px;
+                    }
+
+                    .remaining {
+                        @include display(center, center);
+
+                        .zero_number {
+                            width: 39px;
+                            height: 50px;
+                            color: $black;
+                            margin-right: 10px;
+                            background-color: $white;
+                            @include display(center, center);
+                            border-radius: 10px;
+                            font-size: 26px;
+                            font-style: normal;
+                            font-weight: 500;
+                        }
+
+                        .zero_number_bg {
+                            margin: 0 20px 0 10px;
+                            font-size: 40px;
+
+                        }
+                    }
+
+                    .text_number {
+                        color: $white;
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .color_btn {
+                @include display (space-between, center);
+                margin: 20px 0;
+
+                .violet_btn {
+                    @include vgr_button;
+                }
+
+                .green_btn {
+                    @include vgr_button;
+                    background-color: $green;
+                }
+
+                .red_btn {
+                    @include vgr_button;
+                    background-color: $red;
+                }
+            }
+
+            .select_coin {
+                background-color: $dark_watch;
+                padding: 20px 20px 5px;
+                border-radius: 12px;
+                box-shadow: $input_shadow;
+
+                .ten_coin {
+                    @include display(space-between, center);
+                    margin-bottom: 15px;
+
+                    .first_line {
+                        @include display(initial, center);
+                        position: relative;
+
+                        h4 {
+                            color: $white;
+                            border-bottom: 0;
+                            font-size: 26px;
+                            font-style: normal;
+                            font-weight: 500;
+                            position: absolute;
+                            left: 30px;
+                            top: 21px;
+                        }
+                    }
+                }
+            }
+
+            .flex_seven_btn {
+                margin: 20px 0;
+                @include display(space-between, center);
+
+                .secound_violet {
+                    background-color: $white;
+                    border: 2px solid $primary;
+                    color: $primary;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    border-radius: 9px;
+                    padding: 8px 20px;
+                }
+
+                .x_one_btn {
+                    border: none;
+                    border-radius: 9px;
+                    padding: 10px 10px;
+                    color: $white;
+                    background-color: $green;
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+
+                .x_two_btn {
+                    border: none;
+                    border-radius: 9px;
+                    padding: 10px 10px;
+                    color: $forgot;
+                    background-color: $dark_watch;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+
+                    &:focus-visible {
+                        outline: none;
+                    }
                 }
             }
         }

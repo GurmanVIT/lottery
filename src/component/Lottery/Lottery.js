@@ -10,9 +10,10 @@ import watch from '../../assets/img/watch.svg';
 import coin_1 from '../../assets/img/coin_1.svg';
 import coin_2 from '../../assets/img/coin_2.svg';
 import coin_3 from '../../assets/img/coin_3.svg';
-import coin_4 from '../../assets/img/coin_4.svg';
-import coin_5 from '../../assets/img/coin_5.svg';
-import coin_6 from '../../assets/img/coin_6.svg';
+import first from '../../assets/img/first.svg';
+import secound from '../../assets/img/secound.svg';
+import third from '../../assets/img/third.svg';
+
 
 
 
@@ -62,6 +63,7 @@ const Lottery = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className='watch_flex_card'>
                         <div className='watch_active'>
                             <div className='text-center p-2'>
@@ -88,21 +90,118 @@ const Lottery = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className='mixing_card'>
-                        <div className='win_number'>
-                            <h3>Win Go 1 min</h3>
-                            <div className='coin_img'>
-                                <img src={coin_1} alt='coin_1' />
-                                <img src={coin_2} alt='coin_2' />
-                                <img src={coin_3} alt='coin_3' />
-                                <img src={coin_4} alt='coin_4' />
-                                <img src={coin_5} alt='coin_5' />
-                                <img src={coin_6} alt='coin_6' />
+                        <div className='win_card'>
+                            <div className='win_number'>
+                                <h3>Win Go 1 min</h3>
+                                <div className='coin_img'>
+                                    <div className='text_move'>
+                                        <img src={coin_1} alt='coin_1' />
+                                        <h6>1</h6>
+                                    </div>
+
+                                    <div className='text_move'>
+                                        <img src={coin_2} alt='coin_2' />
+                                        <h6>2</h6>
+                                    </div>
+
+                                    <div className='text_move'>
+                                        <img src={coin_3} alt='coin_3' />
+                                        <h6>3</h6>
+                                    </div>
+
+                                    <div className='text_move'>
+                                        <img src={coin_2} alt='coin_2' />
+                                        <h6>4</h6>
+                                    </div>
+
+                                    <div className='text_move'>
+                                        <img src={coin_1} alt='coin_1' />
+                                        <h6>5</h6>
+                                    </div>
+
+                                    <div className='text_move'>
+                                        <img src={coin_3} alt='coin_3' />
+                                        <h6>6</h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className='play'>
+                                <button> HOW TO PLAY</button>
                             </div>
                         </div>
-                        <div className='play'>
-                            <button> HOW TO PLAY</button>
+                        <div className='timing'>
+                            <h5>Time remaining </h5>
+                            <div className='d-flex justify-content-between align-items-center'>
+                                <div className='remaining'>
+                                    <div className='zero_number'>0</div>
+                                    <div className='zero_number'>0</div>
+                                    <div className='zero_number_bg'>:</div>
+                                    <div className='zero_number'>4</div>
+                                    <div className='zero_number'>0</div>
+                                </div>
+                                <div className='text_number'>45456556541</div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div className='color_btn'>
+                        <button className='violet_btn'>Violet</button>
+                        <button className='green_btn'>Green</button>
+                        <button className='red_btn'>Red</button>
+                    </div>
+
+                    <div className='select_coin'>
+                        <div className='ten_coin'>
+                            <div className='first_line'>
+                                <img src={first} alt='first' />
+                                <h4>0</h4>
+                            </div>
+                            <div className='first_line'>
+                                <img src={secound} alt='secound' />
+                                <h4>1</h4>
+                            </div><div className='first_line'>
+                                <img src={third} alt='third' />
+                                <h4>2</h4>
+                            </div><div className='first_line'>
+                                <img src={first} alt='first' />
+                                <h4>3</h4>
+                            </div><div className='first_line'>
+                                <img src={secound} alt='secound' />
+                                <h4>4</h4>
+                            </div>
+                        </div>
+                        <div className='ten_coin'>
+                            <div className='first_line'>
+                                <img src={third} alt='third' />
+                                <h4>5</h4>
+                            </div>
+                            <div className='first_line'>
+                                <img src={secound} alt='secound' />
+                                <h4>6</h4>
+                            </div><div className='first_line'>
+                                <img src={first} alt='first' />
+                                <h4>7</h4>
+                            </div><div className='first_line'>
+                                <img src={third} alt='third' />
+                                <h4>8</h4>
+                            </div><div className='first_line'>
+                                <img src={first} alt='first' />
+                                <h4>9</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='flex_seven_btn'>
+                        <button className='secound_violet'>Violet</button>
+                        <button className='x_one_btn'>X1</button>
+                        <button className='x_two_btn'>X5</button>
+                        <button className='x_two_btn'>X10</button>
+                        <button className='x_two_btn'>X20</button>
+                        <button className='x_two_btn'>X50</button>
+                        <button className='x_two_btn'>X100</button>
                     </div>
                 </div>
             </div>

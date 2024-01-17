@@ -76,8 +76,8 @@ const Login = () => {
                             <img src={DG} alt='DG' />
                             <h2>Dapic games</h2>
                         </div>
-                        <h5>Register</h5>
-                        <p>Please register by email</p>
+                        <h5>Login</h5>
+                        <p>Please login by email</p>
                     </div>
 
                     <div className="secound_section">
@@ -147,17 +147,6 @@ const Login = () => {
                             <div className="upper">
                                 <img src={support} alt="support" />
                                 <h5>Customer Support</h5>
-                            </div>
-                            <div className="checkbox">
-                                <input
-                                    type="checkbox"
-                                    checked={checked}
-                                    onChange={handleChange}
-                                />
-                                <p>
-                                    By Logging / SigningUp in, you agree to our{" "}
-                                    <span>Terms of Services</span> and<span> Privacy Policy</span>
-                                </p>
                             </div>
                         </div>
                     </div>
