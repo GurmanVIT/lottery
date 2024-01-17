@@ -10,9 +10,6 @@ import Forgot from './component/forms/Forgot/Index';
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory();
 
 function App() {
   return (
@@ -21,7 +18,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Login />} />
           <Route path="/lottery" element={<Lottery />} />
-          <Route path="/home_page" element={<Index history={history} />} />
+          <Route path="/home_page" element={<Index />} />
           <Route path="/register" element={<Register />} />
           <Route path="/otp" element={<OTP />} />
           <Route path="/forgot" element={<Forgot />} />
