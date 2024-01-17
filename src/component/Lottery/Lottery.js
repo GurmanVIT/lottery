@@ -16,7 +16,6 @@ import third from '../../assets/img/third.svg';
 
 
 
-
 const Lottery = () => {
 
     return (
