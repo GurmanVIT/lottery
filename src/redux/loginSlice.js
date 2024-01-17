@@ -19,6 +19,13 @@ const loginSlice = createSlice({
     isLoading: false,
     data: null,
   },
+  reducers: {
+    clearData: (state) => {
+      // Reset the data property to an empty array
+      state.data = null;
+      state.isAuthenticated = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginUser.pending, (state) => {
@@ -35,4 +42,5 @@ const loginSlice = createSlice({
   },
 });
 
+export const { clearData } = loginSlice.actions;
 export default loginSlice.reducer;

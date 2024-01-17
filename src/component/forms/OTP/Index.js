@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../../assets/img/logo.svg";
+import DG from "../../../assets/img/DG.svg";
 import OTPInput from "react-otp-input";
-import { width } from "@mui/system";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { otpAuth, otpVerify } from "../../../redux/otpSlice";
@@ -32,7 +31,6 @@ const Index = () => {
 
       console.log("OTP Payload ===> ", payload);
       dispatch(otpAuth(payload));
-      //   //   navigation("/index");
     }
   };
 
@@ -50,7 +48,8 @@ const Index = () => {
       <div className="screen_otp">
         <div className="lottery">
           <div className="logo">
-            <img src={logo} alt="logo" />
+            <img src={DG} alt="DG" />
+            <h2>Dapic games</h2>
           </div>
           <h5>Enter verification code</h5>
           <p>Enter 6-digit code we just texted to your email address.</p>
@@ -67,7 +66,7 @@ const Index = () => {
             onChange={(value) => setOtp(value)}
             numInputs={6}
             containerStyle={{ marginTop: 40 }}
-            inputStyle={{ width: "50px", height: "50px" }}
+            // inputStyle={{ width: "50px", height: "50px" }}
             inputType="number"
             renderSeparator={<span></span>}
             renderInput={(props) => <input {...props} />}
