@@ -66,7 +66,7 @@ const Index = () => {
                         onChange={(value) => setOtp(value)}
                         numInputs={6}
                         containerStyle={{ marginTop: 40 }}
-                        inputStyle={{ width: "50px", height: "50px" }}
+                        // inputStyle={{ width: "50px", height: "50px" }}
                         inputType="number"
                         renderSeparator={<span></span>}
                         renderInput={(props) => <input {...props} />}
