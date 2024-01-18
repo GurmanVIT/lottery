@@ -4,6 +4,7 @@ import OTPInput from "react-otp-input";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { otpAuth, otpVerify } from "../../../redux/otpSlice";
+import { resendOtpApi } from "../../../redux/resendOtpSlice";
 
 const Index = () => {
   const [otp, setOtp] = useState("");
@@ -34,9 +35,20 @@ const Index = () => {
     }
   };
 
+  const onResendClick = () => {
+    const payload = {
+      email:
+        signupSuccess != null
+          ? signupSuccess.data.email
+          : loginSuccess.data.email,
+    };
+    dispatch(resendOtpApi(payload));
+  };
+
   useEffect(() => {
     console.log("OTP Success ===> ", otpSuccess);
     if (otpSuccess != null && otpSuccess.status == 1) {
+      localStorage.setItem("token", otpSuccess.token);
       navigation("/home_page");
     } else if (otpSuccess != null) {
       alert(otpSuccess.message);
@@ -80,7 +92,11 @@ const Index = () => {
           >
             Submit
           </button>
-          <button type="button" className="register">
+          <button
+            type="button"
+            className="register"
+            onClick={() => onResendClick()}
+          >
             Resend Code
           </button>
         </form>
