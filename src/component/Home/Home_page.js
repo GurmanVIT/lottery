@@ -1,6 +1,6 @@
 import React from "react";
 import massage from "../../assets/img/massage.svg";
-import download from "../../assets/img/download.svg";
+// import download from "../../assets/img/download.svg";
 import banner from "../../assets/img/banner.svg";
 import lottery from "../../assets/img/lottery.svg";
 import mini_game from "../../assets/img/mini_game.svg";
@@ -8,6 +8,8 @@ import slots from "../../assets/img/slots.svg";
 import sports from "../../assets/img/sports.svg";
 import card_img from "../../assets/img/card_img.svg";
 import card_bg_img from "../../assets/img/card_bg_img.svg";
+import gift_img from "../../assets/img/gift_img.svg";
+import secound_gift_img from "../../assets/img/secound_gift_img.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import DG from "../../assets/img/DG.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -39,8 +41,8 @@ const Home_page = () => {
               <img src={massage} alt="massage" />
             </div>
             {/* <div className='download'>
-                            <img src={download} alt='download' />
-                        </div> */}
+              <img src={download} alt='download' />
+            </div> */}
 
             <div className="logout">
               <Link onClick={() => logout()}>
@@ -176,33 +178,61 @@ const Home_page = () => {
             </div>
           </div>
 
-          <div className="card_sec">
-            <div className="card">
-              <div className="card_body">
-                <div>
-                  <h4>Win Go</h4>
-                  <p>Guess Number</p>
-                  <p className="purple">Big/Red/Purple to win</p>
+          <Link to="/lottery">
+            <div className="card_sec">
+              <div className="card">
+                <div className="card_body">
+                  <div>
+                    <h4>Win Go</h4>
+                    <p>Guess Number</p>
+                    <p className="purple">Big/Red/Purple to win</p>
+                  </div>
+                  <div></div>
                 </div>
-                <div></div>
+                <img src={card_bg_img} alt="card_bg_img" />
               </div>
-              <img
-                src={card_bg_img}
-                alt="card_bg_img"
-                className="posiion-fixed"
-              />
-            </div>
-            <div className="card_footer">
-              <div className="card_flex">
-                <img src={card_img} alt="card_img" />
-                <h4>John Doe</h4>
-              </div>
-              <div className="card_sec_flex">
-                <h6>Wining Amount</h6>
-                <h5>$200.16</h5>
+              <img src={gift_img} alt="gift_img" className="gift_img" />
+
+              <div className="card_footer">
+                <div className="card_flex">
+                  <img src={card_img} alt="card_img" />
+                  <h4>John Doe</h4>
+                </div>
+                <div className="card_sec_flex">
+                  <h6>Wining Amount</h6>
+                  <h5>$200.16</h5>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
+
+          <Link to="/lottery">
+            <div className="card_sec" style={{ marginTop: "50px" }}>
+              <div className="card" style={{ backgroundColor: "#F44771" }}>
+                <div className="card_body">
+                  <div>
+                    <h4>Win Go</h4>
+                    <p>Guess Number</p>
+                    <p className="purple">Big/Red/Purple to win</p>
+                  </div>
+                  <div></div>
+                </div>
+                <img src={card_bg_img} alt="card_bg_img" />
+              </div>
+              <img src={secound_gift_img} alt="gift_img" className="gift_img" />
+
+              <div className="card_footer">
+                <div className="card_flex">
+                  <img src={card_img} alt="card_img" />
+                  <h4>John Doe</h4>
+                </div>
+                <div className="card_sec_flex">
+                  <h6>Wining Amount</h6>
+                  <h5>$200.16</h5>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

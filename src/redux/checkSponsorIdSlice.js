@@ -1,7 +1,7 @@
 // src/redux/slices/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ApiBaseUrl, checkSponsorIdApi, loginApi } from "../utils/Constants";
+import { ApiBaseUrl, checkSponsorIdApi } from "../utils/Constants";
 
 export const checkSponsor = createAsyncThunk(
   "checkSponsor",

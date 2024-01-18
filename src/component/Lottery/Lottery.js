@@ -13,27 +13,32 @@ import coin_3 from '../../assets/img/coin_3.svg';
 import first from '../../assets/img/first.svg';
 import secound from '../../assets/img/secound.svg';
 import third from '../../assets/img/third.svg';
-import io from "socket.io-client";
-import { ApiBaseUrl } from "../../utils/Constants";
+import BigSmall from "./BigSmall/BigSmall";
+import Tab_screen from "./Tabs/Tab_screen";
+
+// import io from "socket.io-client";
+// import { ApiBaseUrl } from "../../utils/Constants";
+
+
 
 const Lottery = () => {
-    useEffect(() => {
-        // Establish a connection to the Socket.io server
-        const socket = io(ApiBaseUrl);
-        // Define event handlers for the socket
-        socket.on("connect", () => {
-            console.log("Connected to the server");
-        });
+    // useEffect(() => {
+    //     // Establish a connection to the Socket.io server
+    //     const socket = io(ApiBaseUrl);
+    //     // Define event handlers for the socket
+    //     socket.on("connect", () => {
+    //         console.log("Connected to the server");
+    //     });
 
-        socket.on("disconnect", () => {
-            console.log("Disconnected from the server");
-        });
+    //     socket.on("disconnect", () => {
+    //         console.log("Disconnected from the server");
+    //     });
 
-        // Clean up the socket connection when the component unmounts
-        return () => {
-            socket.disconnect();
-        };
-    }, []);
+    //     // Clean up the socket connection when the component unmounts
+    //     return () => {
+    //         socket.disconnect();
+    //     };
+    // }, []);
 
     return (
         <div className='lottery_page'>
@@ -222,6 +227,11 @@ const Lottery = () => {
                         <button className="x_two_btn">X50</button>
                         <button className="x_two_btn">X100</button>
                     </div>
+
+                    <BigSmall />
+
+                    <Tab_screen />
+
                 </div>
             </div>
         </div>
