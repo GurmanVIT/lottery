@@ -8,7 +8,7 @@
         .dapic_header {
             background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
             padding: 20px;
-            height: 200px;
+            height: 190px;
 
             @media($breakpoint_450) {
                 padding: 20px 10px;
@@ -22,32 +22,6 @@
                         img {
                             @media($breakpoint_450) {
                                 width: 35px;
-
-                            }
-
-                            @media($breakpoint_ESM) {
-                                width: 30px;
-                            }
-                        }
-                    }
-                }
-
-                .img_flex {
-                    @include display(space-between, center);
-                    gap: 35px;
-
-                    @media($breakpoint_ESM) {
-                        gap: 20px;
-                    }
-
-                    .dapic_game_img {
-                        img {
-                            @media($breakpoint_450) {
-                                width: 150px;
-                            }
-
-                            @media($breakpoint_ESM) {
-                                width: 130px;
                             }
                         }
                     }
@@ -308,6 +282,14 @@
                     background: linear-gradient(191deg, #6A66C2 -86.72%, #9793FF 72.22%);
                     border-bottom: 3px dashed $white;
 
+                    @media($breakpoint_450) {
+                        padding: 20px 10px;
+                    }
+
+                    @media($breakpoint_350) {
+                        padding: 20px 7px;
+                    }
+
                     .win_number {
 
                         h3 {
@@ -316,6 +298,11 @@
                             font-weight: 700;
                             line-height: normal;
                             margin-bottom: 15px;
+
+                            @media($breakpoint_450) {
+                                font-size: 17px;
+                                margin-bottom: 11px;
+                            }
                         }
 
                         .coin_img {
@@ -325,7 +312,13 @@
                                 position: relative;
 
                                 img {
-                                    margin-right: 10px;
+                                    margin-right: 5px;
+
+                                    @media($breakpoint_450) {
+                                        width: 30px;
+                                        height: 30px;
+                                        margin-right: 4px;
+                                    }
                                 }
 
                                 h6 {
@@ -337,6 +330,12 @@
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 700;
+
+                                    @media($breakpoint_450) {
+                                        left: 12px;
+                                        bottom: 9px;
+                                        font-size: 11px;
+                                    }
                                 }
                             }
                         }
@@ -347,11 +346,23 @@
                             border: none;
                             background-color: $white;
                             color: $primary;
-                            font-size: 15px;
+                            font-size: 12px;
                             font-style: normal;
                             font-weight: 700;
-                            padding: 7px 15px;
+                            padding: 9px 11px;
                             border-radius: 25px;
+
+                            @media($breakpoint_450) {
+                                font-size: 11px;
+                                padding: 7px 8px;
+                                border-radius: 16px;
+                            }
+
+                            @media($breakpoint_ESM) {
+                                font-size: 9px;
+                                padding: 6px 7px;
+                                border-radius: 10px;
+                            }
                         }
                     }
                 }
@@ -360,6 +371,10 @@
                     background-color: $mixing_card;
                     border-radius: 0 0 12px 12px;
                     padding: 20px 20px 15px;
+
+                    @media($breakpoint_450) {
+                        padding: 10px;
+                    }
 
                     h5 {
                         color: $white;
@@ -383,11 +398,41 @@
                             font-size: 26px;
                             font-style: normal;
                             font-weight: 500;
+
+                            @media($breakpoint_450) {
+                                width: 35px;
+                                height: 40px;
+                                margin-right: 5px;
+                                font-size: 23px;
+                            }
+
+                            @media($breakpoint_ESM) {
+                                width: 32px;
+                                height: 36px;
+                                margin-right: 4px;
+                                font-size: 20px;
+                            }
+
+                            @media($breakpoint_350) {
+                                width: 30px;
+                                height: 34px;
+                                font-size: 18px;
+                                border-radius: 8px;
+                            }
                         }
 
                         .zero_number_bg {
                             margin: 0 20px 0 10px;
                             font-size: 40px;
+
+                            @media($breakpoint_450) {
+                                margin: 0 5px 0 0;
+                                font-size: 35px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 30px;
+                            }
 
                         }
                     }
@@ -397,6 +442,14 @@
                         font-size: 21px;
                         font-style: normal;
                         font-weight: 600;
+
+                        @media($breakpoint_450) {
+                            font-size: 19px;
+                        }
+
+                        @media($breakpoint_ESM) {
+                            font-size: 18px;
+                        }
                     }
                 }
             }
@@ -426,6 +479,10 @@
                 border-radius: 12px;
                 box-shadow: $input_shadow;
 
+                @media($breakpoint_450) {
+                    padding: 16px 10px 1px;
+                }
+
                 .ten_coin {
                     @include display(space-between, center);
                     margin-bottom: 15px;
@@ -433,6 +490,18 @@
                     .first_line {
                         @include display(initial, center);
                         position: relative;
+
+                        img {
+                            @media($breakpoint_500) {
+                                width: 65px;
+                                height: 65px;
+                            }
+
+                            @media($breakpoint_450) {
+                                width: 60px;
+                                height: 60px;
+                            }
+                        }
 
                         h4 {
                             color: $white;
@@ -443,6 +512,18 @@
                             position: absolute;
                             left: 30px;
                             top: 21px;
+
+                            @media($breakpoint_500) {
+                                font-size: 24px;
+                                left: 26px;
+                                top: 18px;
+                            }
+
+                            @media($breakpoint_450) {
+                                font-size: 21px;
+                                left: 24px;
+                                top: 16px;
+                            }
                         }
                     }
                 }

@@ -165,6 +165,18 @@ a {
     font-weight: 600;
     border: none;
     border-radius: 10px;
+
+    @media($breakpoint_450) {
+        padding: 9px 35px;
+    }
+
+    @media($breakpoint_ESM) {
+        padding: 8px 30px;
+    }
+
+    @media($breakpoint_350) {
+        font-size: 14px;
+    }
 }
 
 

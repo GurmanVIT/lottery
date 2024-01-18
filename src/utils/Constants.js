@@ -1,8 +1,8 @@
 //BASE URL
-// export const ApiBaseUrl = "http://139.59.85.17:4001/";
+export const ApiBaseUrl = "http://139.59.85.17:4001/";
 
 //Production BASE URL
-export const ApiBaseUrl = "https://dapic.thealliance.co.in/";
+// export const ApiBaseUrl = "https://dapic.thealliance.co.in/";
 
 //Api Names
 export const loginApi = "v1/user/login";

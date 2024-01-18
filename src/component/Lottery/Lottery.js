@@ -1,7 +1,7 @@
 import React from 'react';
 import back from '../../assets/img/back.svg';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/img/logo.svg';
+import DG from '../../assets/img/DG.svg';
 import music from '../../assets/img/music.svg';
 import headphone from '../../assets/img/headphone.svg';
 import refresh from '../../assets/img/refresh.svg';
@@ -28,17 +28,15 @@ const Lottery = () => {
                                 <img src={back} alt='back' />
                             </Link>
                         </div>
-                        <div className='img_flex'>
-                            <div className='dapic_game_img'>
-                                <img src={logo} alt='logo' />
+                        <div className='dapic_game_img'>
+                            <img src={DG} alt='DG' />
+                        </div>
+                        <div className='music_headphone'>
+                            <div className='music'>
+                                <img src={music} alt='music' />
                             </div>
-                            <div className='music_headphone'>
-                                <div className='music'>
-                                    <img src={music} alt='music' />
-                                </div>
-                                <div className='headphone'>
-                                    <img src={headphone} alt='headphone' />
-                                </div>
+                            <div className='headphone'>
+                                <img src={headphone} alt='headphone' />
                             </div>
                         </div>
                     </div>
