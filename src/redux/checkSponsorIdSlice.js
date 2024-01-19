@@ -12,6 +12,7 @@ export const checkSponsor = createAsyncThunk(
         "Content-Type": "application/json",
       },
     };
+    console.log("KKK")
     try {
       const response = await axios.get(
         ApiBaseUrl + checkSponsorIdApi + "?sponserId=" + payload,

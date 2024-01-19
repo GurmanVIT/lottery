@@ -248,28 +248,36 @@
                 }
 
                 .checkbox {
-                    @include display(center, baseline);
-                    gap: 10px;
+                    margin-top: 20px;
 
-                    @media($breakpoint_450) {
-                        align-items: center;
+                    @media($breakpoint_ESM) {
+                        margin-top: 13px;
                     }
 
-                    p {
-                        color: $paragraph ;
-                        margin-bottom: 0;
+                    label {
+                        @include display(center, baseline);
+                        gap: 10px;
 
                         @media($breakpoint_450) {
-                            font-size: 13px;
+                            align-items: center;
                         }
 
-                        @media($breakpoint_350) {
-                            font-size: 12px;
-                        }
+                        p {
+                            color: $paragraph ;
+                            margin-bottom: 0;
 
-                        span {
-                            font-weight: bold;
-                            color: $primary;
+                            @media($breakpoint_450) {
+                                font-size: 13px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 12px;
+                            }
+
+                            span {
+                                font-weight: bold;
+                                color: $primary;
+                            }
                         }
                     }
                 }

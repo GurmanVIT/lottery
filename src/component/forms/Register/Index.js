@@ -237,7 +237,7 @@ const Register = () => {
                 />
               </FloatingLabel>
 
-              <h6>Select Position</h6>
+              <h6 className="mt-4">Select Position</h6>
               <label>
                 <input
                   type="radio"
@@ -258,6 +258,20 @@ const Register = () => {
                 />
                 {"  "}Right
               </label>
+              <div className="checkbox">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={handleChange}
+                  />
+                  <p>
+                    By Logging / SigningUp in, you agree to our{" "}
+                    <span>Terms of Services</span> and
+                    <span> Privacy Policy</span>
+                  </p>
+                </label>
+              </div>
               <div className="login_link mt-4">
                 <button
                   className="login_button"
@@ -274,18 +288,6 @@ const Register = () => {
               <div className="upper">
                 <img src={support} alt="support" />
                 <h5>Customer Support</h5>
-              </div>
-              <div className="checkbox">
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={handleChange}
-                />
-                <p>
-                  By Logging / SigningUp in, you agree to our{" "}
-                  <span>Terms of Services</span> and
-                  <span> Privacy Policy</span>
-                </p>
               </div>
             </div>
           </div>
