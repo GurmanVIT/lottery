@@ -61,10 +61,27 @@ const Tab_screen = () => {
                                 <h5>Period</h5>
                                 <h4>Number</h4>
                             </div>
-                            <div className='statistic'>
-                                <h6>Statistic (Last 100 Periods)</h6>
+
+                            <div className='secound_table_sec'>
+                                <div className='statistic'>
+                                    <h6>Statistic (Last 100 Periods)</h6>
+                                </div>
+                                <div className='flex_winning_number'>
+                                    <div>Winning number</div>
+                                    <div className='d-flex'>
+                                        <p className='table_number_sec'>0</p>
+                                        <p className='table_number_sec'>1</p>
+                                        <p className='table_number_sec'>2</p>
+                                        <p className='table_number_sec'>3</p>
+                                        <p className='table_number_sec'>4</p>
+                                        <p className='table_number_sec'>5</p>
+                                        <p className='table_number_sec'>6</p>
+                                        <p className='table_number_sec'>7</p>
+                                        <p className='table_number_sec'>8</p>
+                                        <p className='table_number_sec'>9</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div></div>
                         </div>
 
                         <PaginationComponent />
