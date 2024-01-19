@@ -11,8 +11,11 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 import { createBrowserHistory } from "history";
+import { io } from "socket.io-client";
 
 const history = createBrowserHistory();
+
+// export
 
 function App() {
   return (
