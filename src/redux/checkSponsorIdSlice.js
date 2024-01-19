@@ -31,6 +31,14 @@ const checkSponsorIdSlice = createSlice({
     isLoading: false,
     data: null,
   },
+
+  reducers: {
+    clearSponsorData: (state) => {
+      // Reset the data property to an empty array
+      state.data = null;
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(checkSponsor.pending, (state) => {
@@ -47,4 +55,5 @@ const checkSponsorIdSlice = createSlice({
   },
 });
 
+export const { clearSponsorData } = checkSponsorIdSlice.actions;
 export default checkSponsorIdSlice.reducer;

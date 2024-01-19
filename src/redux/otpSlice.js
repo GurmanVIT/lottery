@@ -27,6 +27,13 @@ const otpSlice = createSlice({
     isLoading: false,
     data: null,
   },
+  reducers: {
+    clearOtpData: (state) => {
+      // Reset the data property to an empty array
+      state.data = null;
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(otpAuth.pending, (state) => {
@@ -42,5 +49,7 @@ const otpSlice = createSlice({
       });
   },
 });
+
+export const { clearOtpData } = otpSlice.actions;
 
 export default otpSlice.reducer;

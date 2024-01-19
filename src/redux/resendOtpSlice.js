@@ -29,6 +29,13 @@ const resendOtpSlice = createSlice({
     isLoading: false,
     data: null,
   },
+  reducers: {
+    clearResendData: (state) => {
+      // Reset the data property to an empty array
+      state.data = null;
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(resendOtpApi.pending, (state) => {
@@ -44,5 +51,7 @@ const resendOtpSlice = createSlice({
       });
   },
 });
+
+export const { clearResendData } = resendOtpSlice.actions;
 
 export default resendOtpSlice.reducer;

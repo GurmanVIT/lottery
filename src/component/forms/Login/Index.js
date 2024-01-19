@@ -152,9 +152,14 @@ const Login = () => {
                 </button>
               </div>
               <div className="register_link">
-                <Link to="/register" className="register_button">
+                <button
+                  className="register_button"
+                  onClick={() => {
+                    navigation("/register");
+                  }}
+                >
                   Register
-                </Link>
+                </button>
               </div>
               <div className="upper">
                 <img src={support} alt="support" />

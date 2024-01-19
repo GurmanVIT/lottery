@@ -16,6 +16,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearData } from "../../redux/loginSlice";
 import { clearSignUpData } from "../../redux/signupSlice";
+import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
+import { clearOtpData } from "../../redux/otpSlice";
+import { clearResendData } from "../../redux/resendOtpSlice";
 
 const Home_page = () => {
   const dispatch = useDispatch();
@@ -23,8 +26,12 @@ const Home_page = () => {
 
   const logout = () => {
     localStorage.clear();
-    dispatch(clearData());
     dispatch(clearSignUpData());
+    dispatch(clearData());
+    dispatch(clearSponsorData());
+    dispatch(clearOtpData());
+    dispatch(clearResendData());
+
     setTimeout(() => {
       navigation("/login");
     }, 500);

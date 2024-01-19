@@ -3,8 +3,11 @@ import DG from "../../../assets/img/DG.svg";
 import OTPInput from "react-otp-input";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { otpAuth, otpVerify } from "../../../redux/otpSlice";
-import { resendOtpApi } from "../../../redux/resendOtpSlice";
+import { clearOtpData, otpAuth, otpVerify } from "../../../redux/otpSlice";
+import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
+import { clearData } from "../../../redux/loginSlice";
+import { clearSignUpData } from "../../../redux/signupSlice";
+import { clearSponsorData } from "../../../redux/checkSponsorIdSlice";
 
 const Index = () => {
   const [otp, setOtp] = useState("");
@@ -23,7 +26,8 @@ const Index = () => {
       alert("Please enter valid otp");
     } else {
       const type = signupSuccess != null ? 1 : 3;
-      const id = userId;
+      const id =
+        signupSuccess != null ? signupSuccess.data._id : loginSuccess.data._id;
       const payload = {
         type: type, //1 for user verification and 3 for login verifications
         otp: otp,
@@ -35,6 +39,14 @@ const Index = () => {
       dispatch(otpAuth(payload));
     }
   };
+
+  useEffect(() => {
+    return () => {
+      console.log("Check Resend");
+      dispatch(clearResendData());
+      dispatch(clearSponsorData());
+    };
+  }, []);
 
   const onResendClick = () => {
     const payload = {
