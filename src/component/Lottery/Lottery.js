@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import back from "../../assets/img/back.svg";
 import { Link } from "react-router-dom";
 import DG from "../../assets/img/DG.svg";
@@ -22,32 +22,44 @@ import { ApiBaseUrl } from "../../utils/Constants";
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
   const userId = localStorage.getItem("userId");
+  const [isSocketConnected, setSocketConnected] = useState(false);
+
+  const [gameTimer, setGamerTimer] = useState(0);
+
   useEffect(() => {
     // Establish a connection to the Socket.io server
 
     // Define event handlers for the socket
-    socket.on("connect", () => {
-      console.log("Connected to the server");
-    });
+    function onConnect() {
+      setSocketConnected(true);
+    }
 
-    socket.on("disconnect", () => {
-      console.log("Disconnected from the server");
-    });
+    function onDisconnect() {
+      setSocketConnected(false);
+    }
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
 
-    var data = {
+    const data = {
       userId: userId,
     };
+
     socket.emit("touch_server", data);
 
     socket.on("timerForward", (data) => {
-      console.log("Time Forward ===> ", data);
+      console.log(data.gameTimer);
+      setGamerTimer(data.gameTimer);
     });
 
     // Clean up the socket connection when the component unmounts
     return () => {
-      socket.disconnect();
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+      socket.off("timerForward");
     };
-  }, []);
+  }, [isSocketConnected]);
+
+  const getTimer = () => {};
 
   return (
     <div className="lottery_page">
