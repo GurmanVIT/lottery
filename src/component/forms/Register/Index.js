@@ -76,6 +76,7 @@ const Register = () => {
   useEffect(() => {
     console.log("SignUp Success ===>", signupSuccess);
     if (signupSuccess != null && signupSuccess.status == 1) {
+      localStorage.setItem("userId", signupSuccess.data._id);
       navigation("/otp");
     } else if (signupSuccess != null) {
       alert(signupSuccess.message);
@@ -105,8 +106,8 @@ const Register = () => {
       <div className="register login">
         <div className="register_section login_section">
           <div className="lottery">
-            <div className='logo'>
-              <img src={DG} alt='DG' />
+            <div className="logo">
+              <img src={DG} alt="DG" />
               <h2>Dapic games</h2>
             </div>
             <h5>Register</h5>
