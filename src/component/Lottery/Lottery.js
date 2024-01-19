@@ -22,362 +22,413 @@ import io from "socket.io-client";
 import { ApiBaseUrl } from "../../utils/Constants";
 
 const Lottery = () => {
-    const socket = io("https://dapic-api.virtualittechnology.com/");
-    const userId = localStorage.getItem("userId");
-    const [isSocketConnected, setSocketConnected] = useState(false);
-    const [gameId, setGameId] = useState("");
+  const socket = io("https://dapic-api.virtualittechnology.com/");
+  const userId = localStorage.getItem("userId");
+  const [isSocketConnected, setSocketConnected] = useState(false);
+  const [gameId, setGameId] = useState("");
 
-    const [gameTimer, setGamerTimer] = useState(0);
+  const [gameTimer, setGamerTimer] = useState(0);
 
-    const [selectedValue, setSelectedValue] = useState("");
-    const [selectedX, setSelectedX] = useState(1);
+  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedX, setSelectedX] = useState(1);
+  const [winToGoTime, setWinToGoTime] = useState(1);
 
-    useEffect(() => {
-        // Establish a connection to the Socket.io server
+  useEffect(() => {
+    // Establish a connection to the Socket.io server
 
-        // Define event handlers for the socket
-        console.log("Socket connected check");
-        function onConnect() {
-            setSocketConnected(true);
-        }
-
-        function onDisconnect() {
-            setSocketConnected(false);
-        }
-        socket.on("connect", onConnect);
-        socket.on("disconnect", onDisconnect);
-
-        const data = {
-            userId: userId,
-        };
-
-        socket.emit("touch_server", data);
-
-        socket.on("timerForward", (data) => {
-            console.log("Timer", data.gameTimer);
-            setGamerTimer(data.gameTimer);
-            const minutes = Math.floor(data.gameTimer / 60);
-            const second = data.gameTimer - minutes * 60;
-            if (gameId.length === 0) {
-                setGameId(data.gameId);
-            }
-            // const secondSplit = splitIntoArray(second)[0];
-            // console.log("Timer", secondSplit);
-        });
-
-        // Clean up the socket connection when the component unmounts
-        return () => {
-            socket.off("connect", onConnect);
-            socket.off("disconnect", onDisconnect);
-            socket.off("timerForward");
-        };
-    }, [isSocketConnected]);
-
-    function splitIntoArray(num) {
-        return Array.from(String(num), Number);
+    // Define event handlers for the socket
+    console.log("Socket connected check");
+    function onConnect() {
+      setSocketConnected(true);
     }
 
-    const getTimer = () => { };
+    function onDisconnect() {
+      setSocketConnected(false);
+    }
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
 
-    return (
-        <div className="lottery_page">
-            <div className="lottery">
-                <div className="dapic_header">
-                    <div className="header_flex">
-                        <div className="back_img">
-                            <Link to="/Home_page">
-                                <img src={back} alt="back" />
-                            </Link>
-                        </div>
-                        <div className="dapic_game_img">
-                            <img src={DG} alt="DG" />
-                        </div>
-                        <div className="music_headphone">
-                            <div className="music">
-                                <img src={music} alt="music" />
-                            </div>
-                            <div className="headphone">
-                                <img src={headphone} alt="headphone" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="secound_sec">
-                    <div className="card">
-                        <div className="refresh">
-                            <img src={refresh} alt="refresh" />
-                        </div>
-                        <h1>₹0.00</h1>
-                        <div className="img_content">
-                            <img src={flat} alt="flat" />
-                            <h4>Wallet Balance</h4>
-                        </div>
-                        <div className="btn_flex">
-                            <div className="withdraw_btn">
-                                <button>Withdraw</button>
-                            </div>
-                            <div className="deposit_btn">
-                                <button>Deposit</button>
-                            </div>
-                        </div>
-                    </div>
+    const data = {
+      userId: userId,
+    };
 
-                    <div className="watch_flex_card">
-                        <div className="watch_active">
-                            <div className="text-center p-2">
-                                <img src={watch} alt="watch" />
-                                <h5>Win Go 1 min</h5>
-                            </div>
-                        </div>
-                        <div className="watch">
-                            <div className="text-center p-2">
-                                <img src={watch} alt="watch" />
-                                <h5>Win Go 3 min</h5>
-                            </div>
-                        </div>
-                        <div className="watch">
-                            <div className="text-center p-2">
-                                <img src={watch} alt="watch" />
-                                <h5>Win Go 5 min</h5>
-                            </div>
-                        </div>
-                        <div className="watch">
-                            <div className="text-center p-1">
-                                <img src={watch} alt="watch" />
-                                <h5>Win Go 10 min</h5>
-                            </div>
-                        </div>
-                    </div>
+    socket.emit("touch_server", data);
 
-                    <div className="mixing_card">
-                        <div className="win_card">
-                            <div className="win_number">
-                                <h3>Win Go 1 min</h3>
-                                <div className="coin_img">
-                                    <div className="text_move">
-                                        <img src={coin_1} alt="coin_1" />
-                                        <h6>1</h6>
-                                    </div>
+    socket.on("timerForward", (data) => {
+      console.log("Timer", data.gameTimer);
+      setGamerTimer(data.gameTimer);
+      const minutes = Math.floor(data.gameTimer / 60);
+      const second = data.gameTimer - minutes * 60;
+      if (gameId.length === 0) {
+        setGameId(data.gameId);
+      }
+      // const secondSplit = splitIntoArray(second)[0];
+      // console.log("Timer", secondSplit);
+    });
 
-                                    <div className="text_move">
-                                        <img src={coin_2} alt="coin_2" />
-                                        <h6>2</h6>
-                                    </div>
+    // Clean up the socket connection when the component unmounts
+    return () => {
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+      socket.off("timerForward");
+    };
+  }, [isSocketConnected]);
 
-                                    <div className="text_move">
-                                        <img src={coin_3} alt="coin_3" />
-                                        <h6>3</h6>
-                                    </div>
+  function splitIntoArray(num) {
+    return Array.from(String(num), Number);
+  }
 
-                                    <div className="text_move">
-                                        <img src={coin_2} alt="coin_2" />
-                                        <h6>4</h6>
-                                    </div>
+  const getTimer = () => {};
 
-                                    <div className="text_move">
-                                        <img src={coin_5} alt="coin_1" />
-                                        <h6>5</h6>
-                                    </div>
-
-                                    <div className="text_move">
-                                        <img src={coin_3} alt="coin_3" />
-                                        <h6>6</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="play">
-                                <button> HOW TO PLAY</button>
-                            </div>
-                        </div>
-                        <div className="timing">
-                            <h5>Time remaining </h5>
-                            <div className="d-flex justify-content-between align-items-center">
-                                <div className="remaining">
-                                    <div className="zero_number">0</div>
-                                    <div className="zero_number">
-                                        {Math.floor(gameTimer / 60)}
-                                    </div>
-                                    <div className="zero_number_bg">:</div>
-                                    <div className="zero_number">
-                                        {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
-                                            .length === 2
-                                            ? splitIntoArray(
-                                                gameTimer - Math.floor(gameTimer / 60) * 60
-                                            )[0]
-                                            : 0}
-                                    </div>
-                                    <div className="zero_number">
-                                        {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
-                                            .length > 1
-                                            ? splitIntoArray(
-                                                gameTimer - Math.floor(gameTimer / 60) * 60
-                                            )[1]
-                                            : splitIntoArray(
-                                                gameTimer - Math.floor(gameTimer / 60) * 60
-                                            )[0]}
-                                    </div>
-                                </div>
-                                <div className="text_number">{gameId}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="modal_number">
-                        <div className="color_btn">
-                            <button
-                                className="violet_btn"
-                                onClick={() => setSelectedValue("Violet")}
-                            >
-                                Violet
-                            </button>
-                            <button
-                                className="green_btn"
-                                onClick={() => setSelectedValue("Green")}
-                            >
-                                Green
-                            </button>
-                            <button className="red_btn" onClick={() => setSelectedValue("Red")}>
-                                Red
-                            </button>
-                        </div>
-
-                        <div className="select_coin">
-                            <div className="ten_coin">
-                                <div className="first_line" onClick={() => setSelectedValue("0")}>
-                                    <img src={first} alt="first" />
-                                    <h4>0</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("1")}>
-                                    <img src={secound} alt="secound" />
-                                    <h4>1</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("2")}>
-                                    <img src={third} alt="third" />
-                                    <h4>2</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("3")}>
-                                    <img src={secound} alt="secound" />
-                                    <h4>3</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("4")}>
-                                    <img src={third} alt="third" />
-                                    <h4>4</h4>
-                                </div>
-                            </div>
-                            <div className="ten_coin" onClick={() => setSelectedValue("5")}>
-                                <div className="first_line">
-                                    <img src={fifth} alt="fitfh" />
-                                    <h4>5</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("6")}>
-                                    <img src={third} alt="third" />
-                                    <h4>6</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("7")}>
-                                    <img src={secound} alt="secound" />
-                                    <h4>7</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("8")}>
-                                    <img src={third} alt="third" />
-                                    <h4>8</h4>
-                                </div>
-                                <div className="first_line" onClick={() => setSelectedValue("9")}>
-                                    <img src={secound} alt="secound" />
-                                    <h4>9</h4>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex_seven_btn">
-                            <button
-                                className="secound_violet"
-                            // style={{
-                            //   borderColor:
-                            //     selectedValue == "Violet"
-                            //       ? "#6561C0"
-                            //       : selectedValue == "Green"
-                            //       ? "#00C738"
-                            //       : "#FF4141",
-                            //   color:
-                            //     selectedValue == "Violet"
-                            //       ? "#6561C0"
-                            //       : selectedValue == "Green"
-                            //       ? "#00C738"
-                            //       : "#FF4141",
-                            // }}
-                            >
-                                Random
-                            </button>
-                            <button
-                                className="x_two_btn"
-                                style={{
-                                    color: selectedX === 1 ? "white" : "#707070",
-                                    background: selectedX === 1 ? "#00C738" : "#E4E4E4",
-                                }}
-                                onClick={() => setSelectedX(1)}
-                            >
-                                X1
-                            </button>
-                            <button
-                                className="x_two_btn"
-                                style={{
-                                    color: selectedX === 5 ? "white" : "#707070",
-                                    background: selectedX === 5 ? "#00C738" : "#E4E4E4",
-                                }}
-                                onClick={() => setSelectedX(5)}
-                            >
-                                X5
-                            </button>
-                            <button
-                                className="x_two_btn"
-                                style={{
-                                    color: selectedX === 10 ? "white" : "#707070",
-                                    background: selectedX === 10 ? "#00C738" : "#E4E4E4",
-                                }}
-                                onClick={() => setSelectedX(10)}
-                            >
-                                X10
-                            </button>
-                            <button
-                                className="x_two_btn"
-                                style={{
-                                    color: selectedX === 20 ? "white" : "#707070",
-                                    background: selectedX === 20 ? "#00C738" : "#E4E4E4",
-                                }}
-                                onClick={() => setSelectedX(20)}
-                            >
-                                X20
-                            </button>
-                            <button
-                                className="x_two_btn"
-                                style={{
-                                    color: selectedX === 50 ? "white" : "#707070",
-                                    background: selectedX === 50 ? "#00C738" : "#E4E4E4",
-                                }}
-                                onClick={() => setSelectedX(50)}
-                            >
-                                X50
-                            </button>
-                            <button
-                                className="x_two_btn"
-                                style={{
-                                    color: selectedX === 100 ? "white" : "#707070",
-                                    background: selectedX === 100 ? "#00C738" : "#E4E4E4",
-                                }}
-                                onClick={() => setSelectedX(100)}
-                            >
-                                X100
-                            </button>
-                        </div>
-
-                        <BigSmall />
-                    </div>
-
-                    <Tab_screen />
-                </div>
+  return (
+    <div className="lottery_page">
+      <div className="lottery">
+        <div className="dapic_header">
+          <div className="header_flex">
+            <div className="back_img">
+              <Link to="/Home_page">
+                <img src={back} alt="back" />
+              </Link>
             </div>
+            <div className="dapic_game_img">
+              <img src={DG} alt="DG" />
+            </div>
+            <div className="music_headphone">
+              <div className="music">
+                <img src={music} alt="music" />
+              </div>
+              <div className="headphone">
+                <img src={headphone} alt="headphone" />
+              </div>
+            </div>
+          </div>
         </div>
-    );
+        <div className="secound_sec">
+          <div className="card">
+            <div className="refresh">
+              <img src={refresh} alt="refresh" />
+            </div>
+            <h1>₹0.00</h1>
+            <div className="img_content">
+              <img src={flat} alt="flat" />
+              <h4>Wallet Balance</h4>
+            </div>
+            <div className="btn_flex">
+              <div className="withdraw_btn">
+                <button>Withdraw</button>
+              </div>
+              <div className="deposit_btn">
+                <button>Deposit</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="watch_flex_card">
+            <div
+              className={winToGoTime === 1 ? "watch_active" : "watch"}
+              onClick={() => {
+                setWinToGoTime(1);
+              }}
+            >
+              <div className="text-center p-2">
+                <img src={watch} alt="watch" />
+                <h5>Win Go 1 min</h5>
+              </div>
+            </div>
+            <div
+              className={winToGoTime === 3 ? "watch_active" : "watch"}
+              onClick={() => {
+                setWinToGoTime(3);
+              }}
+            >
+              <div className="text-center p-2">
+                <img src={watch} alt="watch" />
+                <h5>Win Go 3 min</h5>
+              </div>
+            </div>
+            <div
+              className={winToGoTime === 5 ? "watch_active" : "watch"}
+              onClick={() => {
+                setWinToGoTime(5);
+              }}
+            >
+              <div className="text-center p-2">
+                <img src={watch} alt="watch" />
+                <h5>Win Go 5 min</h5>
+              </div>
+            </div>
+            <div
+              className={winToGoTime === 10 ? "watch_active" : "watch"}
+              onClick={() => {
+                setWinToGoTime(10);
+              }}
+            >
+              <div className="text-center p-1">
+                <img src={watch} alt="watch" />
+                <h5>Win Go 10 min</h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="mixing_card">
+            <div className="win_card">
+              <div className="win_number">
+                <h3>Win Go 1 min</h3>
+                <div className="coin_img">
+                  <div className="text_move">
+                    <img src={coin_1} alt="coin_1" />
+                    <h6>1</h6>
+                  </div>
+
+                  <div className="text_move">
+                    <img src={coin_2} alt="coin_2" />
+                    <h6>2</h6>
+                  </div>
+
+                  <div className="text_move">
+                    <img src={coin_3} alt="coin_3" />
+                    <h6>3</h6>
+                  </div>
+
+                  <div className="text_move">
+                    <img src={coin_2} alt="coin_2" />
+                    <h6>4</h6>
+                  </div>
+
+                  <div className="text_move">
+                    <img src={coin_5} alt="coin_1" />
+                    <h6>5</h6>
+                  </div>
+
+                  <div className="text_move">
+                    <img src={coin_3} alt="coin_3" />
+                    <h6>6</h6>
+                  </div>
+                </div>
+              </div>
+              <div className="play">
+                <button> HOW TO PLAY</button>
+              </div>
+            </div>
+            <div className="timing">
+              <h5>Time remaining </h5>
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="remaining">
+                  <div className="zero_number">0</div>
+                  <div className="zero_number">
+                    {Math.floor(gameTimer / 60)}
+                  </div>
+                  <div className="zero_number_bg">:</div>
+                  <div className="zero_number">
+                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                      .length === 2
+                      ? splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
+                      : 0}
+                  </div>
+                  <div className="zero_number">
+                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                      .length > 1
+                      ? splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
+                      : splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
+                  </div>
+                </div>
+                <div className="text_number">{gameId}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="modal_number">
+            <div className="color_btn">
+              <button
+                className="violet_btn"
+                onClick={() => setSelectedValue("Violet")}
+              >
+                Violet
+              </button>
+              <button
+                className="green_btn"
+                onClick={() => setSelectedValue("Green")}
+              >
+                Green
+              </button>
+              <button
+                className="red_btn"
+                onClick={() => setSelectedValue("Red")}
+              >
+                Red
+              </button>
+            </div>
+
+            <div className="select_coin">
+              <div className="ten_coin">
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("0")}
+                >
+                  <img src={first} alt="first" />
+                  <h4>0</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("1")}
+                >
+                  <img src={secound} alt="secound" />
+                  <h4>1</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("2")}
+                >
+                  <img src={third} alt="third" />
+                  <h4>2</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("3")}
+                >
+                  <img src={secound} alt="secound" />
+                  <h4>3</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("4")}
+                >
+                  <img src={third} alt="third" />
+                  <h4>4</h4>
+                </div>
+              </div>
+              <div className="ten_coin" onClick={() => setSelectedValue("5")}>
+                <div className="first_line">
+                  <img src={fifth} alt="fitfh" />
+                  <h4>5</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("6")}
+                >
+                  <img src={third} alt="third" />
+                  <h4>6</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("7")}
+                >
+                  <img src={secound} alt="secound" />
+                  <h4>7</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("8")}
+                >
+                  <img src={third} alt="third" />
+                  <h4>8</h4>
+                </div>
+                <div
+                  className="first_line"
+                  onClick={() => setSelectedValue("9")}
+                >
+                  <img src={secound} alt="secound" />
+                  <h4>9</h4>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex_seven_btn">
+              <button
+                className="secound_violet"
+                // style={{
+                //   borderColor:
+                //     selectedValue == "Violet"
+                //       ? "#6561C0"
+                //       : selectedValue == "Green"
+                //       ? "#00C738"
+                //       : "#FF4141",
+                //   color:
+                //     selectedValue == "Violet"
+                //       ? "#6561C0"
+                //       : selectedValue == "Green"
+                //       ? "#00C738"
+                //       : "#FF4141",
+                // }}
+              >
+                Random
+              </button>
+              <button
+                className="x_two_btn"
+                style={{
+                  color: selectedX === 1 ? "white" : "#707070",
+                  background: selectedX === 1 ? "#00C738" : "#E4E4E4",
+                }}
+                onClick={() => setSelectedX(1)}
+              >
+                X1
+              </button>
+              <button
+                className="x_two_btn"
+                style={{
+                  color: selectedX === 5 ? "white" : "#707070",
+                  background: selectedX === 5 ? "#00C738" : "#E4E4E4",
+                }}
+                onClick={() => setSelectedX(5)}
+              >
+                X5
+              </button>
+              <button
+                className="x_two_btn"
+                style={{
+                  color: selectedX === 10 ? "white" : "#707070",
+                  background: selectedX === 10 ? "#00C738" : "#E4E4E4",
+                }}
+                onClick={() => setSelectedX(10)}
+              >
+                X10
+              </button>
+              <button
+                className="x_two_btn"
+                style={{
+                  color: selectedX === 20 ? "white" : "#707070",
+                  background: selectedX === 20 ? "#00C738" : "#E4E4E4",
+                }}
+                onClick={() => setSelectedX(20)}
+              >
+                X20
+              </button>
+              <button
+                className="x_two_btn"
+                style={{
+                  color: selectedX === 50 ? "white" : "#707070",
+                  background: selectedX === 50 ? "#00C738" : "#E4E4E4",
+                }}
+                onClick={() => setSelectedX(50)}
+              >
+                X50
+              </button>
+              <button
+                className="x_two_btn"
+                style={{
+                  color: selectedX === 100 ? "white" : "#707070",
+                  background: selectedX === 100 ? "#00C738" : "#E4E4E4",
+                }}
+                onClick={() => setSelectedX(100)}
+              >
+                X100
+              </button>
+            </div>
+
+            <BigSmall />
+          </div>
+
+          <Tab_screen />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Lottery;
