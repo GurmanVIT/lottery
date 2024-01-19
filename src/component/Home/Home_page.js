@@ -31,23 +31,25 @@ const Home_page = () => {
   return (
     <div className="home_page_section">
       <div className="inner_section">
-        <div className="header_section">
-          <div className="logo">
-            <img src={DG} alt="DG" />
-            <h2>Dapic games</h2>
-          </div>
-          <div className="d-flex align-items-center">
-            <div className="massage me-2">
-              <img src={massage} alt="massage" />
+        <div className="header">
+          <div className="header_section">
+            <div className="logo">
+              <img src={DG} alt="DG" />
+              <h2>Dapic games</h2>
             </div>
-            {/* <div className='download'>
+            <div className="d-flex align-items-center">
+              <div className="massage me-2">
+                <img src={massage} alt="massage" />
+              </div>
+              {/* <div className='download'>
               <img src={download} alt='download' />
             </div> */}
 
-            <div className="logout">
-              <Link onClick={() => logout()}>
-                <h6>Logout</h6>
-              </Link>
+              <div className="logout">
+                <Link onClick={() => logout()}>
+                  <h6>Logout</h6>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -109,14 +111,16 @@ const Home_page = () => {
 
         <div className="flex_sec">
           <div className="game_sec">
-            <div className="secound_section">
-              <div className="lottery_img">
-                <img src={lottery} alt="lottery" />
+            <Link to="/lottery">
+              <div className="secound_section">
+                <div className="lottery_img">
+                  <img src={lottery} alt="lottery" />
+                </div>
+                <div className="lottery_content">
+                  <h5>Lottery</h5>
+                </div>
               </div>
-              <div className="lottery_content">
-                <h5>Lottery</h5>
-              </div>
-            </div>
+            </Link>
             <div className="same_sec">
               <div className="lottery_img">
                 <img src={mini_game} alt="mini_game" />

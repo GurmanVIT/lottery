@@ -149,6 +149,15 @@
                         font-weight: 500;
                         box-shadow: $input_shadow;
 
+                        @media($breakpoint_450) {
+                            font-size: 15px;
+                            padding-left: 47px;
+                        }
+
+                        @media($breakpoint_350) {
+                            padding-left: 43px;
+                        }
+
                         &:focus {
                             padding-left: 55px;
 
@@ -161,13 +170,8 @@
                             }
                         }
 
-                        @media($breakpoint_450) {
-                            font-size: 15px;
-                            padding-left: 47px;
-                        }
-
-                        @media($breakpoint_350) {
-                            padding-left: 43px;
+                        &:focus-visible {
+                            outline: none;
                         }
                     }
 
@@ -177,6 +181,10 @@
                         top: 15px;
                         border: none;
                         background-color: transparent;
+
+                        &:focus-visible {
+                            outline: none;
+                        }
                     }
                 }
 
