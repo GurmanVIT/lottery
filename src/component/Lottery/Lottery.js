@@ -13,11 +13,15 @@ import coin_3 from "../../assets/img/coin_3.svg";
 import first from "../../assets/img/first.svg";
 import secound from "../../assets/img/secound.svg";
 import third from "../../assets/img/third.svg";
+import BigSmall from "./BigSmall/BigSmall";
+import Tab_screen from "./Tabs/Tab_screen";
+
 import io from "socket.io-client";
 import { ApiBaseUrl } from "../../utils/Constants";
 
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
+  const userId = localStorage.getItem("userId");
   useEffect(() => {
     // Establish a connection to the Socket.io server
 
@@ -28,6 +32,15 @@ const Lottery = () => {
 
     socket.on("disconnect", () => {
       console.log("Disconnected from the server");
+    });
+
+    var data = {
+      userId: userId,
+    };
+    socket.emit("touch_server", data);
+
+    socket.on("timerForward", (data) => {
+      console.log("Time Forward ===> ", data);
     });
 
     // Clean up the socket connection when the component unmounts
@@ -223,6 +236,10 @@ const Lottery = () => {
             <button className="x_two_btn">X50</button>
             <button className="x_two_btn">X100</button>
           </div>
+
+          <BigSmall />
+
+          <Tab_screen />
         </div>
       </div>
     </div>

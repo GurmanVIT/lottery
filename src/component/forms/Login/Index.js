@@ -72,6 +72,7 @@ const Login = () => {
 
   useEffect(() => {
     if (loginSuccess != null && loginSuccess.status == 1) {
+      localStorage.setItem("userId", loginSuccess.data._id);
       navigation("/otp");
     } else if (loginSuccess != null) {
       alert(loginSuccess.message);

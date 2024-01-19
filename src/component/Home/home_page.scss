@@ -221,8 +221,8 @@
                 margin-top: 40px;
                 position: relative;
 
-                @media($breakpoint_450) {
-                    margin-top: 15px;
+                @media($breakpoint_350) {
+                    margin-top: 35px;
                 }
 
                 .card {
@@ -293,7 +293,26 @@
                             margin: 0;
                         }
                     }
+                }
 
+                .gift_img {
+                    position: absolute;
+                    top: -38px;
+                    right: 20px;
+
+                    @media($breakpoint_450) {
+                        top: -30px;
+                    }
+
+                    @media($breakpoint_ESM) {
+                        right: 10px;
+                        width: 150px;
+                    }
+
+                    @media($breakpoint_350) {
+                        width: 137px;
+                        right: 5px;
+                    }
                 }
 
                 .card_footer {
@@ -317,6 +336,7 @@
 
                         h4 {
                             @include font;
+                            color: $black;
                         }
                     }
 
@@ -330,6 +350,7 @@
 
                         h6 {
                             @include font;
+                            color: $black;
                         }
 
                         h5 {

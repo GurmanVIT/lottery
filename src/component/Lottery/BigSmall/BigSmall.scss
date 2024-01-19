@@ -1,0 +1,43 @@
+.big_small {
+    .nav-tabs {
+        border: none;
+        margin-bottom: 25px;
+
+        @media($breakpoint_450) {
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            width: 50%;
+            border: 2px solid $primary;
+            background-color: transparent;
+            color: $primary;
+
+            .nav-link {
+                width: 100%;
+                margin-bottom: -2px;
+                color: $primary;
+                font-weight: 700;
+                padding: 11px 16px;
+
+                @media($breakpoint_450) {
+                    padding: 9px 15px;
+                    font-size: 14px;
+                }
+
+                @media($breakpoint_350) {
+                    padding: 7px 14px;
+                }
+            }
+
+            .active {
+                background-color: $primary;
+                border: none;
+                color: $white;
+                border-radius: 0;
+                color: $white;
+                font-weight: 700;
+            }
+        }
+    }
+}

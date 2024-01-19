@@ -1,0 +1,190 @@
+.tab_screen {
+    .nav-tabs {
+        border: none;
+        @include display(space-between, center);
+
+        .nav-item {
+            color: $primary;
+
+            .nav-link {
+                margin-bottom: -2px;
+                color: $forgot;
+                font-size: 16px;
+                font-weight: 600;
+                padding: 11px 25px;
+                border-radius: 8px;
+                background-color: $dark_watch;
+                border: none;
+
+                @media($breakpoint_450) {
+                    border-radius: 7px;
+                    font-size: 14px;
+                    padding: 10px 21px;
+                }
+
+                @media($breakpoint_ESM) {
+                    border-radius: 5px;
+                    padding: 10px 17px;
+                    font-size: 13px;
+                }
+
+                @media($breakpoint_350) {
+                    font-size: 12px;
+                }
+            }
+
+            .active {
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+
+    .tab-content {
+        .tab-pane {
+            table {
+                text-align: center;
+                background-color: $white;
+                border-spacing: 0;
+                border-collapse: separate;
+                border-radius: 10px;
+                padding-bottom: 15px;
+                margin-top: 30px;
+
+
+                thead {
+                    background-color: $primary;
+                    color: $white;
+                    border: none;
+
+                    th {
+                        font-size: 16px;
+                        font-weight: 600;
+                        padding: 15px 7px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 15px;
+                            padding: 12px 5px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            color: $forgot;
+                            font-size: 15px;
+                            font-weight: 600;
+                            padding: 15px 7px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 14px;
+                                padding: 11px 5px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pagination {
+                @include display(center, center);
+
+                .page-item {
+                    .page-link {
+                        border: none;
+                        padding: 0;
+                        background-color: transparent;
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: $forgot;
+
+                        span {
+                            margin-right: 30px;
+                            background-color: $dark_watch;
+                            padding: 0px 12px;
+                            border-radius: 6px;
+                            font-size: 31px;
+                            color: $forgot;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .slash {
+                    .page-link {
+                        border: none;
+                        padding: 0 2px 0 3px;
+                        background-color: transparent;
+                        font-size: 26px;
+                        font-weight: 600;
+                        color: $forgot;
+                    }
+                }
+
+                .last_btn {
+                    .page-link {
+                        border: none;
+                        padding: 0;
+                        background-color: transparent;
+
+                        span {
+                            margin-left: 30px;
+                            background-color: $primary;
+                            padding: 0px 12px;
+                            border-radius: 6px;
+                            font-size: 31px;
+                            color: $white;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+
+            .chart_table {
+                background-color: $white;
+                margin-top: 25px;
+
+                .table_head {
+                    @include display(space-around, center);
+                    background-color: $primary;
+                    border-radius: 14px;
+
+                    h5 {
+                        margin-bottom: 0;
+                        color: $white;
+                        font-size: 16px;
+                        font-weight: 600;
+                        padding: 15px 0;
+                    }
+
+                    h4 {
+                        margin-bottom: 0;
+                        color: $white;
+                        font-size: 16px;
+                        font-weight: 600;
+                        padding: 15px 0;
+                    }
+                }
+
+                .statistic {
+                    padding: 13px 20px;
+
+                    h6 {
+                        color: $black;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                }
+
+            }
+        }
+    }
+}
