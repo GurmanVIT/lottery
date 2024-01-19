@@ -29,10 +29,18 @@ const Lottery = () => {
     useEffect(() => {
         // Establish a connection to the Socket.io server
 
+<<<<<<< HEAD
         // Define event handlers for the socket
         function onConnect() {
             setSocketConnected(true);
         }
+=======
+    // Define event handlers for the socket
+    console.log("Socket connec  ted check");
+    function onConnect() {
+      setSocketConnected(true);
+    }
+>>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
 
         function onDisconnect() {
             setSocketConnected(false);
@@ -46,10 +54,21 @@ const Lottery = () => {
 
         socket.emit("touch_server", data);
 
+<<<<<<< HEAD
         socket.on("timerForward", (data) => {
             console.log(data.gameTimer);
             setGamerTimer(data.gameTimer);
         });
+=======
+    socket.on("timerForward", (data) => {
+      console.log("Timer", data.gameTimer);
+      setGamerTimer(data.gameTimer);
+      const minutes = Math.floor(data.gameTimer / 60);
+      const second = data.gameTimer - minutes * 60;
+      // const secondSplit = splitIntoArray(second)[0];
+      // console.log("Timer", secondSplit);
+    });
+>>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
 
         // Clean up the socket connection when the component unmounts
         return () => {
@@ -59,7 +78,15 @@ const Lottery = () => {
         };
     }, [isSocketConnected]);
 
+<<<<<<< HEAD
     const getTimer = () => { };
+=======
+  function splitIntoArray(num) {
+    return Array.from(String(num), Number);
+  }
+
+  const getTimer = () => {};
+>>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
 
     return (
         <div className="lottery_page">
@@ -84,6 +111,7 @@ const Lottery = () => {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div className="secound_sec">
                     <div className="card">
                         <div className="refresh">
@@ -252,6 +280,40 @@ const Lottery = () => {
                     <BigSmall />
 
                     <Tab_screen />
+=======
+              </div>
+              <div className="play">
+                <button> HOW TO PLAY</button>
+              </div>
+            </div>
+            <div className="timing">
+              <h5>Time remaining </h5>
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="remaining">
+                  <div className="zero_number">0</div>
+                  <div className="zero_number">
+                    {Math.floor(gameTimer / 60)}
+                  </div>
+                  <div className="zero_number_bg">:</div>
+                  <div className="zero_number">
+                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                      .length == 2
+                      ? splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
+                      : 0}
+                  </div>
+                  <div className="zero_number">
+                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                      .length > 1
+                      ? splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
+                      : splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
+                  </div>
+>>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
                 </div>
             </div>
         </div>
