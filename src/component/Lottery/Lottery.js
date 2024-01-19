@@ -30,6 +30,7 @@ const Lottery = () => {
     // Establish a connection to the Socket.io server
 
     // Define event handlers for the socket
+    console.log("Socket connec  ted check");
     function onConnect() {
       setSocketConnected(true);
     }
@@ -47,8 +48,12 @@ const Lottery = () => {
     socket.emit("touch_server", data);
 
     socket.on("timerForward", (data) => {
-      console.log(data.gameTimer);
+      console.log("Timer", data.gameTimer);
       setGamerTimer(data.gameTimer);
+      const minutes = Math.floor(data.gameTimer / 60);
+      const second = data.gameTimer - minutes * 60;
+      // const secondSplit = splitIntoArray(second)[0];
+      // console.log("Timer", secondSplit);
     });
 
     // Clean up the socket connection when the component unmounts
@@ -58,6 +63,10 @@ const Lottery = () => {
       socket.off("timerForward");
     };
   }, [isSocketConnected]);
+
+  function splitIntoArray(num) {
+    return Array.from(String(num), Number);
+  }
 
   const getTimer = () => {};
 
@@ -176,10 +185,28 @@ const Lottery = () => {
               <div className="d-flex justify-content-between align-items-center">
                 <div className="remaining">
                   <div className="zero_number">0</div>
-                  <div className="zero_number">0</div>
+                  <div className="zero_number">
+                    {Math.floor(gameTimer / 60)}
+                  </div>
                   <div className="zero_number_bg">:</div>
-                  <div className="zero_number">4</div>
-                  <div className="zero_number">0</div>
+                  <div className="zero_number">
+                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                      .length == 2
+                      ? splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
+                      : 0}
+                  </div>
+                  <div className="zero_number">
+                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                      .length > 1
+                      ? splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
+                      : splitIntoArray(
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
+                  </div>
                 </div>
                 <div className="text_number">45456556541</div>
               </div>
