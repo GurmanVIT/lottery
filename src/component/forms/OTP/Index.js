@@ -12,6 +12,7 @@ const Index = () => {
   const loginSuccess = useSelector((state) => state.login.data);
   const otpSuccess = useSelector((state) => state.otpReducer.data);
   const resendOtpResponse = useSelector((state) => state.resendOtpReducer.data);
+  const userId = localStorage.getItem("userId");
 
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -22,8 +23,7 @@ const Index = () => {
       alert("Please enter valid otp");
     } else {
       const type = signupSuccess != null ? 1 : 3;
-      const id =
-        signupSuccess != null ? signupSuccess.data._id : loginSuccess.data._id;
+      const id = userId;
       const payload = {
         type: type, //1 for user verification and 3 for login verifications
         otp: otp,

@@ -27,6 +27,12 @@ const signupSlice = createSlice({
     isLoading: false,
     data: null,
   },
+  reducers: {
+    clearSignUpData: (state) => {
+      // Reset the data property to an empty array
+      state.data = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signupUser.pending, (state) => {
@@ -42,5 +48,7 @@ const signupSlice = createSlice({
       });
   },
 });
+
+export const { clearSignUpData } = signupSlice.actions;
 
 export default signupSlice.reducer;

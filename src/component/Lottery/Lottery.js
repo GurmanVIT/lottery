@@ -340,25 +340,7 @@ const Lottery = () => {
             </div>
 
             <div className="flex_seven_btn">
-              <button
-                className="secound_violet"
-                // style={{
-                //   borderColor:
-                //     selectedValue == "Violet"
-                //       ? "#6561C0"
-                //       : selectedValue == "Green"
-                //       ? "#00C738"
-                //       : "#FF4141",
-                //   color:
-                //     selectedValue == "Violet"
-                //       ? "#6561C0"
-                //       : selectedValue == "Green"
-                //       ? "#00C738"
-                //       : "#FF4141",
-                // }}
-              >
-                Random
-              </button>
+              <button className="secound_violet">Random</button>
               <button
                 className="x_two_btn"
                 style={{
