@@ -6,10 +6,16 @@ import { ApiBaseUrl, checkSponsorIdApi } from "../utils/Constants";
 export const checkSponsor = createAsyncThunk(
   "checkSponsor",
   async (payload) => {
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
     try {
       const response = await axios.get(
         ApiBaseUrl + checkSponsorIdApi + "?sponserId=" + payload,
-        payload
+        config
       );
       return response.data;
     } catch (error) {

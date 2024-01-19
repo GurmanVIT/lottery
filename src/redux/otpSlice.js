@@ -5,8 +5,14 @@ import { ApiBaseUrl, otpApi } from "../utils/Constants";
 
 export const otpAuth = createAsyncThunk("otpAuth", async (payload) => {
   try {
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
     console.log("OTP Payload ===> ", payload);
-    const response = await axios.put(ApiBaseUrl + otpApi, payload);
+    const response = await axios.put(ApiBaseUrl + otpApi, payload, config);
     console.log("OTP Response ===> ", response.data);
     return response.data;
   } catch (error) {

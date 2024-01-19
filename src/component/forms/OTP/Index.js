@@ -11,6 +11,7 @@ const Index = () => {
   const signupSuccess = useSelector((state) => state.signup.data);
   const loginSuccess = useSelector((state) => state.login.data);
   const otpSuccess = useSelector((state) => state.otpReducer.data);
+  const resendOtpResponse = useSelector((state) => state.resendOtpReducer.data);
 
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -54,6 +55,14 @@ const Index = () => {
       alert(otpSuccess.message);
     }
   }, [otpSuccess]);
+
+  useEffect(() => {
+    if (resendOtpResponse != null) {
+      alert("Please check your mail for verification code");
+    } else if (resendOtpResponse != null) {
+      alert(resendOtpResponse.message);
+    }
+  }, [resendOtpResponse]);
 
   return (
     <div className="otp">

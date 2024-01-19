@@ -4,8 +4,16 @@ import axios from "axios";
 import { ApiBaseUrl, signupApi } from "../utils/Constants";
 
 export const signupUser = createAsyncThunk("signupUser", async (payload) => {
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  };
   try {
-    const response = await axios.post(ApiBaseUrl + signupApi, payload);
+    const response = await axios.post(ApiBaseUrl + signupApi, payload, config, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     throw error.response.data;
