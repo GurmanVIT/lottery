@@ -6,8 +6,14 @@ import { ApiBaseUrl, resendOtp } from "../utils/Constants";
 export const resendOtpApi = createAsyncThunk(
   "resendOtpApi",
   async (payload) => {
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
     try {
-      const response = await axios.put(ApiBaseUrl + resendOtp, payload);
+      const response = await axios.put(ApiBaseUrl + resendOtp, payload, config);
       console.log("Resend OTP Response ===> ", response.data);
       return response.data;
     } catch (error) {

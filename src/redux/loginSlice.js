@@ -5,7 +5,13 @@ import { ApiBaseUrl, loginApi } from "../utils/Constants";
 
 export const loginUser = createAsyncThunk("loginUser", async (payload) => {
   try {
-    const response = await axios.post(ApiBaseUrl + loginApi, payload);
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
+    const response = await axios.post(ApiBaseUrl + loginApi, payload, config);
     return response.data;
   } catch (error) {
     throw error.response.data;
