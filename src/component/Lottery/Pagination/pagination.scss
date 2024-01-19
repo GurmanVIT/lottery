@@ -1,0 +1,53 @@
+.pagination {
+    @include display(center, center);
+
+    .page-item {
+        .page-link {
+            border: none;
+            padding: 0;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 600;
+            color: $forgot;
+
+            span {
+                margin-right: 30px;
+                background-color: $dark_watch;
+                padding: 0px 12px;
+                border-radius: 6px;
+                font-size: 31px;
+                color: $forgot;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .slash {
+        .page-link {
+            border: none;
+            padding: 0 2px 0 3px;
+            background-color: transparent;
+            font-size: 26px;
+            font-weight: 600;
+            color: $forgot;
+        }
+    }
+
+    .last_btn {
+        .page-link {
+            border: none;
+            padding: 0;
+            background-color: transparent;
+
+            span {
+                margin-left: 30px;
+                background-color: $primary;
+                padding: 0px 12px;
+                border-radius: 6px;
+                font-size: 31px;
+                color: $white;
+                font-weight: 500;
+            }
+        }
+    }
+}

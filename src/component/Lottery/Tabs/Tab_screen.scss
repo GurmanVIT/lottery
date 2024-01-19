@@ -94,64 +94,10 @@
                 }
             }
 
-            .pagination {
-                @include display(center, center);
-
-                .page-item {
-                    .page-link {
-                        border: none;
-                        padding: 0;
-                        background-color: transparent;
-                        font-size: 16px;
-                        font-weight: 600;
-                        color: $forgot;
-
-                        span {
-                            margin-right: 30px;
-                            background-color: $dark_watch;
-                            padding: 0px 12px;
-                            border-radius: 6px;
-                            font-size: 31px;
-                            color: $forgot;
-                            font-weight: 500;
-                        }
-                    }
-                }
-
-                .slash {
-                    .page-link {
-                        border: none;
-                        padding: 0 2px 0 3px;
-                        background-color: transparent;
-                        font-size: 26px;
-                        font-weight: 600;
-                        color: $forgot;
-                    }
-                }
-
-                .last_btn {
-                    .page-link {
-                        border: none;
-                        padding: 0;
-                        background-color: transparent;
-
-                        span {
-                            margin-left: 30px;
-                            background-color: $primary;
-                            padding: 0px 12px;
-                            border-radius: 6px;
-                            font-size: 31px;
-                            color: $white;
-                            font-weight: 500;
-                        }
-                    }
-                }
-            }
-
             .chart_table {
-                background-color: $pink;
-                margin-top: 25px;
-                border-radius: 14px;
+                background-color: $white;
+                margin: 25px 0;
+                // border-radius: 14px;
 
 
                 .table_head {
@@ -176,19 +122,57 @@
                     }
                 }
 
-                .secound_table_sec {
-                    padding: 15px;
+                .history_table {
+                    .secound_table_sec {
+                        padding: 15px 15px 0;
+                        border-bottom: 2px solid $dark_watch;
 
-                    .statistic {
-                        h6 {
-                            color: $black;
-                            font-size: 15px;
-                            font-weight: 600;
-                            margin-bottom: 0;
+                        .statistic {
+                            h6 {
+                                color: $black;
+                                font-size: 15px;
+                                font-weight: 600;
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        .flex_winning_number {
+                            @include display(space-between, center);
+                            margin-bottom: 10px;
+
+                            .win_number_one {
+                                font-size: 14px;
+                                letter-spacing: 0.6px;
+                                color: $forgot;
+                                font-weight: 600;
+                            }
+
+                            .d-flex {
+                                gap: 5px;
+
+                                .table_number_sec {
+                                    font-size: 16px;
+                                    border: 1px solid $primary;
+                                    border-radius: 50%;
+                                    margin-bottom: 0;
+                                    color: $primary;
+                                    padding: 0px 3px;
+                                }
+
+                            }
+
+                            .missing {
+                                @include display (center, center);
+                                gap: 13px;
+
+                                .table_selected_number {
+                                    font-size: 17px;
+                                    margin-bottom: 0;
+                                    color: $forgot;
+                                }
+                            }
                         }
                     }
-
-
                 }
             }
         }

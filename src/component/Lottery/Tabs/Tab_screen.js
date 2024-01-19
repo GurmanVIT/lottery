@@ -62,23 +62,81 @@ const Tab_screen = () => {
                                 <h4>Number</h4>
                             </div>
 
-                            <div className='secound_table_sec'>
-                                <div className='statistic'>
-                                    <h6>Statistic (Last 100 Periods)</h6>
-                                </div>
-                                <div className='flex_winning_number'>
-                                    <div>Winning number</div>
-                                    <div className='d-flex'>
-                                        <p className='table_number_sec'>0</p>
-                                        <p className='table_number_sec'>1</p>
-                                        <p className='table_number_sec'>2</p>
-                                        <p className='table_number_sec'>3</p>
-                                        <p className='table_number_sec'>4</p>
-                                        <p className='table_number_sec'>5</p>
-                                        <p className='table_number_sec'>6</p>
-                                        <p className='table_number_sec'>7</p>
-                                        <p className='table_number_sec'>8</p>
-                                        <p className='table_number_sec'>9</p>
+                            <div className='history_table'>
+                                <div className='secound_table_sec'>
+                                    <div className='statistic'>
+                                        <h6>Statistic (Last 100 Periods)</h6>
+                                    </div>
+                                    <div className='flex_winning_number'>
+                                        <div className='win_number_one'>Winning number</div>
+                                        <div className='d-flex'>
+                                            <p className='table_number_sec'>0</p>
+                                            <p className='table_number_sec'>1</p>
+                                            <p className='table_number_sec'>2</p>
+                                            <p className='table_number_sec'>3</p>
+                                            <p className='table_number_sec'>4</p>
+                                            <p className='table_number_sec'>5</p>
+                                            <p className='table_number_sec'>6</p>
+                                            <p className='table_number_sec'>7</p>
+                                            <p className='table_number_sec'>8</p>
+                                            <p className='table_number_sec'>9</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex_winning_number'>
+                                        <div className='win_number_one'>Missing</div>
+                                        <div className='missing'>
+                                            <p className='table_selected_number'>22</p>
+                                            <p className='table_selected_number'>25</p>
+                                            <p className='table_selected_number'>2</p>
+                                            <p className='table_selected_number'>36</p>
+                                            <p className='table_selected_number'>8</p>
+                                            <p className='table_selected_number'>18</p>
+                                            <p className='table_selected_number'>9</p>
+                                            <p className='table_selected_number'>11</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex_winning_number'>
+                                        <div className='win_number_one'>Avg missing</div>
+                                        <div className='missing'>
+                                            <p className='table_selected_number'>12</p>
+                                            <p className='table_selected_number'>30</p>
+                                            <p className='table_selected_number'>2</p>
+                                            <p className='table_selected_number'>36</p>
+                                            <p className='table_selected_number'>8</p>
+                                            <p className='table_selected_number'>18</p>
+                                            <p className='table_selected_number'>9</p>
+                                            <p className='table_selected_number'>11</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex_winning_number'>
+                                        <div className='win_number_one'>Frequency</div>
+                                        <div className='missing'>
+                                            <p className='table_selected_number'>12</p>
+                                            <p className='table_selected_number'>30</p>
+                                            <p className='table_selected_number'>2</p>
+                                            <p className='table_selected_number'>36</p>
+                                            <p className='table_selected_number'>8</p>
+                                            <p className='table_selected_number'>18</p>
+                                            <p className='table_selected_number'>9</p>
+                                            <p className='table_selected_number'>11</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex_winning_number'>
+                                        <div className='win_number_one'>Max consecutive</div>
+                                        <div className='missing'>
+                                            <p className='table_selected_number'>12</p>
+                                            <p className='table_selected_number'>30</p>
+                                            <p className='table_selected_number'>2</p>
+                                            <p className='table_selected_number'>36</p>
+                                            <p className='table_selected_number'>8</p>
+                                            <p className='table_selected_number'>18</p>
+                                            <p className='table_selected_number'>9</p>
+                                            <p className='table_selected_number'>11</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
