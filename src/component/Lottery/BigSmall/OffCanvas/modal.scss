@@ -1,0 +1,131 @@
+.modal_bottom {
+    margin-bottom: 20px;
+
+    .modals {
+        background-color: $white;
+        border-radius: 14px 14px 0 0;
+
+        .win_go {
+            @include display(space-between, center);
+            background-color: $red;
+            padding: 20px;
+            border-radius: 14px 14px 0 0;
+
+            h4 {
+                margin-bottom: 0;
+                color: $white;
+            }
+        }
+
+        .modal_content {
+            @include display(space-between, center);
+            padding: 20px;
+
+            h5 {
+                margin-bottom: 0;
+                font-size: 16px;
+                font-weight: 600;
+                color: $forgot;
+            }
+
+            .rupees_button {
+                display: flex;
+                gap: 10px;
+
+                .x_two_btn {
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px;
+                    color: $forgot;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+
+                    @media($breakpoint_450) {
+                        padding: 8px 7px;
+                    }
+
+                    @media($breakpoint_ESM) {
+                        padding: 7px;
+                    }
+
+                    @media($breakpoint_350) {
+                        padding: 7px 6px;
+                        border-radius: 6px;
+                        font-size: 14px;
+                    }
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+            }
+
+        }
+
+        .quantity {
+            @include display(space-between, center);
+            padding: 0 20px 20px;
+
+            h5 {
+                margin-bottom: 0;
+                font-size: 16px;
+                font-weight: 600;
+                color: $forgot;
+            }
+
+            .plus_minus {
+                @include display(center, center);
+                gap: 20px;
+
+                button {
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    background-color: $red;
+                    color: $white;
+
+                    @media($breakpoint_450) {
+                        padding: 8px 7px;
+                    }
+
+                    @media($breakpoint_ESM) {
+                        padding: 7px;
+                    }
+
+                    @media($breakpoint_350) {
+                        padding: 7px 6px;
+                        border-radius: 6px;
+                        font-size: 14px;
+                    }
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+
+                h4 {
+                    margin-bottom: 0;
+                    color: $forgot;
+                }
+            }
+        }
+
+        .x_number {
+            justify-content: flex-end !important;
+        }
+
+        .radio_btn {
+            .readio {
+                @include display (flex-start, center);
+
+                h6 {
+                    color: $red;
+                }
+            }
+        }
+    }
+}

@@ -10,11 +10,14 @@ import watch from "../../assets/img/watch.svg";
 import coin_1 from "../../assets/img/coin_1.svg";
 import coin_2 from "../../assets/img/coin_2.svg";
 import coin_3 from "../../assets/img/coin_3.svg";
+import coin_5 from "../../assets/img/coin_5.svg";
 import first from "../../assets/img/first.svg";
 import secound from "../../assets/img/secound.svg";
 import third from "../../assets/img/third.svg";
+import fifth from "../../assets/img/fifth.svg";
 import BigSmall from "./BigSmall/BigSmall";
 import Tab_screen from "./Tabs/Tab_screen";
+
 
 import io from "socket.io-client";
 import { ApiBaseUrl } from "../../utils/Constants";
@@ -29,18 +32,11 @@ const Lottery = () => {
     useEffect(() => {
         // Establish a connection to the Socket.io server
 
-<<<<<<< HEAD
         // Define event handlers for the socket
+        console.log("Socket connec  ted check");
         function onConnect() {
             setSocketConnected(true);
         }
-=======
-    // Define event handlers for the socket
-    console.log("Socket connec  ted check");
-    function onConnect() {
-      setSocketConnected(true);
-    }
->>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
 
         function onDisconnect() {
             setSocketConnected(false);
@@ -54,21 +50,14 @@ const Lottery = () => {
 
         socket.emit("touch_server", data);
 
-<<<<<<< HEAD
         socket.on("timerForward", (data) => {
-            console.log(data.gameTimer);
+            console.log("Timer", data.gameTimer);
             setGamerTimer(data.gameTimer);
+            const minutes = Math.floor(data.gameTimer / 60);
+            const second = data.gameTimer - minutes * 60;
+            // const secondSplit = splitIntoArray(second)[0];
+            // console.log("Timer", secondSplit);
         });
-=======
-    socket.on("timerForward", (data) => {
-      console.log("Timer", data.gameTimer);
-      setGamerTimer(data.gameTimer);
-      const minutes = Math.floor(data.gameTimer / 60);
-      const second = data.gameTimer - minutes * 60;
-      // const secondSplit = splitIntoArray(second)[0];
-      // console.log("Timer", secondSplit);
-    });
->>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
 
         // Clean up the socket connection when the component unmounts
         return () => {
@@ -78,15 +67,11 @@ const Lottery = () => {
         };
     }, [isSocketConnected]);
 
-<<<<<<< HEAD
-    const getTimer = () => { };
-=======
-  function splitIntoArray(num) {
-    return Array.from(String(num), Number);
-  }
+    function splitIntoArray(num) {
+        return Array.from(String(num), Number);
+    }
 
-  const getTimer = () => {};
->>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
+    const getTimer = () => { };
 
     return (
         <div className="lottery_page">
@@ -111,7 +96,6 @@ const Lottery = () => {
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <div className="secound_sec">
                     <div className="card">
                         <div className="refresh">
@@ -185,7 +169,7 @@ const Lottery = () => {
                                     </div>
 
                                     <div className="text_move">
-                                        <img src={coin_1} alt="coin_1" />
+                                        <img src={coin_5} alt="coin_5" />
                                         <h6>5</h6>
                                     </div>
 
@@ -204,116 +188,103 @@ const Lottery = () => {
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="remaining">
                                     <div className="zero_number">0</div>
-                                    <div className="zero_number">0</div>
+                                    <div className="zero_number">
+                                        {Math.floor(gameTimer / 60)}
+                                    </div>
                                     <div className="zero_number_bg">:</div>
-                                    <div className="zero_number">4</div>
-                                    <div className="zero_number">0</div>
+                                    <div className="zero_number">
+                                        {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                                            .length == 2
+                                            ? splitIntoArray(
+                                                gameTimer - Math.floor(gameTimer / 60) * 60
+                                            )[0]
+                                            : 0}
+                                    </div>
+                                    <div className="zero_number">
+                                        {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
+                                            .length > 1
+                                            ? splitIntoArray(
+                                                gameTimer - Math.floor(gameTimer / 60) * 60
+                                            )[1]
+                                            : splitIntoArray(
+                                                gameTimer - Math.floor(gameTimer / 60) * 60
+                                            )[0]}
+                                    </div>
                                 </div>
                                 <div className="text_number">45456556541</div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="color_btn">
-                        <button className="violet_btn">Violet</button>
-                        <button className="green_btn">Green</button>
-                        <button className="red_btn">Red</button>
-                    </div>
+                    <div className="modal_number">
 
-                    <div className="select_coin">
-                        <div className="ten_coin">
-                            <div className="first_line">
-                                <img src={first} alt="first" />
-                                <h4>0</h4>
+                        <div className="color_btn">
+                            <button className="violet_btn">Violet</button>
+                            <button className="green_btn">Green</button>
+                            <button className="red_btn">Red</button>
+                        </div>
+
+                        <div className="select_coin">
+                            <div className="ten_coin">
+                                <div className="first_line">
+                                    <img src={first} alt="first" />
+                                    <h4>0</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={secound} alt="secound" />
+                                    <h4>1</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={third} alt="third" />
+                                    <h4>2</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={secound} alt="secound" />
+                                    <h4>3</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={third} alt="third" />
+                                    <h4>4</h4>
+                                </div>
                             </div>
-                            <div className="first_line">
-                                <img src={secound} alt="secound" />
-                                <h4>1</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={third} alt="third" />
-                                <h4>2</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={first} alt="first" />
-                                <h4>3</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={secound} alt="secound" />
-                                <h4>4</h4>
+                            <div className="ten_coin">
+                                <div className="first_line">
+                                    <img src={fifth} alt="fifth" />
+                                    <h4>5</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={third} alt="third" />
+                                    <h4>6</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={secound} alt="secound" />
+                                    <h4>7</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={third} alt="third" />
+                                    <h4>8</h4>
+                                </div>
+                                <div className="first_line">
+                                    <img src={secound} alt="secound" />
+                                    <h4>9</h4>
+                                </div>
                             </div>
                         </div>
-                        <div className="ten_coin">
-                            <div className="first_line">
-                                <img src={third} alt="third" />
-                                <h4>5</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={secound} alt="secound" />
-                                <h4>6</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={first} alt="first" />
-                                <h4>7</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={third} alt="third" />
-                                <h4>8</h4>
-                            </div>
-                            <div className="first_line">
-                                <img src={first} alt="first" />
-                                <h4>9</h4>
-                            </div>
+
+                        <div className="flex_seven_btn">
+                            <button className="secound_violet">Violet</button>
+                            <button className="x_one_btn">X1</button>
+                            <button className="x_two_btn">X5</button>
+                            <button className="x_two_btn">X10</button>
+                            <button className="x_two_btn">X20</button>
+                            <button className="x_two_btn">X50</button>
+                            <button className="x_two_btn">X100</button>
                         </div>
-                    </div>
 
-                    <div className="flex_seven_btn">
-                        <button className="secound_violet">Violet</button>
-                        <button className="x_one_btn">X1</button>
-                        <button className="x_two_btn">X5</button>
-                        <button className="x_two_btn">X10</button>
-                        <button className="x_two_btn">X20</button>
-                        <button className="x_two_btn">X50</button>
-                        <button className="x_two_btn">X100</button>
+                        <BigSmall />
                     </div>
-
-                    <BigSmall />
 
                     <Tab_screen />
-=======
-              </div>
-              <div className="play">
-                <button> HOW TO PLAY</button>
-              </div>
-            </div>
-            <div className="timing">
-              <h5>Time remaining </h5>
-              <div className="d-flex justify-content-between align-items-center">
-                <div className="remaining">
-                  <div className="zero_number">0</div>
-                  <div className="zero_number">
-                    {Math.floor(gameTimer / 60)}
-                  </div>
-                  <div className="zero_number_bg">:</div>
-                  <div className="zero_number">
-                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
-                      .length == 2
-                      ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]
-                      : 0}
-                  </div>
-                  <div className="zero_number">
-                    {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
-                      .length > 1
-                      ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[1]
-                      : splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]}
-                  </div>
->>>>>>> f7bb0d9760b3c45450b469d4fc573d4af2f022cb
                 </div>
             </div>
         </div>

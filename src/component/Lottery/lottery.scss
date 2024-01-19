@@ -326,14 +326,14 @@
                                     color: $white;
                                     position: absolute;
                                     left: 15px;
-                                    bottom: 12px;
+                                    bottom: 10px;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 700;
 
                                     @media($breakpoint_450) {
                                         left: 12px;
-                                        bottom: 9px;
+                                        bottom: 8px;
                                         font-size: 11px;
                                     }
                                 }
