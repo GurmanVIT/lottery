@@ -149,13 +149,15 @@
             }
 
             .chart_table {
-                background-color: $white;
+                background-color: $pink;
                 margin-top: 25px;
+                border-radius: 14px;
+
 
                 .table_head {
                     @include display(space-around, center);
                     background-color: $primary;
-                    border-radius: 14px;
+                    border-radius: 14px 14px 0 0;
 
                     h5 {
                         margin-bottom: 0;
@@ -174,16 +176,20 @@
                     }
                 }
 
-                .statistic {
-                    padding: 13px 20px;
+                .secound_table_sec {
+                    padding: 15px;
 
-                    h6 {
-                        color: $black;
-                        font-size: 16px;
-                        font-weight: 600;
+                    .statistic {
+                        h6 {
+                            color: $black;
+                            font-size: 15px;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                        }
                     }
-                }
 
+
+                }
             }
         }
     }
