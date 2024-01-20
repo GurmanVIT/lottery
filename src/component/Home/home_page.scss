@@ -3,90 +3,109 @@
         overflow: hidden;
         background-color: $page_bg;
 
-        .header_section {
-            @include display(space-between, center);
-            background: linear-gradient(60deg, rgb(101, 97, 192), rgba(73, 67, 193, 0.44));
-            padding: 20px;
+        .header {
 
-            @media($breakpoint_450) {
-                padding: 15px 10px;
-            }
+            .header_section {
+                @include display(space-between, center);
+                background: linear-gradient(60deg, rgb(101, 97, 192), rgba(73, 67, 193, 0.44));
+                padding: 20px;
+                position: fixed;
+                top: 0;
+                z-index: 1;
+                background: $primary;
+                width: 100%;
+                max-width: 500px;
 
-            @media($breakpoint_ESM) {
-                padding: 12px 10px;
-            }
-
-            .logo {
-                @include display(center, center);
-                gap: 5px;
+                @media($breakpoint_450) {
+                    padding: 15px 10px;
+                }
 
                 @media($breakpoint_ESM) {
-                    gap: 0px;
-
+                    padding: 12px 10px;
                 }
 
-                img {
-                    @media($breakpoint_ESM) {
-                        height: 30px;
-                        width: 50px;
-                    }
-
-                    @media($breakpoint_350) {
-                        height: 25px;
-                        width: 45px;
-                    }
-                }
-
-                h2 {
-                    color: $white;
-                    font-size: 30px;
-                    font-style: normal;
-                    font-weight: 800;
-                    text-transform: uppercase;
-                    margin-bottom: 0;
-
-                    @media($breakpoint_450) {
-                        font-size: 26px;
-                    }
+                .logo {
+                    @include display(center, center);
+                    gap: 5px;
 
                     @media($breakpoint_ESM) {
-                        font-size: 21px;
+                        gap: 0px;
+
                     }
 
-                    @media($breakpoint_350) {
-                        font-size: 19px;
-                    }
-                }
-            }
-
-            .d-flex {
-                .massage {
                     img {
+                        @media($breakpoint_ESM) {
+                            height: 30px;
+                            width: 50px;
+                        }
+
+                        @media($breakpoint_350) {
+                            height: 25px;
+                            width: 45px;
+                        }
+                    }
+
+                    h2 {
+                        color: $white;
+                        font-size: 30px;
+                        font-style: normal;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        margin-bottom: 0;
+
                         @media($breakpoint_450) {
-                            width: 33px;
-                            height: 33px;
+                            font-size: 26px;
+                        }
+
+                        @media($breakpoint_ESM) {
+                            font-size: 21px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 19px;
                         }
                     }
                 }
 
-                .download {
-                    img {
-                        @media($breakpoint_450) {
-                            width: 33px;
-                            height: 33px;
+                .d-flex {
+                    .massage {
+                        img {
+                            @media($breakpoint_450) {
+                                width: 33px;
+                                height: 33px;
+                            }
                         }
                     }
-                }
 
-                h6 {
-                    color: $white;
-                    font-weight: 600;
-                    margin-bottom: 0;
+                    .download {
+                        img {
+                            @media($breakpoint_450) {
+                                width: 33px;
+                                height: 33px;
+                            }
+                        }
+                    }
+
+                    h6 {
+                        color: $white;
+                        font-weight: 600;
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
 
         .swiper {
+            padding-top: 40px;
+
+            @media($breakpoint_450) {
+                padding-top: 32px;
+            }
+
+            @media($breakpoint_ESM) {
+                padding-top: 28px;
+            }
+
             .swiper-horizontal {
                 .swiper-wrapper {
                     display: flex;

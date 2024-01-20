@@ -101,6 +101,19 @@ const Register = () => {
     }
   }, [sponsorResponse]);
 
+
+  //loader 
+  const [loadingRegisterButton, setLoadingRegisterButton] = useState(false);
+  const handleLoaderRegisterButtonClick = () => {
+    setLoadingRegisterButton(true);
+    // Your loading logic here
+    setTimeout(() => {
+      setLoadingRegisterButton(false);
+    }, 4000); // Simulate a 2-second loading time
+  };
+
+
+
   return (
     <div className="home_page">
       <div className="register login">
@@ -273,17 +286,19 @@ const Register = () => {
                 </label>
               </div>
               <div className="login_link mt-4">
+
                 <button
                   className="login_button"
-                  onClick={() => onSignUpClick()}
-                >
-                  Register
+                  onClick={() => { onSignUpClick(); handleLoaderRegisterButtonClick() }}>
+                  {loadingRegisterButton ? 'Loading' : 'Register'}
                 </button>
               </div>
               <div className="register_link">
-                <Link to="/login" className="register_button">
+                <button
+                  className="register_button"
+                  onClick={() => { navigation("/login") }}>
                   I have an account <span>Login</span>
-                </Link>
+                </button>
               </div>
               <div className="upper">
                 <img src={support} alt="support" />

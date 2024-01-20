@@ -20,6 +20,7 @@ import Tab_screen from "./Tabs/Tab_screen";
 
 import io from "socket.io-client";
 import { ApiBaseUrl } from "../../utils/Constants";
+import ModalButton from "./BigSmall/OffCanvas/ModalBottom";
 
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -78,30 +79,31 @@ const Lottery = () => {
     return Array.from(String(num), Number);
   }
 
-  const getTimer = () => {};
+  const getTimer = () => { };
 
   return (
     <div className="lottery_page">
       <div className="lottery">
-        <div className="dapic_header">
-          <div className="header_flex">
-            <div className="back_img">
-              <Link to="/Home_page">
-                <img src={back} alt="back" />
-              </Link>
+        <div className="header_flex">
+          <div className="back_img">
+            <Link to="/Home_page">
+              <img src={back} alt="back" />
+            </Link>
+          </div>
+          <div className="dapic_game_img">
+            <img src={DG} alt="DG" />
+          </div>
+          <div className="music_headphone">
+            <div className="music">
+              <img src={music} alt="music" />
             </div>
-            <div className="dapic_game_img">
-              <img src={DG} alt="DG" />
-            </div>
-            <div className="music_headphone">
-              <div className="music">
-                <img src={music} alt="music" />
-              </div>
-              <div className="headphone">
-                <img src={headphone} alt="headphone" />
-              </div>
+            <div className="headphone">
+              <img src={headphone} alt="headphone" />
             </div>
           </div>
+        </div>
+        <div className="dapic_header">
+
         </div>
         <div className="secound_sec">
           <div className="card">
@@ -223,19 +225,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[1]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[1]
                       : splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]}
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>

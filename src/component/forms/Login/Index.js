@@ -14,6 +14,9 @@ import {
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../redux/loginSlice";
+import LoadingButton from "../../Loader/LoadingButton";
+import { CircleLoader } from 'react-spinners';
+
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -78,6 +81,30 @@ const Login = () => {
       alert(loginSuccess.message);
     }
   }, [loginSuccess]);
+
+
+  //loader 
+  const [loading, setLoading] = useState(false);
+  const handleLoaderClick = () => {
+    setLoading(true);
+    // Your loading logic here
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000); // Simulate a 2-second loading time
+  };
+
+
+  //loader 
+  const [loadingRegister, setLoadingRegister] = useState(false);
+  const handleLoaderRegisterClick = () => {
+    setLoadingRegister(true);
+    // Your loading logic here
+    setTimeout(() => {
+      setLoadingRegister(false);
+    }, 1000); // Simulate a 2-second loading time
+  };
+
+
 
   return (
     <>
@@ -147,18 +174,15 @@ const Login = () => {
                 </Link>
               </div>
               <div className="login_link">
-                <button className="login_button" onClick={() => onLoginClick()}>
-                  Login
+                <button className="login_button" onClick={() => { onLoginClick(); handleLoaderClick() }}>
+                  {loading ? 'Loading' : 'Login'}
                 </button>
               </div>
               <div className="register_link">
                 <button
                   className="register_button"
-                  onClick={() => {
-                    navigation("/register");
-                  }}
-                >
-                  Register
+                  onClick={() => { navigation("/register"); handleLoaderRegisterClick() }}>
+                  {loadingRegister ? 'Loading' : 'Register'}
                 </button>
               </div>
               <div className="upper">

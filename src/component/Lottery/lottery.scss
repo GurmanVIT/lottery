@@ -5,54 +5,61 @@
         width: 100%;
         max-width: 500px;
 
+        .header_flex {
+            background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
+            @include display(space-between, center);
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 500px;
+
+            .back_img {
+                a {
+                    img {
+                        @media($breakpoint_450) {
+                            width: 35px;
+                        }
+                    }
+                }
+            }
+
+            .music_headphone {
+                @include display(center, center);
+                gap: 10px;
+
+                @media($breakpoint_ESM) {
+                    gap: 5px;
+                }
+
+                .music {
+                    img {
+                        @media($breakpoint_450) {
+                            width: 33px;
+                            height: 33px;
+                        }
+                    }
+                }
+
+                .headphone {
+                    img {
+                        @media($breakpoint_450) {
+                            width: 33px;
+                            height: 33px;
+                        }
+                    }
+                }
+            }
+        }
+
         .dapic_header {
             background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
-            padding: 20px;
+            padding: 0 20px 20px;
             height: 190px;
 
             @media($breakpoint_450) {
-                padding: 20px 10px;
-            }
-
-            .header_flex {
-                @include display(space-between, center);
-
-                .back_img {
-                    a {
-                        img {
-                            @media($breakpoint_450) {
-                                width: 35px;
-                            }
-                        }
-                    }
-                }
-
-                .music_headphone {
-                    @include display(center, center);
-                    gap: 10px;
-
-                    @media($breakpoint_ESM) {
-                        gap: 5px;
-                    }
-
-                    .music {
-                        img {
-                            @media($breakpoint_450) {
-                                width: 33px;
-                                height: 33px;
-                            }
-                        }
-                    }
-
-                    .headphone {
-                        img {
-                            @media($breakpoint_450) {
-                                width: 33px;
-                                height: 33px;
-                            }
-                        }
-                    }
-                }
+                padding: 0px 10px 20px;
             }
         }
 

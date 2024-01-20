@@ -76,6 +76,31 @@ const Index = () => {
     }
   }, [resendOtpResponse]);
 
+
+
+
+  //loader 
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
+  const handleLoaderSubmitClick = () => {
+    setLoadingSubmit(true);
+    // Your loading logic here
+    setTimeout(() => {
+      setLoadingSubmit(false);
+    }, 2000); // Simulate a 2-second loading time
+  };
+
+
+  //loader 
+  const [loadingResend, setLoadingResend] = useState(false);
+  const handleLoaderResendClick = () => {
+    setLoadingResend(true);
+    // Your loading logic here
+    setTimeout(() => {
+      setLoadingResend(false);
+    }, 2000); // Simulate a 2-second loading time
+  };
+
+
   return (
     <div className="otp">
       <div className="screen_otp">
@@ -109,16 +134,14 @@ const Index = () => {
           <button
             type="button"
             className="login_button"
-            onClick={() => onOtpClick()}
-          >
-            Submit
+            onClick={() => { onOtpClick(); handleLoaderSubmitClick() }}>
+            {loadingSubmit ? 'Loading' : 'Submit'}
           </button>
           <button
             type="button"
             className="register"
-            onClick={() => onResendClick()}
-          >
-            Resend Code
+            onClick={() => { onResendClick(); handleLoaderResendClick() }}>
+            {loadingResend ? 'Loading' : 'Resend Code'}
           </button>
         </form>
       </div>
