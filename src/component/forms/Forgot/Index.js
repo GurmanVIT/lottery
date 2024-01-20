@@ -48,6 +48,20 @@ const Forgot = () => {
     }
   }, [forgotResponse]);
 
+
+
+  //loader 
+  const [loadingForgot, setLoadingForgot] = useState(false);
+  const handleLoaderForgotClick = () => {
+    setLoadingForgot(true);
+    // Your loading logic here
+    setTimeout(() => {
+      setLoadingForgot(false);
+    }, 2000); // Simulate a 2-second loading time
+  };
+
+
+
   return (
     <div className="forgot_sec">
       <div className="screen_forgot">
@@ -77,12 +91,12 @@ const Forgot = () => {
           ) : (
             ""
           )}
+
           <button
             type="button"
             className="login_button mt-4"
-            onClick={() => onForgotClick()}
-          >
-            Forgot
+            onClick={() => { onForgotClick(); handleLoaderForgotClick() }}>
+            {loadingForgot ? 'Loading' : 'Forgot'}
           </button>
         </div>
       </div>
