@@ -71,6 +71,7 @@ const Forgot = () => {
             <Form.Control
               type="email"
               placeholder="name@example.com"
+              disabled={isLoading}
               onChange={(e) => handleEmailChange(e)}
             />
           </FloatingLabel>

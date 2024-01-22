@@ -22,6 +22,7 @@ import io from "socket.io-client";
 import { ApiBaseUrl } from "../../utils/Constants";
 import ModalButton from "./BigSmall/OffCanvas/ModalBottom";
 import ModalBottom from "./BigSmall/OffCanvas/ModalBottom";
+import { myColors } from "../../utils/Colors";
 
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -32,10 +33,12 @@ const Lottery = () => {
   const [gameTimer, setGamerTimer] = useState(0);
 
   const [selectedValue, setSelectedValue] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
   const [selectedX, setSelectedX] = useState(1);
   const [winToGoTime, setWinToGoTime] = useState(1);
+  const [balanceValue, setBalanceValue] = useState(1);
 
-  const [isOpenModal, setOpenModal] = useState(false)
+  const [isOpenModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     // Establish a connection to the Socket.io server
@@ -82,7 +85,7 @@ const Lottery = () => {
     return Array.from(String(num), Number);
   }
 
-  const getTimer = () => { };
+  const getTimer = () => {};
 
   return (
     <div className="lottery_page">
@@ -105,9 +108,7 @@ const Lottery = () => {
             </div>
           </div>
         </div>
-        <div className="dapic_header">
-
-        </div>
+        <div className="dapic_header"></div>
         <div className="secound_sec">
           <div className="card">
             <div className="refresh">
@@ -228,19 +229,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
@@ -252,19 +253,31 @@ const Lottery = () => {
             <div className="color_btn">
               <button
                 className="violet_btn"
-                onClick={() => setSelectedValue("Violet")}
+                onClick={() => {
+                  setSelectedValue("Violet");
+                  setSelectedColor(myColors.primaryColor);
+                  setOpenModal(true);
+                }}
               >
                 Violet
               </button>
               <button
                 className="green_btn"
-                onClick={() => setSelectedValue("Green")}
+                onClick={() => {
+                  setSelectedValue("Green");
+                  setSelectedColor(myColors.green_color);
+                  setOpenModal(true);
+                }}
               >
                 Green
               </button>
               <button
                 className="red_btn"
-                onClick={() => setSelectedValue("Red")}
+                onClick={() => {
+                  setSelectedValue("Red");
+                  setSelectedColor(myColors.red_color);
+                  setOpenModal(true);
+                }}
               >
                 Red
               </button>
@@ -274,69 +287,114 @@ const Lottery = () => {
               <div className="ten_coin">
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("0")}
+                  onClick={() => {
+                    setSelectedValue("0");
+                    setSelectedColor(myColors.primaryColor);
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={first} alt="first" />
                   <h4>0</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("1")}
+                  onClick={() => {
+                    setSelectedValue("1");
+                    setSelectedColor(myColors.green_color);
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={secound} alt="secound" />
                   <h4>1</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("2")}
+                  onClick={() => {
+                    setSelectedValue("2");
+                    setSelectedColor(myColors.red_color);
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={third} alt="third" />
                   <h4>2</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("3")}
+                  onClick={() => {
+                    setSelectedValue("3");
+                    setSelectedColor(myColors.green_color);
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={secound} alt="secound" />
                   <h4>3</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("4")}
+                  onClick={() => {
+                    setSelectedValue("4");
+                    setSelectedColor(myColors.red_color);
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={third} alt="third" />
                   <h4>4</h4>
                 </div>
               </div>
-              <div className="ten_coin" onClick={() => setSelectedValue("5")}>
-                <div className="first_line">
+              <div className="ten_coin">
+                <div
+                  className="first_line"
+                  onClick={() => {
+                    setSelectedValue("5");
+                    setSelectedColor(myColors.primaryColor);
+                    setOpenModal(true);
+                  }}
+                >
                   <img src={fifth} alt="fitfh" />
                   <h4>5</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("6")}
+                  onClick={() => {
+                    setSelectedColor(myColors.red_color);
+                    setSelectedValue("6");
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={third} alt="third" />
                   <h4>6</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("7")}
+                  onClick={() => {
+                    setSelectedColor(myColors.green_color);
+                    setSelectedValue("7");
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={secound} alt="secound" />
                   <h4>7</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("8")}
+                  onClick={() => {
+                    setSelectedColor(myColors.red_color);
+                    setSelectedValue("8");
+
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={third} alt="third" />
                   <h4>8</h4>
                 </div>
                 <div
                   className="first_line"
-                  onClick={() => setSelectedValue("9")}
+                  onClick={() => {
+                    setSelectedColor(myColors.green_color);
+                    setSelectedValue("9");
+
+                    setOpenModal(true);
+                  }}
                 >
                   <img src={secound} alt="secound" />
                   <h4>9</h4>
@@ -408,14 +466,22 @@ const Lottery = () => {
               </button>
             </div>
 
-            <div onClick={() => setOpenModal(true)}>
-              <BigSmall />
-            </div>
-
+            {/* <div onClick={() => setOpenModal(true)}> */}
+            <BigSmall openModal={setOpenModal} />
+            {/* </div> */}
           </div>
 
           <Tab_screen />
-          <ModalBottom myColor={"#F0F0F0"} isOpenModal={isOpenModal} setOpenModal={setOpenModal} />
+          <ModalBottom
+            myColor={selectedColor}
+            isOpenModal={isOpenModal}
+            setOpenModal={setOpenModal}
+            selectedValue={selectedValue}
+            selectedX={selectedX}
+            setSelectedX={setSelectedX}
+            setBalance={setBalanceValue}
+            balance={balanceValue}
+          />
         </div>
       </div>
     </div>

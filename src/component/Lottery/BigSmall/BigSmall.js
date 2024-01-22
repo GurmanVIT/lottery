@@ -1,36 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const BigSmall = ({ openModal }) => {
+  return (
+    <>
+      <div className="big_small">
+        <button className="login_button" onClick={() => openModal(true)}>
+          Big
+        </button>
 
-    return (
-        <>
-            <div className='big_small'>
-
-                <button className="login_button"
-                // onClick={() => { openModal(true) }}
-                >Big</button>
-
-                <button
-                    className="register_button"
-                // onClick={() => { openModal(true) }}
-                >
-                    Small
-                </button>
-
-            </div>
-        </>
-    )
-}
+        <button className="register_button" onClick={() => openModal(true)}>
+          Small
+        </button>
+      </div>
+    </>
+  );
+};
 
 export default BigSmall;
-
 
 // import Tab from 'react-bootstrap/Tab';
 // import Tabs from 'react-bootstrap/Tabs';
 // import React, { useState } from 'react';
 // import ModalBottom from './OffCanvas/ModalBottom';
-
 
 // const BigSmall = () => {
 
@@ -43,7 +35,6 @@ export default BigSmall;
 //     const closeModal = () => {
 //         setModalIsOpen(false);
 //     };
-
 
 //     return (
 //         <>

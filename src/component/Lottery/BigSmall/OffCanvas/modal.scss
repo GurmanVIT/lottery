@@ -1,225 +1,221 @@
 .ReactModalPortal {
-    .ReactModal__Overlay {
-        .ReactModal__Content {
-            border: none !important;
-            padding: 0 !important;
+  .ReactModal__Overlay {
+    .ReactModal__Content {
+      border: none !important;
+      padding: 0 !important;
 
-            .modal_bottom {
-                margin-bottom: 20px;
+      .modal_bottom {
+        margin-bottom: 20px;
 
-                @media($breakpoint_450) {
-                    margin-bottom: 13px;
-                }
-
-                .modals {
-                    width: 100%;
-                    max-width: 420px;
-                    background-color: $white;
-                    border-radius: 14px 14px 0 0;
-
-                    .win_go {
-                        @include display(space-between, center);
-                        background-color: $primary;
-                        padding: 17px 20px;
-                        border-radius: 14px 14px 0 0;
-
-                        h4 {
-                            margin-bottom: 0;
-                            color: $white;
-                            font-size: 20px;
-                        }
-                    }
-
-                    .modal_content {
-                        @include display(space-between, center);
-                        padding: 20px;
-
-                        @media($breakpoint_ESM) {
-                            padding: 15px 15px 8px;
-                        }
-
-                        h5 {
-                            margin-bottom: 0;
-                            font-size: 16px;
-                            font-weight: 600;
-                            color: $forgot;
-                        }
-
-                        .rupees_button {
-                            display: flex;
-                            gap: 10px;
-
-                            .x_one_btn {
-                                border: none;
-                                background-color: $primary;
-                                border-radius: 5px;
-                                padding: 8px 7px;
-                                color: $white;
-                                font-size: 16px;
-                                font-style: normal;
-                                font-weight: 600;
-
-                                @media($breakpoint_ESM) {
-                                    padding: 7px;
-                                }
-
-                                @media($breakpoint_350) {
-                                    padding: 7px 6px;
-                                    border-radius: 6px;
-                                    font-size: 14px;
-                                }
-
-                                &:focus-visible {
-                                    outline: none;
-                                }
-                            }
-
-                            .x_two_btn {
-                                border: none;
-                                border-radius: 5px;
-                                padding: 8px 7px;
-                                color: $forgot;
-                                font-size: 16px;
-                                font-style: normal;
-                                font-weight: 600;
-
-                                @media($breakpoint_ESM) {
-                                    padding: 7px;
-                                }
-
-                                @media($breakpoint_350) {
-                                    padding: 7px 6px;
-                                    border-radius: 6px;
-                                    font-size: 14px;
-                                }
-
-                                &:focus-visible {
-                                    outline: none;
-                                }
-                            }
-                        }
-
-                    }
-
-                    .quantity {
-                        @include display(space-between, center);
-                        padding: 0 20px 20px;
-
-                        @media($breakpoint_ESM) {
-                            padding: 8px 15px 8px;
-                        }
-
-                        h5 {
-                            margin-bottom: 0;
-                            font-size: 16px;
-                            font-weight: 600;
-                            color: $forgot;
-                        }
-
-                        .plus_minus {
-                            @include display(center, center);
-                            gap: 20px;
-
-                            button {
-                                border: none;
-                                border-radius: 5px;
-                                padding: 8px 7px;
-                                font-size: 16px;
-                                font-style: normal;
-                                font-weight: 600;
-                                background-color: $primary;
-                                color: $white;
-
-                                @media($breakpoint_ESM) {
-                                    padding: 7px;
-                                }
-
-                                @media($breakpoint_350) {
-                                    padding: 7px 6px;
-                                    border-radius: 6px;
-                                    font-size: 14px;
-                                }
-
-                                &:focus-visible {
-                                    outline: none;
-                                }
-                            }
-
-                            h4 {
-                                margin-bottom: 0;
-                                color: $forgot;
-                            }
-                        }
-                    }
-
-                    .x_number {
-                        justify-content: flex-end !important;
-                        padding: 8px 15px 8px;
-                    }
-
-
-                    .radio_btn {
-                        padding: 0 20px 0;
-
-                        @media($breakpoint_ESM) {
-                            padding: 0 15px 0px;
-                        }
-
-                        .radio {
-                            @include display (flex-start, center);
-
-                            label {
-                                color: $forgot;
-                                font-weight: 500;
-
-                                input {
-                                    margin-right: 5px;
-                                }
-
-                                span {
-                                    color: $red;
-                                    font-size: 14px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            .cancel_amount {
-                padding: 0 20px 20px;
-                @include display(space-between, center);
-
-                @media($breakpoint_ESM) {
-                    padding: 0 15px 15px;
-
-                }
-
-                .cancel {
-                    background-color: #858585;
-                    border-radius: 9px;
-                    padding: 9px 32px;
-                    border: none;
-                    color: #fff;
-
-                    @media($breakpoint_ESM) {
-                        padding: 9px 21px;
-                    }
-                }
-
-                .amount {
-                    border: none;
-                    background-color: $red !important;
-                    border-radius: 9px;
-                    padding: 9px 32px;
-                    border: none;
-                    color: #fff;
-
-                    @media($breakpoint_ESM) {
-                        padding: 9px 21px;
-                    }
-                }
-            }
+        @media ($breakpoint_450) {
+          margin-bottom: 13px;
         }
+
+        .modals {
+          width: 100%;
+          max-width: 420px;
+          background-color: $white;
+          border-radius: 14px 14px 0 0;
+
+          .win_go {
+            @include display(space-between, center);
+            background-color: $primary;
+            padding: 17px 20px;
+            border-radius: 14px 14px 0 0;
+
+            h4 {
+              margin-bottom: 0;
+              color: $white;
+              font-size: 20px;
+            }
+          }
+
+          .modal_content {
+            @include display(space-between, center);
+            padding: 20px;
+
+            @media ($breakpoint_ESM) {
+              padding: 15px 15px 8px;
+            }
+
+            h5 {
+              margin-bottom: 0;
+              font-size: 16px;
+              font-weight: 600;
+              color: $forgot;
+            }
+
+            .rupees_button {
+              display: flex;
+              gap: 10px;
+
+              .x_one_btn {
+                border: none;
+                background-color: $primary;
+                border-radius: 5px;
+                padding: 8px 7px;
+                color: $white;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+
+                @media ($breakpoint_ESM) {
+                  padding: 7px;
+                }
+
+                @media ($breakpoint_350) {
+                  padding: 7px 6px;
+                  border-radius: 6px;
+                  font-size: 14px;
+                }
+
+                &:focus-visible {
+                  outline: none;
+                }
+              }
+
+              .x_two_btn {
+                border: none;
+                border-radius: 5px;
+                padding: 8px 7px;
+                color: $forgot;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+
+                @media ($breakpoint_ESM) {
+                  padding: 7px;
+                }
+
+                @media ($breakpoint_350) {
+                  padding: 7px 6px;
+                  border-radius: 6px;
+                  font-size: 14px;
+                }
+
+                &:focus-visible {
+                  outline: none;
+                }
+              }
+            }
+          }
+
+          .quantity {
+            @include display(space-between, center);
+            padding: 0 20px 20px;
+
+            @media ($breakpoint_ESM) {
+              padding: 8px 15px 8px;
+            }
+
+            h5 {
+              margin-bottom: 0;
+              font-size: 16px;
+              font-weight: 600;
+              color: $forgot;
+            }
+
+            .plus_minus {
+              @include display(center, center);
+              gap: 20px;
+
+              button {
+                border: none;
+                border-radius: 5px;
+                padding: 8px 7px;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                background-color: $primary;
+                color: $white;
+
+                @media ($breakpoint_ESM) {
+                  padding: 7px;
+                }
+
+                @media ($breakpoint_350) {
+                  padding: 7px 6px;
+                  border-radius: 6px;
+                  font-size: 14px;
+                }
+
+                &:focus-visible {
+                  outline: none;
+                }
+              }
+
+              h4 {
+                margin-bottom: 0;
+                color: $forgot;
+              }
+            }
+          }
+
+          .x_number {
+            justify-content: flex-end !important;
+            padding: 8px 15px 8px;
+          }
+
+          .radio_btn {
+            padding: 0 20px 0;
+
+            @media ($breakpoint_ESM) {
+              padding: 0 15px 0px;
+            }
+
+            .radio {
+              @include display(flex-start, center);
+
+              label {
+                color: $forgot;
+                font-weight: 500;
+
+                input {
+                  margin-right: 5px;
+                }
+
+                span {
+                  color: $red;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .cancel_amount {
+        padding: 0 20px 20px;
+        @include display(space-between, center);
+
+        @media ($breakpoint_ESM) {
+          padding: 0 15px 15px;
+        }
+
+        .cancel {
+          background-color: #858585;
+          border-radius: 9px;
+          padding: 9px 32px;
+          border: none;
+          color: #fff;
+
+          @media ($breakpoint_ESM) {
+            padding: 9px 21px;
+          }
+        }
+
+        .amount {
+          border: none;
+          border-radius: 9px;
+          padding: 9px 32px;
+          border: none;
+          color: #fff;
+
+          @media ($breakpoint_ESM) {
+            padding: 9px 21px;
+          }
+        }
+      }
     }
+  }
 }
