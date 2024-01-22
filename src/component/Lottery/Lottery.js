@@ -21,6 +21,7 @@ import Tab_screen from "./Tabs/Tab_screen";
 import io from "socket.io-client";
 import { ApiBaseUrl } from "../../utils/Constants";
 import ModalButton from "./BigSmall/OffCanvas/ModalBottom";
+import ModalBottom from "./BigSmall/OffCanvas/ModalBottom";
 
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -33,6 +34,8 @@ const Lottery = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedX, setSelectedX] = useState(1);
   const [winToGoTime, setWinToGoTime] = useState(1);
+
+  const [isOpenModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     // Establish a connection to the Socket.io server
@@ -405,10 +408,14 @@ const Lottery = () => {
               </button>
             </div>
 
-            <BigSmall />
+            <div onClick={() => setOpenModal(true)}>
+              <BigSmall />
+            </div>
+
           </div>
 
           <Tab_screen />
+          <ModalBottom myColor={"#F0F0F0"} isOpenModal={isOpenModal} setOpenModal={setOpenModal} />
         </div>
       </div>
     </div>

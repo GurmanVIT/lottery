@@ -12,6 +12,7 @@ import store from "./redux/store";
 
 import { createBrowserHistory } from "history";
 import { io } from "socket.io-client";
+import ModalBottom from "./component/Lottery/BigSmall/OffCanvas/ModalBottom";
 
 const history = createBrowserHistory();
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/otp" element={<OTP />} />
           <Route path="/forgot" element={<Forgot />} />
+          <Route path="/modalbottom" element={<ModalBottom />} />
         </Routes>
       </Router>
     </Provider>

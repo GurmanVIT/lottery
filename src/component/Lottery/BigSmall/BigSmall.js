@@ -1,21 +1,23 @@
-import React from 'react';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
-import ModalBottom from './OffCanvas/ModalBottom';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-const BigSmall = () => {
+const BigSmall = ({ openModal }) => {
+
     return (
         <>
             <div className='big_small'>
-                <Tabs
-                    id="uncontrolled-tab-example"
+
+                <button className="login_button"
+                // onClick={() => { openModal(true) }}
+                >Big</button>
+
+                <button
+                    className="register_button"
+                // onClick={() => { openModal(true) }}
                 >
-                    <Tab eventKey="big" title="Big">
-                        <ModalBottom />
-                    </Tab>
-                    <Tab eventKey="small" title="Small">
-                    </Tab>
-                </Tabs>
+                    Small
+                </button>
+
             </div>
         </>
     )

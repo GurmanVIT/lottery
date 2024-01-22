@@ -31,7 +31,7 @@ body {
 
 //home_page
 .home_page {
-    max-width: 500px;
+    max-width: 420px;
     background-color: #F7F8FF;
     margin: auto;
     // padding-bottom: 75px;
@@ -111,7 +111,6 @@ input {
     font-weight: 600;
 
     @media($breakpoint_450) {
-        padding: 10px;
         font-size: 17px;
         font-weight: 400;
         border-width: 1px;
@@ -130,6 +129,7 @@ input {
     border: 2px solid $primary;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: $white;
     color: $primary;
     text-decoration: none;

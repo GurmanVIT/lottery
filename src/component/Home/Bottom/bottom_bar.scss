@@ -3,16 +3,15 @@
     bottom: 0;
     z-index: 1;
     width: 100%;
-    max-width: 500px;
+    max-width: 420px;
+    height: 71px;
+    background: $bottom_bar;
+
 
     .MuiBox-root {
         .MuiBottomNavigation-root {
             background-color: $bottom_bar;
-            padding: 64px 10px 45px;
-
-            @media($breakpoint_450) {
-                padding: 48px 0px 30px;
-            }
+            padding: 35px 0px 0;
 
             .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
                 @media($breakpoint_450) {
@@ -54,13 +53,13 @@
 
                 &:not(:disabled) {
                     color: $disable_button ;
-                    gap: 6px;
+                    gap: 3px;
                     padding: 0px;
                 }
 
-                .MuiBottomNavigationAction-label {
-                    letter-spacing: .5px;
-                }
+                // .MuiBottomNavigationAction-label {
+                //     letter-spacing: .5px;
+                // }
 
                 .css-8je8zh-MuiTouchRipple-root {
                     display: none;
@@ -69,8 +68,8 @@
 
             .Mui-selected {
                 color: $white !important;
-                font-size: 14px;
-                letter-spacing: .5px;
+                // font-size: 14px;
+                // letter-spacing: .5px;
                 padding: 0;
             }
 

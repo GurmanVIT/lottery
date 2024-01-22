@@ -2,15 +2,11 @@
     @include display(center, center);
 
     .login_section {
-        width: 500px;
+        width: 420px;
 
         .lottery {
             background-color: $primary;
-            padding: 25px;
-
-            @media($breakpoint_450) {
-                padding: 20px;
-            }
+            padding: 20px;
 
             @media($breakpoint_350) {
                 padding: 15px;
@@ -40,15 +36,11 @@
 
                 h2 {
                     color: $white;
-                    font-size: 30px;
+                    font-size: 26px;
                     font-style: normal;
                     font-weight: 800;
                     text-transform: uppercase;
                     margin-bottom: 0;
-
-                    @media($breakpoint_450) {
-                        font-size: 26px;
-                    }
 
                     @media($breakpoint_ESM) {
                         font-size: 21px;
@@ -61,13 +53,9 @@
             }
 
             h5 {
-                font-size: 25px;
+                font-size: 21px;
                 color: $white;
                 margin-bottom: 5px;
-
-                @media($breakpoint_450) {
-                    font-size: 21px;
-                }
 
                 @media($breakpoint_350) {
                     font-size: 18px;
@@ -75,13 +63,9 @@
             }
 
             p {
-                font-size: 15px;
+                font-size: 14px;
                 color: $white;
                 margin-bottom: 0;
-
-                @media($breakpoint_450) {
-                    font-size: 14px;
-                }
 
                 @media($breakpoint_350) {
                     font-size: 12px;
@@ -92,12 +76,8 @@
         .secound_section {
             .inner {
                 background-color: $page_bg;
-                padding: 45px 25px 25px;
+                padding: 35px 20px 20px;
                 height: 100vh;
-
-                @media($breakpoint_450) {
-                    padding: 35px 20px 20px;
-                }
 
                 @media($breakpoint_350) {
                     padding: 30px 15px 15px;
@@ -107,15 +87,10 @@
                     position: relative;
 
                     label {
-                        padding-left: 60px;
+                        font-size: 13px;
+                        padding-top: 20px;
+                        padding-left: 50px;
                         margin-bottom: 5px;
-                        font-size: 15px;
-
-                        @media($breakpoint_450) {
-                            font-size: 13px;
-                            padding-top: 20px;
-                            padding-left: 50px;
-                        }
 
                         @media($breakpoint_350) {
                             padding-left: 45px;
@@ -125,11 +100,7 @@
                     img {
                         position: absolute;
                         top: 22px;
-                        left: 25px;
-
-                        @media($breakpoint_450) {
-                            left: 13px;
-                        }
+                        left: 13px;
 
                         @media($breakpoint_350) {
                             left: 11px;
