@@ -17,6 +17,7 @@ import { loginUser } from "../../../redux/loginSlice";
 import LoadingButton from "../../Loader/LoadingButton";
 import { CircleLoader, ClipLoader, RotateLoader } from "react-spinners";
 import { colors } from "@mui/material";
+import { myColors } from "../../../utils/Colors";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -127,6 +128,7 @@ const Login = () => {
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
+                  disabled={isLoading}
                   onChange={(e) => {
                     handleEmailChange(e);
                   }}
@@ -146,6 +148,7 @@ const Login = () => {
                   placeholder="PASSWORD"
                   name="Password"
                   value={password}
+                  disabled={isLoading}
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
@@ -177,12 +180,17 @@ const Login = () => {
                     onLoginClick();
                   }}
                 >
-                  {isLoading ? <ClipLoader color="#FFF" /> : "Login"}
+                  {isLoading ? (
+                    <ClipLoader color={myColors.txtBlack} />
+                  ) : (
+                    "Login"
+                  )}
                 </button>
               </div>
               <div className="register_link">
                 <button
                   className="register_button"
+                  disabled={isLoading}
                   onClick={() => {
                     navigation("/register");
                   }}

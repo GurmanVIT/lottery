@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../../../redux/signupSlice";
 import { checkSponsor } from "../../../redux/checkSponsorIdSlice";
 import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -131,6 +132,7 @@ const Register = () => {
                     type="email"
                     placeholder="name@example.com"
                     className="first_name"
+                    disabled={isLoading}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                 </FloatingLabel>
@@ -144,6 +146,7 @@ const Register = () => {
                   <Form.Control
                     type="email"
                     placeholder="name@example.com"
+                    disabled={isLoading}
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 </FloatingLabel>
@@ -158,6 +161,7 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
+                  disabled={isLoading}
                   onChange={(e) => handleEmailChange(e)}
                 />
               </FloatingLabel>
@@ -178,6 +182,7 @@ const Register = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="PASSWORD"
                   name="Password"
+                  disabled={isLoading}
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
@@ -209,6 +214,7 @@ const Register = () => {
                   placeholder="CONFIRM PASWORD"
                   name="Password"
                   value={confirmPassword}
+                  disabled={isLoading}
                   onChange={(e) => {
                     setConfirmPassword(e.target.value);
                   }}
@@ -237,6 +243,7 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
+                  disabled={isLoading}
                   onChange={(e) => setSponsorId(e.target.value)}
                 />
               </FloatingLabel>
@@ -283,7 +290,11 @@ const Register = () => {
                     onSignUpClick();
                   }}
                 >
-                  {isLoading ? <ClipLoader color="#FFF" /> : "Register"}
+                  {isLoading ? (
+                    <ClipLoader color={myColors.txtWhite} />
+                  ) : (
+                    "Register"
+                  )}
                 </button>
               </div>
               <div className="register_link">
