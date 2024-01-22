@@ -115,26 +115,18 @@
                     input {
                         border: none;
                         border-radius: 10px;
-                        padding-left: 55px;
+                        font-size: 15px;
+                        padding-left: 47px;
                         padding-right: 45px;
                         font-weight: 500;
                         box-shadow: $input_shadow;
-
-                        @media($breakpoint_450) {
-                            font-size: 15px;
-                            padding-left: 47px;
-                        }
 
                         @media($breakpoint_350) {
                             padding-left: 43px;
                         }
 
                         &:focus {
-                            padding-left: 55px;
-
-                            @media($breakpoint_450) {
-                                padding-left: 47px;
-                            }
+                            padding-left: 47px;
 
                             @media($breakpoint_350) {
                                 padding-left: 43px;
@@ -161,11 +153,7 @@
 
                 .forgot_link {
                     text-align: end;
-                    margin: 20px 0;
-
-                    @media($breakpoint_450) {
-                        margin: 15px 0;
-                    }
+                    margin: 15px 0;
 
                     .forgot {
                         color: $forgot;
@@ -191,11 +179,7 @@
 
                 .upper {
                     text-align: center;
-                    margin-top: 30px;
-
-                    @media($breakpoint_450) {
-                        margin-top: 20px;
-                    }
+                    margin-top: 20px;
 
                     img {
                         margin-bottom: 5px;

@@ -101,20 +101,23 @@ input {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 13px;
+    padding: 11px;
     border: 2px solid $primary;
     background-color: $primary;
     color: $white;
     text-decoration: none;
-    font-size: larger;
+    font-size: large;
     border-radius: 13px;
     font-weight: 600;
 
     @media($breakpoint_450) {
         font-size: 17px;
         font-weight: 400;
-        border-width: 1px;
         border-radius: 8px;
+    }
+
+    @media($breakpoint_ESM) {
+        border-width: 1px;
     }
 }
 
@@ -125,7 +128,7 @@ input {
 @mixin register_button {
     margin-top: 20px;
     width: 100%;
-    padding: 13px;
+    padding: 10px;
     border: 2px solid $primary;
     display: flex;
     justify-content: center;
@@ -138,10 +141,8 @@ input {
     font-weight: 700;
 
     @media($breakpoint_450) {
-        padding: 10px;
         font-weight: 400;
         font-size: 17px;
-        border-width: 1px;
         margin-top: 13px;
         border-radius: 8px;
     }
