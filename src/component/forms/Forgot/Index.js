@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotUser } from "../../../redux/forgotSlice";
 import { ForestRounded } from "@mui/icons-material";
+import { ClipLoader } from "react-spinners";
 
 const Forgot = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +16,7 @@ const Forgot = () => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const forgotResponse = useSelector((state) => state.forgotReducer.data);
+  const isLoading = useSelector((state) => state.forgotReducer.isLoading);
 
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
@@ -47,20 +49,6 @@ const Forgot = () => {
       alert(forgotResponse.message);
     }
   }, [forgotResponse]);
-
-
-
-  //loader 
-  const [loadingForgot, setLoadingForgot] = useState(false);
-  const handleLoaderForgotClick = () => {
-    setLoadingForgot(true);
-    // Your loading logic here
-    setTimeout(() => {
-      setLoadingForgot(false);
-    }, 2000); // Simulate a 2-second loading time
-  };
-
-
 
   return (
     <div className="forgot_sec">
@@ -95,8 +83,11 @@ const Forgot = () => {
           <button
             type="button"
             className="login_button mt-4"
-            onClick={() => { onForgotClick(); handleLoaderForgotClick() }}>
-            {loadingForgot ? 'Loading' : 'Forgot'}
+            onClick={() => {
+              onForgotClick();
+            }}
+          >
+            {isLoading ? <ClipLoader color="#FFF" /> : "Forgot"}
           </button>
         </div>
       </div>

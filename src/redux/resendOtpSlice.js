@@ -47,7 +47,7 @@ const resendOtpSlice = createSlice({
       })
       .addCase(resendOtpApi.rejected, (state, action) => {
         console.log("Error", action.payload);
-        state.isError = true;
+        state.isError = false;
       });
   },
 });

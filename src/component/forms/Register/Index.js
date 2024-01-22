@@ -11,6 +11,7 @@ import { VisibilityTwoTone, VisibilityOffTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../../../redux/signupSlice";
 import { checkSponsor } from "../../../redux/checkSponsorIdSlice";
+import { ClipLoader } from "react-spinners";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,6 +46,7 @@ const Register = () => {
 
   const signupSuccess = useSelector((state) => state.signup.data);
   const sponsorResponse = useSelector((state) => state.sponsorReducer.data);
+  const isLoading = useSelector((state) => state.signup.isLoading);
 
   const dispatch = useDispatch();
 
@@ -67,6 +69,8 @@ const Register = () => {
       alert("Please enter sponsor id");
     } else if (selectedOption == null) {
       alert("Please select position");
+    } else if (!checked) {
+      alert("Please select privacy policies");
     } else {
       const payload = sponsorId;
       dispatch(checkSponsor(payload));
@@ -100,19 +104,6 @@ const Register = () => {
       alert("Invalid Sponsor ID");
     }
   }, [sponsorResponse]);
-
-
-  //loader 
-  const [loadingRegisterButton, setLoadingRegisterButton] = useState(false);
-  const handleLoaderRegisterButtonClick = () => {
-    setLoadingRegisterButton(true);
-    // Your loading logic here
-    setTimeout(() => {
-      setLoadingRegisterButton(false);
-    }, 4000); // Simulate a 2-second loading time
-  };
-
-
 
   return (
     <div className="home_page">
@@ -286,17 +277,22 @@ const Register = () => {
                 </label>
               </div>
               <div className="login_link mt-4">
-
                 <button
                   className="login_button"
-                  onClick={() => { onSignUpClick(); handleLoaderRegisterButtonClick() }}>
-                  {loadingRegisterButton ? 'Loading' : 'Register'}
+                  onClick={() => {
+                    onSignUpClick();
+                  }}
+                >
+                  {isLoading ? <ClipLoader color="#FFF" /> : "Register"}
                 </button>
               </div>
               <div className="register_link">
                 <button
                   className="register_button"
-                  onClick={() => { navigation("/login") }}>
+                  onClick={() => {
+                    navigation("/login");
+                  }}
+                >
                   I have an account <span>Login</span>
                 </button>
               </div>
