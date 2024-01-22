@@ -45,7 +45,7 @@ const otpSlice = createSlice({
       })
       .addCase(otpAuth.rejected, (state, action) => {
         console.log("Error", action.payload);
-        state.isError = true;
+        state.isError = false;
       });
   },
 });

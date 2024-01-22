@@ -12,7 +12,7 @@ export const checkSponsor = createAsyncThunk(
         "Content-Type": "application/json",
       },
     };
-    console.log("KKK")
+    console.log("KKK");
     try {
       const response = await axios.get(
         ApiBaseUrl + checkSponsorIdApi + "?sponserId=" + payload,
@@ -51,7 +51,7 @@ const checkSponsorIdSlice = createSlice({
       })
       .addCase(checkSponsor.rejected, (state, action) => {
         console.log("Error", action.payload);
-        state.isError = true;
+        state.isError = false;
       });
   },
 });

@@ -8,6 +8,7 @@ import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
 import { clearData } from "../../../redux/loginSlice";
 import { clearSignUpData } from "../../../redux/signupSlice";
 import { clearSponsorData } from "../../../redux/checkSponsorIdSlice";
+import { ClipLoader } from "react-spinners";
 
 const Index = () => {
   const [otp, setOtp] = useState("");
@@ -15,6 +16,10 @@ const Index = () => {
   const loginSuccess = useSelector((state) => state.login.data);
   const otpSuccess = useSelector((state) => state.otpReducer.data);
   const resendOtpResponse = useSelector((state) => state.resendOtpReducer.data);
+  const isLoadingResend = useSelector(
+    (state) => state.resendOtpReducer.isLoading
+  );
+  const isLoading = useSelector((state) => state.otpReducer.isLoading);
   const userId = localStorage.getItem("userId");
 
   const dispatch = useDispatch();
@@ -76,31 +81,6 @@ const Index = () => {
     }
   }, [resendOtpResponse]);
 
-
-
-
-  //loader 
-  const [loadingSubmit, setLoadingSubmit] = useState(false);
-  const handleLoaderSubmitClick = () => {
-    setLoadingSubmit(true);
-    // Your loading logic here
-    setTimeout(() => {
-      setLoadingSubmit(false);
-    }, 2000); // Simulate a 2-second loading time
-  };
-
-
-  //loader 
-  const [loadingResend, setLoadingResend] = useState(false);
-  const handleLoaderResendClick = () => {
-    setLoadingResend(true);
-    // Your loading logic here
-    setTimeout(() => {
-      setLoadingResend(false);
-    }, 2000); // Simulate a 2-second loading time
-  };
-
-
   return (
     <div className="otp">
       <div className="screen_otp">
@@ -134,14 +114,20 @@ const Index = () => {
           <button
             type="button"
             className="login_button"
-            onClick={() => { onOtpClick(); handleLoaderSubmitClick() }}>
-            {loadingSubmit ? 'Loading' : 'Submit'}
+            onClick={() => {
+              onOtpClick();
+            }}
+          >
+            {isLoading ? <ClipLoader color="#FFF" /> : "Submit"}
           </button>
           <button
             type="button"
             className="register"
-            onClick={() => { onResendClick(); handleLoaderResendClick() }}>
-            {loadingResend ? 'Loading' : 'Resend Code'}
+            onClick={() => {
+              onResendClick();
+            }}
+          >
+            {isLoadingResend ? <ClipLoader color="#6561C0 " /> : "Resend Code"}
           </button>
         </form>
       </div>

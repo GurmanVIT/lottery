@@ -15,8 +15,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../redux/loginSlice";
 import LoadingButton from "../../Loader/LoadingButton";
-import { CircleLoader } from 'react-spinners';
-
+import { CircleLoader, ClipLoader, RotateLoader } from "react-spinners";
+import { colors } from "@mui/material";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +36,7 @@ const Login = () => {
   };
 
   const loginSuccess = useSelector((state) => state.login.data);
+  const isLoading = useSelector((state) => state.login.isLoading);
 
   const navigation = useNavigate();
 
@@ -82,8 +83,7 @@ const Login = () => {
     }
   }, [loginSuccess]);
 
-
-  //loader 
+  //loader
   const [loading, setLoading] = useState(false);
   const handleLoaderClick = () => {
     setLoading(true);
@@ -93,8 +93,7 @@ const Login = () => {
     }, 4000); // Simulate a 2-second loading time
   };
 
-
-  //loader 
+  //loader
   const [loadingRegister, setLoadingRegister] = useState(false);
   const handleLoaderRegisterClick = () => {
     setLoadingRegister(true);
@@ -103,8 +102,6 @@ const Login = () => {
       setLoadingRegister(false);
     }, 1000); // Simulate a 2-second loading time
   };
-
-
 
   return (
     <>
@@ -174,15 +171,23 @@ const Login = () => {
                 </Link>
               </div>
               <div className="login_link">
-                <button className="login_button" onClick={() => { onLoginClick(); handleLoaderClick() }}>
-                  {loading ? 'Loading' : 'Login'}
+                <button
+                  className="login_button"
+                  onClick={() => {
+                    onLoginClick();
+                  }}
+                >
+                  {isLoading ? <ClipLoader color="#FFF" /> : "Login"}
                 </button>
               </div>
               <div className="register_link">
                 <button
                   className="register_button"
-                  onClick={() => { navigation("/register"); handleLoaderRegisterClick() }}>
-                  {loadingRegister ? 'Loading' : 'Register'}
+                  onClick={() => {
+                    navigation("/register");
+                  }}
+                >
+                  Register
                 </button>
               </div>
               <div className="upper">
