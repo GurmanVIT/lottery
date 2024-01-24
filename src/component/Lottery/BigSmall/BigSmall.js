@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { myColors } from "../../../utils/Colors";
 
-const BigSmall = ({ openModal }) => {
+const BigSmall = ({ openModal, setSelectedColor, setSelectedValue }) => {
+  const onBigClick = () => {
+    openModal(true);
+    setSelectedColor(myColors.primaryColor);
+    setSelectedValue("Big");
+  };
+  const onSmallClick = () => {
+    openModal(true);
+    setSelectedColor(myColors.primaryColor);
+    setSelectedValue("Small");
+  };
+
   return (
     <>
       <div className="big_small">
-        <button className="login_button" onClick={() => openModal(true)}>
+        <button className="login_button" onClick={() => onBigClick()}>
           Big
         </button>
 
-        <button className="register_button" onClick={() => openModal(true)}>
+        <button className="register_button" onClick={() => onSmallClick()}>
           Small
         </button>
       </div>

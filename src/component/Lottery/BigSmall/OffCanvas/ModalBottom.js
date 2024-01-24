@@ -28,6 +28,7 @@ const ModalBottom = ({
   setSelectedX,
   setBalance,
   balance,
+  placeBet,
 }) => {
   const closeModal = () => {
     setOpenModal(false);
@@ -150,6 +151,7 @@ const ModalBottom = ({
                         ? myColors.txtWhite
                         : myColors.forgot_color,
                   }}
+                  onClick={() => setSelectedX(1)}
                 >
                   X1
                 </button>
@@ -164,6 +166,7 @@ const ModalBottom = ({
                         ? myColors.txtWhite
                         : myColors.forgot_color,
                   }}
+                  onClick={() => setSelectedX(5)}
                 >
                   X5
                 </button>
@@ -178,6 +181,7 @@ const ModalBottom = ({
                         ? myColors.txtWhite
                         : myColors.forgot_color,
                   }}
+                  onClick={() => setSelectedX(10)}
                 >
                   X10
                 </button>
@@ -192,6 +196,7 @@ const ModalBottom = ({
                         ? myColors.txtWhite
                         : myColors.forgot_color,
                   }}
+                  onClick={() => setSelectedX(20)}
                 >
                   X20
                 </button>
@@ -206,6 +211,7 @@ const ModalBottom = ({
                         ? myColors.txtWhite
                         : myColors.forgot_color,
                   }}
+                  onClick={() => setSelectedX(50)}
                 >
                   X50
                 </button>
@@ -220,6 +226,7 @@ const ModalBottom = ({
                         ? myColors.txtWhite
                         : myColors.forgot_color,
                   }}
+                  onClick={() => setSelectedX(100)}
                 >
                   X100
                 </button>
@@ -238,11 +245,16 @@ const ModalBottom = ({
         </div>
 
         <div className="cancel_amount">
-          <button onClick={closeModal} className="cancel">
+          <button type="button" onClick={closeModal} className="cancel">
             Cancel
           </button>
-          <button className="amount" style={{ backgroundColor: myColor }}>
-            Total amount ₹ 1.00
+          <button
+            type="button"
+            className="amount"
+            style={{ backgroundColor: myColor }}
+            onClick={() => placeBet()}
+          >
+            Total amount ₹ {balance * selectedX}
           </button>
         </div>
       </Modal>
