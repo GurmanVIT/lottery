@@ -6,8 +6,8 @@ import email_icon from "../../../assets/img/email_icon.svg";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotUser } from "../../../redux/forgotSlice";
-import { ForestRounded } from "@mui/icons-material";
 import { ClipLoader } from "react-spinners";
+import back_back from "../../../assets/img/back_back.svg";
 
 const Forgot = () => {
   const [email, setEmail] = useState("");
@@ -53,11 +53,15 @@ const Forgot = () => {
   return (
     <div className="forgot_sec">
       <div className="screen_forgot">
-        <div className="lottery">
-          <div className="logo">
+        <div className="logo">
+          <img src={back_back} alt="back_back" className="back_back" />
+          <div className="dg_image">
             <img src={DG} alt="DG" />
             <h2>Dapic games</h2>
           </div>
+        </div>
+
+        <div className="lottery">
           <h5>Forgot</h5>
         </div>
 
@@ -76,7 +80,7 @@ const Forgot = () => {
             />
           </FloatingLabel>
           {email.length != 0 && !isValid ? (
-            <p style={{ color: "red" }}>Invalid email address</p>
+            <p style={{ color: "red", fontSize: "14px" }}>Invalid email address</p>
           ) : (
             ""
           )}

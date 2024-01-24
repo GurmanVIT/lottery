@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DG from "../../../assets/img/DG.svg";
+import back_back from "../../../assets/img/back_back.svg";
 import OTPInput from "react-otp-input";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { clearOtpData, otpAuth, otpVerify } from "../../../redux/otpSlice";
+import { otpAuth } from "../../../redux/otpSlice";
 import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
-import { clearData } from "../../../redux/loginSlice";
-import { clearSignUpData } from "../../../redux/signupSlice";
 import { clearSponsorData } from "../../../redux/checkSponsorIdSlice";
 import { ClipLoader } from "react-spinners";
 
@@ -84,11 +83,15 @@ const Index = () => {
   return (
     <div className="otp">
       <div className="screen_otp">
-        <div className="lottery">
-          <div className="logo">
+        <div className="logo">
+          <img src={back_back} alt="back_back" className="back_back" />
+          <div className="dg_image">
             <img src={DG} alt="DG" />
             <h2>Dapic games</h2>
           </div>
+        </div>
+
+        <div className="lottery">
           <h5>Enter verification code</h5>
           <p>Enter 6-digit code we just texted to your email address.</p>
         </div>
