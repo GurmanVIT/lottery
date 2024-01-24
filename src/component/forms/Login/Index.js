@@ -11,13 +11,10 @@ import back_back from "../../../assets/img/back_back.svg";
 import {
   VisibilityTwoTone,
   VisibilityOffTwoTone,
-  Token,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../redux/loginSlice";
-import LoadingButton from "../../Loader/LoadingButton";
-import { CircleLoader, ClipLoader, RotateLoader } from "react-spinners";
-import { colors } from "@mui/material";
+import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
 const Login = () => {

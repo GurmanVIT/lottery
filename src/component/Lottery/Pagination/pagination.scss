@@ -6,16 +6,16 @@
             border: none;
             padding: 0;
             background-color: transparent;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: $forgot;
 
             span {
-                margin-right: 30px;
+                margin-right: 20px;
                 background-color: $dark_watch;
-                padding: 0px 12px;
+                padding: 0px 12px 2px;
                 border-radius: 6px;
-                font-size: 31px;
+                font-size: 29px;
                 color: $forgot;
                 font-weight: 500;
             }
@@ -40,11 +40,11 @@
             background-color: transparent;
 
             span {
-                margin-left: 30px;
+                margin-left: 20px;
                 background-color: $primary;
-                padding: 0px 12px;
+                padding: 0px 12px 2px;
                 border-radius: 6px;
-                font-size: 31px;
+                font-size: 29px;
                 color: $white;
                 font-weight: 500;
             }

@@ -3,33 +3,38 @@
         border: none;
         @include display(space-between, center);
 
+        @media($breakpoint_ESM) {
+            margin-bottom: 0 !important;
+        }
+
         .nav-item {
             color: $primary;
 
             .nav-link {
                 margin-bottom: -2px;
                 color: $forgot;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 600;
-                padding: 11px 25px;
-                border-radius: 8px;
+                padding: 11px 30px;
+                border-radius: 6px;
                 background-color: $dark_watch;
                 border: none;
 
                 @media($breakpoint_450) {
                     border-radius: 7px;
                     font-size: 14px;
-                    padding: 10px 21px;
+                    padding: 10px 25px;
                 }
 
                 @media($breakpoint_ESM) {
                     border-radius: 5px;
-                    padding: 10px 17px;
+                    padding: 10px 21px;
                     font-size: 13px;
                 }
 
                 @media($breakpoint_350) {
                     font-size: 12px;
+                    padding: 10px 19px;
                 }
             }
 
@@ -49,8 +54,7 @@
                 border-collapse: separate;
                 border-radius: 10px;
                 padding-bottom: 15px;
-                margin-top: 30px;
-
+                margin-top: 20px;
 
                 thead {
                     background-color: $primary;
@@ -58,13 +62,13 @@
                     border: none;
 
                     th {
-                        font-size: 16px;
+                        font-size: 15px;
                         font-weight: 600;
-                        padding: 15px 7px;
+                        padding: 10px 0px;
+                        width: 25%;
 
                         @media($breakpoint_ESM) {
-                            font-size: 15px;
-                            padding: 12px 5px;
+                            padding: 10px 5px;
                         }
 
                         @media($breakpoint_350) {
@@ -77,9 +81,9 @@
                     tr {
                         td {
                             color: $forgot;
-                            font-size: 15px;
+                            font-size: 13px;
                             font-weight: 600;
-                            padding: 15px 7px;
+                            padding: 12px 7px;
 
                             @media($breakpoint_ESM) {
                                 font-size: 14px;
@@ -96,7 +100,7 @@
 
             .chart_table {
                 background-color: $white;
-                margin: 25px 0;
+                margin: 20px 0;
 
                 .table_head {
                     @include display(space-around, center);
