@@ -2,6 +2,9 @@
     @include display(center, center);
 
     .page-item {
+        box-shadow: none;
+        outline: none;
+
         .page-link {
             border: none;
             padding: 0;
@@ -9,6 +12,8 @@
             font-size: 15px;
             font-weight: 600;
             color: $forgot;
+            box-shadow: none;
+            outline: none;
 
             span {
                 margin-right: 20px;
@@ -18,6 +23,7 @@
                 font-size: 29px;
                 color: $forgot;
                 font-weight: 500;
+                outline: none;
 
                 @media($breakpoint_ESM) {
                     font-size: 26px;
@@ -43,6 +49,8 @@
             border: none;
             padding: 0;
             background-color: transparent;
+            box-shadow: none;
+            outline: none;
 
             span {
                 margin-left: 20px;

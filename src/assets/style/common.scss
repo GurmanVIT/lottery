@@ -114,11 +114,6 @@ input {
         border-width: 1px;
         border-radius: 6px;
     }
-
-    &:hover {
-        background-color: $white;
-        color: $primary;
-    }
 }
 
 
@@ -144,11 +139,6 @@ input {
     @media($breakpoint_ESM) {
         border-width: 1px;
         border-radius: 6px;
-    }
-
-    &:hover {
-        background-color: $primary;
-        color: $white;
     }
 }
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DG from "../../../assets/img/DG.svg";
-import back_back from "../../../assets/img/back_back.svg";
 import OTPInput from "react-otp-input";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -84,7 +83,6 @@ const Index = () => {
     <div className="otp">
       <div className="screen_otp">
         <div className="logo">
-          <img src={back_back} alt="back_back" className="back_back" />
           <div className="dg_image">
             <img src={DG} alt="DG" />
             <h2>Dapic games</h2>

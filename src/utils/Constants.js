@@ -12,3 +12,4 @@ export const signupApi = "v1/user/signup";
 export const checkSponsorIdApi = "v1/user/checkSponserId";
 export const forgotPasswordApi = "v1/user/forgotPassword";
 export const resendOtp = "v1/user/resendVerificationCode";
+export const gameHistoryApi = "v1/user/gameHistory";

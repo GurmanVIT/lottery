@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import PaginationComponent from '../Pagination/Pagination';
 
 
-const Tab_screen = () => {
+const Tab_screen = ({ resultHistoryData }) => {
     return (
         <>
             <div className='tab_screen'>
@@ -24,30 +24,16 @@ const Tab_screen = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>544463464</td>
-                                    <td>1</td>
-                                    <td>Big</td>
-                                    <td><li></li></td>
-                                </tr>
-                                <tr>
-                                    <td>544463464</td>
-                                    <td>2</td>
-                                    <td>Small</td>
-                                    <td><li></li></td>
-                                </tr>
-                                <tr>
-                                    <td>544463464</td>
-                                    <td>3</td>
-                                    <td>Big</td>
-                                    <td><li></li></td>
-                                </tr>
-                                <tr>
-                                    <td>544463464</td>
-                                    <td>4</td>
-                                    <td>Small</td>
-                                    <td><li></li></td>
-                                </tr>
+                                {
+                                    resultHistoryData != null && resultHistoryData.map((item) =>
+                                        <tr>
+                                            <td>{item.gameId}</td>
+                                            <td>{item.result.betNumber}</td>
+                                            <td>{item.result.type === 1 ? "Big" : "Small"}</td>
+                                            <td>{item.result.color === 1 ? "Green" : item.result.color === 2 ? "Violet" : "Red"}</td>
+                                        </tr>
+                                    )
+                                }
                             </tbody>
                         </Table>
 

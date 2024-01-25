@@ -15,11 +15,6 @@
             width: 100%;
             max-width: 420px;
 
-            .back_back {
-                position: absolute;
-                left: 7px;
-            }
-
             .dg_image {
                 display: flex;
 
@@ -109,25 +104,11 @@
 
             .login_button {
                 @include login_button;
-                padding: 9px;
-                font-weight: 500;
-                border-radius: 9px;
                 margin-top: 10px;
-
-                @media ($breakpoint_450) {
-                    padding: 8px;
-                }
             }
 
             .register {
                 @include register_button;
-                padding: 9px;
-                font-weight: 500;
-                border-radius: 9px;
-
-                @media ($breakpoint_450) {
-                    padding: 8px;
-                }
             }
         }
     }

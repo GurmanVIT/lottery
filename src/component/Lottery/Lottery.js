@@ -20,6 +20,8 @@ import Tab_screen from "./Tabs/Tab_screen";
 import io from "socket.io-client";
 import ModalBottom from "./BigSmall/OffCanvas/ModalBottom";
 import { myColors } from "../../utils/Colors";
+import { useDispatch, useSelector } from "react-redux";
+import { gameHistory } from "../../redux/gameHistorySlice";
 
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -28,6 +30,7 @@ const Lottery = () => {
   const [gameId, setGameId] = useState("");
 
   const [gameTimer, setGamerTimer] = useState(0);
+  const [skip, setSkip] = useState(0);
 
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
@@ -36,6 +39,27 @@ const Lottery = () => {
   const [balanceValue, setBalanceValue] = useState(1);
 
   const [isOpenModal, setOpenModal] = useState(false);
+  const [historyData, setHistoryData] = useState(null);
+
+  const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
+  const dispatch = useDispatch();
+  useEffect(() => {
+
+    const payload = {
+      skip: skip,
+      limit: 10
+    }
+
+    dispatch(gameHistory(payload));
+  }, [skip])
+
+  useEffect(() => {
+
+    if (gameHistoryData != null && gameHistoryData.status === 1) {
+      setHistoryData(gameHistoryData.data)
+    }
+
+  }, [gameHistoryData])
 
   useEffect(() => {
     // Establish a connection to the Socket.io server
@@ -135,6 +159,10 @@ const Lottery = () => {
     }
 
     setOpenModal(false);
+
+
+
+
   };
 
   return (
@@ -279,19 +307,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[1]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[1]
                       : splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]}
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
@@ -523,7 +551,7 @@ const Lottery = () => {
             {/* </div> */}
           </div>
 
-          <Tab_screen />
+          <Tab_screen resultHistoryData={historyData} />
           <ModalBottom
             myColor={selectedColor}
             isOpenModal={isOpenModal}
