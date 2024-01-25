@@ -8,7 +8,7 @@
             .header_section {
                 @include display(space-between, center);
                 background: linear-gradient(60deg, rgb(101, 97, 192), rgba(73, 67, 193, 0.44));
-                padding: 20px;
+                padding: 15px 10px;
                 position: fixed;
                 top: 0;
                 z-index: 1;
@@ -16,94 +16,44 @@
                 width: 100%;
                 max-width: 420px;
 
-                @media($breakpoint_450) {
-                    padding: 15px 10px;
-                }
-
                 @media($breakpoint_ESM) {
                     padding: 12px 10px;
                 }
 
                 .logo {
                     @include display(center, center);
-                    gap: 5px;
+                    gap: 2px;
 
                     @media($breakpoint_ESM) {
                         gap: 0px;
-
-                    }
-
-                    img {
-                        @media($breakpoint_ESM) {
-                            height: 30px;
-                            width: 50px;
-                        }
-
-                        @media($breakpoint_350) {
-                            height: 25px;
-                            width: 45px;
-                        }
                     }
 
                     h2 {
                         color: $white;
-                        font-size: 30px;
+                        font-size: 17px;
                         font-style: normal;
                         font-weight: 800;
                         text-transform: uppercase;
                         margin-bottom: 0;
-
-                        @media($breakpoint_450) {
-                            font-size: 26px;
-                        }
-
-                        @media($breakpoint_ESM) {
-                            font-size: 21px;
-                        }
-
-                        @media($breakpoint_350) {
-                            font-size: 19px;
-                        }
                     }
                 }
 
                 .d-flex {
-                    .massage {
-                        img {
-                            @media($breakpoint_450) {
-                                width: 33px;
-                                height: 33px;
-                            }
-                        }
-                    }
-
-                    .download {
-                        img {
-                            @media($breakpoint_450) {
-                                width: 33px;
-                                height: 33px;
-                            }
-                        }
-                    }
-
                     h6 {
                         color: $white;
                         font-weight: 600;
                         margin-bottom: 0;
+                        font-size: 14px;
                     }
                 }
             }
         }
 
         .swiper {
-            padding-top: 40px;
-
-            @media($breakpoint_450) {
-                padding-top: 32px;
-            }
+            padding-top: 28px;
 
             @media($breakpoint_ESM) {
-                padding-top: 28px;
+                padding-top: 25px;
             }
 
             .swiper-horizontal {
@@ -114,14 +64,6 @@
                     .swiper-slide {
                         .card {
                             border: none;
-
-                            .card-img {
-                                img {
-                                    @media($breakpoint_450) {
-                                        height: 200px;
-                                    }
-                                }
-                            }
                         }
                     }
                 }
@@ -129,7 +71,7 @@
         }
 
         .flex_sec {
-            padding: 20px;
+            padding: 20px 10px;
             background-color: $page_bg;
 
             @media($breakpoint_450) {
@@ -138,12 +80,8 @@
 
             .game_sec {
                 @include display(space-between, center);
-                margin-bottom: 15px;
-
-                @media($breakpoint_450) {
-                    padding: 0 20px;
-                    margin-bottom: 5px;
-                }
+                margin-bottom: 5px;
+                padding: 0 20px;
 
                 @media($breakpoint_ESM) {
                     padding: 0 10px;
@@ -159,14 +97,9 @@
                     .lottery_img {
                         img {
                             border-radius: 50%;
-                            border: 3px solid $primary;
-                            padding: 10px;
-
-                            @media($breakpoint_450) {
-                                width: 70px;
-                                padding: 5px;
-                                border: 2px solid $primary;
-                            }
+                            border: 2px solid $primary;
+                            width: 70px;
+                            padding: 5px;
 
                             @media($breakpoint_350) {
                                 width: 65px;
@@ -179,7 +112,7 @@
 
                         h5 {
                             color: $primary;
-                            font-size: 18px;
+                            font-size: 16px;
                             font-weight: 600;
 
                             @media($breakpoint_450) {
@@ -201,12 +134,8 @@
                         img {
                             border-radius: 50%;
                             border: 2px solid $content_border;
-                            padding: 10px;
-
-                            @media($breakpoint_450) {
-                                width: 70px;
-                                padding: 5px;
-                            }
+                            width: 70px;
+                            padding: 5px;
 
                             @media($breakpoint_350) {
                                 width: 65px;
@@ -219,7 +148,7 @@
 
                         h5 {
                             color: $content_border;
-                            font-size: 18px;
+                            font-size: 17px;
                             font-weight: 500;
 
                             @media($breakpoint_450) {
@@ -237,12 +166,8 @@
             .card_sec {
                 width: 100%;
                 background-color: transparent;
-                margin-top: 40px;
+                margin-top: 30px;
                 position: relative;
-
-                @media($breakpoint_350) {
-                    margin-top: 35px;
-                }
 
                 .card {
                     background-color: $card_primary;
@@ -254,11 +179,7 @@
                     position: relative;
 
                     .card_body {
-                        padding: 20px 0 20px 20px;
-
-                        @media($breakpoint_450) {
-                            padding-left: 15px;
-                        }
+                        padding: 20px 0 20px 10px;
 
                         &::before {
                             content: "";
@@ -271,18 +192,9 @@
                             margin-bottom: 0;
                             color: $white;
                             font-weight: 700;
-                            font-size: 30px;
+                            font-size: 21px;
                             font-family: system-ui;
                             position: relative;
-
-                            @media($breakpoint_450) {
-                                font-weight: 600;
-                                font-size: 26px;
-                            }
-
-                            @media($breakpoint_350) {
-                                font-size: 24px;
-                            }
 
                             &::before {
                                 content: "";
@@ -302,10 +214,7 @@
                             font-family: system-ui;
                             font-weight: 500;
                             letter-spacing: 1px;
-
-                            @media($breakpoint_450) {
-                                font-size: 14px;
-                            }
+                            font-size: 14px;
                         }
 
                         .purple {
@@ -316,16 +225,11 @@
 
                 .gift_img {
                     position: absolute;
-                    top: -38px;
-                    right: 20px;
-
-                    @media($breakpoint_450) {
-                        top: -30px;
-                    }
+                    top: -27px;
+                    right: 15px;
 
                     @media($breakpoint_ESM) {
                         right: 10px;
-                        width: 150px;
                     }
 
                     @media($breakpoint_350) {
@@ -336,18 +240,14 @@
 
                 .card_footer {
                     @include display(space-between, center);
-                    padding: 15px 20px;
+                    padding: 10px;
                     border-radius: 0 0 14px 14px;
                     box-shadow: $input_shadow;
                     background-color: $white;
 
-                    @media($breakpoint_450) {
-                        padding: 10px;
-                    }
-
                     .card_flex {
                         @include display(center, center);
-                        gap: 10px;
+                        gap: 7px;
 
                         @media($breakpoint_450) {
                             gap: 5px;
@@ -364,7 +264,7 @@
                         gap: 15px;
 
                         @media($breakpoint_450) {
-                            gap: 8px;
+                            gap: 7px;
                         }
 
                         h6 {

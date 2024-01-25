@@ -8,7 +8,7 @@
         .header_flex {
             background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
             @include display(space-between, center);
-            padding: 20px;
+            padding: 12px 10px;
             position: fixed;
             top: 0;
             z-index: 1;
@@ -32,48 +32,21 @@
                 @media($breakpoint_ESM) {
                     gap: 5px;
                 }
-
-                .music {
-                    img {
-                        @media($breakpoint_450) {
-                            width: 33px;
-                            height: 33px;
-                        }
-                    }
-                }
-
-                .headphone {
-                    img {
-                        @media($breakpoint_450) {
-                            width: 33px;
-                            height: 33px;
-                        }
-                    }
-                }
             }
         }
 
         .dapic_header {
             background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
-            padding: 0 20px 20px;
-            height: 190px;
-
-            @media($breakpoint_450) {
-                padding: 0px 10px 20px;
-            }
+            padding: 0 10px 10px;
+            height: 160px;
         }
 
         .secound_sec {
             background-color: $page_bg;
-            // height: 100vh;
-            padding: 20px;
+            padding: 20px 10px;
             position: relative;
 
             @media($breakpoint_450) {
-                padding: 15px;
-            }
-
-            @media($breakpoint_ESM) {
                 padding: 15px 10px;
             }
 
@@ -84,17 +57,8 @@
                 border-radius: 14px;
                 position: absolute;
                 top: -92px;
+                left: 16px;
                 box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
-
-                @media($breakpoint_450) {
-                    width: 93%;
-                    top: -113px;
-                }
-
-                @media($breakpoint_ESM) {
-                    width: 94%;
-                }
-
 
                 .refresh {
                     text-align: end;
@@ -102,64 +66,45 @@
 
                 h1 {
                     color: $primary;
-                    font-size: 35px;
-                    font-style: normal;
-                    font-weight: 700;
+                    font-size: 24px;
+                    font-weight: 600;
                     line-height: normal;
                     text-transform: uppercase;
                     text-align: center;
-
-                    @media($breakpoint_450) {
-                        font-size: 31px;
-                    }
-
-                    @media($breakpoint_ESM) {
-                        font-size: 29px;
-                    }
+                    margin-bottom: 5px;
                 }
 
                 .img_content {
                     @include display(center, center);
-                    gap: 15px;
+                    gap: 12px;
 
                     h4 {
                         margin-bottom: 0;
                         color: $forgot;
-                        font-size: 16px;
-                        font-style: normal;
+                        font-size: 15px;
                         font-weight: 600;
                         line-height: normal;
-
-                        @media($breakpoint_450) {
-                            font-size: 15px;
-                        }
                     }
                 }
 
                 .btn_flex {
                     @include display(space-evenly, center);
-                    margin-top: 20px;
+                    margin-top: 15px;
 
                     .withdraw_btn {
                         button {
                             background-color: $primary;
                             border: none;
-                            padding: 15px 45px;
-                            border-radius: 10px;
+                            padding: 12px 35px;
+                            border-radius: 8px;
                             color: $white;
-                            font-size: 16px;
-                            font-style: normal;
+                            font-size: 14px;
                             font-weight: 600;
                             line-height: normal;
 
-                            @media($breakpoint_450) {
-                                padding: 12px 36px;
-                                font-size: 15px;
-                            }
-
                             @media($breakpoint_ESM) {
-                                padding: 11px 33px;
-                                font-size: 14px;
+                                padding: 10px 29px;
+                                font-size: 13px;
                             }
                         }
                     }
@@ -168,22 +113,16 @@
                         button {
                             background-color: $deposit_button;
                             border: none;
-                            padding: 15px 45px;
-                            border-radius: 10px;
+                            padding: 12px 35px;
+                            border-radius: 8px;
                             color: $white;
-                            font-size: 16px;
-                            font-style: normal;
+                            font-size: 14px;
                             font-weight: 600;
                             line-height: normal;
 
-                            @media($breakpoint_450) {
-                                padding: 12px 36px;
-                                font-size: 15px;
-                            }
-
                             @media($breakpoint_ESM) {
-                                padding: 11px 33px;
-                                font-size: 14px;
+                                padding: 10px 29px;
+                                font-size: 13px;
                             }
                         }
                     }
@@ -193,10 +132,9 @@
             .watch_flex_card {
                 @include display(space-between, center);
                 gap: 15px;
-                margin-top: 105px;
+                margin-top: 75px;
 
                 @media($breakpoint_450) {
-                    margin-top: 75px;
                     gap: 5px;
                 }
 
@@ -280,18 +218,13 @@
             }
 
             .mixing_card {
-
                 .win_card {
                     @include display(space-between, center);
                     border-radius: 12px 12px 0 0;
                     margin-top: 20px;
-                    padding: 25px 20px;
+                    padding: 15px 10px;
                     background: linear-gradient(191deg, #6A66C2 -86.72%, #9793FF 72.22%);
                     border-bottom: 3px dashed $white;
-
-                    @media($breakpoint_450) {
-                        padding: 20px 10px;
-                    }
 
                     @media($breakpoint_350) {
                         padding: 20px 7px;
@@ -301,15 +234,10 @@
 
                         h3 {
                             color: $white;
-                            font-size: 20px;
+                            font-size: 17px;
                             font-weight: 700;
                             line-height: normal;
-                            margin-bottom: 15px;
-
-                            @media($breakpoint_450) {
-                                font-size: 17px;
-                                margin-bottom: 11px;
-                            }
+                            margin-bottom: 11px;
                         }
 
                         .coin_img {
@@ -377,41 +305,30 @@
                 .timing {
                     background-color: $mixing_card;
                     border-radius: 0 0 12px 12px;
-                    padding: 20px 20px 15px;
-
-                    @media($breakpoint_450) {
-                        padding: 10px;
-                    }
+                    padding: 15px 10px 10px;
 
                     h5 {
                         color: $white;
-                        font-size: 18px;
+                        font-size: 17px;
                         font-style: normal;
                         font-weight: 700;
-                        margin-bottom: 5px;
+                        margin-bottom: 3px;
                     }
 
                     .remaining {
                         @include display(center, center);
 
                         .zero_number {
-                            width: 39px;
-                            height: 50px;
+                            width: 35px;
+                            height: 40px;
                             color: $black;
-                            margin-right: 10px;
+                            margin-right: 5px;
                             background-color: $white;
                             @include display(center, center);
-                            border-radius: 10px;
-                            font-size: 26px;
+                            border-radius: 7px;
+                            font-size: 23px;
                             font-style: normal;
                             font-weight: 500;
-
-                            @media($breakpoint_450) {
-                                width: 35px;
-                                height: 40px;
-                                margin-right: 5px;
-                                font-size: 23px;
-                            }
 
                             @media($breakpoint_ESM) {
                                 width: 32px;
@@ -429,13 +346,8 @@
                         }
 
                         .zero_number_bg {
-                            margin: 0 20px 0 10px;
-                            font-size: 40px;
-
-                            @media($breakpoint_450) {
-                                margin: 0 5px 0 0;
-                                font-size: 35px;
-                            }
+                            margin: 0 5px 0 0;
+                            font-size: 35px;
 
                             @media($breakpoint_350) {
                                 font-size: 30px;
@@ -446,13 +358,9 @@
 
                     .text_number {
                         color: $white;
-                        font-size: 21px;
+                        font-size: 19px;
                         font-style: normal;
                         font-weight: 600;
-
-                        @media($breakpoint_450) {
-                            font-size: 19px;
-                        }
 
                         @media($breakpoint_ESM) {
                             font-size: 18px;
@@ -482,13 +390,9 @@
 
             .select_coin {
                 background-color: $dark_watch;
-                padding: 20px 20px 5px;
+                padding: 16px 13px 1px;
                 border-radius: 12px;
                 box-shadow: $input_shadow;
-
-                @media($breakpoint_450) {
-                    padding: 16px 10px 1px;
-                }
 
                 .ten_coin {
                     @include display(space-between, center);
@@ -499,10 +403,8 @@
                         position: relative;
 
                         img {
-                            @media($breakpoint_500) {
-                                width: 65px;
-                                height: 65px;
-                            }
+                            width: 65px;
+                            height: 65px;
 
                             @media($breakpoint_450) {
                                 width: 60px;
@@ -522,18 +424,11 @@
 
                         h4 {
                             color: $white;
-                            font-size: 26px;
-                            font-style: normal;
                             font-weight: 500;
                             position: absolute;
-                            left: 30px;
-                            top: 21px;
-
-                            @media($breakpoint_500) {
-                                font-size: 24px;
-                                left: 26px;
-                                top: 18px;
-                            }
+                            font-size: 24px;
+                            left: 26px;
+                            top: 18px;
 
                             @media($breakpoint_450) {
                                 font-size: 21px;
@@ -564,76 +459,51 @@
                     background-color: $white;
                     border: 2px solid $primary;
                     color: $primary;
-                    font-size: 16px;
-                    font-style: normal;
+                    font-size: 14px;
                     font-weight: 600;
-                    border-radius: 9px;
-                    padding: 8px 20px;
-
-                    @media($breakpoint_450) {
-                        font-size: 14px;
-                        padding: 7px 16px;
-                    }
+                    border-radius: 7px;
+                    padding: 7px 16px;
 
                     @media($breakpoint_ESM) {
                         font-size: 12px;
                         padding: 7px 12px;
+                        border-width: 1px;
+                        border-radius: 5px;
                     }
 
                     @media($breakpoint_350) {
                         font-size: 11px;
-                        padding: 8px 11px;
-                        border-radius: 6px;
-                    }
-                }
-
-                .x_one_btn {
-                    border: none;
-                    border-radius: 9px;
-                    padding: 10px;
-                    color: $white;
-                    background-color: $green;
-
-                    @media($breakpoint_450) {
-                        padding: 8px 7px;
-                    }
-
-                    @media($breakpoint_ESM) {
-                        padding: 7px;
-                    }
-
-                    @media($breakpoint_350) {
-                        padding: 7px 6px;
-                        font-size: 14px;
+                        padding: 7px 11px;
                         border-radius: 6px;
                     }
 
-                    &:focus-visible {
-                        outline: none;
+                    &:hover {
+                        background-color: $primary;
+                        color: $white;
                     }
                 }
 
                 .x_two_btn {
                     border: none;
                     border-radius: 9px;
-                    padding: 10px;
+                    padding: 7px 10px;
                     color: $forgot;
                     background-color: $dark_watch;
                     font-size: 16px;
-                    font-style: normal;
                     font-weight: 600;
 
                     @media($breakpoint_450) {
-                        padding: 8px 7px;
+                        padding: 7px;
+                        border-radius: 6px;
+                        font-size: 15px;
                     }
 
                     @media($breakpoint_ESM) {
-                        padding: 7px;
+                        padding: 6px 7px;
                     }
 
                     @media($breakpoint_350) {
-                        padding: 7px 6px;
-                        border-radius: 6px;
+                        padding: 6px;
                         font-size: 14px;
                     }
 

@@ -6,17 +6,15 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { Link, useNavigate } from "react-router-dom";
 import support from "../../../assets/img/support.svg";
 import DG from "../../../assets/img/DG.svg";
+import back_back from "../../../assets/img/back_back.svg";
 
 import {
   VisibilityTwoTone,
   VisibilityOffTwoTone,
-  Token,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../redux/loginSlice";
-import LoadingButton from "../../Loader/LoadingButton";
-import { CircleLoader, ClipLoader, RotateLoader } from "react-spinners";
-import { colors } from "@mui/material";
+import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
 const Login = () => {
@@ -108,11 +106,15 @@ const Login = () => {
     <>
       <div className="login">
         <div className="login_section">
-          <div className="lottery">
-            <div className="logo">
+          <div className="logo">
+            <img src={back_back} alt="back_back" className="back_back" />
+            <div className="dg_image">
               <img src={DG} alt="DG" />
               <h2>Dapic games</h2>
             </div>
+          </div>
+
+          <div className="lottery">
             <h5>Login</h5>
             <p>Please login by email</p>
           </div>
@@ -136,7 +138,7 @@ const Login = () => {
               </FloatingLabel>
 
               {email.length != 0 && !isValid ? (
-                <p style={{ color: "red" }}>Invalid email address</p>
+                <p style={{ color: "red", fontSize: "14px" }}>Invalid email address</p>
               ) : (
                 ""
               )}

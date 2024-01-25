@@ -17,10 +17,7 @@ import third from "../../assets/img/third.svg";
 import fifth from "../../assets/img/fifth.svg";
 import BigSmall from "./BigSmall/BigSmall";
 import Tab_screen from "./Tabs/Tab_screen";
-
 import io from "socket.io-client";
-import { ApiBaseUrl } from "../../utils/Constants";
-import ModalButton from "./BigSmall/OffCanvas/ModalBottom";
 import ModalBottom from "./BigSmall/OffCanvas/ModalBottom";
 import { myColors } from "../../utils/Colors";
 

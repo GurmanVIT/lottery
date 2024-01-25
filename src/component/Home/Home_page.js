@@ -50,10 +50,6 @@ const Home_page = () => {
               <div className="massage me-2">
                 <img src={massage} alt="massage" />
               </div>
-              {/* <div className='download'>
-              <img src={download} alt='download' />
-            </div> */}
-
               <div className="logout">
                 <Link onClick={() => logout()}>
                   <h6>Logout</h6>
@@ -202,7 +198,7 @@ const Home_page = () => {
                   </div>
                   <div></div>
                 </div>
-                <img src={card_bg_img} alt="card_bg_img" />
+                <img src={card_bg_img} alt="card_bg_img" style={{ height: "140px" }} />
               </div>
               <img src={gift_img} alt="gift_img" className="gift_img" />
 
@@ -220,7 +216,7 @@ const Home_page = () => {
           </Link>
 
           <Link to="/lottery">
-            <div className="card_sec" style={{ marginTop: "50px" }}>
+            <div className="card_sec" style={{ marginTop: "35px" }}>
               <div className="card" style={{ backgroundColor: "#F44771" }}>
                 <div className="card_body">
                   <div>
@@ -230,7 +226,7 @@ const Home_page = () => {
                   </div>
                   <div></div>
                 </div>
-                <img src={card_bg_img} alt="card_bg_img" />
+                <img src={card_bg_img} alt="card_bg_img" style={{ height: "140px" }} />
               </div>
               <img src={secound_gift_img} alt="gift_img" className="gift_img" />
 

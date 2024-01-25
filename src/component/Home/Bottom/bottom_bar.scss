@@ -4,23 +4,31 @@
     z-index: 1;
     width: 100%;
     max-width: 420px;
-    height: 71px;
+    height: 66px;
     background: $bottom_bar;
 
 
     .MuiBox-root {
         .MuiBottomNavigation-root {
             background-color: $bottom_bar;
-            padding: 35px 0px 0;
+            padding: 22px 0px 0px;
 
             .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
                 @media($breakpoint_450) {
                     min-width: auto;
                 }
+
+                .css-imwso6-MuiBottomNavigationAction-label.Mui-selected {
+                    font-size: 12px;
+                }
+
+                .css-imwso6-MuiBottomNavigationAction-label {
+                    letter-spacing: .3px;
+                }
             }
 
             a {
-                gap: 6px;
+                gap: 0px;
                 padding: 0;
 
                 &:hover {
@@ -33,33 +41,21 @@
             }
 
             img {
-                @media($breakpoint_450) {
-                    width: 20px;
-                }
+                width: 20px;
             }
 
             .promotion {
                 img {
-                    @media($breakpoint_450) {
-                        width: 40px;
-                    }
+                    width: 35px;
+                    height: 35px;
                 }
             }
 
             button {
-                @media($breakpoint_450) {
-                    min-width: auto;
-                }
-
                 &:not(:disabled) {
                     color: $disable_button ;
-                    gap: 3px;
-                    padding: 0px;
+                    padding: 0;
                 }
-
-                // .MuiBottomNavigationAction-label {
-                //     letter-spacing: .5px;
-                // }
 
                 .css-8je8zh-MuiTouchRipple-root {
                     display: none;
@@ -68,19 +64,11 @@
 
             .Mui-selected {
                 color: $white !important;
-                // font-size: 14px;
-                // letter-spacing: .5px;
                 padding: 0;
             }
 
-
-
             .promotion {
-                margin-top: -28px;
-
-                @media($breakpoint_450) {
-                    margin-top: -20px;
-                }
+                margin-top: -13px;
             }
         }
     }

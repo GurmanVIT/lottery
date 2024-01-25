@@ -4,9 +4,10 @@ import group from "../../../assets/img/group.svg";
 import email_icon from "../../../assets/img/email_icon.svg";
 import password_icon from "../../../assets/img/password_icon.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import support from "../../../assets/img/support.svg";
 import DG from "../../../assets/img/DG.svg";
+import back_back from "../../../assets/img/back_back.svg";
 import { VisibilityTwoTone, VisibilityOffTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../../../redux/signupSlice";
@@ -110,11 +111,15 @@ const Register = () => {
     <div className="home_page">
       <div className="register login">
         <div className="register_section login_section">
-          <div className="lottery">
-            <div className="logo">
+          <div className="logo">
+            <img src={back_back} alt="back_back" className="back_back" />
+            <div className="dg_image">
               <img src={DG} alt="DG" />
               <h2>Dapic games</h2>
             </div>
+          </div>
+
+          <div className="lottery">
             <h5>Register</h5>
             <p>Please register by email</p>
           </div>
@@ -248,27 +253,29 @@ const Register = () => {
                 />
               </FloatingLabel>
 
-              <h6 className="mt-4">Select Position</h6>
-              <label>
-                <input
-                  type="radio"
-                  value="l"
-                  checked={selectedOption === "l"}
-                  onChange={handleOptionChange}
-                />
-                {"  "}Left
-              </label>
+              <h6 className="select_position">Select Position</h6>
+              <div className="position_left_right">
+                <label className="left">
+                  <input
+                    type="radio"
+                    value="l"
+                    checked={selectedOption === "l"}
+                    onChange={handleOptionChange}
+                  />
+                  {"  "}Left
+                </label>
 
-              <label>
-                <input
-                  className="ms-3"
-                  type="radio"
-                  value="r"
-                  checked={selectedOption === "r"}
-                  onChange={handleOptionChange}
-                />
-                {"  "}Right
-              </label>
+                <label className="left">
+                  <input
+                    className="ms-3"
+                    type="radio"
+                    value="r"
+                    checked={selectedOption === "r"}
+                    onChange={handleOptionChange}
+                  />
+                  {"   "}Right
+                </label>
+              </div>
               <div className="checkbox">
                 <label>
                   <input
@@ -283,7 +290,7 @@ const Register = () => {
                   </p>
                 </label>
               </div>
-              <div className="login_link mt-4">
+              <div className="login_link mt-3">
                 <button
                   className="login_button"
                   onClick={() => {

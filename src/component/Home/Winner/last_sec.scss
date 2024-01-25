@@ -1,28 +1,18 @@
 .bottom_sec {
-    padding: 20px 20px 129px;
-
-    @media($breakpoint_450) {
-        padding: 15px 10px;
-    }
+    padding: 20px 10px 80px;
 
     .last_sec {
-
         .card_last {
             @include display(space-between, center);
             background-color: $white;
-            padding: 16px 20px;
-            border-radius: 14px;
+            padding: 10px;
+            border-radius: 10px;
             box-shadow: $input_shadow;
-            margin-bottom: 15px;
-
-            @media($breakpoint_450) {
-                padding: 7px 10px;
-                margin-bottom: 8px;
-            }
+            margin-bottom: 8px;
 
             .winning_card_last {
                 @include display(center, center);
-                gap: 10px;
+                gap: 7px;
 
                 @media($breakpoint_450) {
                     gap: 5px;
@@ -37,10 +27,6 @@
                 }
 
                 img {
-                    @media($breakpoint_450) {
-                        width: 50px;
-                    }
-
                     @media($breakpoint_350) {
                         width: 45px;
                     }
@@ -50,14 +36,16 @@
             .amount_winning {
                 p {
                     background-color: $card_primary;
-                    padding: 8px 35px;
+                    padding: 7px 29px;
+                    font-size: 14px;
                     margin-bottom: 0;
                     color: $white;
                     border-radius: 10px;
 
                     @media($breakpoint_450) {
-                        padding: 5px 20px;
+                        padding: 6px 20px;
                         font-size: 13px;
+                        border-radius: 6px;
                     }
                 }
             }

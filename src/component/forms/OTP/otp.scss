@@ -5,90 +5,52 @@
         width: 100%;
         max-width: 420px;
 
-        .lottery {
+        .logo {
+            @include display(center, center);
             background-color: $primary;
-            padding: 25px;
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
 
-            @media ($breakpoint_450) {
-                padding: 20px;
+            .back_back {
+                position: absolute;
+                left: 7px;
             }
 
-            @media ($breakpoint_350) {
-                padding: 15px;
-            }
-
-            .logo {
-                @include display(center, center);
-                gap: 5px;
-                margin-bottom: 10px;
-
-                @media($breakpoint_ESM) {
-                    gap: 0px;
-
-                }
-
-                img {
-                    @media($breakpoint_ESM) {
-                        height: 30px;
-                        width: 50px;
-                    }
-
-                    @media($breakpoint_350) {
-                        height: 25px;
-                        width: 45px;
-                    }
-                }
+            .dg_image {
+                display: flex;
 
                 h2 {
                     color: $white;
-                    font-size: 30px;
+                    font-size: 17px;
                     font-style: normal;
                     font-weight: 800;
                     text-transform: uppercase;
                     margin-bottom: 0;
-
-                    @media($breakpoint_450) {
-                        font-size: 26px;
-                    }
-
-                    @media($breakpoint_ESM) {
-                        font-size: 21px;
-                    }
-
-                    @media($breakpoint_350) {
-                        font-size: 19px;
-                    }
                 }
             }
+        }
+
+        .lottery {
+            background-color: $primary;
+            padding: 55px 15px 15px;
 
             h5 {
-                font-size: 25px;
+                font-size: 15px;
+                font-weight: 600;
                 color: $white;
                 margin-bottom: 5px;
-
-                @media ($breakpoint_450) {
-                    font-size: 21px;
-                }
-
-                @media ($breakpoint_350) {
-                    font-size: 18px;
-                }
             }
 
             p {
-                font-size: 15px;
+                font-size: 13px;
                 color: $white;
                 margin-bottom: 0;
 
-                @media ($breakpoint_450) {
-                    font-size: 14px;
-                }
-
-                @media ($breakpoint_ESM) {
-                    font-size: 13px;
-                }
-
-                @media ($breakpoint_350) {
+                @media($breakpoint_350) {
                     font-size: 12px;
                 }
             }
