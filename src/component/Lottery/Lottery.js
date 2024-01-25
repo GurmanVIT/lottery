@@ -23,6 +23,7 @@ import { myColors } from "../../utils/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { gameHistory } from "../../redux/gameHistorySlice";
 
+
 const Lottery = () => {
   const socket = io("https://dapic-api.virtualittechnology.com/");
   const userId = localStorage.getItem("userId");
