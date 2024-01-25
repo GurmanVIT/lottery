@@ -41,48 +41,101 @@ const Lottery = () => {
     // Establish a connection to the Socket.io server
 
     // Define event handlers for the socket
-    console.log("Socket connected check");
-    function onConnect() {
-      setSocketConnected(true);
-    }
-
-    function onDisconnect() {
-      setSocketConnected(false);
-    }
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
-
-    const data = {
-      userId: userId,
-    };
-
-    socket.emit("touch_server", data);
-
-    socket.on("timerForward", (data) => {
-      console.log("Timer", data.gameTimer);
-      setGamerTimer(data.gameTimer);
-      const minutes = Math.floor(data.gameTimer / 60);
-      const second = data.gameTimer - minutes * 60;
-      if (gameId.length === 0) {
-        setGameId(data.gameId);
+    if (!isSocketConnected) {
+      console.log("Socket connected check ===> ", isSocketConnected);
+      function onConnect() {
+        setSocketConnected(true);
       }
-      // const secondSplit = splitIntoArray(second)[0];
-      // console.log("Timer", secondSplit);
-    });
 
-    // Clean up the socket connection when the component unmounts
-    return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
-      socket.off("timerForward");
-    };
-  }, [isSocketConnected]);
+      function onDisconnect() {
+        setSocketConnected(false);
+      }
+      socket.on("connect", onConnect);
+      socket.on("disconnect", onDisconnect);
+
+      const data = {
+        userId: userId,
+      };
+
+      socket.emit("touch_server", data);
+
+      socket.on("timerForward", (data) => {
+        console.log("Timer", data.gameTimer);
+        setGamerTimer(data.gameTimer);
+        const minutes = Math.floor(data.gameTimer / 60);
+        const second = data.gameTimer - minutes * 60;
+        if (gameId.length === 0) {
+          setGameId(data.gameId);
+        }
+        // const secondSplit = splitIntoArray(second)[0];
+        // console.log("Timer", secondSplit);
+      });
+
+      socket.on("gameResult", (data) => {
+        console.log("Game Result ===> ", data);
+      });
+
+      socket.on("less_wallet_points", (data) => {
+        console.log("less_wallet_points ===> ", data);
+        alert("Low Balance");
+      });
+
+      // Clean up the socket connection when the component unmounts
+      return () => {
+        console.log("Disconnected ===> ");
+        socket.off("connect", onConnect);
+        socket.off("disconnect", onDisconnect);
+        socket.off("timerForward");
+        socket.off("gameResult");
+        socket.off("less_wallet_points");
+      };
+    }
+  }, []);
 
   function splitIntoArray(num) {
     return Array.from(String(num), Number);
   }
 
-  const getTimer = () => { };
+  const placeBet = () => {
+    if (
+      selectedValue === "Violet" ||
+      selectedValue === "Green" ||
+      selectedValue === "Red"
+    ) {
+      const betData = {
+        userId: userId,
+        amount: balanceValue * selectedX,
+        multiplier: selectedX,
+        color:
+          selectedValue === "green" ? 1 : selectedValue === "Violet" ? 2 : 3,
+        gameId: gameId,
+      };
+      console.log("Bet Data ===> ", betData);
+      socket.emit("bet_place", betData);
+    } else if (selectedValue === "Big" || selectedValue === "Small") {
+      const betData = {
+        userId: userId,
+        amount: balanceValue * selectedX,
+        multiplier: selectedX,
+        type: selectedValue === "Big" ? 1 : 2,
+        gameId: gameId,
+      };
+      console.log("Bet Data ===> ", betData);
+      socket.emit("bet_place", betData);
+    } else {
+      const betData = {
+        userId: userId,
+        amount: balanceValue * selectedX,
+        multiplier: selectedX,
+        betNumber: selectedValue,
+        gameId: gameId,
+      };
+      console.log("Bet Data ===> ", betData);
+      socket.emit("bet_place", betData);
+    }
+
+    setOpenModal(false);
+  };
 
   return (
     <div className="lottery_page">
@@ -226,19 +279,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
@@ -279,7 +332,6 @@ const Lottery = () => {
                 Red
               </button>
             </div>
-
             <div className="select_coin">
               <div className="ten_coin">
                 <div
@@ -398,7 +450,6 @@ const Lottery = () => {
                 </div>
               </div>
             </div>
-
             <div className="flex_seven_btn">
               <button className="secound_violet">Random</button>
               <button
@@ -462,9 +513,13 @@ const Lottery = () => {
                 X100
               </button>
             </div>
-
             {/* <div onClick={() => setOpenModal(true)}> */}
-            <BigSmall openModal={setOpenModal} />
+
+            <BigSmall
+              openModal={setOpenModal}
+              setSelectedValue={setSelectedValue}
+              setSelectedColor={setSelectedColor}
+            />
             {/* </div> */}
           </div>
 
@@ -478,6 +533,7 @@ const Lottery = () => {
             setSelectedX={setSelectedX}
             setBalance={setBalanceValue}
             balance={balanceValue}
+            placeBet={placeBet}
           />
         </div>
       </div>
