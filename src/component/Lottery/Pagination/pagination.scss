@@ -18,6 +18,11 @@
                 font-size: 29px;
                 color: $forgot;
                 font-weight: 500;
+
+                @media($breakpoint_ESM) {
+                    font-size: 26px;
+                    border-radius: 4px;
+                }
             }
         }
     }
@@ -47,6 +52,11 @@
                 font-size: 29px;
                 color: $white;
                 font-weight: 500;
+
+                @media($breakpoint_ESM) {
+                    font-size: 26px;
+                    border-radius: 4px;
+                }
             }
         }
     }

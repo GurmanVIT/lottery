@@ -107,7 +107,7 @@ const Login = () => {
       <div className="login">
         <div className="login_section">
           <div className="logo">
-            <img src={back_back} alt="back_back" className="back_back" />
+            <img src={back_back} alt="back_back" className="back_back" onClick={() => navigation('/home_page')} />
             <div className="dg_image">
               <img src={DG} alt="DG" />
               <h2>Dapic games</h2>

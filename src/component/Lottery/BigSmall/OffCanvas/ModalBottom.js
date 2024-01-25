@@ -62,6 +62,7 @@ const ModalBottom = ({
                 <button
                   className="x_one_btn"
                   style={{
+                    width: 27,
                     backgroundColor:
                       balance === 1 ? myColor : myColors.dark_watch_bg,
                     color:
@@ -123,7 +124,7 @@ const ModalBottom = ({
               <h5>Quantity</h5>
               <div className="plus_minus">
                 <button
-                  style={{ backgroundColor: myColor }}
+                  style={{ backgroundColor: myColor, width: 22 }}
                   onClick={() => setCountValue(false)}
                 >
                   -

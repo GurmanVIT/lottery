@@ -22,7 +22,6 @@
 
                 @media($breakpoint_450) {
                     border-radius: 7px;
-                    font-size: 14px;
                     padding: 10px 25px;
                 }
 
@@ -101,6 +100,8 @@
             .chart_table {
                 background-color: $white;
                 margin: 20px 0;
+                padding-bottom: 15px;
+                border-radius: 0 0 14px 14px;
 
                 .table_head {
                     @include display(space-around, center);
@@ -110,31 +111,40 @@
                     h5 {
                         margin-bottom: 0;
                         color: $white;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-weight: 600;
-                        padding: 15px 0;
+                        padding: 14px 0;
                     }
 
                     h4 {
                         margin-bottom: 0;
                         color: $white;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-weight: 600;
-                        padding: 15px 0;
+                        padding: 14px 0;
                     }
                 }
 
                 .history_table {
                     .secound_table_sec {
-                        padding: 15px 15px 0;
+                        padding: 13px 10px 0;
                         border-bottom: 2px solid $dark_watch;
+
+                        @media($breakpoint_ESM) {
+                            padding: 10px 8px 0;
+                        }
 
                         .statistic {
                             h6 {
                                 color: $black;
-                                font-size: 15px;
+                                font-size: 13px;
                                 font-weight: 600;
-                                margin-bottom: 10px;
+                                margin-bottom: 8px;
+                                letter-spacing: .2px;
+
+                                @media($breakpoint_350) {
+                                    font-size: 12px;
+                                }
                             }
                         }
 
@@ -142,35 +152,142 @@
                             @include display(space-between, center);
                             margin-bottom: 10px;
 
+                            @media($breakpoint_350) {
+                                margin-bottom: 8px;
+                            }
+
                             .win_number_one {
-                                font-size: 14px;
-                                letter-spacing: 0.6px;
+                                font-size: 13px;
+                                letter-spacing: 0.2px;
                                 color: $forgot;
                                 font-weight: 600;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 12px;
+                                }
+
+                                @media($breakpoint_350) {
+                                    font-size: 11px;
+                                }
                             }
 
                             .d-flex {
-                                gap: 5px;
+                                gap: 7px;
+
+                                @media($breakpoint_ESM) {
+                                    gap: 4px;
+                                }
 
                                 .table_number_sec {
-                                    font-size: 16px;
+                                    font-size: 12px;
                                     border: 1px solid $primary;
                                     border-radius: 50%;
                                     margin-bottom: 0;
                                     color: $primary;
                                     padding: 0px 3px;
+                                    width: 15px;
+
+                                    @media($breakpoint_350) {
+                                        font-size: 11px;
+                                        width: 13px;
+                                        padding: 0px 2px;
+                                    }
                                 }
 
                             }
 
                             .missing {
                                 @include display (center, center);
-                                gap: 13px;
+                                gap: 7px;
+
+                                @media($breakpoint_ESM) {
+                                    gap: 4px;
+                                }
 
                                 .table_selected_number {
-                                    font-size: 17px;
+                                    font-size: 13px;
                                     margin-bottom: 0;
                                     color: $forgot;
+                                    width: 15px;
+                                    text-align: center;
+
+                                    @media($breakpoint_350) {
+                                        font-size: 12px;
+                                        width: 13px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .result_row {
+                        @include display (space-between, center);
+                        gap: 3px;
+                        padding: 13px 10px;
+                        border-bottom: 1px solid $dark_watch;
+
+                        @media($breakpoint_ESM) {
+                            padding: 10px 8px;
+                        }
+
+                        .issue_number {
+                            font-size: 12px;
+                            letter-spacing: 0.2px;
+                            color: $forgot;
+                            font-weight: 600;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 12px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 11px;
+                            }
+                        }
+
+                        .result_number {
+                            @include display(center, center);
+                            gap: 10px;
+
+                            @media($breakpoint_ESM) {
+                                gap: 7px;
+                            }
+
+                            .d-flex {
+                                gap: 4px;
+
+                                @media($breakpoint_ESM) {
+                                    gap: 3px;
+                                }
+
+                                .table_number_sec {
+                                    font-size: 12px;
+                                    border: 1px solid $forgot;
+                                    border-radius: 50%;
+                                    margin-bottom: 0;
+                                    color: $forgot;
+                                    padding: 0px 3px;
+                                    width: 15px;
+
+                                    @media($breakpoint_350) {
+                                        font-size: 11px;
+                                        width: 13px;
+                                        padding: 0px 2px;
+                                    }
+                                }
+                            }
+
+                            .result_big_small {
+                                p {
+                                    background-color: $primary;
+                                    font-size: 13px;
+                                    margin-bottom: 0;
+                                    border-radius: 50%;
+                                    margin-bottom: 0;
+                                    color: $white;
+                                    padding: 0px 3px;
+                                    width: 15px;
+                                    text-align: center;
                                 }
                             }
                         }

@@ -5,7 +5,7 @@
       padding: 0 !important;
 
       .modal_bottom {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
 
         @media ($breakpoint_450) {
           margin-bottom: 13px;
@@ -20,19 +20,19 @@
           .win_go {
             @include display(space-between, center);
             background-color: $primary;
-            padding: 17px 20px;
-            border-radius: 14px 14px 0 0;
+            padding: 14px 15px;
+            border-radius: 10px 10px 0 0;
 
             h4 {
               margin-bottom: 0;
               color: $white;
-              font-size: 20px;
+              font-size: 17px;
             }
           }
 
           .modal_content {
             @include display(space-between, center);
-            padding: 20px;
+            padding: 15px;
 
             @media ($breakpoint_ESM) {
               padding: 15px 15px 8px;
@@ -40,7 +40,7 @@
 
             h5 {
               margin-bottom: 0;
-              font-size: 16px;
+              font-size: 15px;
               font-weight: 600;
               color: $forgot;
             }
@@ -55,8 +55,7 @@
                 border-radius: 5px;
                 padding: 8px 7px;
                 color: $white;
-                font-size: 16px;
-                font-style: normal;
+                font-size: 15px;
                 font-weight: 600;
 
                 @media ($breakpoint_ESM) {
@@ -79,8 +78,7 @@
                 border-radius: 5px;
                 padding: 8px 7px;
                 color: $forgot;
-                font-size: 16px;
-                font-style: normal;
+                font-size: 15px;
                 font-weight: 600;
 
                 @media ($breakpoint_ESM) {
@@ -102,7 +100,7 @@
 
           .quantity {
             @include display(space-between, center);
-            padding: 0 20px 20px;
+            padding: 0 15px 10px;
 
             @media ($breakpoint_ESM) {
               padding: 8px 15px 8px;
@@ -110,7 +108,7 @@
 
             h5 {
               margin-bottom: 0;
-              font-size: 16px;
+              font-size: 15px;
               font-weight: 600;
               color: $forgot;
             }
@@ -125,7 +123,7 @@
                 padding: 8px 7px;
                 font-size: 16px;
                 font-style: normal;
-                font-weight: 600;
+                font-weight: 800;
                 background-color: $primary;
                 color: $white;
 
@@ -195,9 +193,10 @@
         .cancel {
           background-color: #858585;
           border-radius: 9px;
-          padding: 9px 32px;
+          padding: 8px 30px;
+          font-size: 15px;
           border: none;
-          color: #fff;
+          color: $white;
 
           @media ($breakpoint_ESM) {
             padding: 9px 21px;
@@ -207,9 +206,10 @@
         .amount {
           border: none;
           border-radius: 9px;
-          padding: 9px 32px;
+          padding: 8px 30px;
+          font-size: 15px;
           border: none;
-          color: #fff;
+          color: $white;
 
           @media ($breakpoint_ESM) {
             padding: 9px 21px;
