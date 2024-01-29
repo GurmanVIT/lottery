@@ -537,13 +537,14 @@ const Lottery = () => {
                 X100
               </button>
             </div>
+
+            <BigSmall
+              openModal={setOpenModal}
+              setSelectedValue={setSelectedValue}
+              setSelectedColor={setSelectedColor}
+            />
           </div>
 
-          <BigSmall
-            openModal={setOpenModal}
-            setSelectedValue={setSelectedValue}
-            setSelectedColor={setSelectedColor}
-          />
 
           <Tab_screen resultHistoryData={historyData} />
           <ModalBottom

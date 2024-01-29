@@ -1,11 +1,11 @@
 .big_small {
     display: flex;
-    margin-bottom: 20px;
-    height: 45px;
+    margin-bottom: 5px;
+    height: 41px;
 
     @media($breakpoint_ESM) {
-        height: 40px;
-        margin-bottom: 15px;
+        height: 38px;
+        margin-bottom: 0;
     }
 
     .login_button {
@@ -18,7 +18,7 @@
         }
 
         @media($breakpoint_ESM) {
-            font-size: 17px;
+            font-size: 16px;
         }
     }
 
@@ -33,7 +33,7 @@
         }
 
         @media($breakpoint_ESM) {
-            font-size: 17px;
+            font-size: 16px;
         }
     }
 }
