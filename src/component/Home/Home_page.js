@@ -24,6 +24,10 @@ const Home_page = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
+  const token = localStorage.getItem("Token");
+
+  console.log(token);
+
   const logout = () => {
     localStorage.clear();
     dispatch(clearSignUpData());
@@ -50,11 +54,19 @@ const Home_page = () => {
               <div className="massage me-2">
                 <img src={massage} alt="massage" />
               </div>
-              <div className="logout">
-                <Link onClick={() => logout()}>
-                  <h6>Logout</h6>
-                </Link>
-              </div>
+              {token != null ? (
+                <div className="logout">
+                  <Link onClick={() => logout()}>
+                    <h6>Logout</h6>
+                  </Link>
+                </div>
+              ) : (
+                <div className="logout">
+                  <Link onClick={() => logout()}>
+                    <h6>Login</h6>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -116,7 +128,7 @@ const Home_page = () => {
 
         <div className="flex_sec">
           <div className="game_sec">
-            <Link to="/lottery">
+            <Link to={token != null ? "/lottery" : "/login"}>
               <div className="secound_section">
                 <div className="lottery_img">
                   <img src={lottery} alt="lottery" />
@@ -198,7 +210,11 @@ const Home_page = () => {
                   </div>
                   <div></div>
                 </div>
-                <img src={card_bg_img} alt="card_bg_img" style={{ height: "140px" }} />
+                <img
+                  src={card_bg_img}
+                  alt="card_bg_img"
+                  style={{ height: "140px" }}
+                />
               </div>
               <img src={gift_img} alt="gift_img" className="gift_img" />
 
@@ -226,7 +242,11 @@ const Home_page = () => {
                   </div>
                   <div></div>
                 </div>
-                <img src={card_bg_img} alt="card_bg_img" style={{ height: "140px" }} />
+                <img
+                  src={card_bg_img}
+                  alt="card_bg_img"
+                  style={{ height: "140px" }}
+                />
               </div>
               <img src={secound_gift_img} alt="gift_img" className="gift_img" />
 
