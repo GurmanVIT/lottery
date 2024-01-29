@@ -480,7 +480,7 @@ const Lottery = () => {
                 className="x_two_btn"
                 style={{
                   color: selectedX === 1 ? "white" : "#707070",
-                  background: selectedX === 1 ? "#00C738" : "#E4E4E4",
+                  background: selectedX === 1 ? "#00C738" : "#ffffff8a",
                 }}
                 onClick={() => setSelectedX(1)}
               >
@@ -490,7 +490,7 @@ const Lottery = () => {
                 className="x_two_btn"
                 style={{
                   color: selectedX === 5 ? "white" : "#707070",
-                  background: selectedX === 5 ? "#00C738" : "#E4E4E4",
+                  background: selectedX === 5 ? "#00C738" : "#ffffff8a",
                 }}
                 onClick={() => setSelectedX(5)}
               >
@@ -500,7 +500,7 @@ const Lottery = () => {
                 className="x_two_btn"
                 style={{
                   color: selectedX === 10 ? "white" : "#707070",
-                  background: selectedX === 10 ? "#00C738" : "#E4E4E4",
+                  background: selectedX === 10 ? "#00C738" : "#ffffff8a",
                 }}
                 onClick={() => setSelectedX(10)}
               >
@@ -510,7 +510,7 @@ const Lottery = () => {
                 className="x_two_btn"
                 style={{
                   color: selectedX === 20 ? "white" : "#707070",
-                  background: selectedX === 20 ? "#00C738" : "#E4E4E4",
+                  background: selectedX === 20 ? "#00C738" : "#ffffff8a",
                 }}
                 onClick={() => setSelectedX(20)}
               >
@@ -520,7 +520,7 @@ const Lottery = () => {
                 className="x_two_btn"
                 style={{
                   color: selectedX === 50 ? "white" : "#707070",
-                  background: selectedX === 50 ? "#00C738" : "#E4E4E4",
+                  background: selectedX === 50 ? "#00C738" : "#ffffff8a",
                 }}
                 onClick={() => setSelectedX(50)}
               >
@@ -530,7 +530,7 @@ const Lottery = () => {
                 className="x_two_btn"
                 style={{
                   color: selectedX === 100 ? "white" : "#707070",
-                  background: selectedX === 100 ? "#00C738" : "#E4E4E4",
+                  background: selectedX === 100 ? "#00C738" : "#ffffff8a",
                 }}
                 onClick={() => setSelectedX(100)}
               >
@@ -539,14 +539,11 @@ const Lottery = () => {
             </div>
           </div>
 
-          {/* <div onClick={() => setOpenModal(true)}> */}
-
           <BigSmall
             openModal={setOpenModal}
             setSelectedValue={setSelectedValue}
             setSelectedColor={setSelectedColor}
           />
-          {/* </div> */}
 
           <Tab_screen resultHistoryData={historyData} />
           <ModalBottom

@@ -369,142 +369,149 @@
                 }
             }
 
-            .color_btn {
-                @include display (space-between, center);
-                margin: 20px 0;
-
-                .violet_btn {
-                    @include vgr_button;
-                }
-
-                .green_btn {
-                    @include vgr_button;
-                    background-color: $green;
-                }
-
-                .red_btn {
-                    @include vgr_button;
-                    background-color: $red;
-                }
-            }
-
-            .select_coin {
+            .modal_number {
                 background-color: $dark_watch;
-                padding: 16px 13px 1px;
-                border-radius: 12px;
-                box-shadow: $input_shadow;
-
-                .ten_coin {
-                    @include display(space-between, center);
-                    margin-bottom: 15px;
-
-                    .first_line {
-                        @include display(initial, center);
-                        position: relative;
-
-                        img {
-                            width: 65px;
-                            height: 65px;
-                            border-radius: 50%;
-
-                            @media($breakpoint_450) {
-                                width: 60px;
-                                height: 60px;
-                            }
-
-                            @media($breakpoint_ESM) {
-                                width: 55px;
-                                height: 55px;
-                            }
-
-                            @media($breakpoint_350) {
-                                width: 50px;
-                                height: 50px;
-                            }
-                        }
-
-                        h4 {
-                            color: $white;
-                            font-weight: 500;
-                            position: absolute;
-                            font-size: 24px;
-                            left: 26px;
-                            top: 18px;
-
-                            @media($breakpoint_450) {
-                                font-size: 21px;
-                                left: 24px;
-                                top: 16px;
-                            }
-
-                            @media($breakpoint_ESM) {
-                                font-size: 20px;
-                                left: 22px;
-                                top: 15px;
-                            }
-
-                            @media($breakpoint_350) {
-                                left: 19px;
-                                top: 12px;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .flex_seven_btn {
+                padding: 10px;
                 margin: 20px 0;
-                @include display(space-between, center);
+                border-radius: 10px;
 
-                .secound_violet {
-                    background-color: $white;
-                    border: 2px solid $primary;
-                    color: $primary;
-                    font-size: 14px;
-                    font-weight: 600;
-                    border-radius: 7px;
-                    padding: 7px 16px;
+                .color_btn {
+                    @include display (space-between, center);
+                    margin-bottom: 10px;
 
-                    @media($breakpoint_ESM) {
-                        font-size: 12px;
-                        padding: 7px 12px;
-                        border-width: 1px;
-                        border-radius: 5px;
+                    .violet_btn {
+                        @include vgr_button;
                     }
 
-                    @media($breakpoint_350) {
-                        font-size: 11px;
-                        padding: 7px 11px;
-                        border-radius: 6px;
+                    .green_btn {
+                        @include vgr_button;
+                        background-color: $green;
+                    }
+
+                    .red_btn {
+                        @include vgr_button;
+                        background-color: $red;
                     }
                 }
 
-                .x_two_btn {
-                    border: none;
-                    border-radius: 9px;
-                    padding: 7px 10px;
-                    color: $forgot;
-                    background-color: $dark_watch;
-                    font-size: 16px;
-                    font-weight: 600;
+                .select_coin {
+                    background-color: $number_bg;
+                    padding: 11px 11px 1px;
+                    border-radius: 12px;
+                    box-shadow: $input_shadow;
 
-                    @media($breakpoint_450) {
-                        padding: 7px;
-                        border-radius: 6px;
-                        font-size: 15px;
+                    .ten_coin {
+                        @include display(space-between, center);
+                        margin-bottom: 11px;
+
+                        .first_line {
+                            @include display(initial, center);
+                            position: relative;
+
+                            img {
+                                width: 65px;
+                                height: 65px;
+                                border-radius: 50%;
+
+                                @media($breakpoint_450) {
+                                    width: 60px;
+                                    height: 60px;
+                                }
+
+                                @media($breakpoint_ESM) {
+                                    width: 54px;
+                                    height: 54px;
+                                }
+
+                                @media($breakpoint_350) {
+                                    width: 48px;
+                                    height: 48px;
+                                }
+                            }
+
+                            h4 {
+                                color: $white;
+                                font-weight: 500;
+                                position: absolute;
+                                font-size: 24px;
+                                left: 26px;
+                                top: 18px;
+
+                                @media($breakpoint_450) {
+                                    font-size: 21px;
+                                    left: 24px;
+                                    top: 16px;
+                                }
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 20px;
+                                    left: 22px;
+                                    top: 15px;
+                                }
+
+                                @media($breakpoint_350) {
+                                    left: 19px;
+                                    top: 12px;
+                                }
+                            }
+                        }
                     }
+                }
 
-                    @media($breakpoint_ESM) {
-                        padding: 6px 7px;
-                    }
+                .flex_seven_btn {
+                    margin: 10px 0 0;
+                    @include display(space-between, center);
 
-                    @media($breakpoint_350) {
-                        padding: 6px;
+                    .secound_violet {
+                        background-color: $white;
+                        border: 2px solid $primary;
+                        color: $primary;
                         font-size: 14px;
+                        font-weight: 600;
+                        border-radius: 7px;
+                        padding: 7px 16px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 12px;
+                            padding: 6px 11px;
+                            border-width: 1px;
+                            border-radius: 5px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 11px;
+                            padding: 6px 7px;
+                            border-radius: 6px;
+                        }
                     }
 
-                    &:focus-visible {
-                        outline: none;
+                    .x_two_btn {
+                        border: none;
+                        border-radius: 7px;
+                        padding: 7px;
+                        color: $forgot;
+                        background-color: $dark_watch;
+                        font-size: 16px;
+                        font-weight: 600;
+
+                        @media($breakpoint_450) {
+                            padding: 7px;
+                            border-radius: 6px;
+                            font-size: 14px;
+                        }
+
+                        @media($breakpoint_ESM) {
+                            padding: 6px;
+                            font-size: 13px;
+                        }
+
+                        @media($breakpoint_350) {
+                            padding: 5px 6px;
+                        }
+
+                        &:focus-visible {
+                            outline: none;
+                        }
                     }
                 }
             }
