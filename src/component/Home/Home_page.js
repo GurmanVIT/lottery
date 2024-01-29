@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import massage from "../../assets/img/massage.svg";
 // import download from "../../assets/img/download.svg";
 import banner from "../../assets/img/banner.svg";
@@ -23,9 +23,8 @@ import { clearResendData } from "../../redux/resendOtpSlice";
 const Home_page = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
-
-  const token = localStorage.getItem("Token");
-
+  // const [token, setToken] = useState(null);
+  const token = localStorage.getItem("token");
   console.log(token);
 
   const logout = () => {
@@ -40,6 +39,12 @@ const Home_page = () => {
       navigation("/login");
     }, 500);
   };
+
+  // useEffect(() => {
+
+  //   console.log("Token ==> ", sToken);
+  //   setToken(sToken);
+  // }, []);
 
   return (
     <div className="home_page_section">
@@ -128,7 +133,7 @@ const Home_page = () => {
 
         <div className="flex_sec">
           <div className="game_sec">
-            <Link to={token != null ? "/lottery" : "/login"}>
+            <Link to={token == null ? "/login" : "/lottery"}>
               <div className="secound_section">
                 <div className="lottery_img">
                   <img src={lottery} alt="lottery" />
