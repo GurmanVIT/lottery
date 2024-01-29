@@ -23,8 +23,9 @@ import { myColors } from "../../utils/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { gameHistory } from "../../redux/gameHistorySlice";
 
+const socket = io("https://dapic-api.virtualittechnology.com/");
+
 const Lottery = () => {
-  const socket = io("https://dapic-api.virtualittechnology.com/");
   const userId = localStorage.getItem("userId");
   const [isSocketConnected, setSocketConnected] = useState(false);
   const [gameId, setGameId] = useState("");
@@ -44,22 +45,21 @@ const Lottery = () => {
   const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
   const dispatch = useDispatch();
   useEffect(() => {
-
     const payload = {
       skip: skip,
-      limit: 10
-    }
+      limit: 10,
+    };
+
+    console.log("History Payload ===> ", payload);
 
     dispatch(gameHistory(payload));
-  }, [skip])
+  }, [skip]);
 
   useEffect(() => {
-
     if (gameHistoryData != null && gameHistoryData.status === 1) {
-      setHistoryData(gameHistoryData.data)
+      setHistoryData(gameHistoryData.data);
     }
-
-  }, [gameHistoryData])
+  }, [gameHistoryData]);
 
   useEffect(() => {
     // Establish a connection to the Socket.io server
@@ -159,10 +159,6 @@ const Lottery = () => {
     }
 
     setOpenModal(false);
-
-
-
-
   };
 
   return (
@@ -307,19 +303,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
