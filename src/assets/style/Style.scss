@@ -1,54 +1,50 @@
 //common
-@import '../style/common.scss';
+@import "../style/common.scss";
 
 //theme.scss
-@import '../style/theme.scss';
+@import "../style/theme.scss";
 
 //veriable.scss
-@import '../style/veriable.scss';
+@import "../style/veriable.scss";
 
 //login
-@import '../../component//forms//Login/login.scss';
+@import "../../component//forms//Login/login.scss";
 
 //register
-@import '../../component//forms//Register/register.scss';
+@import "../../component//forms//Register/register.scss";
 
 //home_page
-@import '../../component/Home/home_page.scss';
+@import "../../component/Home/home_page.scss";
 
 //last_sec
-@import '../../component//Home/Winner/last_sec.scss';
+@import "../../component//Home/Winner/last_sec.scss";
 
 //earning
-@import '../../component/Home/Winner/Earning.scss';
+@import "../../component/Home/Winner/Earning.scss";
 
 //information
-@import '../../component/Home/Information/information.scss';
+@import "../../component/Home/Information/information.scss";
 
 //bottom_bar
-@import '../../component//Home/Bottom/bottom_bar.scss';
+@import "../../component//Home/Bottom/bottom_bar.scss";
 
 //lottery
-@import '../../component//Lottery/lottery.scss';
+@import "../../component//Lottery/lottery.scss";
 
 //otp
-@import '../../component//forms//OTP/otp.scss';
+@import "../../component//forms//OTP/otp.scss";
 
 //forgot
-@import '../../component///forms/Forgot/forgot.scss';
+@import "../../component///forms/Forgot/forgot.scss";
 
 //bigsmall
-@import '../../component/Lottery/BigSmall/BigSmall.scss';
+@import "../../component/Lottery/BigSmall/BigSmall.scss";
 
 //tab_screen
-@import '../../component/Lottery/Tabs/Tab_screen.scss';
+@import "../../component/Lottery/Tabs/Tab_screen.scss";
 
 //pagination
-@import '../../component/Lottery/Pagination/pagination.scss';
+@import "../../component/Lottery/Pagination/pagination.scss";
 
 //modal
-@import '../../component//Lottery/BigSmall//OffCanvas/modal.scss';
-
-
-//modalNumber
-@import '../../component//Lottery/modalNumber.scss';
+@import "../../component//Lottery/BigSmall//OffCanvas/modal.scss";
