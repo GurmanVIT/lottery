@@ -23,6 +23,7 @@ import { myColors } from "../../utils/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { gameHistory } from "../../redux/gameHistorySlice";
 import PaginationComponent from "./Pagination/Pagination";
+import audioFile from "../../assets/audio/five_sec.mp3";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -44,6 +45,11 @@ const Lottery = () => {
   const [isOpenModal, setOpenModal] = useState(false);
   const [historyData, setHistoryData] = useState([]);
   const [walletBalance, setWalletBalance] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    setIsPlaying((prevState) => !prevState);
+  };
 
   const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
   const dispatch = useDispatch();
@@ -103,6 +109,12 @@ const Lottery = () => {
         if (gameId.length === 0) {
           setGameId(data.gameId);
           setGameTableId(data.gameTableId);
+        }
+
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
         }
         // const secondSplit = splitIntoArray(second)[0];
         // console.log("Timer", secondSplit);
@@ -351,6 +363,12 @@ const Lottery = () => {
                   <span>0</span>
                   <span className="five_sec">{gameTimer}</span>
                 </h1>
+                <audio
+                  src={audioFile}
+                  autoPlay={isPlaying}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                />
               </div>
             )}
             <div className="bg_dark">
