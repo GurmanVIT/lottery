@@ -3,52 +3,6 @@
         overflow: hidden;
         background-color: $page_bg;
 
-        .header {
-
-            .header_section {
-                @include display(space-between, center);
-                background: linear-gradient(60deg, rgb(101, 97, 192), rgba(73, 67, 193, 0.44));
-                padding: 15px 10px;
-                position: fixed;
-                top: 0;
-                z-index: 1;
-                background: $primary;
-                width: 100%;
-                max-width: 420px;
-
-                @media($breakpoint_ESM) {
-                    padding: 12px 10px;
-                }
-
-                .logo {
-                    @include display(center, center);
-                    gap: 2px;
-
-                    @media($breakpoint_ESM) {
-                        gap: 0px;
-                    }
-
-                    h2 {
-                        color: $white;
-                        font-size: 17px;
-                        font-style: normal;
-                        font-weight: 800;
-                        text-transform: uppercase;
-                        margin-bottom: 0;
-                    }
-                }
-
-                .d-flex {
-                    h6 {
-                        color: $white;
-                        font-weight: 600;
-                        margin-bottom: 0;
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
-
         .swiper {
             padding-top: 28px;
 
@@ -251,6 +205,10 @@
 
                         @media($breakpoint_450) {
                             gap: 5px;
+                        }
+
+                        img {
+                            border-radius: 50%;
                         }
 
                         h4 {

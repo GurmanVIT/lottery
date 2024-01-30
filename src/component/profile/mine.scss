@@ -1,0 +1,301 @@
+.profile {
+    .profile_width {
+        .mine {
+            background: $profile_bg;
+            @include display(flex-start, center);
+            column-gap: 17px;
+            padding: 0 10px 10px;
+
+            .profile_img {
+                img {
+                    border-radius: 50%;
+                    position: relative;
+                    top: 55px;
+                }
+            }
+
+            .name_id {
+                margin-top: 35px;
+
+                .your_name {
+                    @include display(center, center);
+                    column-gap: 30px;
+                    margin-bottom: 10px;
+
+                    h5 {
+                        font-size: 17px;
+                        color: $white;
+                        margin-bottom: 0;
+                        font-size: 17px;
+                        font-weight: 700;
+                        width: 95px;
+                    }
+
+                    .copy {
+
+                        h4 {
+                            background-color: $white;
+                            margin-bottom: 0;
+                            color: $primary;
+                            font-size: 14px;
+                            padding: 6px 11px;
+                            font-weight: 600;
+                            border-radius: 18px;
+                            letter-spacing: .2px;
+                            position: relative;
+
+                            span {
+                                margin: 0 10px;
+
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    width: 2px;
+                                    height: 14px;
+                                    background-color: $primary;
+                                    left: 42px;
+                                    top: 7px;
+                                }
+                            }
+
+                            img {
+                                position: relative;
+                                top: -1px;
+                            }
+                        }
+                    }
+                }
+
+                .last_login {
+                    color: $white;
+
+                    p {
+                        margin-bottom: 0;
+                        font-size: 14px;
+
+                        span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sec_padding {
+            padding: 65px 10px 90px;
+            background-color: $page_bg;
+
+            .balance {
+                background-color: $primary;
+                border-radius: 14px;
+                padding: 20px 20px 15px;
+
+                @media($breakpoint_ESM) {
+                    padding: 14px 13px 15px;
+                }
+
+                p {
+                    color: $white;
+                    margin-bottom: 5px;
+                    font-size: 15px;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 14px;
+                    }
+                }
+
+                h3 {
+                    color: $white;
+                    font-size: 28px;
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                    border-bottom: 2px dashed $white;
+                    padding-bottom: 16px;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 24px;
+                        padding-bottom: 20px;
+                    }
+
+                    img {
+                        color: $white;
+                        margin-left: 15px;
+                    }
+                }
+
+                .four_img {
+                    @include display(space-between, baseline);
+                    text-align: center;
+                    margin: 15px 13px 0;
+
+                    @media($breakpoint_ESM) {
+                        margin: 12px 0 0;
+                    }
+
+                    .wallet_2 {
+                        @include display(center, center);
+                        flex-direction: column;
+
+                        h5 {
+                            margin: 7px 0 0 0;
+                            color: $white;
+                            font-size: 14px;
+                            font-weight: 600;
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    .deposit {
+                        @include display(center, center);
+                        flex-direction: column;
+
+                        h5 {
+                            margin: 7px 0 0 0;
+                            color: $white;
+                            font-size: 14px;
+                            font-weight: 600;
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    .withdraw {
+                        @include display(center, center);
+                        flex-direction: column;
+
+                        h5 {
+                            margin: 7px 0 0 0;
+                            color: $white;
+                            font-size: 14px;
+                            font-weight: 600;
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    .vip {
+                        @include display(center, center);
+                        flex-direction: column;
+
+                        h5 {
+                            margin: 7px 0 0 0;
+                            color: $white;
+                            font-size: 14px;
+                            font-weight: 600;
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .card_history {
+                margin-top: 20px;
+
+                .card_flex {
+                    @include display (space-between, center);
+                    column-gap: 7px;
+
+                    .card {
+                        @include display(center, center);
+                        flex-direction: row;
+                        padding: 15px 10px;
+                        background-color: $white;
+                        border-radius: 15px;
+                        box-shadow: $input_shadow;
+                        width: 50%;
+
+                        .bet_img {
+                            margin-right: 7px;
+
+                            img {}
+                        }
+
+                        .bet_content {
+                            h6 {
+                                margin-bottom: 5px;
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                                color: $forgot;
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    .transfer_img {
+                        margin-right: 7px;
+
+                        img {}
+                    }
+
+                    .transfer_content {
+                        h6 {
+                            margin-bottom: 5px;
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            color: $forgot;
+                            font-size: 13px;
+                        }
+                    }
+
+                    .deposit_img {
+                        margin-right: 7px;
+
+                        img {
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
+
+                    .deposit_content {
+                        h6 {
+                            margin-bottom: 5px;
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            color: $forgot;
+                            font-size: 13px;
+                        }
+                    }
+
+
+                    .withdraw_img {
+                        margin-right: 7px;
+
+                        img {
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
+
+                    .withdraw_content {
+                        h6 {
+                            margin-bottom: 5px;
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            color: $forgot;
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

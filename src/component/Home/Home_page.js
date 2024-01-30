@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import massage from "../../assets/img/massage.svg";
-// import download from "../../assets/img/download.svg";
+import React from "react";
 import banner from "../../assets/img/banner.svg";
 import lottery from "../../assets/img/lottery.svg";
 import mini_game from "../../assets/img/mini_game.svg";
@@ -11,34 +9,14 @@ import card_bg_img from "../../assets/img/card_bg_img.svg";
 import gift_img from "../../assets/img/gift_img.svg";
 import secound_gift_img from "../../assets/img/secound_gift_img.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import DG from "../../assets/img/DG.svg";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { clearData } from "../../redux/loginSlice";
-import { clearSignUpData } from "../../redux/signupSlice";
-import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
-import { clearOtpData } from "../../redux/otpSlice";
-import { clearResendData } from "../../redux/resendOtpSlice";
+import { Link } from "react-router-dom";
+
+import Header from "../Header/Header";
 
 const Home_page = () => {
-  const dispatch = useDispatch();
-  const navigation = useNavigate();
   // const [token, setToken] = useState(null);
   const token = localStorage.getItem("token");
   console.log(token);
-
-  const logout = () => {
-    localStorage.clear();
-    dispatch(clearSignUpData());
-    dispatch(clearData());
-    dispatch(clearSponsorData());
-    dispatch(clearOtpData());
-    dispatch(clearResendData());
-
-    setTimeout(() => {
-      navigation("/login");
-    }, 500);
-  };
 
   // useEffect(() => {
 
@@ -49,32 +27,7 @@ const Home_page = () => {
   return (
     <div className="home_page_section">
       <div className="inner_section">
-        <div className="header">
-          <div className="header_section">
-            <div className="logo">
-              <img src={DG} alt="DG" />
-              <h2>Dapic games</h2>
-            </div>
-            <div className="d-flex align-items-center">
-              <div className="massage me-2">
-                <img src={massage} alt="massage" />
-              </div>
-              {token != null ? (
-                <div className="logout">
-                  <Link onClick={() => logout()}>
-                    <h6>Logout</h6>
-                  </Link>
-                </div>
-              ) : (
-                <div className="logout">
-                  <Link onClick={() => logout()}>
-                    <h6>Login</h6>
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        <Header />
 
         <div className="swiper">
           <Swiper

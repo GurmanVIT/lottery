@@ -25,11 +25,11 @@ const Bottom_bar = () => {
                         }}
                         showLabels
                     >
-                        <LinkBottomNavigationAction href='/Home_page' label="Home" icon={<img src={home} alt="Home" />} />
+                        <LinkBottomNavigationAction href='/home_page' label="Home" icon={<img src={home} alt="Home" />} />
                         <LinkBottomNavigationAction label="Activity" icon={<img src={Activity} alt="Activity" />} />
                         <LinkBottomNavigationAction label="Promotion" icon={<img src={Promotion} alt="Promotion" />} className='promotion' />
                         <LinkBottomNavigationAction label="Wallet" icon={<img src={Wallet} alt="Wallet" />} />
-                        <LinkBottomNavigationAction label="Mine" icon={<img src={mine} alt="Mine" />} />
+                        <LinkBottomNavigationAction href='/mine' label="Mine" icon={<img src={mine} alt="Mine" />} />
                     </BottomNavigation>
                 </Box>
             </div>

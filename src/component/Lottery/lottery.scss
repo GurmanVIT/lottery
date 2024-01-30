@@ -6,7 +6,7 @@
         max-width: 420px;
 
         .header_flex {
-            background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
+            background: $profile_bg;
             @include display(space-between, center);
             padding: 12px 10px;
             position: fixed;
@@ -36,7 +36,7 @@
         }
 
         .dapic_header {
-            background: linear-gradient(91deg, #6561C0 0.85%, #9A97D6 99.57%);
+            background: $profile_bg;
             padding: 0 10px 10px;
             height: 160px;
         }

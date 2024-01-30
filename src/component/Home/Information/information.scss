@@ -35,6 +35,8 @@
                 }
 
                 img {
+                    border-radius: 50%;
+
                     @media($breakpoint_350) {
                         width: 45px;
                     }
