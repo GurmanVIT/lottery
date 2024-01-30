@@ -100,6 +100,10 @@ const Mine = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <div className='notification'>
+                            <div className=''></div>
+                        </div>
                     </div>
                 </div>
             </div>

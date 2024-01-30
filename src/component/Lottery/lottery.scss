@@ -1,520 +1,1032 @@
 .lottery_page {
-    @include display(center, center);
+  @include display(center, center);
 
-    .lottery {
-        width: 100%;
-        max-width: 420px;
+  .lottery {
+    width: 100%;
+    max-width: 420px;
 
-        .header_flex {
-            background: $profile_bg;
-            @include display(space-between, center);
-            padding: 12px 10px;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-            width: 100%;
-            max-width: 420px;
+    .header_flex {
+      background: $profile_bg;
+      @include display(space-between, center);
+      padding: 12px 10px;
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
 
-            .back_img {
-                a {
-                    img {
-                        @media($breakpoint_450) {
-                            width: 35px;
-                        }
-                    }
-                }
+      .back_img {
+        a {
+          img {
+            @media ($breakpoint_450) {
+              width: 35px;
             }
+          }
+        }
+      }
 
-            .music_headphone {
-                @include display(center, center);
-                gap: 10px;
+      .music_headphone {
+        @include display(center, center);
+        gap: 10px;
+
+        @media($breakpoint_ESM) {
+          gap: 5px;
+        }
+      }
+
+      .dapic_header {
+        background: $profile_bg;
+        padding: 0 10px 10px;
+        height: 160px;
+      }
+
+      .secound_sec {
+        background-color: $page_bg;
+        padding: 20px 10px;
+        position: relative;
+
+        @media($breakpoint_450) {
+          padding: 15px 10px;
+        }
+
+        .card {
+          padding: 10px 10px 20px;
+          border: none;
+          width: 92%;
+          border-radius: 14px;
+          position: absolute;
+          top: -92px;
+          left: 16px;
+          box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
+
+          .refresh {
+            text-align: end;
+          }
+
+          h1 {
+            color: $primary;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 5px;
+          }
+
+          .img_content {
+            @include display(center, center);
+            gap: 12px;
+
+            h4 {
+              margin-bottom: 0;
+              color: $forgot;
+              font-size: 15px;
+              font-weight: 600;
+              line-height: normal;
+            }
+          }
+
+          .btn_flex {
+            @include display(space-evenly, center);
+            margin-top: 15px;
+
+            .withdraw_btn {
+              button {
+                background-color: $primary;
+                border: none;
+                padding: 12px 35px;
+                border-radius: 8px;
+                color: $white;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: normal;
 
                 @media($breakpoint_ESM) {
-                    gap: 5px;
+                  padding: 10px 29px;
+                  font-size: 13px;
                 }
-            }
-        }
-
-        .dapic_header {
-            background: $profile_bg;
-            padding: 0 10px 10px;
-            height: 160px;
-        }
-
-        .secound_sec {
-            background-color: $page_bg;
-            padding: 20px 10px;
-            position: relative;
-
-            @media($breakpoint_450) {
-                padding: 15px 10px;
+              }
             }
 
-            .card {
-                padding: 10px 10px 20px;
+            .deposit_btn {
+              button {
+                background-color: $deposit_button;
                 border: none;
-                width: 92%;
-                border-radius: 14px;
-                position: absolute;
-                top: -92px;
-                left: 16px;
-                box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
+                padding: 12px 35px;
+                border-radius: 8px;
+                color: $white;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: normal;
 
-                .refresh {
-                    text-align: end;
+                @media($breakpoint_ESM) {
+                  padding: 10px 29px;
+                  font-size: 13px;
                 }
+              }
+            }
+          }
+        }
 
-                h1 {
-                    color: $primary;
-                    font-size: 24px;
-                    font-weight: 600;
-                    line-height: normal;
-                    text-transform: uppercase;
-                    text-align: center;
-                    margin-bottom: 5px;
-                }
+        .watch_flex_card {
+          @include display(space-between, center);
+          gap: 15px;
+          margin-top: 75px;
 
-                .img_content {
-                    @include display(center, center);
-                    gap: 12px;
+          @media($breakpoint_450) {
+            gap: 5px;
+          }
 
-                    h4 {
-                        margin-bottom: 0;
-                        color: $forgot;
-                        font-size: 15px;
-                        font-weight: 600;
-                        line-height: normal;
-                    }
-                }
+          @media($breakpoint_ESM) {
+            margin-top: 65px;
+          }
 
-                .btn_flex {
-                    @include display(space-evenly, center);
-                    margin-top: 15px;
+          .watch_active {
+            @include display(center, center);
+            background: $watch_bg;
+            width: 107px;
+            height: 110px;
+            border-radius: 15px;
 
-                    .withdraw_btn {
-                        button {
-                            background-color: $primary;
-                            border: none;
-                            padding: 12px 35px;
-                            border-radius: 8px;
-                            color: $white;
-                            font-size: 14px;
-                            font-weight: 600;
-                            line-height: normal;
-
-                            @media($breakpoint_ESM) {
-                                padding: 10px 29px;
-                                font-size: 13px;
-                            }
-                        }
-                    }
-
-                    .deposit_btn {
-                        button {
-                            background-color: $deposit_button;
-                            border: none;
-                            padding: 12px 35px;
-                            border-radius: 8px;
-                            color: $white;
-                            font-size: 14px;
-                            font-weight: 600;
-                            line-height: normal;
-
-                            @media($breakpoint_ESM) {
-                                padding: 10px 29px;
-                                font-size: 13px;
-                            }
-                        }
-                    }
-                }
+            @media($breakpoint_ESM) {
+              height: 104px;
             }
 
-            .watch_flex_card {
-                @include display(space-between, center);
-                gap: 15px;
-                margin-top: 75px;
+            .text-center {
+              @media($breakpoint_450) {
+                padding: 5px !important;
+              }
+
+              img {
+                @media($breakpoint_ESM) {
+                  width: 40px;
+                }
+              }
+            }
+
+            h5 {
+              color: $white;
+              font-size: 13px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              margin: 10px 0 0;
+
+              @media($breakpoint_450) {
+                font-size: 11px;
+              }
+
+              @media($breakpoint_ESM) {
+                margin-top: 5px;
+              }
+            }
+          }
+
+          .watch {
+            @include display(center, center);
+            background-color: $dark_watch;
+            width: 107px;
+            height: 110px;
+            border-radius: 15px;
+
+            .text-center {
+              @media($breakpoint_450) {
+                padding: 5px !important;
+              }
+
+              img {
+                @media($breakpoint_ESM) {
+                  width: 40px;
+                }
+              }
+            }
+
+            h5 {
+              color: $forgot;
+              font-size: 13px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+              margin: 10px 0 0;
+
+              @media($breakpoint_450) {
+                font-size: 11px;
+              }
+            }
+          }
+        }
+
+        .mixing_card {
+          .win_card {
+            @include display(space-between, center);
+            border-radius: 12px 12px 0 0;
+            margin-top: 20px;
+            padding: 15px 10px;
+            background: linear-gradient(191deg, #6A66C2 -86.72%, #9793FF 72.22%);
+            border-bottom: 3px dashed $white;
+
+            @media($breakpoint_350) {
+              padding: 20px 7px;
+            }
+
+            .win_number {
+
+              h3 {
+                color: $white;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 11px;
+              }
+
+              .coin_img {
+                display: flex;
+
+                .text_move {
+                  position: relative;
+
+                  img {
+                    margin-right: 5px;
+
+                    @media($breakpoint_450) {
+                      width: 30px;
+                      height: 30px;
+                      margin-right: 4px;
+                    }
+                  }
+
+                  h6 {
+                    margin-bottom: 0;
+                    color: $white;
+                    position: absolute;
+                    left: 15px;
+                    bottom: 10px;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+
+                    @media($breakpoint_450) {
+                      left: 12px;
+                      bottom: 8px;
+                      font-size: 11px;
+                    }
+                  }
+                }
+              }
+            }
+
+            .play {
+              button {
+                border: none;
+                background-color: $white;
+                color: $primary;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                padding: 9px 11px;
+                border-radius: 25px;
 
                 @media($breakpoint_450) {
-                    gap: 5px;
+                  font-size: 11px;
+                  padding: 7px 8px;
+                  border-radius: 16px;
                 }
 
                 @media($breakpoint_ESM) {
-                    margin-top: 65px;
+                  font-size: 9px;
+                  padding: 6px 7px;
+                  border-radius: 10px;
                 }
+              }
+            }
+          }
 
-                .watch_active {
-                    @include display(center, center);
-                    background: $watch_bg;
-                    width: 107px;
-                    height: 110px;
-                    border-radius: 15px;
+          .timing {
+            background-color: $mixing_card;
+            border-radius: 0 0 12px 12px;
+            padding: 15px 10px 10px;
 
-                    @media($breakpoint_ESM) {
-                        height: 104px;
-                    }
-
-                    .text-center {
-                        @media($breakpoint_450) {
-                            padding: 5px !important;
-                        }
-
-                        img {
-                            @media($breakpoint_ESM) {
-                                width: 40px;
-                            }
-                        }
-                    }
-
-                    h5 {
-                        color: $white;
-                        font-size: 13px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: normal;
-                        margin: 10px 0 0;
-
-                        @media($breakpoint_450) {
-                            font-size: 11px;
-                        }
-
-                        @media($breakpoint_ESM) {
-                            margin-top: 5px;
-                        }
-                    }
-                }
-
-                .watch {
-                    @include display(center, center);
-                    background-color: $dark_watch;
-                    width: 107px;
-                    height: 110px;
-                    border-radius: 15px;
-
-                    .text-center {
-                        @media($breakpoint_450) {
-                            padding: 5px !important;
-                        }
-
-                        img {
-                            @media($breakpoint_ESM) {
-                                width: 40px;
-                            }
-                        }
-                    }
-
-                    h5 {
-                        color: $forgot;
-                        font-size: 13px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: normal;
-                        margin: 10px 0 0;
-
-                        @media($breakpoint_450) {
-                            font-size: 11px;
-                        }
-                    }
-                }
+            h5 {
+              color: $white;
+              font-size: 17px;
+              font-style: normal;
+              font-weight: 700;
+              margin-bottom: 3px;
             }
 
-            .mixing_card {
-                .win_card {
-                    @include display(space-between, center);
-                    border-radius: 12px 12px 0 0;
-                    margin-top: 20px;
-                    padding: 15px 10px;
-                    background: linear-gradient(191deg, #6A66C2 -86.72%, #9793FF 72.22%);
-                    border-bottom: 3px dashed $white;
+            .remaining {
+              @include display(center, center);
 
-                    @media($breakpoint_350) {
-                        padding: 20px 7px;
-                    }
+              .zero_number {
+                width: 35px;
+                height: 40px;
+                color: $black;
+                margin-right: 5px;
+                background-color: $white;
+                @include display(center, center);
+                border-radius: 7px;
+                font-size: 23px;
+                font-style: normal;
+                font-weight: 500;
 
-                    .win_number {
-
-                        h3 {
-                            color: $white;
-                            font-size: 17px;
-                            font-weight: 700;
-                            line-height: normal;
-                            margin-bottom: 11px;
-                        }
-
-                        .coin_img {
-                            display: flex;
-
-                            .text_move {
-                                position: relative;
-
-                                img {
-                                    margin-right: 5px;
-
-                                    @media($breakpoint_450) {
-                                        width: 30px;
-                                        height: 30px;
-                                        margin-right: 4px;
-                                    }
-                                }
-
-                                h6 {
-                                    margin-bottom: 0;
-                                    color: $white;
-                                    position: absolute;
-                                    left: 15px;
-                                    bottom: 10px;
-                                    font-size: 14px;
-                                    font-style: normal;
-                                    font-weight: 700;
-
-                                    @media($breakpoint_450) {
-                                        left: 12px;
-                                        bottom: 8px;
-                                        font-size: 11px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .play {
-                        button {
-                            border: none;
-                            background-color: $white;
-                            color: $primary;
-                            font-size: 12px;
-                            font-style: normal;
-                            font-weight: 700;
-                            padding: 9px 11px;
-                            border-radius: 25px;
-
-                            @media($breakpoint_450) {
-                                font-size: 11px;
-                                padding: 7px 8px;
-                                border-radius: 16px;
-                            }
-
-                            @media($breakpoint_ESM) {
-                                font-size: 9px;
-                                padding: 6px 7px;
-                                border-radius: 10px;
-                            }
-                        }
-                    }
+                @media($breakpoint_ESM) {
+                  width: 32px;
+                  height: 36px;
+                  margin-right: 4px;
+                  font-size: 20px;
                 }
 
-                .timing {
-                    background-color: $mixing_card;
-                    border-radius: 0 0 12px 12px;
-                    padding: 15px 10px 10px;
-
-                    h5 {
-                        color: $white;
-                        font-size: 17px;
-                        font-style: normal;
-                        font-weight: 700;
-                        margin-bottom: 3px;
-                    }
-
-                    .remaining {
-                        @include display(center, center);
-
-                        .zero_number {
-                            width: 35px;
-                            height: 40px;
-                            color: $black;
-                            margin-right: 5px;
-                            background-color: $white;
-                            @include display(center, center);
-                            border-radius: 7px;
-                            font-size: 23px;
-                            font-style: normal;
-                            font-weight: 500;
-
-                            @media($breakpoint_ESM) {
-                                width: 32px;
-                                height: 36px;
-                                margin-right: 4px;
-                                font-size: 20px;
-                            }
-
-                            @media($breakpoint_350) {
-                                width: 30px;
-                                height: 34px;
-                                font-size: 18px;
-                                border-radius: 8px;
-                            }
-                        }
-
-                        .zero_number_bg {
-                            margin: 0 5px 0 0;
-                            font-size: 35px;
-
-                            @media($breakpoint_350) {
-                                font-size: 30px;
-                            }
-
-                        }
-                    }
-
-                    .text_number {
-                        color: $white;
-                        font-size: 19px;
-                        font-style: normal;
-                        font-weight: 600;
-
-                        @media($breakpoint_ESM) {
-                            font-size: 18px;
-                        }
-                    }
+                @media($breakpoint_350) {
+                  width: 30px;
+                  height: 34px;
+                  font-size: 18px;
+                  border-radius: 8px;
                 }
+              }
+
+              .zero_number_bg {
+                margin: 0 5px 0 0;
+                font-size: 35px;
+
+                @media($breakpoint_350) {
+                  font-size: 30px;
+                }
+
+              }
             }
 
-            .modal_number {
-                background-color: $dark_watch;
-                padding: 10px;
-                margin: 20px 0;
-                border-radius: 10px;
+            .text_number {
+              color: $white;
+              font-size: 19px;
+              font-style: normal;
+              font-weight: 600;
 
-                .color_btn {
-                    @include display (space-between, center);
-                    margin-bottom: 10px;
-
-                    .violet_btn {
-                        @include vgr_button;
-                    }
-
-                    .green_btn {
-                        @include vgr_button;
-                        background-color: $green;
-                    }
-
-                    .red_btn {
-                        @include vgr_button;
-                        background-color: $red;
-                    }
-                }
-
-                .select_coin {
-                    background-color: $number_bg;
-                    padding: 11px 11px 1px;
-                    border-radius: 12px;
-                    box-shadow: $input_shadow;
-
-                    .ten_coin {
-                        @include display(space-between, center);
-                        margin-bottom: 11px;
-
-                        .first_line {
-                            @include display(initial, center);
-                            position: relative;
-
-                            img {
-                                width: 65px;
-                                height: 65px;
-                                border-radius: 50%;
-
-                                @media($breakpoint_450) {
-                                    width: 60px;
-                                    height: 60px;
-                                }
-
-                                @media($breakpoint_ESM) {
-                                    width: 54px;
-                                    height: 54px;
-                                }
-
-                                @media($breakpoint_350) {
-                                    width: 48px;
-                                    height: 48px;
-                                }
-                            }
-
-                            h4 {
-                                color: $white;
-                                font-weight: 500;
-                                position: absolute;
-                                font-size: 24px;
-                                left: 26px;
-                                top: 18px;
-
-                                @media($breakpoint_450) {
-                                    font-size: 21px;
-                                    left: 24px;
-                                    top: 16px;
-                                }
-
-                                @media($breakpoint_ESM) {
-                                    font-size: 20px;
-                                    left: 22px;
-                                    top: 15px;
-                                }
-
-                                @media($breakpoint_350) {
-                                    left: 19px;
-                                    top: 12px;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .flex_seven_btn {
-                    margin: 10px 0;
-                    @include display(space-between, center);
-
-                    .secound_violet {
-                        background-color: $white;
-                        border: 2px solid $primary;
-                        color: $primary;
-                        font-size: 14px;
-                        font-weight: 600;
-                        border-radius: 7px;
-                        padding: 7px 16px;
-
-                        @media($breakpoint_ESM) {
-                            font-size: 12px;
-                            padding: 6px 11px;
-                            border-width: 1px;
-                            border-radius: 5px;
-                        }
-
-                        @media($breakpoint_350) {
-                            font-size: 11px;
-                            padding: 6px 7px;
-                            border-radius: 6px;
-                        }
-                    }
-
-                    .x_two_btn {
-                        border: none;
-                        border-radius: 7px;
-                        padding: 7px;
-                        color: $forgot;
-                        background-color: $dark_watch;
-                        font-size: 16px;
-                        font-weight: 600;
-
-                        @media($breakpoint_450) {
-                            padding: 7px;
-                            border-radius: 6px;
-                            font-size: 14px;
-                        }
-
-                        @media($breakpoint_ESM) {
-                            padding: 6px;
-                            font-size: 13px;
-                        }
-
-                        @media($breakpoint_350) {
-                            padding: 5px 6px;
-                        }
-
-                        &:focus-visible {
-                            outline: none;
-                        }
-                    }
-                }
+              @media($breakpoint_ESM) {
+                font-size: 18px;
+              }
             }
+          }
         }
+
+        .modal_number {
+          background-color: $dark_watch;
+          padding: 10px;
+          margin: 20px 0;
+          border-radius: 10px;
+
+          .color_btn {
+            @include display (space-between, center);
+            margin-bottom: 10px;
+
+            .violet_btn {
+              @include vgr_button;
+            }
+
+            .green_btn {
+              @include vgr_button;
+              background-color: $green;
+            }
+
+            .red_btn {
+              @include vgr_button;
+              background-color: $red;
+            }
+          }
+
+          .select_coin {
+            background-color: $number_bg;
+            padding: 11px 11px 1px;
+            border-radius: 12px;
+            box-shadow: $input_shadow;
+
+            .ten_coin {
+              @include display(space-between, center);
+              margin-bottom: 11px;
+
+              .first_line {
+                @include display(initial, center);
+                position: relative;
+
+                img {
+                  width: 65px;
+                  height: 65px;
+                  border-radius: 50%;
+
+                  @media($breakpoint_450) {
+                    width: 60px;
+                    height: 60px;
+                  }
+
+                  @media($breakpoint_ESM) {
+                    width: 54px;
+                    height: 54px;
+                  }
+
+                  @media($breakpoint_350) {
+                    width: 48px;
+                    height: 48px;
+                  }
+                }
+
+                h4 {
+                  color: $white;
+                  font-weight: 500;
+                  position: absolute;
+                  font-size: 24px;
+                  left: 26px;
+                  top: 18px;
+
+                  @media($breakpoint_450) {
+                    font-size: 21px;
+                    left: 24px;
+                    top: 16px;
+                  }
+
+                  @media($breakpoint_ESM) {
+                    font-size: 20px;
+                    left: 22px;
+                    top: 15px;
+                  }
+
+                  @media($breakpoint_350) {
+                    left: 19px;
+                    top: 12px;
+                  }
+                }
+              }
+            }
+          }
+
+          .flex_seven_btn {
+            margin: 10px 0;
+            @include display(space-between, center);
+
+            .secound_violet {
+              background-color: $white;
+              border: 2px solid $primary;
+              color: $primary;
+              font-size: 14px;
+              font-weight: 600;
+              border-radius: 7px;
+              padding: 7px 16px;
+
+              @media($breakpoint_ESM) {
+                font-size: 12px;
+                padding: 6px 11px;
+                border-width: 1px;
+                border-radius: 5px;
+              }
+
+              @media($breakpoint_350) {
+                font-size: 11px;
+                padding: 6px 7px;
+                border-radius: 6px;
+              }
+            }
+
+            .x_two_btn {
+              border: none;
+              border-radius: 7px;
+              padding: 7px;
+              color: $forgot;
+              background-color: $dark_watch;
+              font-size: 16px;
+              font-weight: 600;
+
+              @media($breakpoint_450) {
+                padding: 7px;
+                border-radius: 6px;
+                font-size: 14px;
+              }
+
+              @media($breakpoint_ESM) {
+                padding: 6px;
+                font-size: 13px;
+              }
+
+              @media($breakpoint_350) {
+                padding: 5px 6px;
+              }
+
+              &:focus-visible {
+                outline: none;
+              }
+            }
+          }
+        }
+      }
     }
+  }
+
+  .dapic_header {
+    background: linear-gradient(91deg, #6561c0 0.85%, #9a97d6 99.57%);
+    padding: 0 10px 10px;
+    height: 160px;
+  }
+
+  .secound_sec {
+    background-color: $page_bg;
+    padding: 20px 10px;
+    position: relative;
+
+    @media ($breakpoint_450) {
+      padding: 15px 10px;
+    }
+
+    .card {
+      padding: 10px 10px 20px;
+      border: none;
+      width: 92%;
+      border-radius: 14px;
+      position: absolute;
+      top: -92px;
+      left: 16px;
+      box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
+
+      .refresh {
+        text-align: end;
+      }
+
+      h1 {
+        color: $primary;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      .img_content {
+        @include display(center, center);
+        gap: 12px;
+
+        h4 {
+          margin-bottom: 0;
+          color: $forgot;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: normal;
+        }
+      }
+
+      .btn_flex {
+        @include display(space-evenly, center);
+        margin-top: 15px;
+
+        .withdraw_btn {
+          button {
+            background-color: $primary;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 8px;
+            color: $white;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+
+            @media ($breakpoint_ESM) {
+              padding: 10px 29px;
+              font-size: 13px;
+            }
+          }
+        }
+
+        .deposit_btn {
+          button {
+            background-color: $deposit_button;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 8px;
+            color: $white;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+
+            @media ($breakpoint_ESM) {
+              padding: 10px 29px;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+
+    .watch_flex_card {
+      @include display(space-between, center);
+      gap: 15px;
+      margin-top: 75px;
+
+      @media ($breakpoint_450) {
+        gap: 5px;
+      }
+
+      @media ($breakpoint_ESM) {
+        margin-top: 65px;
+      }
+
+      .watch_active {
+        @include display(center, center);
+        background: $watch_bg;
+        width: 107px;
+        height: 110px;
+        border-radius: 15px;
+
+        @media ($breakpoint_ESM) {
+          height: 104px;
+        }
+
+        .text-center {
+          @media ($breakpoint_450) {
+            padding: 5px !important;
+          }
+
+          img {
+            @media ($breakpoint_ESM) {
+              width: 40px;
+            }
+          }
+        }
+
+        h5 {
+          color: $white;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin: 10px 0 0;
+
+          @media ($breakpoint_450) {
+            font-size: 11px;
+          }
+
+          @media ($breakpoint_ESM) {
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .watch {
+        @include display(center, center);
+        background-color: $dark_watch;
+        width: 107px;
+        height: 110px;
+        border-radius: 15px;
+
+        .text-center {
+          @media ($breakpoint_450) {
+            padding: 5px !important;
+          }
+
+          img {
+            @media ($breakpoint_ESM) {
+              width: 40px;
+            }
+          }
+        }
+
+        h5 {
+          color: $forgot;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          margin: 10px 0 0;
+
+          @media ($breakpoint_450) {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+
+    .mixing_card {
+      .win_card {
+        @include display(space-between, center);
+        border-radius: 12px 12px 0 0;
+        margin-top: 20px;
+        padding: 15px 10px;
+        background: linear-gradient(191deg, #6a66c2 -86.72%, #9793ff 72.22%);
+        border-bottom: 3px dashed $white;
+
+        @media ($breakpoint_350) {
+          padding: 20px 7px;
+        }
+
+        .win_number {
+          h3 {
+            color: $white;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 11px;
+          }
+
+          .coin_img {
+            display: flex;
+
+            .text_move {
+              position: relative;
+
+              img {
+                margin-right: 5px;
+
+                @media ($breakpoint_450) {
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 4px;
+                }
+              }
+
+              h6 {
+                margin-bottom: 0;
+                color: $white;
+                position: absolute;
+                left: 15px;
+                bottom: 10px;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+
+                @media ($breakpoint_450) {
+                  left: 12px;
+                  bottom: 8px;
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+        }
+
+        .play {
+          button {
+            border: none;
+            background-color: $white;
+            color: $primary;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            padding: 9px 11px;
+            border-radius: 25px;
+
+            @media ($breakpoint_450) {
+              font-size: 11px;
+              padding: 7px 8px;
+              border-radius: 16px;
+            }
+
+            @media ($breakpoint_ESM) {
+              font-size: 9px;
+              padding: 6px 7px;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+
+      .timing {
+        background-color: $mixing_card;
+        border-radius: 0 0 12px 12px;
+        padding: 15px 10px 10px;
+
+        h5 {
+          color: $white;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 700;
+          margin-bottom: 3px;
+        }
+
+        .remaining {
+          @include display(center, center);
+
+          .zero_number {
+            width: 35px;
+            height: 40px;
+            color: $black;
+            margin-right: 5px;
+            background-color: $white;
+            @include display(center, center);
+            border-radius: 7px;
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 500;
+
+            @media ($breakpoint_ESM) {
+              width: 32px;
+              height: 36px;
+              margin-right: 4px;
+              font-size: 20px;
+            }
+
+            @media ($breakpoint_350) {
+              width: 30px;
+              height: 34px;
+              font-size: 18px;
+              border-radius: 8px;
+            }
+          }
+
+          .zero_number_bg {
+            margin: 0 5px 0 0;
+            font-size: 35px;
+
+            @media ($breakpoint_350) {
+              font-size: 30px;
+            }
+          }
+        }
+
+        .text_number {
+          color: $white;
+          font-size: 19px;
+          font-style: normal;
+          font-weight: 600;
+
+          @media ($breakpoint_ESM) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
+    .modal_number {
+      background-color: $dark_watch;
+      margin: 20px 0;
+      border-radius: 10px;
+      position: relative;
+
+      .sec_number {
+        height: 100%;
+        width: 100%;
+        max-width: 402px;
+        position: absolute;
+        border-radius: 10px;
+        z-index: 1;
+        left: 0px;
+
+        background-color: #747070bf;
+        @include display(center, center);
+
+        h1 {
+          margin-bottom: 0;
+
+          span {
+            // background-color: $primary;
+            color: $white;
+            font-size: 90px;
+            font-weight: 700;
+          }
+
+          // .five_sec {
+          //   // margin-left: 20px;
+          // }
+        }
+      }
+
+      .bg_dark {
+        padding: 10px;
+
+        .color_btn {
+          @include display(space-between, center);
+          margin-bottom: 10px;
+
+          .violet_btn {
+            @include vgr_button;
+          }
+
+          .green_btn {
+            @include vgr_button;
+            background-color: $green;
+          }
+
+          .red_btn {
+            @include vgr_button;
+            background-color: $red;
+          }
+        }
+
+        .select_coin {
+          background-color: $number_bg;
+          padding: 11px 11px 1px;
+          border-radius: 12px;
+          box-shadow: $input_shadow;
+
+          .ten_coin {
+            @include display(space-between, center);
+            margin-bottom: 11px;
+
+            .first_line {
+              @include display(initial, center);
+              position: relative;
+
+              img {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+
+                @media ($breakpoint_450) {
+                  width: 60px;
+                  height: 60px;
+                }
+
+                @media ($breakpoint_ESM) {
+                  width: 54px;
+                  height: 54px;
+                }
+
+                @media ($breakpoint_350) {
+                  width: 48px;
+                  height: 48px;
+                }
+              }
+
+              h4 {
+                color: $white;
+                font-weight: 500;
+                position: absolute;
+                font-size: 24px;
+                left: 26px;
+                top: 18px;
+
+                @media ($breakpoint_450) {
+                  font-size: 21px;
+                  left: 24px;
+                  top: 16px;
+                }
+
+                @media ($breakpoint_ESM) {
+                  font-size: 20px;
+                  left: 22px;
+                  top: 15px;
+                }
+
+                @media ($breakpoint_350) {
+                  left: 19px;
+                  top: 12px;
+                }
+              }
+            }
+          }
+        }
+
+        .flex_seven_btn {
+          margin: 10px 0;
+          @include display(space-between, center);
+
+          .secound_violet {
+            background-color: $white;
+            border: 2px solid $primary;
+            color: $primary;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 7px;
+            padding: 7px 16px;
+
+            @media ($breakpoint_ESM) {
+              font-size: 12px;
+              padding: 6px 11px;
+              border-width: 1px;
+              border-radius: 5px;
+            }
+
+            @media ($breakpoint_350) {
+              font-size: 11px;
+              padding: 6px 7px;
+              border-radius: 6px;
+            }
+          }
+
+          .x_two_btn {
+            border: none;
+            border-radius: 7px;
+            padding: 7px;
+            color: $forgot;
+            background-color: $dark_watch;
+            font-size: 16px;
+            font-weight: 600;
+
+            @media ($breakpoint_450) {
+              padding: 7px;
+              border-radius: 6px;
+              font-size: 14px;
+            }
+
+            @media ($breakpoint_ESM) {
+              padding: 6px;
+              font-size: 13px;
+            }
+
+            @media ($breakpoint_350) {
+              padding: 5px 6px;
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }

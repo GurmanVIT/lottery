@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import ModalBottom from "./component/Lottery/BigSmall/OffCanvas/ModalBottom";
 import Profile from "./component/profile/Index";
+import WinPop from "./component/Lottery/WinPop";
 
 
 // export
@@ -28,6 +29,7 @@ function App() {
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/modalbottom" element={<ModalBottom />} />
           <Route path="/mine" element={<Profile />} />
+          <Route path="/winner" element={<WinPop />} />
         </Routes>
       </Router>
     </Provider>

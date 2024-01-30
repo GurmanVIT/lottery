@@ -22,13 +22,15 @@ import ModalBottom from "./BigSmall/OffCanvas/ModalBottom";
 import { myColors } from "../../utils/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { gameHistory } from "../../redux/gameHistorySlice";
+import PaginationComponent from "./Pagination/Pagination";
 
-const socket = io("https://dapic-api.virtualittechnology.com/");
+export const socket = io("https://dapic-api.virtualittechnology.com/");
 
 const Lottery = () => {
   const userId = localStorage.getItem("userId");
   const [isSocketConnected, setSocketConnected] = useState(false);
   const [gameId, setGameId] = useState("");
+  const [gameTableId, setGameTableId] = useState("");
 
   const [gameTimer, setGamerTimer] = useState(0);
   const [skip, setSkip] = useState(0);
@@ -40,7 +42,8 @@ const Lottery = () => {
   const [balanceValue, setBalanceValue] = useState(1);
 
   const [isOpenModal, setOpenModal] = useState(false);
-  const [historyData, setHistoryData] = useState(null);
+  const [historyData, setHistoryData] = useState([]);
+  const [walletBalance, setWalletBalance] = useState(0);
 
   const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
   const dispatch = useDispatch();
@@ -50,16 +53,25 @@ const Lottery = () => {
       limit: 10,
     };
 
-    console.log("History Payload ===> ", payload);
-
     dispatch(gameHistory(payload));
   }, [skip]);
 
   useEffect(() => {
     if (gameHistoryData != null && gameHistoryData.status === 1) {
-      setHistoryData(gameHistoryData.data);
+      const data = gameHistoryData.data;
+      setHistoryData(data);
+      console.log("HISTORY DATA ===> ", historyData);
     }
   }, [gameHistoryData]);
+
+  const getGameHistory = () => {
+    const payload = {
+      skip: skip,
+      limit: 10,
+    };
+    console.log("History Payload ===> ", payload);
+    dispatch(gameHistory(payload));
+  };
 
   useEffect(() => {
     // Establish a connection to the Socket.io server
@@ -84,19 +96,23 @@ const Lottery = () => {
       socket.emit("touch_server", data);
 
       socket.on("timerForward", (data) => {
-        console.log("Timer", data.gameTimer);
+        console.log("Timer", data);
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
         if (gameId.length === 0) {
           setGameId(data.gameId);
+          setGameTableId(data.gameTableId);
         }
         // const secondSplit = splitIntoArray(second)[0];
         // console.log("Timer", secondSplit);
       });
-
-      socket.on("gameResult", (data) => {
-        console.log("Game Result ===> ", data);
+      socket.on("bet_placed", (data) => {
+        console.log("bet_placed Result ===> ", data);
+        setWalletBalance(data.walletPoints);
+      });
+      socket.on("winner", (data) => {
+        console.log("Winner Result ===> ", data);
       });
 
       socket.on("less_wallet_points", (data) => {
@@ -112,6 +128,8 @@ const Lottery = () => {
         socket.off("timerForward");
         socket.off("gameResult");
         socket.off("less_wallet_points");
+        socket.off("bet_placed");
+        socket.off("winner");
       };
     }
   }, []);
@@ -133,6 +151,7 @@ const Lottery = () => {
         color:
           selectedValue === "green" ? 1 : selectedValue === "Violet" ? 2 : 3,
         gameId: gameId,
+        gameTableId: gameTableId,
       };
       console.log("Bet Data ===> ", betData);
       socket.emit("bet_place", betData);
@@ -143,6 +162,7 @@ const Lottery = () => {
         multiplier: selectedX,
         type: selectedValue === "Big" ? 1 : 2,
         gameId: gameId,
+        gameTableId: gameTableId,
       };
       console.log("Bet Data ===> ", betData);
       socket.emit("bet_place", betData);
@@ -153,6 +173,7 @@ const Lottery = () => {
         multiplier: selectedX,
         betNumber: selectedValue,
         gameId: gameId,
+        gameTableId: gameTableId,
       };
       console.log("Bet Data ===> ", betData);
       socket.emit("bet_place", betData);
@@ -188,7 +209,7 @@ const Lottery = () => {
             <div className="refresh">
               <img src={refresh} alt="refresh" />
             </div>
-            <h1>₹0.00</h1>
+            <h1>₹{walletBalance}.00</h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
               <h4>Wallet Balance</h4>
@@ -324,229 +345,246 @@ const Lottery = () => {
           </div>
 
           <div className="modal_number">
-            <div className="color_btn">
-              <button
-                className="violet_btn"
-                onClick={() => {
-                  setSelectedValue("Violet");
-                  setSelectedColor(myColors.primaryColor);
-                  setOpenModal(true);
-                }}
-              >
-                Violet
-              </button>
-              <button
-                className="green_btn"
-                onClick={() => {
-                  setSelectedValue("Green");
-                  setSelectedColor(myColors.green_color);
-                  setOpenModal(true);
-                }}
-              >
-                Green
-              </button>
-              <button
-                className="red_btn"
-                onClick={() => {
-                  setSelectedValue("Red");
-                  setSelectedColor(myColors.red_color);
-                  setOpenModal(true);
-                }}
-              >
-                Red
-              </button>
-            </div>
-            <div className="select_coin">
-              <div className="ten_coin">
-                <div
-                  className="first_line"
+            {gameTimer < 6 && (
+              <div className="sec_number">
+                <h1>
+                  <span>0</span>
+                  <span className="five_sec">{gameTimer}</span>
+                </h1>
+              </div>
+            )}
+            <div className="bg_dark">
+              <div className="color_btn">
+                <button
+                  className="violet_btn"
                   onClick={() => {
-                    setSelectedValue("0");
+                    setSelectedValue("Violet");
                     setSelectedColor(myColors.primaryColor);
                     setOpenModal(true);
                   }}
                 >
-                  <img src={first} alt="first" />
-                  <h4>0</h4>
-                </div>
-                <div
-                  className="first_line"
+                  Violet
+                </button>
+                <button
+                  className="green_btn"
                   onClick={() => {
-                    setSelectedValue("1");
+                    setSelectedValue("Green");
                     setSelectedColor(myColors.green_color);
                     setOpenModal(true);
                   }}
                 >
-                  <img src={secound} alt="secound" />
-                  <h4>1</h4>
-                </div>
-                <div
-                  className="first_line"
+                  Green
+                </button>
+                <button
+                  className="red_btn"
                   onClick={() => {
-                    setSelectedValue("2");
+                    setSelectedValue("Red");
                     setSelectedColor(myColors.red_color);
                     setOpenModal(true);
                   }}
                 >
-                  <img src={third} alt="third" />
-                  <h4>2</h4>
+                  Red
+                </button>
+              </div>
+              <div className="select_coin">
+                <div className="ten_coin">
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedValue("0");
+                      setSelectedColor(myColors.primaryColor);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={first} alt="first" />
+                    <h4>0</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedValue("1");
+                      setSelectedColor(myColors.green_color);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={secound} alt="secound" />
+                    <h4>1</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedValue("2");
+                      setSelectedColor(myColors.red_color);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={third} alt="third" />
+                    <h4>2</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedValue("3");
+                      setSelectedColor(myColors.green_color);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={secound} alt="secound" />
+                    <h4>3</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedValue("4");
+                      setSelectedColor(myColors.red_color);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={third} alt="third" />
+                    <h4>4</h4>
+                  </div>
                 </div>
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedValue("3");
-                    setSelectedColor(myColors.green_color);
-                    setOpenModal(true);
-                  }}
-                >
-                  <img src={secound} alt="secound" />
-                  <h4>3</h4>
-                </div>
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedValue("4");
-                    setSelectedColor(myColors.red_color);
-                    setOpenModal(true);
-                  }}
-                >
-                  <img src={third} alt="third" />
-                  <h4>4</h4>
+                <div className="ten_coin">
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedValue("5");
+                      setSelectedColor(myColors.primaryColor);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={fifth} alt="fitfh" />
+                    <h4>5</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedColor(myColors.red_color);
+                      setSelectedValue("6");
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={third} alt="third" />
+                    <h4>6</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedColor(myColors.green_color);
+                      setSelectedValue("7");
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={secound} alt="secound" />
+                    <h4>7</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedColor(myColors.red_color);
+                      setSelectedValue("8");
+
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={third} alt="third" />
+                    <h4>8</h4>
+                  </div>
+                  <div
+                    className="first_line"
+                    onClick={() => {
+                      setSelectedColor(myColors.green_color);
+                      setSelectedValue("9");
+
+                      setOpenModal(true);
+                    }}
+                  >
+                    <img src={secound} alt="secound" />
+                    <h4>9</h4>
+                  </div>
                 </div>
               </div>
-              <div className="ten_coin">
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedValue("5");
-                    setSelectedColor(myColors.primaryColor);
-                    setOpenModal(true);
+              <div className="flex_seven_btn">
+                <button className="secound_violet">Random</button>
+                <button
+                  className="x_two_btn"
+                  style={{
+                    color: selectedX === 1 ? "white" : "#707070",
+                    background: selectedX === 1 ? "#00C738" : "#ffffff8a",
                   }}
+                  onClick={() => setSelectedX(1)}
                 >
-                  <img src={fifth} alt="fitfh" />
-                  <h4>5</h4>
-                </div>
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedColor(myColors.red_color);
-                    setSelectedValue("6");
-                    setOpenModal(true);
+                  X1
+                </button>
+                <button
+                  className="x_two_btn"
+                  style={{
+                    color: selectedX === 5 ? "white" : "#707070",
+                    background: selectedX === 5 ? "#00C738" : "#ffffff8a",
                   }}
+                  onClick={() => setSelectedX(5)}
                 >
-                  <img src={third} alt="third" />
-                  <h4>6</h4>
-                </div>
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedColor(myColors.green_color);
-                    setSelectedValue("7");
-                    setOpenModal(true);
+                  X5
+                </button>
+                <button
+                  className="x_two_btn"
+                  style={{
+                    color: selectedX === 10 ? "white" : "#707070",
+                    background: selectedX === 10 ? "#00C738" : "#ffffff8a",
                   }}
+                  onClick={() => setSelectedX(10)}
                 >
-                  <img src={secound} alt="secound" />
-                  <h4>7</h4>
-                </div>
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedColor(myColors.red_color);
-                    setSelectedValue("8");
-
-                    setOpenModal(true);
+                  X10
+                </button>
+                <button
+                  className="x_two_btn"
+                  style={{
+                    color: selectedX === 20 ? "white" : "#707070",
+                    background: selectedX === 20 ? "#00C738" : "#ffffff8a",
                   }}
+                  onClick={() => setSelectedX(20)}
                 >
-                  <img src={third} alt="third" />
-                  <h4>8</h4>
-                </div>
-                <div
-                  className="first_line"
-                  onClick={() => {
-                    setSelectedColor(myColors.green_color);
-                    setSelectedValue("9");
-
-                    setOpenModal(true);
+                  X20
+                </button>
+                <button
+                  className="x_two_btn"
+                  style={{
+                    color: selectedX === 50 ? "white" : "#707070",
+                    background: selectedX === 50 ? "#00C738" : "#ffffff8a",
                   }}
+                  onClick={() => setSelectedX(50)}
                 >
-                  <img src={secound} alt="secound" />
-                  <h4>9</h4>
-                </div>
+                  X50
+                </button>
+                <button
+                  className="x_two_btn"
+                  style={{
+                    color: selectedX === 100 ? "white" : "#707070",
+                    background: selectedX === 100 ? "#00C738" : "#ffffff8a",
+                  }}
+                  onClick={() => setSelectedX(100)}
+                >
+                  X100
+                </button>
               </div>
-            </div>
-            <div className="flex_seven_btn">
-              <button className="secound_violet">Random</button>
-              <button
-                className="x_two_btn"
-                style={{
-                  color: selectedX === 1 ? "white" : "#707070",
-                  background: selectedX === 1 ? "#00C738" : "#ffffff8a",
-                }}
-                onClick={() => setSelectedX(1)}
-              >
-                X1
-              </button>
-              <button
-                className="x_two_btn"
-                style={{
-                  color: selectedX === 5 ? "white" : "#707070",
-                  background: selectedX === 5 ? "#00C738" : "#ffffff8a",
-                }}
-                onClick={() => setSelectedX(5)}
-              >
-                X5
-              </button>
-              <button
-                className="x_two_btn"
-                style={{
-                  color: selectedX === 10 ? "white" : "#707070",
-                  background: selectedX === 10 ? "#00C738" : "#ffffff8a",
-                }}
-                onClick={() => setSelectedX(10)}
-              >
-                X10
-              </button>
-              <button
-                className="x_two_btn"
-                style={{
-                  color: selectedX === 20 ? "white" : "#707070",
-                  background: selectedX === 20 ? "#00C738" : "#ffffff8a",
-                }}
-                onClick={() => setSelectedX(20)}
-              >
-                X20
-              </button>
-              <button
-                className="x_two_btn"
-                style={{
-                  color: selectedX === 50 ? "white" : "#707070",
-                  background: selectedX === 50 ? "#00C738" : "#ffffff8a",
-                }}
-                onClick={() => setSelectedX(50)}
-              >
-                X50
-              </button>
-              <button
-                className="x_two_btn"
-                style={{
-                  color: selectedX === 100 ? "white" : "#707070",
-                  background: selectedX === 100 ? "#00C738" : "#ffffff8a",
-                }}
-                onClick={() => setSelectedX(100)}
-              >
-                X100
-              </button>
-            </div>
 
-            <BigSmall
-              openModal={setOpenModal}
-              setSelectedValue={setSelectedValue}
-              setSelectedColor={setSelectedColor}
-            />
+              <BigSmall
+                openModal={setOpenModal}
+                setSelectedValue={setSelectedValue}
+                setSelectedColor={setSelectedColor}
+              />
+            </div>
           </div>
 
-
-          <Tab_screen resultHistoryData={historyData} />
+          <Tab_screen
+            resultHistoryData={historyData}
+            setHistoryData={setHistoryData}
+          />
+          <PaginationComponent
+            skip={skip}
+            setSkip={setSkip}
+            getGameHistory={getGameHistory}
+          />
           <ModalBottom
             myColor={selectedColor}
             isOpenModal={isOpenModal}
