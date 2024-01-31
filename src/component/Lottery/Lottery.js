@@ -24,10 +24,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { gameHistory } from "../../redux/gameHistorySlice";
 import PaginationComponent from "./Pagination/Pagination";
 import audioFile from "../../assets/audio/five_sec.mp3";
-import { useNavigate } from "react-router";
-
+import Modal from "react-modal";
+import you_win from "../../assets/img/you_win.svg";
+import close from "../../assets/img/close.svg";
+import loss_img from "../../assets/img/loss_img.svg";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
+
+const customStyles = {
+  content: {
+    top: "initial",
+    left: "50%",
+    right: "auto",
+    bottom: "0",
+    marginRight: "-50%",
+    transform: "translate(-50%, 0)",
+    maxWidth: "100%",
+    width: "420px",
+    borderRadius: "5px",
+    backgroundColor: "#74707008",
+    borderRadius: "14px 14px 0 0",
+  },
+};
 
 const Lottery = () => {
   const userId = localStorage.getItem("userId");
@@ -48,8 +66,8 @@ const Lottery = () => {
   const [historyData, setHistoryData] = useState([]);
   const [walletBalance, setWalletBalance] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  const navigation = useNavigate();
+  const [isWinOpen, setWinOpen] = useState(false);
+  const [isLoseOpen, setLoseOpen] = useState(false);
 
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
@@ -132,6 +150,7 @@ const Lottery = () => {
       });
       socket.on("winner", (data) => {
         console.log("Winner Result ===> ", data);
+        setWinOpen(true);
       });
       socket.on("looser", (data) => {
         console.log("looser Result ===> ", data);
@@ -263,7 +282,7 @@ const Lottery = () => {
                 setWinToGoTime(3);
               }}
             >
-              <div className={"text-center p-2"} onClick={() => navigation("/winner")}>
+              <div className={"text-center p-2"}>
                 <img src={watch} alt="watch" />
                 <h5>Win Go 3 min</h5>
               </div>
@@ -345,19 +364,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
@@ -625,6 +644,59 @@ const Lottery = () => {
             balance={balanceValue}
             placeBet={placeBet}
           />
+
+          <Modal
+            isOpen={isWinOpen}
+            style={customStyles}
+            onRequestClose={() => setWinOpen(false)}
+          >
+            <>
+              <div className="you_win">
+                <div className="winner_width">
+                  <div className="winner_reward">
+                    <img src={you_win} alt="you_win" className="win_img" />
+                    <h4>Won</h4>
+                    <h5>{balanceValue * selectedX * 2}</h5>
+                    {/* <p>3 seconds auto close</p> */}
+                    <div className="close_btn">
+                      <img
+                        src={close}
+                        alt="close"
+                        className="close_img"
+                        onClick={() => setWinOpen(false)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          </Modal>
+          <Modal
+            isOpen={isLoseOpen}
+            style={customStyles}
+            onRequestClose={() => setLoseOpen(false)}
+          >
+            <>
+              <div className="you_loss">
+                <div className="loss_width">
+                  <div className="loss_reward">
+                    <img src={loss_img} alt="loss_img" className="loss_img" />
+                    <h4>Lose</h4>
+                    <h5>{balanceValue * selectedX}</h5>
+                    {/* <p>3 seconds auto close</p> */}
+                    <div className="close_btn">
+                      <img
+                        src={close}
+                        alt="close"
+                        className="close_img"
+                        onClick={() => setLoseOpen(false)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          </Modal>
         </div>
       </div>
     </div>
