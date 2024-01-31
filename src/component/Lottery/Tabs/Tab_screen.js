@@ -34,6 +34,12 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (activeKey === "my_history") {
+      getMyHistory();
+    }
+  }, [skip]);
+
   const getMyHistory = () => {
     const payload = {
       skip: skip,
@@ -45,6 +51,7 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
 
   const handleSelect = (key) => {
     // Additional actions based on the clicked tab
+    setSkip(0);
     if (key === "my_history") {
       getMyHistory();
     }
@@ -175,7 +182,7 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
                   ))}
               </tbody>
             </Table>
-            <PaginationComponent />
+            {/* <PaginationComponent /> */}
           </Tab>
           <Tab eventKey="chart" title="Chart">
             <div className="chart_table">
@@ -356,7 +363,7 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
               </div>
             </div>
 
-            <PaginationComponent />
+            {/* <PaginationComponent /> */}
           </Tab>
           <Tab eventKey="my_history" title="My History">
             <div className="history_table">
@@ -397,6 +404,7 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
                   </div>
                 ))}
             </div>
+            {/* <PaginationComponent /> */}
           </Tab>
         </Tabs>
       </div>

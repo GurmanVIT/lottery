@@ -605,11 +605,11 @@ const Lottery = () => {
             skip={skip}
             setSkip={setSkip}
           />
-          {/* <PaginationComponent
+          <PaginationComponent
             skip={skip}
             setSkip={setSkip}
             getGameHistory={getGameHistory}
-          /> */}
+          />
           <ModalBottom
             myColor={selectedColor}
             isOpenModal={isOpenModal}
