@@ -24,6 +24,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { gameHistory } from "../../redux/gameHistorySlice";
 import PaginationComponent from "./Pagination/Pagination";
 import audioFile from "../../assets/audio/five_sec.mp3";
+import { useNavigate } from "react-router";
+
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -46,6 +48,8 @@ const Lottery = () => {
   const [historyData, setHistoryData] = useState([]);
   const [walletBalance, setWalletBalance] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const navigation = useNavigate();
 
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
@@ -259,7 +263,7 @@ const Lottery = () => {
                 setWinToGoTime(3);
               }}
             >
-              <div className="text-center p-2">
+              <div className={"text-center p-2"} onClick={() => navigation("/winner")}>
                 <img src={watch} alt="watch" />
                 <h5>Win Go 3 min</h5>
               </div>
