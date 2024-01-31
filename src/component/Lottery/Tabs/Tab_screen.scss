@@ -1,299 +1,395 @@
 .tab_screen {
-    .nav-tabs {
-        border: none;
-        @include display(space-between, center);
+  .nav-tabs {
+    border: none;
+    @include display(space-between, center);
 
-        @media($breakpoint_ESM) {
-            margin-bottom: 0 !important;
+    @media ($breakpoint_ESM) {
+      margin-bottom: 0 !important;
+    }
+
+    .nav-item {
+      color: $primary;
+
+      .nav-link {
+        margin-bottom: -2px;
+        color: $forgot;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 11px 30px;
+        border-radius: 6px;
+        background-color: $dark_watch;
+        border: none;
+
+        @media ($breakpoint_450) {
+          border-radius: 7px;
+          padding: 10px 25px;
         }
 
-        .nav-item {
-            color: $primary;
+        @media ($breakpoint_ESM) {
+          border-radius: 5px;
+          padding: 10px 21px;
+          font-size: 13px;
+        }
 
-            .nav-link {
-                margin-bottom: -2px;
+        @media ($breakpoint_350) {
+          font-size: 12px;
+          padding: 10px 19px;
+        }
+      }
+
+      .active {
+        background-color: $primary;
+        color: $white;
+        outline: none;
+      }
+    }
+  }
+
+  .tab-content {
+    .tab-pane {
+      table {
+        text-align: center;
+        background-color: $white;
+        border-spacing: 0;
+        border-collapse: separate;
+        border-radius: 10px;
+        padding-bottom: 15px;
+        margin-top: 20px;
+
+        thead {
+          background-color: $primary;
+          color: $white;
+          border: none;
+
+          th {
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 0px;
+            width: 25%;
+
+            @media ($breakpoint_ESM) {
+              padding: 10px 5px;
+            }
+
+            @media ($breakpoint_350) {
+              font-size: 14px;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              color: $forgot;
+              font-size: 13px;
+              font-weight: 600;
+              padding: 12px 7px;
+
+              @media ($breakpoint_ESM) {
+                font-size: 14px;
+                padding: 11px 5px;
+              }
+
+              @media ($breakpoint_350) {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+      .chart_table {
+        background-color: $white;
+        margin: 20px 0;
+        padding-bottom: 15px;
+        border-radius: 0 0 14px 14px;
+
+        .table_head {
+          @include display(space-around, center);
+          background-color: $primary;
+          border-radius: 14px 14px 0 0;
+
+          h5 {
+            margin-bottom: 0;
+            color: $white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 14px 0;
+          }
+
+          h4 {
+            margin-bottom: 0;
+            color: $white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 14px 0;
+          }
+        }
+
+        .history_table {
+          .secound_table_sec {
+            padding: 13px 10px 0;
+            border-bottom: 2px solid $dark_watch;
+
+            @media ($breakpoint_ESM) {
+              padding: 10px 8px 0;
+            }
+
+            .statistic {
+              h6 {
+                color: $black;
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 8px;
+                letter-spacing: 0.2px;
+
+                @media ($breakpoint_350) {
+                  font-size: 12px;
+                }
+              }
+            }
+
+            .flex_winning_number {
+              @include display(space-between, center);
+              margin-bottom: 10px;
+
+              @media ($breakpoint_350) {
+                margin-bottom: 8px;
+              }
+
+              .win_number_one {
+                font-size: 13px;
+                letter-spacing: 0.2px;
+                color: $forgot;
+                font-weight: 600;
+
+                @media ($breakpoint_ESM) {
+                  font-size: 12px;
+                }
+
+                @media ($breakpoint_350) {
+                  font-size: 11px;
+                }
+              }
+
+              .d-flex {
+                gap: 7px;
+
+                @media ($breakpoint_ESM) {
+                  gap: 4px;
+                }
+
+                .table_number_sec {
+                  font-size: 12px;
+                  border: 1px solid $primary;
+                  border-radius: 50%;
+                  margin-bottom: 0;
+                  color: $primary;
+                  padding: 0px 3px;
+                  width: 15px;
+
+                  @media ($breakpoint_350) {
+                    font-size: 11px;
+                    width: 13px;
+                    padding: 0px 2px;
+                  }
+                }
+              }
+
+              .missing {
+                @include display(center, center);
+                gap: 7px;
+
+                @media ($breakpoint_ESM) {
+                  gap: 4px;
+                }
+
+                .table_selected_number {
+                  font-size: 13px;
+                  margin-bottom: 0;
+                  color: $forgot;
+                  width: 15px;
+                  text-align: center;
+
+                  @media ($breakpoint_350) {
+                    font-size: 12px;
+                    width: 13px;
+                  }
+                }
+              }
+            }
+          }
+
+          .result_row {
+            @include display(space-between, center);
+            gap: 3px;
+            padding: 13px 10px;
+            border-bottom: 1px solid $dark_watch;
+
+            @media ($breakpoint_ESM) {
+              padding: 10px 8px;
+            }
+
+            .issue_number {
+              font-size: 12px;
+              letter-spacing: 0.2px;
+              color: $forgot;
+              font-weight: 600;
+
+              @media ($breakpoint_ESM) {
+                font-size: 12px;
+              }
+
+              @media ($breakpoint_350) {
+                font-size: 11px;
+              }
+            }
+
+            .result_number {
+              @include display(center, center);
+              gap: 10px;
+
+              @media ($breakpoint_ESM) {
+                gap: 7px;
+              }
+
+              .d-flex {
+                gap: 4px;
+
+                @media ($breakpoint_ESM) {
+                  gap: 3px;
+                }
+
+                .table_number_sec {
+                  font-size: 12px;
+                  border: 1px solid $forgot;
+                  border-radius: 50%;
+                  margin-bottom: 0;
+                  color: $forgot;
+                  padding: 0px 3px;
+                  width: 15px;
+
+                  @media ($breakpoint_350) {
+                    font-size: 11px;
+                    width: 13px;
+                    padding: 0px 2px;
+                  }
+                }
+              }
+
+              .result_big_small {
+                p {
+                  background-color: $primary;
+                  font-size: 13px;
+                  margin-bottom: 0;
+                  border-radius: 50%;
+                  margin-bottom: 0;
+                  color: $white;
+                  padding: 0px 3px;
+                  width: 15px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .history_table {
+        background-color: $white;
+        padding: 0 0 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+        @media ($breakpoint_ESM) {
+          margin-top: 20px;
+        }
+        .table_div {
+          @include display(space-between, center);
+          background-color: $white;
+          padding: 15px 10px 10px;
+          border-bottom: 1px solid $dark_watch;
+
+          .big_id {
+            @include display(center, center);
+            column-gap: 10px;
+
+            .bg_primary {
+              background-color: $primary;
+              border: 1px solid $primary;
+              color: $white;
+              padding: 9px 3px;
+              border-radius: 10px;
+              @include display(center, center);
+            }
+
+            .bg_white {
+              background-color: $white;
+              border: 1px solid $primary;
+              padding: 7px 4px;
+              border-radius: 6px;
+              color: $primary;
+              font-size: 13px;
+            }
+
+            .id_date_number {
+              .id_number {
+                letter-spacing: 0.4px;
+                font-size: 15px;
+                @media ($breakpoint_ESM) {
+                  font-size: 14px;
+                }
+              }
+
+              .date {
                 color: $forgot;
                 font-size: 14px;
-                font-weight: 600;
-                padding: 11px 30px;
-                border-radius: 6px;
-                background-color: $dark_watch;
-                border: none;
-
-                @media($breakpoint_450) {
-                    border-radius: 7px;
-                    padding: 10px 25px;
+                @media ($breakpoint_ESM) {
+                  font-size: 13px;
                 }
-
-                @media($breakpoint_ESM) {
-                    border-radius: 5px;
-                    padding: 10px 21px;
-                    font-size: 13px;
+                span {
+                  @media ($breakpoint_ESM) {
+                    margin-left: 2px !important;
+                  }
                 }
+              }
+            }
+          }
 
-                @media($breakpoint_350) {
-                    font-size: 12px;
-                    padding: 10px 19px;
-                }
+          .win_loss {
+            .failed {
+              border: 1px solid $red;
+              border-radius: 5px;
+              padding: 1px 13px;
+              font-size: 12px;
+              color: $red;
+              text-align: center;
             }
 
-            .active {
-                background-color: $primary;
-                color: $white;
+            .succeed {
+              border: 1px solid $green;
+              border-radius: 5px;
+              padding: 1px 13px;
+              font-size: 12px;
+              color: $green;
+              text-align: center;
             }
+
+            .loss {
+              text-align: end;
+              color: $red;
+              margin-top: 3px;
+              letter-spacing: 0.3px;
+            }
+
+            .win {
+              text-align: end;
+              color: $green;
+              margin-top: 3px;
+              letter-spacing: 0.3px;
+            }
+          }
         }
+      }
     }
-
-    .tab-content {
-        .tab-pane {
-            table {
-                text-align: center;
-                background-color: $white;
-                border-spacing: 0;
-                border-collapse: separate;
-                border-radius: 10px;
-                padding-bottom: 15px;
-                margin-top: 20px;
-
-                thead {
-                    background-color: $primary;
-                    color: $white;
-                    border: none;
-
-                    th {
-                        font-size: 15px;
-                        font-weight: 600;
-                        padding: 10px 0px;
-                        width: 25%;
-
-                        @media($breakpoint_ESM) {
-                            padding: 10px 5px;
-                        }
-
-                        @media($breakpoint_350) {
-                            font-size: 14px;
-                        }
-                    }
-                }
-
-                tbody {
-                    tr {
-                        td {
-                            color: $forgot;
-                            font-size: 13px;
-                            font-weight: 600;
-                            padding: 12px 7px;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 14px;
-                                padding: 11px 5px;
-                            }
-
-                            @media($breakpoint_350) {
-                                font-size: 13px;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .chart_table {
-                background-color: $white;
-                margin: 20px 0;
-                padding-bottom: 15px;
-                border-radius: 0 0 14px 14px;
-
-                .table_head {
-                    @include display(space-around, center);
-                    background-color: $primary;
-                    border-radius: 14px 14px 0 0;
-
-                    h5 {
-                        margin-bottom: 0;
-                        color: $white;
-                        font-size: 14px;
-                        font-weight: 600;
-                        padding: 14px 0;
-                    }
-
-                    h4 {
-                        margin-bottom: 0;
-                        color: $white;
-                        font-size: 14px;
-                        font-weight: 600;
-                        padding: 14px 0;
-                    }
-                }
-
-                .history_table {
-                    .secound_table_sec {
-                        padding: 13px 10px 0;
-                        border-bottom: 2px solid $dark_watch;
-
-                        @media($breakpoint_ESM) {
-                            padding: 10px 8px 0;
-                        }
-
-                        .statistic {
-                            h6 {
-                                color: $black;
-                                font-size: 13px;
-                                font-weight: 600;
-                                margin-bottom: 8px;
-                                letter-spacing: .2px;
-
-                                @media($breakpoint_350) {
-                                    font-size: 12px;
-                                }
-                            }
-                        }
-
-                        .flex_winning_number {
-                            @include display(space-between, center);
-                            margin-bottom: 10px;
-
-                            @media($breakpoint_350) {
-                                margin-bottom: 8px;
-                            }
-
-                            .win_number_one {
-                                font-size: 13px;
-                                letter-spacing: 0.2px;
-                                color: $forgot;
-                                font-weight: 600;
-
-                                @media($breakpoint_ESM) {
-                                    font-size: 12px;
-                                }
-
-                                @media($breakpoint_350) {
-                                    font-size: 11px;
-                                }
-                            }
-
-                            .d-flex {
-                                gap: 7px;
-
-                                @media($breakpoint_ESM) {
-                                    gap: 4px;
-                                }
-
-                                .table_number_sec {
-                                    font-size: 12px;
-                                    border: 1px solid $primary;
-                                    border-radius: 50%;
-                                    margin-bottom: 0;
-                                    color: $primary;
-                                    padding: 0px 3px;
-                                    width: 15px;
-
-                                    @media($breakpoint_350) {
-                                        font-size: 11px;
-                                        width: 13px;
-                                        padding: 0px 2px;
-                                    }
-                                }
-
-                            }
-
-                            .missing {
-                                @include display (center, center);
-                                gap: 7px;
-
-                                @media($breakpoint_ESM) {
-                                    gap: 4px;
-                                }
-
-                                .table_selected_number {
-                                    font-size: 13px;
-                                    margin-bottom: 0;
-                                    color: $forgot;
-                                    width: 15px;
-                                    text-align: center;
-
-                                    @media($breakpoint_350) {
-                                        font-size: 12px;
-                                        width: 13px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .result_row {
-                        @include display (space-between, center);
-                        gap: 3px;
-                        padding: 13px 10px;
-                        border-bottom: 1px solid $dark_watch;
-
-                        @media($breakpoint_ESM) {
-                            padding: 10px 8px;
-                        }
-
-                        .issue_number {
-                            font-size: 12px;
-                            letter-spacing: 0.2px;
-                            color: $forgot;
-                            font-weight: 600;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 12px;
-                            }
-
-                            @media($breakpoint_350) {
-                                font-size: 11px;
-                            }
-                        }
-
-                        .result_number {
-                            @include display(center, center);
-                            gap: 10px;
-
-                            @media($breakpoint_ESM) {
-                                gap: 7px;
-                            }
-
-                            .d-flex {
-                                gap: 4px;
-
-                                @media($breakpoint_ESM) {
-                                    gap: 3px;
-                                }
-
-                                .table_number_sec {
-                                    font-size: 12px;
-                                    border: 1px solid $forgot;
-                                    border-radius: 50%;
-                                    margin-bottom: 0;
-                                    color: $forgot;
-                                    padding: 0px 3px;
-                                    width: 15px;
-
-                                    @media($breakpoint_350) {
-                                        font-size: 11px;
-                                        width: 13px;
-                                        padding: 0px 2px;
-                                    }
-                                }
-                            }
-
-                            .result_big_small {
-                                p {
-                                    background-color: $primary;
-                                    font-size: 13px;
-                                    margin-bottom: 0;
-                                    border-radius: 50%;
-                                    margin-bottom: 0;
-                                    color: $white;
-                                    padding: 0px 3px;
-                                    width: 15px;
-                                    text-align: center;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+  }
 }

@@ -1,31 +1,132 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Table from "react-bootstrap/Table";
 import PaginationComponent from "../Pagination/Pagination";
 import { socket } from "../Lottery";
+import { myColors } from "../../../utils/Colors";
+import { useDispatch, useSelector } from "react-redux";
+import { myHistory } from "../../../redux/myHistorySlice";
+import moment from "moment-timezone";
+import { create } from "@mui/material/styles/createTransitions";
+import { createTheme } from "@mui/material";
 
-const Tab_screen = ({ resultHistoryData, setHistoryData }) => {
+const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
+  const dispatch = useDispatch();
+
+  const myHistoryData = useSelector((state) => state.myHistoryReducer.data);
+  const [activeKey, setActiveKey] = useState("game_history");
+
+  const [myBetData, setMyBetData] = useState([]);
   useEffect(() => {
     socket.on("gameResult", (data) => {
-      console.log("Game Result ===> ", data);
-      // setHistoryData(gameHistoryData.data);
-      console.log("Game Result ===> ", resultHistoryData);
-      const addedData = resultHistoryData.reverse();
-      // addedData.pop();
-      const newArray = (addedData) => {
-        const updatedArray = addedData.slice(0, -1);
-        return [data, ...updatedArray];
-      };
-
-      setHistoryData(newArray);
+      if (activeKey === "game_history") {
+        if (resultHistoryData != null) {
+          const addedData = resultHistoryData.reverse();
+          // addedData.pop();
+          const newArray = (addedData) => {
+            const updatedArray = addedData.slice(0, -1);
+            return [data, ...updatedArray];
+          };
+          setHistoryData(newArray);
+        }
+      }
     });
   }, []);
+
+  const getMyHistory = () => {
+    const payload = {
+      skip: skip,
+      limit: 10,
+    };
+    console.log("MY Bet payload ===> ", payload);
+    dispatch(myHistory(payload));
+  };
+
+  const handleSelect = (key) => {
+    // Additional actions based on the clicked tab
+    if (key === "my_history") {
+      getMyHistory();
+    }
+    setActiveKey(key);
+  };
+  useEffect(() => {
+    if (myHistoryData != null && myHistoryData.status === 1) {
+      setMyBetData(myHistoryData.data);
+      console.log("myHistoryData ===> ", myHistoryData);
+    }
+  }, [myHistoryData]);
+
+  const getFormattedDate = (utcDate) => {
+    const timestampStr = new Date(utcDate);
+    // Convert to Indian time zone (IST)
+    // const timestamp = moment(timestampStr).tz("Asia/Kolkata");
+    const options = {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false, // Use 24-hour format
+    };
+
+    // Format the date as "2024-01-30"
+    const formattedDate = timestampStr.toLocaleDateString("en-IN", options);
+
+    const dateData = formattedDate.split(" ");
+
+    const createdTime = moment(dateData[1], "HH:mm:ss")
+      .add(5, "hours")
+      .add(30, "minutes");
+
+    // console.log(dateData[1]);
+
+    const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
+
+    return formattedDate;
+  };
+
+  const getBetValue = (item) => {
+    if (item.betType === 1) {
+      return item.betNumber;
+    } else if (item.betType === 2) {
+      return "";
+    } else {
+      return item.type === 1 ? "Big" : "Small";
+    }
+  };
+  const getBGColor = (item) => {
+    if (item.betType === 1) {
+      return item.betNumber === 1 ||
+        item.betNumber === 3 ||
+        item.betNumber === 7 ||
+        item.betNumber === 9
+        ? "green"
+        : item.betNumber === 2 ||
+          item.betNumber === 4 ||
+          item.betNumber === 6 ||
+          item.betNumber === 8
+          ? "red"
+          : "violet";
+    } else if (item.betType === 2) {
+      return item.color === 1 ? "Red" : item.color === 2 ? "Violet" : "Green";
+    } else {
+      return item.type === 1 ? "Big" : "Small";
+    }
+  };
+
   return (
     <>
       <div className="tab_screen">
-        <Tabs id="uncontrolled-tab-example" className="mb-3">
-          <Tab eventKey="game history" title="Game History">
+        <Tabs
+          id="uncontrolled-tab-example"
+          className="mb-3"
+          activeKey={activeKey}
+          onSelect={handleSelect}
+        >
+          <Tab eventKey="game_history" title="Game History">
             <Table>
               <thead>
                 <tr>
@@ -43,18 +144,38 @@ const Tab_screen = ({ resultHistoryData, setHistoryData }) => {
                       <td>{item.result.betNumber}</td>
                       <td>{item.result.type === 1 ? "Big" : "Small"}</td>
                       <td>
-                        {item.result.color === 1
-                          ? "Green"
-                          : item.result.color === 12
-                            ? "Green Violet"
-                            : item.result.color === 23
-                              ? "Red Violet"
-                              : "Red"}
+                        {item.result.color === 1 ? (
+                          <span style={{ color: myColors.green_color }}>
+                            Green
+                          </span>
+                        ) : item.result.color === 12 ? (
+                          <p style={{ color: myColors.green_color, margin: 0 }}>
+                            Green{" "}
+                            <span style={{ color: myColors.primaryColor }}>
+                              Violet
+                            </span>
+                          </p>
+                        ) : item.result.color === 23 ? (
+                          <p style={{ color: myColors.red_color, margin: 0 }}>
+                            Red
+                            <span
+                              style={{
+                                color: myColors.primaryColor,
+                                marginLeft: 4,
+                              }}
+                            >
+                              Violet
+                            </span>
+                          </p>
+                        ) : (
+                          <span style={{ color: myColors.red_color }}>Red</span>
+                        )}
                       </td>
                     </tr>
                   ))}
               </tbody>
             </Table>
+            <PaginationComponent />
           </Tab>
           <Tab eventKey="chart" title="Chart">
             <div className="chart_table">
@@ -237,7 +358,46 @@ const Tab_screen = ({ resultHistoryData, setHistoryData }) => {
 
             {/* <PaginationComponent /> */}
           </Tab>
-          <Tab eventKey="my history" title="My History"></Tab>
+          <Tab eventKey="my_history" title="My History">
+            <div className="history_table">
+              {myBetData.length > 0 &&
+                myBetData.map((item) => (
+                  <div className="table_div">
+                    <div className="big_id">
+                      <div
+                        className="bg_primary"
+                        style={{
+                          height: 40,
+                          width: 40,
+                          fontSize: getBetValue(item).length > 1 ? 10 : 20,
+                        }}
+                      >
+                        {getBetValue(item)}
+                      </div>
+                      <div className="id_date_number">
+                        <div className="id_number">{item.gameId}</div>
+                        <div className="date">
+                          {getFormattedDate(item.createdAt)}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="win_loss">
+                      {item.isWon === 0 ? (
+                        <div className="failed">Failed</div>
+                      ) : (
+                        <div className="succeed">Success</div>
+                      )}
+
+                      <div className={item.isWon === 0 ? "loss" : "win"}>
+                        {item.isWon === 0
+                          ? item.finalAmount
+                          : item.winningAmount}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </Tab>
         </Tabs>
       </div>
     </>
@@ -245,3 +405,19 @@ const Tab_screen = ({ resultHistoryData, setHistoryData }) => {
 };
 
 export default Tab_screen;
+
+// <div className="table_div">
+//   <div className="big_id">
+//     <div className="bg_white">Small</div>
+//     <div className="id_date_number">
+//       <div className="id_number">129874625830062</div>
+//       <div className="date">
+//         2024-01-30 <span style={{ marginLeft: 5 }}>18:11:37</span>
+//       </div>
+//     </div>
+//   </div>
+//   <div className="win_loss">
+//     <div className="succeed">Succeed</div>
+//     <div className="win">₹1.96</div>
+//   </div>
+// </div>;
