@@ -1,7 +1,6 @@
 import React from 'react';
 import you_win from '../../assets/img/you_win.svg';
 import close from '../../assets/img/close.svg';
-import Modal from "react-modal";
 
 const WinPop = () => {
     return (
