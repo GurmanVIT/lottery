@@ -11,6 +11,8 @@ import store from "./redux/store";
 import ModalBottom from "./component/Lottery/BigSmall/OffCanvas/ModalBottom";
 import Profile from "./component/profile/Index";
 import WinPop from "./component/Lottery/WinPop";
+import LossPop from "./component/Lottery/LossPop";
+import Withdraw from "./component/Lottery/Withdraw/Withdraw";
 
 
 // export
@@ -30,6 +32,8 @@ function App() {
           <Route path="/modalbottom" element={<ModalBottom />} />
           <Route path="/mine" element={<Profile />} />
           <Route path="/winner" element={<WinPop />} />
+          <Route path="/loss" element={<LossPop />} />
+          <Route path="/withdraw" element={<Withdraw />} />
         </Routes>
       </Router>
     </Provider>

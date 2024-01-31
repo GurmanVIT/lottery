@@ -8,6 +8,15 @@ import withdraw from '../../assets/img/withdraw.svg';
 import vip from '../../assets/img/vip.svg';
 import transfer from '../../assets/img/Transfer.svg';
 import bet_img from '../../assets/img/bet.svg';
+import notification from '../../assets/img/notification.svg';
+import next from '../../assets/img/next.svg';
+import game_static from '../../assets/img/game_static.svg';
+import setting from '../../assets/img/setting.svg';
+import feedback from '../../assets/img/feedback.svg';
+import about from '../../assets/img/about.svg';
+import customer from '../../assets/img/customer.svg';
+import beginner from '../../assets/img/beginner.svg';
+import logout from '../../assets/img/logout.svg';
 
 const Mine = () => {
     return (
@@ -102,7 +111,59 @@ const Mine = () => {
                         </div>
 
                         <div className='notification'>
-                            <div className=''></div>
+                            <div className='img_notification'>
+                                <img src={notification} alt='notification' />
+                                <p>Notification</p>
+                            </div>
+                            <div className='number_noti'>
+                                <p>3</p>
+                                <img src={next} alt='next' />
+                            </div>
+                        </div>
+
+                        <div className='game'>
+                            <div className='img_game'>
+                                <img src={game_static} alt='game_static' />
+                                <p>Game statistics</p>
+                            </div>
+                            <div className='next_img'>
+                                <img src={next} alt='next' />
+                            </div>
+                        </div>
+
+                        <div className='service'>
+                            <h5>Service center</h5>
+
+                            <div className='service_center'>
+                                <div className='setting'>
+                                    <img src={setting} alt='setting' />
+                                    <p>Settings</p>
+                                </div>
+                                <div className='setting'>
+                                    <img src={feedback} alt='feedback' />
+                                    <p>Feedback</p>
+                                </div>
+                                <div className='setting'>
+                                    <img src={about} alt='about' />
+                                    <p>About Us</p>
+                                </div>
+                            </div>
+
+                            <div className='service_center'>
+                                <div className='setting'>
+                                    <img src={customer} alt='customer' />
+                                    <p>24/7 Customer
+                                        service</p>
+                                </div>
+                                <div className='setting'>
+                                    <img src={beginner} alt='beginner' />
+                                    <p>Beginner’s Guide</p>
+                                </div>
+                                <div className='setting'>
+                                    <img src={logout} alt='logout' />
+                                    <p>Logout</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

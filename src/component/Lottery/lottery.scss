@@ -864,7 +864,6 @@
         border-radius: 10px;
         z-index: 1;
         left: 0px;
-
         background-color: #747070bf;
         @include display(center, center);
 
@@ -872,15 +871,10 @@
           margin-bottom: 0;
 
           span {
-            // background-color: $primary;
             color: $white;
             font-size: 90px;
             font-weight: 700;
           }
-
-          // .five_sec {
-          //   // margin-left: 20px;
-          // }
         }
       }
 

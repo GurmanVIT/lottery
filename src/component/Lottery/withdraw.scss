@@ -1,0 +1,46 @@
+.withdraw {
+    @include display(center, center);
+    background-color: $page_bg;
+
+    .header_withdraw {
+        width: 100%;
+        max-width: 420px;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(space-between, center);
+            padding: 12px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            .back_img {
+                img {
+                    @media ($breakpoint_450) {
+                        width: 35px;
+                    }
+                }
+            }
+
+            .withdraw_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                    margin-left: 10px;
+                }
+            }
+
+            .withdraw_history {
+                p {
+                    color: $white;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
