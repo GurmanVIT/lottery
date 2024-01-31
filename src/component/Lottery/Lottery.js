@@ -66,7 +66,6 @@ const Lottery = () => {
     if (gameHistoryData != null && gameHistoryData.status === 1) {
       const data = gameHistoryData.data;
       setHistoryData(data);
-      console.log("HISTORY DATA ===> ", historyData);
     }
   }, [gameHistoryData]);
 
@@ -84,7 +83,6 @@ const Lottery = () => {
 
     // Define event handlers for the socket
     if (!isSocketConnected) {
-      console.log("Socket connected check ===> ", isSocketConnected);
       function onConnect() {
         setSocketConnected(true);
       }
@@ -101,8 +99,13 @@ const Lottery = () => {
 
       socket.emit("touch_server", data);
 
+      socket.emit("walletPoints", data);
+      socket.on("wallet_points", (data) => {
+        console.log("wallet_points ===> ", data);
+        setWalletBalance(data.walletPoints);
+      });
+
       socket.on("timerForward", (data) => {
-        console.log("Timer", data);
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
@@ -125,6 +128,9 @@ const Lottery = () => {
       });
       socket.on("winner", (data) => {
         console.log("Winner Result ===> ", data);
+      });
+      socket.on("looser", (data) => {
+        console.log("looser Result ===> ", data);
       });
 
       socket.on("less_wallet_points", (data) => {
@@ -161,11 +167,12 @@ const Lottery = () => {
         amount: balanceValue * selectedX,
         multiplier: selectedX,
         color:
-          selectedValue === "green" ? 1 : selectedValue === "Violet" ? 2 : 3,
+          selectedValue === "Green" ? 1 : selectedValue === "Violet" ? 2 : 3,
         gameId: gameId,
         gameTableId: gameTableId,
       };
-      console.log("Bet Data ===> ", betData);
+
+      console.log("bet_Placed ===> ", betData);
       socket.emit("bet_place", betData);
     } else if (selectedValue === "Big" || selectedValue === "Small") {
       const betData = {
@@ -176,7 +183,6 @@ const Lottery = () => {
         gameId: gameId,
         gameTableId: gameTableId,
       };
-      console.log("Bet Data ===> ", betData);
       socket.emit("bet_place", betData);
     } else {
       const betData = {
@@ -187,7 +193,6 @@ const Lottery = () => {
         gameId: gameId,
         gameTableId: gameTableId,
       };
-      console.log("Bet Data ===> ", betData);
       socket.emit("bet_place", betData);
     }
 
@@ -597,12 +602,14 @@ const Lottery = () => {
           <Tab_screen
             resultHistoryData={historyData}
             setHistoryData={setHistoryData}
+            skip={skip}
+            setSkip={setSkip}
           />
-          <PaginationComponent
+          {/* <PaginationComponent
             skip={skip}
             setSkip={setSkip}
             getGameHistory={getGameHistory}
-          />
+          /> */}
           <ModalBottom
             myColor={selectedColor}
             isOpenModal={isOpenModal}

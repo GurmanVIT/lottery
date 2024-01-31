@@ -6,6 +6,7 @@ import sponsorReducer from "./checkSponsorIdSlice";
 import forgotReducer from "./forgotSlice";
 import resendOtpReducer from "./resendOtpSlice";
 import gameHistoryReducer from "./gameHistorySlice";
+import myHistoryReducer from "./myHistorySlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     forgotReducer: forgotReducer,
     resendOtpReducer: resendOtpReducer,
     gameHistoryReducer: gameHistoryReducer,
+    myHistoryReducer: myHistoryReducer,
   },
 });
 
