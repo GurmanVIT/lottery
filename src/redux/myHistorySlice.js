@@ -16,7 +16,7 @@ export const myHistory = createAsyncThunk("myHistory", async (payload) => {
     const url =
       ApiBaseUrl +
       myHistoryApi +
-      `?skip=${payload.skip}&limit=${payload.limit}`;
+      `?skip=${payload.skip}&limit=${payload.limit}&type=${payload.type}`;
     const response = await axios.get(url, config);
     return response.data;
   } catch (error) {

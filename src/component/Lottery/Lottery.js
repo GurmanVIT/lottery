@@ -28,6 +28,7 @@ import Modal from "react-modal";
 import you_win from "../../assets/img/you_win.svg";
 import close from "../../assets/img/close.svg";
 import loss_img from "../../assets/img/loss_img.svg";
+import { type } from "@testing-library/user-event/dist/type";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -68,6 +69,7 @@ const Lottery = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isWinOpen, setWinOpen] = useState(false);
   const [isLoseOpen, setLoseOpen] = useState(false);
+  const [gameType, setGameType] = useState(1);
 
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
@@ -95,6 +97,7 @@ const Lottery = () => {
     const payload = {
       skip: skip,
       limit: 10,
+      type: gameType,
     };
     console.log("History Payload ===> ", payload);
     dispatch(gameHistory(payload));
@@ -127,11 +130,105 @@ const Lottery = () => {
         setWalletBalance(data.walletPoints);
       });
 
-      socket.on("timerForward", (data) => {
+      socket.on("bet_placed", (data) => {
+        console.log("bet_placed Result ===> ", data);
+        setWalletBalance(data.walletPoints);
+      });
+
+      socket.on("less_wallet_points", (data) => {
+        console.log("less_wallet_points ===> ", data);
+        alert("Low Balance");
+      });
+
+      socket.on("winner", (data) => {
+        console.log("Winner Result ===> ", data, "   ", gameType);
+        // if (gameType === 1) {
+        setWalletBalance(data.walletPoints);
+        setWinOpen(true);
+        // }
+      });
+      socket.on("winnerThree", (data) => {
+        console.log("winnerThree Result ===> ", data, "   ", gameType);
+        // if (gameType === 3) {
+        setWalletBalance(data.walletPoints);
+        setWinOpen(true);
+        // }
+      });
+      socket.on("winnerFive", (data) => {
+        console.log("winnerFive Result ===> ", data, "   ", gameType);
+        // if (gameType === 5) {
+        setWalletBalance(data.walletPoints);
+        setWinOpen(true);
+        // }
+      });
+      socket.on("winnerTen", (data) => {
+        console.log("winnerTen Result ===> ", data, "   ", gameType);
+        // if (gameType === 10) {
+        setWalletBalance(data.walletPoints);
+        setWinOpen(true);
+        // }
+      });
+      socket.on("looser", (data) => {
+        console.log("looser Result ===> ", data, "   ", gameType);
+        // if (gameType === 1) {
+        setWalletBalance(data.walletPoints);
+        setLoseOpen(true);
+        // }
+      });
+      socket.on("looserThree", (data) => {
+        console.log("looserThree Result ===> ", data, "   ", gameType);
+        // if (gameType === 3) {
+        setWalletBalance(data.walletPoints);
+        setLoseOpen(true);
+        // }
+      });
+      socket.on("looserFive", (data) => {
+        console.log("looserFive Result ===> ", data, "   ", gameType);
+        // if (gameType === 5) {
+        setWalletBalance(data.walletPoints);
+        setLoseOpen(true);
+        // }
+      });
+      socket.on("looserTen", (data) => {
+        console.log("looserTen Result ===> ", data, "   ", gameType);
+        // if (gameType === 10) {
+        setWalletBalance(data.walletPoints);
+        setLoseOpen(true);
+        // }
+      });
+
+      // Clean up the socket connection when the component unmounts
+      return () => {
+        console.log("Disconnected ===> ");
+        socket.off("connect", onConnect);
+        socket.off("disconnect", onDisconnect);
+        socket.off("timerForward");
+        socket.off("timerForwardThree");
+        socket.off("timerForwardFive");
+        socket.off("timerForwardTen");
+        socket.off("gameResult");
+        socket.off("less_wallet_points");
+        socket.off("bet_placed");
+        socket.off("winner");
+        socket.off("winnerThree");
+        socket.off("winnerFive");
+        socket.off("winnerTen");
+        socket.off("looser");
+        socket.off("looserThree");
+        socket.off("looserFive");
+        socket.off("looserTen");
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    socket.on("timerForward", (data) => {
+      if (gameType === 1) {
+        console.log("timerForward", data);
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
-        if (gameId.length === 0) {
+        if (gameId.length === 0 || data.gameTimer === 58) {
           setGameId(data.gameId);
           setGameTableId(data.gameTableId);
         }
@@ -141,39 +238,87 @@ const Lottery = () => {
         } else if (data.gameTimer === 1) {
           setIsPlaying(false);
         }
-        // const secondSplit = splitIntoArray(second)[0];
-        // console.log("Timer", secondSplit);
-      });
-      socket.on("bet_placed", (data) => {
-        console.log("bet_placed Result ===> ", data);
-        setWalletBalance(data.walletPoints);
-      });
-      socket.on("winner", (data) => {
-        console.log("Winner Result ===> ", data);
-        setWinOpen(true);
-      });
-      socket.on("looser", (data) => {
-        console.log("looser Result ===> ", data);
-      });
+      }
+    });
 
-      socket.on("less_wallet_points", (data) => {
-        console.log("less_wallet_points ===> ", data);
-        alert("Low Balance");
-      });
+    socket.on("timerForwardThree", (data) => {
+      if (gameType === 3) {
+        console.log("timerForwardThree", data);
 
-      // Clean up the socket connection when the component unmounts
-      return () => {
-        console.log("Disconnected ===> ");
-        socket.off("connect", onConnect);
-        socket.off("disconnect", onDisconnect);
-        socket.off("timerForward");
-        socket.off("gameResult");
-        socket.off("less_wallet_points");
-        socket.off("bet_placed");
-        socket.off("winner");
-      };
-    }
-  }, []);
+        setGamerTimer(data.gameTimer);
+        const minutes = Math.floor(data.gameTimer / 60);
+        const second = data.gameTimer - minutes * 60;
+        if (gameId.length === 0 || data.gameTimer === 178) {
+          setGameId(data.gameId);
+          setGameTableId(data.gameTableId);
+        }
+
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
+      }
+    });
+
+    socket.on("timerForwardFive", (data) => {
+      if (gameType === 5) {
+        console.log("timerForwardFive", data);
+        setGamerTimer(data.gameTimer);
+        const minutes = Math.floor(data.gameTimer / 60);
+        const second = data.gameTimer - minutes * 60;
+        if (gameId.length === 0 || data.gameTimer === 178) {
+          setGameId(data.gameId);
+          setGameTableId(data.gameTableId);
+        }
+
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
+      }
+    });
+
+    socket.on("timerForwardTen", (data) => {
+      if (gameType === 10) {
+        console.log("timerForwardTen", data);
+        setGamerTimer(data.gameTimer);
+        const minutes = Math.floor(data.gameTimer / 60);
+        const second = data.gameTimer - minutes * 60;
+        if (gameId.length === 0 || data.gameTimer === 598) {
+          setGameId(data.gameId);
+          setGameTableId(data.gameTableId);
+        }
+
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
+      }
+    });
+
+    getGameHistory();
+  }, [gameType]);
+
+  const selectTime = (time) => {
+    setGameId("");
+    socket.off("timerForward");
+    socket.off("timerForwardThree");
+    socket.off("timerForwardFive");
+    socket.off("timerForwardTen");
+    // socket.off("winner");
+    // socket.off("winnerThree");
+    // socket.off("winnerFive");
+    // socket.off("winnerTen");
+    // socket.off("looser");
+    // socket.off("looserThree");
+    // socket.off("looserFive");
+    // socket.off("looserTen");
+
+    setGameType(time);
+  };
 
   function splitIntoArray(num) {
     return Array.from(String(num), Number);
@@ -193,6 +338,7 @@ const Lottery = () => {
           selectedValue === "Green" ? 1 : selectedValue === "Violet" ? 2 : 3,
         gameId: gameId,
         gameTableId: gameTableId,
+        gameType: gameType,
       };
 
       console.log("bet_Placed ===> ", betData);
@@ -205,7 +351,9 @@ const Lottery = () => {
         type: selectedValue === "Big" ? 1 : 2,
         gameId: gameId,
         gameTableId: gameTableId,
+        gameType: gameType,
       };
+      console.log("BET DATA ===> ", betData);
       socket.emit("bet_place", betData);
     } else {
       const betData = {
@@ -215,7 +363,9 @@ const Lottery = () => {
         betNumber: selectedValue,
         gameId: gameId,
         gameTableId: gameTableId,
+        gameType: gameType,
       };
+      console.log("BET DATA ===> ", betData);
       socket.emit("bet_place", betData);
     }
 
@@ -266,10 +416,8 @@ const Lottery = () => {
 
           <div className="watch_flex_card">
             <div
-              className={winToGoTime === 1 ? "watch_active" : "watch"}
-              onClick={() => {
-                setWinToGoTime(1);
-              }}
+              className={gameType === 1 ? "watch_active" : "watch"}
+              onClick={() => selectTime(1)}
             >
               <div className="text-center p-2">
                 <img src={watch} alt="watch" />
@@ -277,10 +425,8 @@ const Lottery = () => {
               </div>
             </div>
             <div
-              className={winToGoTime === 3 ? "watch_active" : "watch"}
-              onClick={() => {
-                setWinToGoTime(3);
-              }}
+              className={gameType === 3 ? "watch_active" : "watch"}
+              onClick={() => selectTime(3)}
             >
               <div className={"text-center p-2"}>
                 <img src={watch} alt="watch" />
@@ -288,10 +434,8 @@ const Lottery = () => {
               </div>
             </div>
             <div
-              className={winToGoTime === 5 ? "watch_active" : "watch"}
-              onClick={() => {
-                setWinToGoTime(5);
-              }}
+              className={gameType === 5 ? "watch_active" : "watch"}
+              onClick={() => selectTime(5)}
             >
               <div className="text-center p-2">
                 <img src={watch} alt="watch" />
@@ -299,10 +443,8 @@ const Lottery = () => {
               </div>
             </div>
             <div
-              className={winToGoTime === 10 ? "watch_active" : "watch"}
-              onClick={() => {
-                setWinToGoTime(10);
-              }}
+              className={gameType === 10 ? "watch_active" : "watch"}
+              onClick={() => selectTime(10)}
             >
               <div className="text-center p-1">
                 <img src={watch} alt="watch" />
@@ -627,6 +769,7 @@ const Lottery = () => {
             setHistoryData={setHistoryData}
             skip={skip}
             setSkip={setSkip}
+            gameType={gameType}
           />
           <PaginationComponent
             skip={skip}
