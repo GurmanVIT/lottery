@@ -1,0 +1,279 @@
+.withdraw {
+    @include display(center, center);
+
+    .header_withdraw {
+        width: 100%;
+        max-width: 420px;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(space-between, center);
+            padding: 12px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            .withdraw_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                    margin-left: 30px;
+                }
+            }
+
+            .withdraw_history {
+                p {
+                    color: $white;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .bg_height {
+            background: $profile_bg;
+            padding: 0 10px 10px;
+            height: 160px;
+        }
+
+        .withdraw_section {
+            background-color: $page_bg;
+            height: 100vh;
+
+            .wallet_card {
+                padding: 0 10px;
+                position: relative;
+
+                .card_w {
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        position: absolute;
+                        top: -94px;
+                    }
+                }
+
+                .balance {
+                    position: absolute;
+                    left: 30px;
+                    top: -47px;
+
+                    @media($breakpoint_ESM) {
+                        top: -56px;
+                    }
+
+                    @media($breakpoint_350) {
+                        top: -62px;
+                    }
+
+                    .wallet_balance {
+
+                        .wallet_img {
+                            @include display(flex-start, center);
+                            gap: 13px;
+
+                            img {}
+
+                            h6 {
+                                margin-bottom: -7px;
+                                color: $white;
+                                font-weight: 600;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+
+                        .rupees {
+                            @include display(flex-start, center);
+                            gap: 25px;
+                            margin-top: 25px;
+
+                            @media($breakpoint_ESM) {
+                                margin-top: 20px;
+                            }
+
+                            @media($breakpoint_350) {
+                                margin-top: 15px;
+                            }
+
+                            h2 {
+                                color: $white;
+                                font-weight: 600;
+                                margin-bottom: 0;
+                            }
+
+                            img {
+                                color: $white;
+                                width: 17px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .bank_account {
+                padding: 140px 10px 30px;
+
+                @media (max-width:410px) {
+                    padding-top: 125px;
+                }
+
+                @media (max-width:375px) {
+                    padding-top: 112px;
+                }
+
+                @media (max-width:353px) {
+                    padding-top: 97px;
+                }
+
+                @media(max-width:329px) {
+                    padding-top: 83px;
+                }
+
+                .bank_card {
+                    @include display(space-between, center);
+                    gap: 20px;
+
+                    @media($breakpoint_450) {
+                        gap: 14px;
+                    }
+
+                    .card_bg {
+                        background: linear-gradient(181deg, #6561C0, #8683CD);
+                        padding: 27px 12px;
+                        border-radius: 14px;
+                        text-align: center;
+                        width: 136px;
+
+                        @media($breakpoint_ESM) {
+                            padding: 19px 6px;
+                            width: 122px;
+                        }
+
+                        @media($breakpoint_350) {
+                            width: 97px;
+                        }
+
+                        @media($breakpoint_350) {
+                            padding: 15px 6px;
+                        }
+
+                        img {
+                            @media($breakpoint_350) {
+                                width: 32px;
+                            }
+                        }
+
+                        p {
+                            color: $white;
+                            font-size: 14px;
+                            margin-top: 13px;
+                            text-transform: uppercase;
+                            margin-bottom: 0;
+                            font-weight: 600;
+
+                            @media($breakpoint_450) {
+                                font-size: 13px;
+                            }
+
+                            @media($breakpoint_ESM) {
+                                font-size: 12px;
+                                margin-top: 9px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+
+                    .rectangle_img {
+                        img {
+                            @media($breakpoint_450) {
+                                width: 100px;
+                                height: 100px;
+                            }
+
+                            @media($breakpoint_ESM) {
+                                width: 85px;
+                                height: 85px;
+                            }
+
+                            @media($breakpoint_350) {
+                                width: 70px;
+                                height: 70px;
+                            }
+                        }
+                    }
+
+                    .account_number {
+                        p {
+                            color: $forgot;
+                            font-weight: 600;
+                            font-size: 15px;
+                            margin-bottom: 0;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 14px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                .money_withdraw {
+                    color: $red;
+                    font-size: 15px;
+                    margin-top: 20px;
+                    text-align: center;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 14px;
+                        margin-top: 15px;
+                    }
+                }
+
+                .amount_enter {
+                    margin-top: 20px;
+                    padding: 12px 20px;
+                    box-shadow: 0 0.05333rem 0.21333rem #b6b6d4cc;
+                    border-radius: 14px;
+
+                    @media($breakpoint_ESM) {
+                        padding: 10px 20px;
+                        border-radius: 9px;
+                        margin-top: 15px;
+                    }
+
+                    @media($breakpoint_350) {
+                        padding: 8px 20px;
+                    }
+
+                    p {
+                        margin-bottom: 3px;
+                        font-size: 12px;
+                        color: $forgot;
+
+                        @media($breakpoint_ESM) {
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    h6 {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

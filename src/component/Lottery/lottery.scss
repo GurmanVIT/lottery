@@ -15,16 +15,6 @@
       width: 100%;
       max-width: 420px;
 
-      .back_img {
-        a {
-          img {
-            @media ($breakpoint_450) {
-              width: 35px;
-            }
-          }
-        }
-      }
-
       .music_headphone {
         @include display(center, center);
         gap: 10px;
