@@ -720,6 +720,8 @@
 
               img {
                 margin-right: 5px;
+                width: 37px;
+                height: 37px;
 
                 @media ($breakpoint_450) {
                   width: 30px;
@@ -810,8 +812,9 @@
             }
 
             @media ($breakpoint_350) {
-              width: 30px;
-              height: 34px;
+              width: 28px;
+              height: 32px;
+
               font-size: 18px;
               border-radius: 8px;
             }
@@ -829,12 +832,16 @@
 
         .text_number {
           color: $white;
-          font-size: 19px;
+          font-size: 17px;
           font-style: normal;
           font-weight: 600;
 
           @media ($breakpoint_ESM) {
-            font-size: 18px;
+            font-size: 16px;
+          }
+
+          @media ($breakpoint_350) {
+            font-size: 15px;
           }
         }
       }

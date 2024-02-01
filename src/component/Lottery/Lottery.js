@@ -11,10 +11,16 @@ import coin_1 from "../../assets/img/coin_1.svg";
 import coin_2 from "../../assets/img/coin_2.svg";
 import coin_3 from "../../assets/img/coin_3.svg";
 import coin_5 from "../../assets/img/coin_5.svg";
+import zero from "../../assets/img/zero.svg";
 import first from "../../assets/img/first.svg";
 import secound from "../../assets/img/secound.svg";
 import third from "../../assets/img/third.svg";
+import fourth from "../../assets/img/fourth.svg";
 import fifth from "../../assets/img/fifth.svg";
+import sixth from "../../assets/img/sixth.svg";
+import seventh from "../../assets/img/seventh.svg";
+import eight from "../../assets/img/eight.svg";
+import nineth from "../../assets/img/nineth.svg";
 import BigSmall from "./BigSmall/BigSmall";
 import Tab_screen from "./Tabs/Tab_screen";
 import io from "socket.io-client";
@@ -459,33 +465,33 @@ const Lottery = () => {
                 <h3>Win Go 1 min</h3>
                 <div className="coin_img">
                   <div className="text_move">
-                    <img src={coin_1} alt="coin_1" />
-                    <h6>1</h6>
+                    <img src={zero} alt="zero" />
+                    {/* <h6>1</h6> */}
                   </div>
 
                   <div className="text_move">
-                    <img src={coin_2} alt="coin_2" />
-                    <h6>2</h6>
+                    <img src={first} alt="first" />
+                    {/* <h6>2</h6> */}
                   </div>
 
                   <div className="text_move">
-                    <img src={coin_3} alt="coin_3" />
-                    <h6>3</h6>
+                    <img src={secound} alt="secound" />
+                    {/* <h6>3</h6> */}
                   </div>
 
                   <div className="text_move">
-                    <img src={coin_2} alt="coin_2" />
-                    <h6>4</h6>
+                    <img src={third} alt="third" />
+                    {/* <h6>4</h6> */}
                   </div>
 
                   <div className="text_move">
-                    <img src={coin_5} alt="coin_1" />
-                    <h6>5</h6>
+                    <img src={fourth} alt="fourth" />
+                    {/* <h6>5</h6> */}
                   </div>
 
                   <div className="text_move">
-                    <img src={coin_3} alt="coin_3" />
-                    <h6>6</h6>
+                    <img src={fifth} alt="fifth" />
+                    {/* <h6>6</h6> */}
                   </div>
                 </div>
               </div>
@@ -584,9 +590,10 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={first} alt="first" />
-                    <h4>0</h4>
+                    <img src={zero} alt="zero" />
+                    {/* <h4>0</h4> */}
                   </div>
+
                   <div
                     className="first_line"
                     onClick={() => {
@@ -595,9 +602,10 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={secound} alt="secound" />
-                    <h4>1</h4>
+                    <img src={first} alt="first" />
+                    {/* <h4>1</h4> */}
                   </div>
+
                   <div
                     className="first_line"
                     onClick={() => {
@@ -606,9 +614,10 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={third} alt="third" />
-                    <h4>2</h4>
+                    <img src={secound} alt="secound" />
+                    {/* <h4>2</h4> */}
                   </div>
+
                   <div
                     className="first_line"
                     onClick={() => {
@@ -617,8 +626,8 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={secound} alt="secound" />
-                    <h4>3</h4>
+                    <img src={third} alt="third" />
+                    {/* <h4>3</h4> */}
                   </div>
                   <div
                     className="first_line"
@@ -628,8 +637,8 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={third} alt="third" />
-                    <h4>4</h4>
+                    <img src={fourth} alt="fourth" />
+                    {/* <h4>4</h4> */}
                   </div>
                 </div>
                 <div className="ten_coin">
@@ -642,7 +651,7 @@ const Lottery = () => {
                     }}
                   >
                     <img src={fifth} alt="fitfh" />
-                    <h4>5</h4>
+                    {/* <h4>5</h4> */}
                   </div>
                   <div
                     className="first_line"
@@ -652,9 +661,10 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={third} alt="third" />
-                    <h4>6</h4>
+                    <img src={sixth} alt="sixth" />
+                    {/* <h4>6</h4> */}
                   </div>
+
                   <div
                     className="first_line"
                     onClick={() => {
@@ -663,9 +673,10 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={secound} alt="secound" />
-                    <h4>7</h4>
+                    <img src={seventh} alt="seventh" />
+                    {/* <h4>7</h4> */}
                   </div>
+
                   <div
                     className="first_line"
                     onClick={() => {
@@ -675,9 +686,10 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={third} alt="third" />
-                    <h4>8</h4>
+                    <img src={eight} alt="eight" />
+                    {/* <h4>8</h4> */}
                   </div>
+
                   <div
                     className="first_line"
                     onClick={() => {
@@ -687,8 +699,8 @@ const Lottery = () => {
                       setOpenModal(true);
                     }}
                   >
-                    <img src={secound} alt="secound" />
-                    <h4>9</h4>
+                    <img src={nineth} alt="nineth" />
+                    {/* <h4>9</h4> */}
                   </div>
                 </div>
               </div>
