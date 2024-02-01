@@ -11,7 +11,13 @@ import moment from "moment-timezone";
 import { create } from "@mui/material/styles/createTransitions";
 import { createTheme } from "@mui/material";
 
-const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
+const Tab_screen = ({
+  resultHistoryData,
+  setHistoryData,
+  skip,
+  setSkip,
+  gameType,
+}) => {
   const dispatch = useDispatch();
 
   const myHistoryData = useSelector((state) => state.myHistoryReducer.data);
@@ -38,12 +44,13 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
     if (activeKey === "my_history") {
       getMyHistory();
     }
-  }, [skip]);
+  }, [skip, gameType]);
 
   const getMyHistory = () => {
     const payload = {
       skip: skip,
       limit: 10,
+      type: gameType,
     };
     console.log("MY Bet payload ===> ", payload);
     dispatch(myHistory(payload));
@@ -115,8 +122,8 @@ const Tab_screen = ({ resultHistoryData, setHistoryData, skip, setSkip }) => {
           item.betNumber === 4 ||
           item.betNumber === 6 ||
           item.betNumber === 8
-          ? "red"
-          : "violet";
+        ? "red"
+        : "violet";
     } else if (item.betType === 2) {
       return item.color === 1 ? "Red" : item.color === 2 ? "Violet" : "Green";
     } else {
