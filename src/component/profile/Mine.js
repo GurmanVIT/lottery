@@ -16,9 +16,34 @@ import feedback from '../../assets/img/feedback.svg';
 import about from '../../assets/img/about.svg';
 import customer from '../../assets/img/customer.svg';
 import beginner from '../../assets/img/beginner.svg';
-import logout from '../../assets/img/logout.svg';
+import logouts from '../../assets/img/logouts.svg';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clearData } from "../../redux/loginSlice";
+import { clearSignUpData } from "../../redux/signupSlice";
+import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
+import { clearOtpData } from "../../redux/otpSlice";
+import { clearResendData } from "../../redux/resendOtpSlice";
 
 const Mine = () => {
+
+    const dispatch = useDispatch();
+    const navigation = useNavigate();
+
+    const logout = () => {
+        localStorage.clear();
+        dispatch(clearSignUpData());
+        dispatch(clearData());
+        dispatch(clearSponsorData());
+        dispatch(clearOtpData());
+        dispatch(clearResendData());
+
+        setTimeout(() => {
+            navigation("/login");
+        }, 500);
+    };
+
+
     return (
         <>
             <div className='profile lottery_page'>
@@ -159,8 +184,8 @@ const Mine = () => {
                                     <img src={beginner} alt='beginner' />
                                     <p>Beginner’s Guide</p>
                                 </div>
-                                <div className='setting'>
-                                    <img src={logout} alt='logout' />
+                                <div className='setting' onClick={() => logout()}>
+                                    <img src={logouts} alt='logouts' />
                                     <p>Logout</p>
                                 </div>
                             </div>
