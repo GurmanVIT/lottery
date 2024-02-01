@@ -111,23 +111,30 @@ const Tab_screen = ({
       return item.type === 1 ? "Big" : "Small";
     }
   };
-  const getBGColor = (item) => {
-    if (item.betType === 1) {
-      return item.betNumber === 1 ||
-        item.betNumber === 3 ||
-        item.betNumber === 7 ||
-        item.betNumber === 9
-        ? "green"
-        : item.betNumber === 2 ||
-          item.betNumber === 4 ||
-          item.betNumber === 6 ||
-          item.betNumber === 8
-        ? "red"
-        : "violet";
-    } else if (item.betType === 2) {
-      return item.color === 1 ? "Red" : item.color === 2 ? "Violet" : "Green";
-    } else {
-      return item.type === 1 ? "Big" : "Small";
+  const getBGColor = (index) => {
+    if (myBetData.length > 0) {
+      if (myBetData[index].betType === 2) {
+        return myBetData[index].color === 1
+          ? "green"
+          : myBetData[index].color === 2
+          ? "violet"
+          : "red";
+      } else if (myBetData[index].betType === 1) {
+        // console.log("Item ===> ", item.betType, "  ", item.betNumber);
+        return myBetData[index].betNumber === 1 ||
+          myBetData[index].betNumber === 3 ||
+          myBetData[index].betNumber === 7 ||
+          myBetData[index].betNumber === 9
+          ? "green"
+          : myBetData[index].betNumber === 2 ||
+            myBetData[index].betNumber === 4 ||
+            myBetData[index].betNumber === 6 ||
+            myBetData[index].betNumber === 8
+          ? "red"
+          : "violet";
+      } else {
+        return myBetData[index].type === 1 ? "violet" : "white";
+      }
     }
   };
 
@@ -375,7 +382,7 @@ const Tab_screen = ({
           <Tab eventKey="my_history" title="My History">
             <div className="history_table">
               {myBetData.length > 0 &&
-                myBetData.map((item) => (
+                myBetData.map((item, index) => (
                   <div className="table_div">
                     <div className="big_id">
                       <div
@@ -384,6 +391,19 @@ const Tab_screen = ({
                           height: 40,
                           width: 40,
                           fontSize: getBetValue(item).length > 1 ? 10 : 20,
+                          backgroundColor:
+                            getBGColor(index) === "green"
+                              ? myColors.green_color
+                              : getBGColor(index) === "red"
+                              ? myColors.red_color
+                              : getBGColor(index) === "violet"
+                              ? myColors.primaryColor
+                              : myColors.txtWhite,
+
+                          color:
+                            getBGColor(index) === "white"
+                              ? myColors.primaryColor
+                              : myColors.txtWhite,
                         }}
                       >
                         {getBetValue(item)}
