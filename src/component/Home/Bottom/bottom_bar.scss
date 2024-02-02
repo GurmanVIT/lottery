@@ -13,6 +13,10 @@
             background-color: $bottom_bar;
             padding: 22px 0px 0px;
 
+            span {
+                color: $disable_button;
+            }
+
             .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
                 color: $disable_button;
 
