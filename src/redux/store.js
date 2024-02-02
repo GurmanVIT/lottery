@@ -7,6 +7,7 @@ import forgotReducer from "./forgotSlice";
 import resendOtpReducer from "./resendOtpSlice";
 import gameHistoryReducer from "./gameHistorySlice";
 import myHistoryReducer from "./myHistorySlice";
+import profileReducer from "./profileSlice";
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     resendOtpReducer: resendOtpReducer,
     gameHistoryReducer: gameHistoryReducer,
     myHistoryReducer: myHistoryReducer,
+    profileReducer: profileReducer,
   },
 });
 

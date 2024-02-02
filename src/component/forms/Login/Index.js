@@ -183,7 +183,7 @@ const Login = () => {
                   }}
                 >
                   {isLoading ? (
-                    <ClipLoader color={myColors.txtBlack} />
+                    <ClipLoader color={myColors.txtWhite} />
                   ) : (
                     "Login"
                   )}

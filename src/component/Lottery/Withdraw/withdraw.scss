@@ -42,7 +42,6 @@
 
         .withdraw_section {
             background-color: $page_bg;
-            height: 100vh;
 
             .wallet_card {
                 padding: 0 10px;
@@ -119,22 +118,22 @@
             }
 
             .bank_account {
-                padding: 140px 10px 30px;
+                padding: 135px 10px 30px;
 
                 @media (max-width:410px) {
-                    padding-top: 125px;
+                    padding-top: 120px;
                 }
 
                 @media (max-width:375px) {
-                    padding-top: 112px;
+                    padding-top: 107px;
                 }
 
                 @media (max-width:353px) {
-                    padding-top: 97px;
+                    padding-top: 92px;
                 }
 
                 @media(max-width:329px) {
-                    padding-top: 83px;
+                    padding-top: 78px;
                 }
 
                 .bank_card {
@@ -147,48 +146,32 @@
 
                     .card_bg {
                         background: linear-gradient(181deg, #6561C0, #8683CD);
-                        padding: 27px 12px;
+                        padding: 18px 4px;
                         border-radius: 14px;
                         text-align: center;
-                        width: 136px;
+                        width: 85px;
 
                         @media($breakpoint_ESM) {
-                            padding: 19px 6px;
-                            width: 122px;
+                            border-radius: 9px;
                         }
 
                         @media($breakpoint_350) {
-                            width: 97px;
-                        }
-
-                        @media($breakpoint_350) {
-                            padding: 15px 6px;
+                            padding: 15px 4px;
                         }
 
                         img {
-                            @media($breakpoint_350) {
-                                width: 32px;
-                            }
+                            width: 32px;
                         }
 
                         p {
                             color: $white;
-                            font-size: 14px;
-                            margin-top: 13px;
+                            font-size: 11px;
+                            margin-top: 9px;
                             text-transform: uppercase;
                             margin-bottom: 0;
                             font-weight: 600;
 
-                            @media($breakpoint_450) {
-                                font-size: 13px;
-                            }
-
                             @media($breakpoint_ESM) {
-                                font-size: 12px;
-                                margin-top: 9px;
-                            }
-
-                            @media($breakpoint_350) {
                                 font-size: 10px;
                             }
                         }
@@ -196,15 +179,8 @@
 
                     .rectangle_img {
                         img {
-                            @media($breakpoint_450) {
-                                width: 100px;
-                                height: 100px;
-                            }
-
-                            @media($breakpoint_ESM) {
-                                width: 85px;
-                                height: 85px;
-                            }
+                            width: 80px;
+                            height: 80px;
 
                             @media($breakpoint_350) {
                                 width: 70px;
@@ -271,6 +247,135 @@
 
                     h6 {
                         margin-bottom: 0;
+                    }
+                }
+
+                .balance_btn {
+                    @include display(space-between, center);
+                    margin-top: 20px;
+
+                    p {
+                        font-size: 14px;
+                        margin-bottom: 0;
+                        color: $forgot;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 13px;
+                        }
+
+                        span {
+                            color: $primary;
+                            font-size: 15px;
+                            margin-left: 5px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .all_btn {
+                        button {
+                            border: none;
+                            background-color: $primary;
+                            padding: 7px 40px;
+                            border-radius: 8px;
+                            color: $white;
+
+                            @media($breakpoint_ESM) {
+                                padding: 4px 33px;
+                                font-size: 15px;
+                                border-radius: 6px;
+                            }
+                        }
+                    }
+                }
+
+                .amount_received {
+                    @include display(space-between, center);
+                    margin-top: 20px;
+
+                    p {
+                        font-size: 14px;
+                        margin-bottom: 0;
+                        color: $forgot;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 13px;
+                        }
+                    }
+
+                    span {
+                        color: $primary;
+                        font-size: 15px;
+                        margin-left: 10px;
+                    }
+                }
+
+                .withdraw_btn {
+                    width: 100%;
+                    color: $white;
+                    font-size: 17px;
+                    background-color: $primary;
+                    border-radius: 12px;
+                    border: none;
+                    margin-top: 20px;
+                    padding: 10px;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 16px;
+                    }
+                }
+
+                .card_bet {
+                    background-color: $white;
+                    box-shadow: 0 0.05333rem 0.21333rem #b6b6d4;
+                    padding: 20px 10px;
+                    border-radius: 14px;
+                    margin-top: 20px;
+
+                    @media($breakpoint_ESM) {
+                        padding: 15px 10px;
+                    }
+
+                    .need_bet {
+                        @include display(flex-start, center);
+                        gap: 7px;
+                        margin-bottom: 5px;
+
+                        p {
+                            margin-bottom: 0;
+                            font-size: 13px;
+                            margin-top: 4px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 11px;
+                            }
+
+                            span {
+                                color: $primary;
+                                font-size: 14px;
+                                margin: 0 2px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .withdraw_history {
+                    margin-top: 20px;
+
+                    h6 {
+                        font-weight: 600;
+                        font-size: 17px;
+                        margin-bottom: 20px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 15px;
+                        }
                     }
                 }
             }

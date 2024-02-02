@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import back from "../../assets/img/back.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DG from "../../assets/img/DG.svg";
 import music from "../../assets/img/music.svg";
 import headphone from "../../assets/img/headphone.svg";
 import refresh from "../../assets/img/refresh.svg";
 import flat from "../../assets/img/Flat.svg";
 import watch from "../../assets/img/watch.svg";
-import coin_1 from "../../assets/img/coin_1.svg";
-import coin_2 from "../../assets/img/coin_2.svg";
-import coin_3 from "../../assets/img/coin_3.svg";
-import coin_5 from "../../assets/img/coin_5.svg";
 import zero from "../../assets/img/zero.svg";
 import first from "../../assets/img/first.svg";
 import secound from "../../assets/img/secound.svg";
@@ -80,6 +76,10 @@ const Lottery = () => {
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
   };
+
+
+  const navigation = useNavigate();
+
 
   const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
   const dispatch = useDispatch();
@@ -411,10 +411,10 @@ const Lottery = () => {
               <h4>Wallet Balance</h4>
             </div>
             <div className="btn_flex">
-              <div className="withdraw_btn">
+              <div className="withdraw_btn" onClick={() => navigation('/withdraw')}>
                 <button>Withdraw</button>
               </div>
-              <div className="deposit_btn">
+              <div className="deposit_btn" onClick={() => navigation('/deposit')}>
                 <button>Deposit</button>
               </div>
             </div>

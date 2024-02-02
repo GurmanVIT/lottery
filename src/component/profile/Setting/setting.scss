@@ -1,0 +1,43 @@
+.setting {
+    @include display(center, center);
+
+    .header_setting {
+        width: 100%;
+        max-width: 420px;
+
+        .header_flex {
+            background: $profile_bg;
+            padding: 20px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            .back_img {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: -5px;
+                    left: 5px;
+                }
+            }
+
+            .setting_content {
+                h4 {
+                    text-align: center;
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .setting_section {
+            padding: 55px 10px 30px;
+            background-color: $page_bg;
+        }
+    }
+}

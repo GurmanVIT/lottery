@@ -13,6 +13,8 @@ import Profile from "./component/profile/Index";
 import WinPop from "./component/Lottery/WinPop";
 import LossPop from "./component/Lottery/LossPop";
 import Withdraw from "./component/Lottery/Withdraw/Withdraw";
+import Deposit from "./component/Lottery/Deposit/Deposit";
+import Setting from "./component/profile/Setting/Seting";
 
 
 // export
@@ -34,6 +36,8 @@ function App() {
           <Route path="/winner" element={<WinPop />} />
           <Route path="/loss" element={<LossPop />} />
           <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/deposit" element={<Deposit />} />
+          <Route path="/setting" element={<Setting />} />
         </Routes>
       </Router>
     </Provider>

@@ -6,6 +6,7 @@ import flat from '../../../assets/img/Flat.svg';
 import refresh_2 from '../../../assets/img/refresh_2.svg';
 import bank_card_img from '../../../assets/img/bank_card_img.svg';
 import rectangle from '../../../assets/img/rectangle.svg';
+import star from '../../../assets/img/star.svg';
 
 
 const Withdraw = () => {
@@ -17,7 +18,7 @@ const Withdraw = () => {
             <div className="withdraw">
                 <div className="header_withdraw">
                     <div className="header_flex">
-                        <div className="back_img" onClick={() => navigation.goBack()}>
+                        <div className="back_img" onClick={() => navigation(-1)}>
                             <img src={back} alt="back" />
                         </div>
                         <div className="withdraw_content">
@@ -70,8 +71,41 @@ const Withdraw = () => {
                                 <h6>500</h6>
                             </div>
 
-                            <div className=''>
-                                <p>Withdrawable balance <span> ₹0.00</span></p>
+                            <div className='balance_btn'>
+                                <p>Withdrawable balance <span> <b>₹0.00</b></span></p>
+                                <div className='all_btn'>
+                                    <button type='button'>All</button>
+                                </div>
+                            </div>
+
+                            <div className='amount_received'>
+                                <p>Withdrawable amount received </p>
+                                <span> <b>₹0.00</b></span>
+                            </div>
+
+                            <button type='button' className='withdraw_btn'>Withdraw</button>
+
+                            <div className='card_bet'>
+                                <div className='need_bet'>
+                                    <img src={star} alt='star' />
+                                    <p>Need to bet <span><b> ₹0.00</b> </span>to be able to withdraw</p>
+                                </div>
+                                <div className='need_bet'>
+                                    <img src={star} alt='star' />
+                                    <p>Withdraw time <span><b> 00:00-23:55</b></span></p>
+                                </div>
+                                <div className='need_bet'>
+                                    <img src={star} alt='star' />
+                                    <p>In day remaining withdraw times <span><b>3</b></span></p>
+                                </div>
+                                <div className='need_bet'>
+                                    <img src={star} alt='star' />
+                                    <p>Withdrawal amount range <span><b>₹100.00-₹10,000,000.00</b></span></p>
+                                </div>
+                            </div>
+
+                            <div className='withdraw_history'>
+                                <h6>Withdraw History</h6>
                             </div>
                         </div>
                     </div>

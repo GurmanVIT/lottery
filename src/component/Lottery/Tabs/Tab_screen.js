@@ -10,6 +10,11 @@ import { myHistory } from "../../../redux/myHistorySlice";
 import moment from "moment-timezone";
 import { create } from "@mui/material/styles/createTransitions";
 import { createTheme } from "@mui/material";
+import red_voilet from '../../../assets/img/red_voilet.svg';
+import red from '../../../assets/img/red.svg';
+import green from '../../../assets/img/green.svg';
+import green_voilet from '../../../assets/img/green_voilet.svg';
+
 
 const Tab_screen = ({
   resultHistoryData,
@@ -117,8 +122,8 @@ const Tab_screen = ({
         return myBetData[index].color === 1
           ? "green"
           : myBetData[index].color === 2
-          ? "violet"
-          : "red";
+            ? "violet"
+            : "red";
       } else if (myBetData[index].betType === 1) {
         // console.log("Item ===> ", item.betType, "  ", item.betNumber);
         return myBetData[index].betNumber === 1 ||
@@ -130,8 +135,8 @@ const Tab_screen = ({
             myBetData[index].betNumber === 4 ||
             myBetData[index].betNumber === 6 ||
             myBetData[index].betNumber === 8
-          ? "red"
-          : "violet";
+            ? "red"
+            : "violet";
       } else {
         return myBetData[index].type === 1 ? "violet" : "white";
       }
@@ -166,30 +171,16 @@ const Tab_screen = ({
                       <td>{item.result.type === 1 ? "Big" : "Small"}</td>
                       <td>
                         {item.result.color === 1 ? (
-                          <span style={{ color: myColors.green_color }}>
-                            Green
-                          </span>
+                          <img src={green} alt="green" />
+
                         ) : item.result.color === 12 ? (
-                          <p style={{ color: myColors.green_color, margin: 0 }}>
-                            Green{" "}
-                            <span style={{ color: myColors.primaryColor }}>
-                              Violet
-                            </span>
-                          </p>
+                          <img src={green_voilet} alt="green_voilet" />
+
                         ) : item.result.color === 23 ? (
-                          <p style={{ color: myColors.red_color, margin: 0 }}>
-                            Red
-                            <span
-                              style={{
-                                color: myColors.primaryColor,
-                                marginLeft: 4,
-                              }}
-                            >
-                              Violet
-                            </span>
-                          </p>
+
+                          <img src={red_voilet} alt="red_violet" />
                         ) : (
-                          <span style={{ color: myColors.red_color }}>Red</span>
+                          <img src={red} alt="red" />
                         )}
                       </td>
                     </tr>
@@ -395,10 +386,10 @@ const Tab_screen = ({
                             getBGColor(index) === "green"
                               ? myColors.green_color
                               : getBGColor(index) === "red"
-                              ? myColors.red_color
-                              : getBGColor(index) === "violet"
-                              ? myColors.primaryColor
-                              : myColors.txtWhite,
+                                ? myColors.red_color
+                                : getBGColor(index) === "violet"
+                                  ? myColors.primaryColor
+                                  : myColors.txtWhite,
 
                           color:
                             getBGColor(index) === "white"

@@ -13,4 +13,5 @@ export const checkSponsorIdApi = "v1/user/checkSponserId";
 export const forgotPasswordApi = "v1/user/forgotPassword";
 export const resendOtp = "v1/user/resendVerificationCode";
 export const gameHistoryApi = "v1/user/gameHistory";
-export const myHistoryApi = "/v1/user/betHistory";
+export const myHistoryApi = "v1/user/betHistory";
+export const profileApi = "/v1/user/profile";
