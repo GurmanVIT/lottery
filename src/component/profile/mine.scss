@@ -510,6 +510,7 @@
                 box-shadow: $input_shadow;
                 border-radius: 9px;
                 @include display(space-between, center);
+                cursor: pointer;
 
                 .img_notification {
                     @include display(center, center);
@@ -622,6 +623,7 @@
                         text-align: center;
                         width: 30%;
                         flex-direction: column;
+                        cursor: pointer;
 
                         img {
                             width: 27px;

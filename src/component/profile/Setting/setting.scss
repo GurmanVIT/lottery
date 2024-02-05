@@ -14,6 +14,10 @@
             width: 100%;
             max-width: 420px;
 
+            @media($breakpoint_ESM) {
+                padding: 15px 10px;
+            }
+
             .back_img {
                 position: relative;
 
@@ -21,6 +25,11 @@
                     position: absolute;
                     top: -5px;
                     left: 5px;
+
+                    @media($breakpoint_ESM) {
+                        width: 25px;
+                        top: -3px;
+                    }
                 }
             }
 
@@ -31,13 +40,295 @@
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 16px;
+                    }
                 }
             }
         }
 
         .setting_section {
-            padding: 55px 10px 30px;
+            padding: 60px 10px 30px;
             background-color: $page_bg;
+            height: 100vh;
+
+            @media($breakpoint_ESM) {
+                padding-top: 50px;
+            }
+
+            .card {
+                margin-top: 20px;
+                padding: 15px;
+                border-radius: 12px;
+
+                @media($breakpoint_ESM) {
+                    padding: 10px;
+                    border-radius: 8px;
+                }
+
+                .card_emoji_img {
+                    @include display(space-between, center);
+                    margin-bottom: 20px;
+
+                    @media($breakpoint_ESM) {
+                        margin-bottom: 13px;
+                    }
+
+                    img {
+                        width: 80px;
+                        border-radius: 50%;
+                        border: 1px solid $primary;
+
+                        @media($breakpoint_ESM) {
+                            width: 65px;
+                        }
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                        font-size: 15px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 14px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 13px;
+                        }
+
+                        img {
+                            width: 15px;
+                            margin-left: 5px;
+                            border: none;
+                            margin-top: -2px;
+                        }
+                    }
+                }
+
+                .nick_name {
+                    @include display(space-between, center);
+                    margin-bottom: 15px;
+                    border-bottom: 2px solid #f4f4f4;
+                    padding-bottom: 18px;
+
+                    @media($breakpoint_ESM) {
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                        font-size: 15px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 14px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 13px;
+                        }
+                    }
+
+                    h6 {
+                        margin-bottom: 0;
+                        font-size: 15px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 14px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 13px;
+                        }
+
+                        img {
+                            width: 15px;
+                            margin-left: 5px;
+                            border: none;
+                            margin-top: -2px;
+                        }
+                    }
+                }
+
+                .uid {
+                    @include display(space-between, center);
+
+                    p {
+                        font-size: 15px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 14px;
+                            margin-bottom: 10px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 13px;
+                            margin-bottom: 5px;
+                        }
+                    }
+
+                    h6 {
+                        font-size: 15px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 14px;
+                            margin-bottom: 10px;
+                        }
+
+                        @media($breakpoint_350) {
+                            font-size: 13px;
+                            margin-bottom: 5px;
+                        }
+
+                        img {
+                            margin-top: -2px;
+                            margin-left: 5px;
+                            width: 15px;
+                        }
+                    }
+                }
+            }
+
+            .security_information {
+                margin-top: 30px;
+
+                h6 {
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                    font-size: 17px;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 16px;
+                    }
+
+                    @media($breakpoint_350) {
+                        font-size: 15px;
+                    }
+                }
+
+                .card {
+                    padding: 15px;
+                    margin-top: 15px;
+
+                    @media($breakpoint_ESM) {
+                        margin-top: 10px;
+                    }
+
+                    .pass_edit {
+                        @include display(space-between, center);
+
+                        .password_img {
+                            @include display(center, center);
+
+                            img {
+                                margin-right: 10px;
+                                margin-top: -2px;
+
+                                @media($breakpoint_ESM) {
+                                    width: 17px;
+                                }
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                                font-size: 15px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+
+                                @media($breakpoint_350) {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+
+
+                        .edit {
+                            p {
+                                margin-bottom: 0;
+                                font-size: 15px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+
+                                @media($breakpoint_350) {
+                                    font-size: 13px;
+                                }
+
+                                img {
+                                    width: 15px;
+                                    margin-left: 5px;
+                                    margin-top: -3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+.ReactModalPortal {
+    .ReactModal__Overlay {
+        .ReactModal__Content--after-open {
+            top: 10% !important;
+
+            .change_nickname {
+                background-color: $primary;
+                padding: 20px;
+                border-radius: 10px;
+
+                h3 {
+                    color: $white;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                .nick_name {
+                    background-color: $white;
+                    padding: 35px 20px 10px;
+                    border-radius: 14px;
+
+                    .group {
+                        @include display(flex-start, center);
+                        margin-bottom: 20px;
+                        gap: 15px;
+
+                        h4 {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    input {
+                        padding: 10px;
+                        width: 100%;
+                        border-radius: 10px;
+                        border: 1px solid $primary;
+                    }
+
+                    .confirm_btn {
+                        button {
+                            @include login_button;
+                            margin-top: 45px;
+                        }
+                    }
+
+                    .close_btn {
+                        position: relative;
+
+                        .close_img {
+                            position: absolute;
+                            top: 55px;
+                            left: 44%;
+                        }
+                    }
+                }
+            }
         }
     }
 }

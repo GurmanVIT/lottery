@@ -186,7 +186,7 @@ const Mine = () => {
                                 </div>
                             </div>
 
-                            <div className='notification'>
+                            <div className='notification' onClick={() => navigation('/notification')}>
                                 <div className='img_notification'>
                                     <img src={notification} alt='notification' />
                                     <p>Notification</p>
@@ -211,7 +211,7 @@ const Mine = () => {
                                 <h5>Service center</h5>
 
                                 <div className='service_center'>
-                                    <div className='setting' >
+                                    <div className='setting' onClick={() => navigation('/settings')}>
                                         <img src={setting} alt='setting' />
                                         <p>Settings</p>
                                     </div>

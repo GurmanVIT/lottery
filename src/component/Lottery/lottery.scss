@@ -662,6 +662,7 @@
         width: 107px;
         height: 110px;
         border-radius: 15px;
+        cursor: pointer;
 
         .text-center {
           @media ($breakpoint_450) {
@@ -915,6 +916,7 @@
                 width: 65px;
                 height: 65px;
                 border-radius: 50%;
+                cursor: pointer;
 
                 @media ($breakpoint_450) {
                   width: 60px;

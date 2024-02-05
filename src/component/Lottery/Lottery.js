@@ -30,7 +30,6 @@ import Modal from "react-modal";
 import you_win from "../../assets/img/you_win.svg";
 import close from "../../assets/img/close.svg";
 import loss_img from "../../assets/img/loss_img.svg";
-import { type } from "@testing-library/user-event/dist/type";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 

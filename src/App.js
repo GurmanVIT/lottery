@@ -15,6 +15,8 @@ import LossPop from "./component/Lottery/LossPop";
 import Withdraw from "./component/Lottery/Withdraw/Withdraw";
 import Deposit from "./component/Lottery/Deposit/Deposit";
 import Setting from "./component/profile/Setting/Seting";
+import ChangePassword from "./component/profile/Setting/ChangePassword/ChangePassword";
+import Notification from "./component/profile/Notification/Notification";
 
 
 // export
@@ -37,7 +39,9 @@ function App() {
           <Route path="/loss" element={<LossPop />} />
           <Route path="/withdraw" element={<Withdraw />} />
           <Route path="/deposit" element={<Deposit />} />
-          <Route path="/setting" element={<Setting />} />
+          <Route path="/settings" element={<Setting />} />
+          <Route path="/changePassword" element={<ChangePassword />} />
+          <Route path="/notification" element={<Notification />} />
         </Routes>
       </Router>
     </Provider>

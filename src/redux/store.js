@@ -8,6 +8,10 @@ import resendOtpReducer from "./resendOtpSlice";
 import gameHistoryReducer from "./gameHistorySlice";
 import myHistoryReducer from "./myHistorySlice";
 import profileReducer from "./profileSlice";
+import notificationReducer from "./notificationSlice";
+import changePasswordReducer from "./changePasswordSlice";
+import changeNickNameReducer from "./changeNickNameSlice";
+
 
 const store = configureStore({
   reducer: {
@@ -20,6 +24,9 @@ const store = configureStore({
     gameHistoryReducer: gameHistoryReducer,
     myHistoryReducer: myHistoryReducer,
     profileReducer: profileReducer,
+    notificationReducer: notificationReducer,
+    changePasswordReducer: changePasswordReducer,
+    changeNickNameReducer: changeNickNameReducer,
   },
 });
 
