@@ -4,6 +4,8 @@
     .header_notification {
         width: 100%;
         max-width: 420px;
+        height: 100vh;
+        background: $page_bg;
 
         .header_flex {
             background: $profile_bg;
@@ -52,7 +54,6 @@
         .card_notification {
             padding: 60px 10px 30px;
             background-color: $page_bg;
-            height: -webkit-fill-available;
 
             @media($breakpoint_ESM) {
                 padding-top: 50px;
