@@ -51,6 +51,7 @@ const customStyles = {
 
 const Lottery = () => {
   const userId = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
   const [isSocketConnected, setSocketConnected] = useState(false);
   const [gameId, setGameId] = useState("");
   const [gameTableId, setGameTableId] = useState("");
@@ -71,6 +72,8 @@ const Lottery = () => {
   const [isWinOpen, setWinOpen] = useState(false);
   const [isLoseOpen, setLoseOpen] = useState(false);
   const [gameType, setGameType] = useState(1);
+
+  const navigator = useNavigate();
 
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
@@ -109,6 +112,11 @@ const Lottery = () => {
   };
 
   useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigator("/login");
+    }
+
     // Establish a connection to the Socket.io server
 
     // Define event handlers for the socket
@@ -129,7 +137,10 @@ const Lottery = () => {
 
       socket.emit("touch_server", data);
 
-      socket.emit("walletPoints", data);
+      if (userId != null) {
+        console.log("WalletPoints ===> ", data);
+        socket.emit("walletPoints", data);
+      }
       socket.on("wallet_points", (data) => {
         console.log("wallet_points ===> ", data);
         setWalletBalance(data.walletPoints);
