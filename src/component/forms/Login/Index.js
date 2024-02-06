@@ -8,10 +8,7 @@ import support from "../../../assets/img/support.svg";
 import DG from "../../../assets/img/DG.svg";
 import back_back from "../../../assets/img/back_back.svg";
 
-import {
-  VisibilityTwoTone,
-  VisibilityOffTwoTone,
-} from "@mui/icons-material";
+import { VisibilityTwoTone, VisibilityOffTwoTone } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../redux/loginSlice";
 import { ClipLoader } from "react-spinners";
@@ -75,8 +72,9 @@ const Login = () => {
 
   useEffect(() => {
     if (loginSuccess != null && loginSuccess.status == 1) {
+      localStorage.setItem("token", loginSuccess.token);
       localStorage.setItem("userId", loginSuccess.data._id);
-      navigation("/otp");
+      navigation("/home_page");
     } else if (loginSuccess != null) {
       alert(loginSuccess.message);
     }
@@ -107,7 +105,12 @@ const Login = () => {
       <div className="login">
         <div className="login_section">
           <div className="logo">
-            <img src={back_back} alt="back_back" className="back_back" onClick={() => navigation('/home_page')} />
+            <img
+              src={back_back}
+              alt="back_back"
+              className="back_back"
+              onClick={() => navigation("/home_page")}
+            />
             <div className="dg_image">
               <img src={DG} alt="DG" />
               <h2>Dapic games</h2>
@@ -138,7 +141,9 @@ const Login = () => {
               </FloatingLabel>
 
               {email.length != 0 && !isValid ? (
-                <p style={{ color: "red", fontSize: "14px" }}>Invalid email address</p>
+                <p style={{ color: "red", fontSize: "14px" }}>
+                  Invalid email address
+                </p>
               ) : (
                 ""
               )}
