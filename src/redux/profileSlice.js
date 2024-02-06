@@ -17,7 +17,6 @@ export const profile = createAsyncThunk("profile", async () => {
             ApiBaseUrl +
             profileApi
         const response = await axios.get(url, config);
-        console.log("Profile Response ===> ", response.data)
         return response.data;
     } catch (error) {
         throw error.response.data;
@@ -47,7 +46,6 @@ const profileSlice = createSlice({
                 state.data = action.payload;
             })
             .addCase(profile.rejected, (state, action) => {
-                console.log("Error", action.payload);
                 state.isError = false;
             });
     },

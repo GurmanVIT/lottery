@@ -1,4 +1,5 @@
-import * as React from "react"
+import * as React from "react";
+
 const Wallet = (props) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -26,5 +27,4 @@ const Wallet = (props) => (
         />
     </svg>
 )
-export default Wallet
-    ;
+export default Wallet;

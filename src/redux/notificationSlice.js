@@ -17,7 +17,6 @@ export const getNotificationApi = createAsyncThunk("getNotificationApi", async (
             ApiBaseUrl +
             notificationApi + `?skip=${payload}&limit=10`
         const response = await axios.get(url, config);
-        console.log("notification Response ===> ", response.data)
         return response.data;
     } catch (error) {
         throw error.response.data;
@@ -47,7 +46,6 @@ const notificationSlice = createSlice({
                 state.data = action.payload;
             })
             .addCase(getNotificationApi.rejected, (state, action) => {
-                console.log("Error", action.payload);
                 state.isError = false;
             });
     },

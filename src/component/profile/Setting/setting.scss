@@ -270,8 +270,6 @@
                     }
                 }
             }
-
-
         }
     }
 }
@@ -279,7 +277,6 @@
 .ReactModalPortal {
     .ReactModal__Overlay {
         .ReactModal__Content--after-open {
-            top: 10% !important;
 
             .change_nickname {
                 background-color: $primary;
@@ -302,8 +299,15 @@
                         margin-bottom: 20px;
                         gap: 15px;
 
+                        img {
+                            @media($breakpoint_ESM) {
+                                margin-top: -3px;
+                            }
+                        }
+
                         h4 {
                             margin-bottom: 0;
+                            font-size: 21px;
                         }
                     }
 
@@ -318,6 +322,10 @@
                         button {
                             @include login_button;
                             margin-top: 45px;
+
+                            @media($breakpoint_ESM) {
+                                margin-top: 35px;
+                            }
                         }
                     }
 

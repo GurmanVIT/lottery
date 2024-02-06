@@ -24,7 +24,6 @@ const Index = () => {
   const navigation = useNavigate();
 
   const onOtpClick = () => {
-    console.log("klflkdsj");
     if (otp.length < 6) {
       alert("Please enter valid otp");
     } else {
@@ -38,14 +37,12 @@ const Index = () => {
         fcmToken: "Anmol",
       };
 
-      console.log("OTP Payload ===> ", payload);
       dispatch(otpAuth(payload));
     }
   };
 
   useEffect(() => {
     return () => {
-      console.log("Check Resend");
       dispatch(clearResendData());
       dispatch(clearSponsorData());
     };
@@ -62,7 +59,6 @@ const Index = () => {
   };
 
   useEffect(() => {
-    console.log("OTP Success ===> ", otpSuccess);
     if (otpSuccess != null && otpSuccess.status == 1) {
       localStorage.setItem("token", otpSuccess.token);
       navigation("/home_page");

@@ -11,9 +11,7 @@ export const otpAuth = createAsyncThunk("otpAuth", async (payload) => {
         "Content-Type": "application/json",
       },
     };
-    console.log("OTP Payload ===> ", payload);
     const response = await axios.put(ApiBaseUrl + otpApi, payload, config);
-    console.log("OTP Response ===> ", response.data);
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -44,7 +42,6 @@ const otpSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(otpAuth.rejected, (state, action) => {
-        console.log("Error", action.payload);
         state.isError = false;
       });
   },

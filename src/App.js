@@ -34,7 +34,7 @@ function App() {
           <Route path="/otp" element={<OTP />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/modalbottom" element={<ModalBottom />} />
-          <Route path="/mine" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/winner" element={<WinPop />} />
           <Route path="/loss" element={<LossPop />} />
           <Route path="/withdraw" element={<Withdraw />} />

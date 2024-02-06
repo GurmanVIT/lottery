@@ -36,7 +36,6 @@ const Login = () => {
 
   const navigation = useNavigate();
 
-  console.log("Login Response ===> ", loginSuccess);
 
   const dispatch = useDispatch();
 
@@ -48,7 +47,6 @@ const Login = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    console.log("Token ===> ", token?.length);
     if (token?.length > 0) {
       navigation("/home_page");
     }
@@ -65,7 +63,6 @@ const Login = () => {
         password: password,
         fcmToken: "Anmol",
       };
-      console.log("Payload Login ===> ", payload);
       dispatch(loginUser(payload));
     }
   };

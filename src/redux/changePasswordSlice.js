@@ -17,7 +17,6 @@ export const changePassword = createAsyncThunk("changePassword", async (payload)
             ApiBaseUrl +
             changePasswordApi
         const response = await axios.put(url, payload, config);
-        console.log("change{assword} Response ===> ", response.data)
         return response.data;
     } catch (error) {
         throw error.response.data;
@@ -47,7 +46,6 @@ const changePasswordSlice = createSlice({
                 state.data = action.payload;
             })
             .addCase(changePassword.rejected, (state, action) => {
-                console.log("Error", action.payload);
                 state.isError = false;
             });
     },

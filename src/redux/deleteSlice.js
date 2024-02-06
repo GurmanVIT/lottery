@@ -16,8 +16,7 @@ export const deleteNotifications = createAsyncThunk("deleteNotifications", async
         const url =
             ApiBaseUrl +
             deleteApi
-        const response = await axios.get(url, config);
-        console.log("delete Response ===> ", response.data)
+        const response = await axios.put(url, config);
         return response.data;
     } catch (error) {
         throw error.response.data;
@@ -47,7 +46,6 @@ const deleteSlice = createSlice({
                 state.data = action.payload;
             })
             .addCase(deleteNotifications.rejected, (state, action) => {
-                console.log("Error", action.payload);
                 state.isError = false;
             });
     },

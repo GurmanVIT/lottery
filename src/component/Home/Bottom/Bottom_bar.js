@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import LinkBottomNavigationAction from '@mui/material/BottomNavigationAction';
-import home from '../../../assets/img/home.svg';
-import Activity from '../../../assets/img/activity.svg';
 import Promotion from '../../../assets/img/Promotion.svg';
-import Wallet from '../../../assets/img/wallet.svg';
-import mine from '../../../assets/img/mine.svg';
+import Home from '../../SVG/home';
+import Mine from '../../SVG/mine';
+import Activity from '../../SVG/activity';
+import Wallet from '../../SVG/wallet';
+import { useNavigate } from 'react-router';
 
 
 const Bottom_bar = () => {
 
+    const navigation = useNavigate();
+
     const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    useEffect(() => {
+        console.log(value)
+    }, [value])
 
 
     return (
@@ -20,16 +31,14 @@ const Bottom_bar = () => {
                 <Box>
                     <BottomNavigation
                         value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}
+                        onChange={handleChange}
                         showLabels
                     >
-                        <LinkBottomNavigationAction href='/home_page' label="Home" icon={<img src={home} alt="Home" />} />
-                        <LinkBottomNavigationAction label="Activity" icon={<img src={Activity} alt="Activity" />} />
+                        <LinkBottomNavigationAction className={value === 0 ? "active" : ""} onClick={() => navigation('/home_page')} label=" Home" icon={<Home />} />
+                        <LinkBottomNavigationAction label="Activity" icon={<Activity />} />
                         <LinkBottomNavigationAction label="Promotion" icon={<img src={Promotion} alt="Promotion" />} className='promotion' />
-                        <LinkBottomNavigationAction label="Wallet" icon={<img src={Wallet} alt="Wallet" />} />
-                        <LinkBottomNavigationAction href='/mine' label="Mine" icon={<img src={mine} alt="Mine" />} />
+                        <LinkBottomNavigationAction label="Wallet" icon={<Wallet />} />
+                        <LinkBottomNavigationAction className={value === 0 ? "active" : ""} onClick={() => navigation('/profile')} label="Mine" icon={<Mine />} />
                     </BottomNavigation>
                 </Box>
             </div>

@@ -28,7 +28,7 @@ import { profile } from '../../redux/profileSlice';
 import moment from "moment-timezone";
 
 
-const Mine = () => {
+const Profile = () => {
 
     const dispatch = useDispatch();
     const navigation = useNavigate();
@@ -86,7 +86,6 @@ const Mine = () => {
             .add(5, "hours")
             .add(30, "minutes");
 
-        // console.log(dateData[1]);
 
         const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
 
@@ -249,4 +248,4 @@ const Mine = () => {
     )
 }
 
-export default Mine;
+export default Profile;

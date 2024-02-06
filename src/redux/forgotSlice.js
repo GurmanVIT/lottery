@@ -39,7 +39,6 @@ const forgotSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(forgotUser.rejected, (state, action) => {
-        console.log("Error", action.payload);
         state.isError = false;
       });
   },

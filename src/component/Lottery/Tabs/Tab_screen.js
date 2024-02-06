@@ -54,7 +54,6 @@ const Tab_screen = ({
       limit: 10,
       type: gameType,
     };
-    console.log("MY Bet payload ===> ", payload);
     dispatch(myHistory(payload));
   };
 
@@ -69,7 +68,6 @@ const Tab_screen = ({
   useEffect(() => {
     if (myHistoryData != null && myHistoryData.status === 1) {
       setMyBetData(myHistoryData.data);
-      console.log("myHistoryData ===> ", myHistoryData);
     }
   }, [myHistoryData]);
 
@@ -97,7 +95,6 @@ const Tab_screen = ({
       .add(5, "hours")
       .add(30, "minutes");
 
-    // console.log(dateData[1]);
 
     const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
 
@@ -122,7 +119,6 @@ const Tab_screen = ({
             ? "violet"
             : "red";
       } else if (myBetData[index].betType === 1) {
-        // console.log("Item ===> ", item.betType, "  ", item.betNumber);
         return myBetData[index].betNumber === 1 ||
           myBetData[index].betNumber === 3 ||
           myBetData[index].betNumber === 7 ||

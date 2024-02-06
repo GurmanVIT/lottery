@@ -80,7 +80,6 @@ const Register = () => {
   };
 
   useEffect(() => {
-    console.log("SignUp Success ===>", signupSuccess);
     if (signupSuccess != null && signupSuccess.status == 1) {
       localStorage.setItem("userId", signupSuccess.data._id);
       navigation("/otp");
@@ -90,7 +89,6 @@ const Register = () => {
   }, [signupSuccess]);
 
   useEffect(() => {
-    console.log("Sponsor Response ===>", sponsorResponse);
     if (sponsorResponse != null && sponsorResponse.status == 1) {
       const payload = {
         email: email,
@@ -100,7 +98,6 @@ const Register = () => {
         sponserId: sponsorId,
         position: selectedOption,
       };
-      console.log("Payload signup ===> ", payload);
       dispatch(signupUser(payload));
     } else if (sponsorResponse != null) {
       alert("Invalid Sponsor ID");

@@ -46,7 +46,6 @@ const gameHistorySlice = createSlice({
         state.data = action.payload;
       })
       .addCase(gameHistory.rejected, (state, action) => {
-        console.log("Error", action.payload);
         state.isError = false;
       });
   },

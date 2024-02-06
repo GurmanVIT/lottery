@@ -114,3 +114,85 @@
         }
     }
 }
+
+.ReactModalPortal {
+    .ReactModal__Overlay {
+        .ReactModal__Content--after-open {
+            .change_nickname {
+                background-color: $primary;
+                padding: 20px;
+                border-radius: 10px;
+
+                h3 {
+                    color: $white;
+                    text-align: center;
+                    margin-bottom: 20px;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 20px;
+                    }
+                }
+
+                .nick_name {
+                    background-color: $white;
+                    padding: 35px 10px 10px;
+                    border-radius: 14px;
+
+                    .group_delete {
+                        margin-bottom: 20px;
+
+                        .delete_this {
+                            margin-bottom: 0;
+                            font-size: 18px;
+                            text-align: center;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 18px;
+                                text-align: start;
+                            }
+                        }
+                    }
+
+                    .cancel_delete_btn {
+                        @include display(space-around, center);
+                        margin-top: 35px;
+
+                        @media($breakpoint_ESM) {
+                            margin-top: 25px;
+                        }
+
+                        .cancel_btn {
+                            border: 1px solid $red;
+                            background-color: $red;
+                            font-weight: 600;
+                            color: $white;
+                            padding: 10px 35px;
+                            border-radius: 10px;
+
+                            @media($breakpoint_ESM) {
+                                padding: 8px 27px;
+                                border-radius: 8px;
+                                font-size: 14px;
+                            }
+                        }
+
+                        .delete_btn {
+                            border: 1px solid $primary;
+                            background-color: $primary;
+                            font-weight: 600;
+                            color: $white;
+                            padding: 10px 35px;
+                            border-radius: 10px;
+
+                            @media($breakpoint_ESM) {
+                                padding: 8px 27px;
+                                border-radius: 8px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

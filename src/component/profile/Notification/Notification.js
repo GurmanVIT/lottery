@@ -5,6 +5,24 @@ import delete_img from "../../../assets/img/delete.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { getNotificationApi } from '../../../redux/notificationSlice';
 import moment from "moment-timezone";
+import Modal from "react-modal";
+import { deleteNotifications } from '../../../redux/deleteSlice';
+
+
+const modal_notification = {
+    content: {
+        top: "10%",
+        left: "50%",
+        right: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, 0)",
+        maxWidth: "100%",
+        width: "420px",
+        borderRadius: "5px",
+        backgroundColor: "#74707008",
+        borderRadius: "14px 14px 0 0",
+    },
+};
 
 
 const Notification = () => {
@@ -12,10 +30,28 @@ const Notification = () => {
     const navigation = useNavigate();
     const dispatch = useDispatch()
     const [skip, setSkip] = useState(0)
+    const [notificationId, setNotificationId] = useState('')
 
+    const [isWinOpen, setWinOpen] = useState(false);
 
     const notificationResponse = useSelector((state) => state.notificationReducer.data);
+    const deleteReducer = useSelector((state) => state.deleteReducer.data);
     const [notificationData, setNotificationData] = useState(null)
+
+    const openDeleteModal = (id) => {
+
+        setNotificationId(id)
+        setWinOpen(true)
+
+    }
+
+    const deleteNoti = () => {
+        const payload = {
+            id: notificationId
+        }
+
+        dispatch(deleteNotifications(payload))
+    }
 
 
     useEffect(() => {
@@ -29,6 +65,15 @@ const Notification = () => {
         }
 
     }, [notificationResponse])
+
+    useEffect(() => {
+        if (deleteReducer != null && deleteReducer.status === 1) {
+            dispatch(getNotificationApi(0))
+        }
+        else if (deleteReducer != null) {
+            alert(deleteReducer.message)
+        }
+    }, [deleteReducer])
 
     const getFormattedDateTime = (utcDate) => {
         const timestampStr = new Date(utcDate);
@@ -54,7 +99,6 @@ const Notification = () => {
             .add(5, "hours")
             .add(30, "minutes");
 
-        // console.log(dateData[1]);
 
         const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
 
@@ -75,15 +119,15 @@ const Notification = () => {
                     </div>
                     <div className='card_notification'>
                         {notificationData != null &&
-                            notificationData.map((item) =>
-                                <div className='card'>
+                            notificationData.map((item, index) =>
+                                <div className='card' key={index}>
                                     <p>{getFormattedDateTime(item.upatedAt)}</p>
                                     <div className='login_notification'>
                                         <div className='login_time_date'>
-                                            <h6>LOGIN NOTIFICATION</h6>
-                                            <p>Your account has been login at {getFormattedDateTime(item.upatedAt)}</p>
+                                            <h6>{item.title}</h6>
+                                            <p>{item.text} {getFormattedDateTime(item.upatedAt)}</p>
                                         </div>
-                                        <div className='delete_img'>
+                                        <div className='delete_img' onClick={() => openDeleteModal(item._id)}>
                                             <img src={delete_img} alt='delete_img' />
                                         </div>
                                     </div>
@@ -91,6 +135,33 @@ const Notification = () => {
                             )
                         }
                     </div>
+
+                    <Modal
+                        isOpen={isWinOpen}
+                        style={modal_notification}
+                        onRequestClose={() => setWinOpen(false)}
+                    >
+                        <div className="change_nickname">
+                            <h3>Delete  Notification</h3>
+                            <div className="nick_name">
+                                <div className='group_delete'>
+                                    <h4 className='delete_this'>Do you want to delete this notification. </h4>
+                                </div>
+
+                                <div className='cancel_delete_btn'>
+
+                                    <button
+                                        className="cancel_btn"
+                                        onClick={() => setWinOpen(false)}>
+                                        Cancel
+                                    </button>
+
+                                    <button className='delete_btn' onClick={() => deleteNoti()}>Delete</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </Modal>
 
                 </div>
             </div>

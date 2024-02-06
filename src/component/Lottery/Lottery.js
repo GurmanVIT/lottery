@@ -107,7 +107,6 @@ const Lottery = () => {
       limit: 10,
       type: gameType,
     };
-    console.log("History Payload ===> ", payload);
     dispatch(gameHistory(payload));
   };
 
@@ -138,75 +137,63 @@ const Lottery = () => {
       socket.emit("touch_server", data);
 
       if (userId != null) {
-        console.log("WalletPoints ===> ", data);
         socket.emit("walletPoints", data);
       }
       socket.on("wallet_points", (data) => {
-        console.log("wallet_points ===> ", data);
         setWalletBalance(data.walletPoints);
       });
 
       socket.on("bet_placed", (data) => {
-        console.log("bet_placed Result ===> ", data);
         setWalletBalance(data.walletPoints);
       });
 
       socket.on("less_wallet_points", (data) => {
-        console.log("less_wallet_points ===> ", data);
         alert("Low Balance");
       });
 
       socket.on("winner", (data) => {
-        console.log("Winner Result ===> ", data, "   ", gameType);
         // if (gameType === 1) {
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("winnerThree", (data) => {
-        console.log("winnerThree Result ===> ", data, "   ", gameType);
         // if (gameType === 3) {
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("winnerFive", (data) => {
-        console.log("winnerFive Result ===> ", data, "   ", gameType);
         // if (gameType === 5) {
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("winnerTen", (data) => {
-        console.log("winnerTen Result ===> ", data, "   ", gameType);
         // if (gameType === 10) {
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("looser", (data) => {
-        console.log("looser Result ===> ", data, "   ", gameType);
         // if (gameType === 1) {
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
       });
       socket.on("looserThree", (data) => {
-        console.log("looserThree Result ===> ", data, "   ", gameType);
         // if (gameType === 3) {
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
       });
       socket.on("looserFive", (data) => {
-        console.log("looserFive Result ===> ", data, "   ", gameType);
         // if (gameType === 5) {
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
       });
       socket.on("looserTen", (data) => {
-        console.log("looserTen Result ===> ", data, "   ", gameType);
         // if (gameType === 10) {
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
@@ -215,7 +202,6 @@ const Lottery = () => {
 
       // Clean up the socket connection when the component unmounts
       return () => {
-        console.log("Disconnected ===> ");
         socket.off("connect", onConnect);
         socket.off("disconnect", onDisconnect);
         socket.off("timerForward");
@@ -240,7 +226,6 @@ const Lottery = () => {
   useEffect(() => {
     socket.on("timerForward", (data) => {
       if (gameType === 1) {
-        console.log("timerForward", data);
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
@@ -259,7 +244,6 @@ const Lottery = () => {
 
     socket.on("timerForwardThree", (data) => {
       if (gameType === 3) {
-        console.log("timerForwardThree", data);
 
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
@@ -279,7 +263,6 @@ const Lottery = () => {
 
     socket.on("timerForwardFive", (data) => {
       if (gameType === 5) {
-        console.log("timerForwardFive", data);
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
@@ -298,7 +281,6 @@ const Lottery = () => {
 
     socket.on("timerForwardTen", (data) => {
       if (gameType === 10) {
-        console.log("timerForwardTen", data);
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
@@ -357,7 +339,6 @@ const Lottery = () => {
         gameType: gameType,
       };
 
-      console.log("bet_Placed ===> ", betData);
       socket.emit("bet_place", betData);
     } else if (selectedValue === "Big" || selectedValue === "Small") {
       const betData = {
@@ -369,7 +350,6 @@ const Lottery = () => {
         gameTableId: gameTableId,
         gameType: gameType,
       };
-      console.log("BET DATA ===> ", betData);
       socket.emit("bet_place", betData);
     } else {
       const betData = {
@@ -381,7 +361,6 @@ const Lottery = () => {
         gameTableId: gameTableId,
         gameType: gameType,
       };
-      console.log("BET DATA ===> ", betData);
       socket.emit("bet_place", betData);
     }
 

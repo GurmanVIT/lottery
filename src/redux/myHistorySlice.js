@@ -48,7 +48,6 @@ const myHistorySlice = createSlice({
         state.data = action.payload;
       })
       .addCase(myHistory.rejected, (state, action) => {
-        console.log("Error", action.payload);
         state.isError = false;
       });
   },

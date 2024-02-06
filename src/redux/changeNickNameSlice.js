@@ -17,7 +17,6 @@ export const updateProfileApi = createAsyncThunk("updateProfileApi", async (payl
             ApiBaseUrl +
             updateProfile
         const response = await axios.put(url, payload, config);
-        console.log("change{assword} Response ===> ", response.data)
         return response.data;
     } catch (error) {
         throw error.response.data;
@@ -47,7 +46,6 @@ const changeNickNameSlice = createSlice({
                 state.data = action.payload;
             })
             .addCase(updateProfileApi.rejected, (state, action) => {
-                console.log("Error", action.payload);
                 state.isError = false;
             });
     },

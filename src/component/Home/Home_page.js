@@ -16,13 +16,6 @@ import Header from "../Header/Header";
 const Home_page = () => {
   // const [token, setToken] = useState(null);
   const token = localStorage.getItem("token");
-  console.log(token);
-
-  // useEffect(() => {
-
-  //   console.log("Token ==> ", sToken);
-  //   setToken(sToken);
-  // }, []);
 
   return (
     <div className="home_page_section">

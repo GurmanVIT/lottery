@@ -15,7 +15,6 @@ const Header = () => {
     const navigation = useNavigate();
     // const [token, setToken] = useState(null);
     const token = localStorage.getItem("token");
-    console.log(token);
 
     const logout = () => {
         localStorage.clear();

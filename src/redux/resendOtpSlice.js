@@ -14,7 +14,6 @@ export const resendOtpApi = createAsyncThunk(
     };
     try {
       const response = await axios.put(ApiBaseUrl + resendOtp, payload, config);
-      console.log("Resend OTP Response ===> ", response.data);
       return response.data;
     } catch (error) {
       throw error.response.data;
@@ -46,7 +45,6 @@ const resendOtpSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(resendOtpApi.rejected, (state, action) => {
-        console.log("Error", action.payload);
         state.isError = false;
       });
   },

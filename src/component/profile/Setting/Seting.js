@@ -15,9 +15,9 @@ import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
 
-const customStyles = {
+const modal_setting = {
     content: {
-        top: "initial",
+        top: "10%",
         left: "50%",
         right: "auto",
         marginRight: "-50%",
@@ -52,7 +52,6 @@ const Setting = () => {
             }
             dispatch(updateProfileApi(payload))
         }
-
     }
 
     useEffect(() => {
@@ -129,7 +128,7 @@ const Setting = () => {
 
                         <Modal
                             isOpen={isWinOpen}
-                            style={customStyles}
+                            style={modal_setting}
                             onRequestClose={() => setWinOpen(false)}
                         >
                             <div className="change_nickname">
