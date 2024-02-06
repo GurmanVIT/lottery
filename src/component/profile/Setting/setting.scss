@@ -69,10 +69,10 @@
 
                 .card_emoji_img {
                     @include display(space-between, center);
-                    margin-bottom: 20px;
+                    margin-bottom: 5px;
 
                     @media($breakpoint_ESM) {
-                        margin-bottom: 13px;
+                        margin-bottom: 5px;
                     }
 
                     img {
@@ -110,10 +110,12 @@
                     @include display(space-between, center);
                     margin-bottom: 15px;
                     border-bottom: 2px solid #f4f4f4;
-                    padding-bottom: 18px;
+                    padding: 15px 0 18px;
+                    cursor: pointer;
 
                     @media($breakpoint_ESM) {
                         margin-bottom: 10px;
+                        padding-top: 7px;
                     }
 
                     p {
@@ -209,6 +211,7 @@
                 .card {
                     padding: 15px;
                     margin-top: 15px;
+                    cursor: pointer;
 
                     @media($breakpoint_ESM) {
                         margin-top: 10px;

@@ -192,7 +192,7 @@ const Mine = () => {
                                     <p>Notification</p>
                                 </div>
                                 <div className='number_noti'>
-                                    <p>3</p>
+                                    {/* <p>3</p> */}
                                     <img src={next} alt='next' />
                                 </div>
                             </div>

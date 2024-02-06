@@ -14,15 +14,21 @@ const Notification = () => {
     const [skip, setSkip] = useState(0)
 
 
-    // const notificationResponse = useSelector((state) => state.notificationDataReducer.data);
+    const notificationResponse = useSelector((state) => state.notificationReducer.data);
     const [notificationData, setNotificationData] = useState(null)
 
 
     useEffect(() => {
-
         dispatch(getNotificationApi(skip))
-
     }, [])
+
+    useEffect(() => {
+
+        if (notificationResponse != null && notificationResponse.status === 1) {
+            setNotificationData(notificationResponse.data)
+        }
+
+    }, [notificationResponse])
 
     const getFormattedDateTime = (utcDate) => {
         const timestampStr = new Date(utcDate);
@@ -68,19 +74,24 @@ const Notification = () => {
                         </div>
                     </div>
                     <div className='card_notification'>
-                        <div className='card'>
-                            <p>{getFormattedDateTime(notificationData.upatedAt)}</p>
-                            <div className='login_notification'>
-                                <div className='login_time_date'>
-                                    <h6>LOGIN NOTIFICATION</h6>
-                                    <p>Your account has been login at{getFormattedDateTime(notificationData.upatedAt)}</p>
+                        {notificationData != null &&
+                            notificationData.map((item) =>
+                                <div className='card'>
+                                    <p>{getFormattedDateTime(item.upatedAt)}</p>
+                                    <div className='login_notification'>
+                                        <div className='login_time_date'>
+                                            <h6>LOGIN NOTIFICATION</h6>
+                                            <p>Your account has been login at {getFormattedDateTime(item.upatedAt)}</p>
+                                        </div>
+                                        <div className='delete_img'>
+                                            <img src={delete_img} alt='delete_img' />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='delete_img'>
-                                    <img src={delete_img} alt='delete_img' />
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        }
                     </div>
+
                 </div>
             </div>
         </>

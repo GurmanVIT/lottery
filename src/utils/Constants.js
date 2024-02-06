@@ -18,3 +18,4 @@ export const profileApi = "v1/user/profile";
 export const notificationApi = "v1/user/notifications";
 export const changePasswordApi = "v1/user/updatePassword";
 export const updateProfile = "v1/user/updateProfile";
+export const deleteApi = "v1/user/deleteNotifications";

@@ -11,6 +11,7 @@ import profileReducer from "./profileSlice";
 import notificationReducer from "./notificationSlice";
 import changePasswordReducer from "./changePasswordSlice";
 import changeNickNameReducer from "./changeNickNameSlice";
+import deleteReducer from "./deleteSlice";
 
 
 const store = configureStore({
@@ -27,6 +28,7 @@ const store = configureStore({
     notificationReducer: notificationReducer,
     changePasswordReducer: changePasswordReducer,
     changeNickNameReducer: changeNickNameReducer,
+    deleteReducer: deleteReducer,
   },
 });
 
