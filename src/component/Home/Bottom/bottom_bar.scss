@@ -7,86 +7,89 @@
     height: 63px;
     background: $bottom_bar;
 
-    .MuiBox-root {
-        .MuiBottomNavigation-root {
-            background-color: $bottom_bar;
-            padding: 22px 0px 0px;
+    @media($breakpoint_350 ) {
+        height: 58px;
+    }
 
-            // .active {
-            //     svg {
-            //         path {
-            //             stroke: #fff !important;
-            //         }
-            //     }
-            // }
-
-            // .inactive {
-            //     svg {
-            //         path {
-            //             stroke: #6A6A6A !important
-            //         }
-            //     }
-            // }
-
-            span {
-                color: $disable_button;
+    .active {
+        svg {
+            @media($breakpoint_350) {
+                width: 18px;
+                height: 18px;
             }
 
-            .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
+            path {
+                stroke: $white !important;
+            }
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    .navbar {
+        background-color: $bottom_bar;
+        padding: 10px 0px 10px;
+
+        .bottom_img {
+            @include display (center, center);
+            flex-direction: column;
+            column-gap: 4px;
+            padding: 8px 23px 0px;
+            cursor: pointer;
+
+            @media($breakpoint_450) {
+                padding: 8px 16px 0px;
+            }
+
+            @media($breakpoint_350) {
+                padding: 8px 11px 0px;
+            }
+
+            p {
                 color: $disable_button;
+                font-size: 12px;
 
-                @media($breakpoint_450) {
-                    min-width: auto;
-                }
-
-                // .css-imwso6-MuiBottomNavigationAction-label.Mui-selected {
-                //     font-size: 11px;
-                // }
-
-                .css-imwso6-MuiBottomNavigationAction-label {
-                    letter-spacing: .3px;
+                @media($breakpoint_350) {
                     font-size: 11px;
                 }
             }
 
-            a {
-                gap: 0px;
-                padding: 0;
+            span {
+                color: $white;
+            }
+        }
 
-                &:hover {
-                    color: $disable_button;
+        .promotion_img {
+            margin-top: -11px;
+            @include display (center, center);
+            flex-direction: column;
+            column-gap: 4px;
+            padding: 8px 23px 0px;
+
+            @media($breakpoint_450) {
+                padding: 8px 16px 0px;
+            }
+
+            @media($breakpoint_350) {
+                padding: 8px 11px 0px;
+            }
+
+            img {
+                @media($breakpoint_350) {
+                    width: 28px;
+                    height: 28px;
                 }
             }
 
-            // .img_home {
-            //     width: 20px;
-            // }
+            p {
+                color: $disable_button;
+                font-size: 12px;
 
-            .promotion {
-                img {
-                    width: 32px;
-                    height: 32px;
+                @media($breakpoint_350) {
+                    font-size: 11px;
                 }
-            }
-
-            button {
-                &:not(:disabled) {
-                    color: $disable_button ;
-                    padding: 0;
-                }
-
-                .css-8je8zh-MuiTouchRipple-root {
-                    display: none;
-                }
-            }
-
-            .Mui-selected {
-                // color: $white !important;
-                padding: 0;
-            }
-
-            .promotion {
-                margin-top: -13px;
             }
         }
     }

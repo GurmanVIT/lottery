@@ -138,7 +138,7 @@ const Setting = () => {
                                         <img src={group} alt="group" />
                                         <h4>Nickname</h4>
                                     </div>
-                                    <input type='text' placeholder='Member Name' onChange={(val) => setNickName(val.target.value)} /><br />
+                                    <input type='text' placeholder='Name' onChange={(val) => setNickName(val.target.value)} /><br />
                                     <div className='confirm_btn'>
                                         <button className='login_button' onClick={() => addNickName()}>  {isLoading ? (
                                             <ClipLoader color={myColors.txtWhite} />

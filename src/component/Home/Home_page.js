@@ -10,7 +10,6 @@ import gift_img from "../../assets/img/gift_img.svg";
 import secound_gift_img from "../../assets/img/secound_gift_img.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
-
 import Header from "../Header/Header";
 
 const Home_page = () => {
@@ -26,8 +25,11 @@ const Home_page = () => {
           <Swiper
             slidesPerView={3}
             spaceBetween={30}
-            freeMode={true}
-            autoplay={true}
+            loop={true}
+            autoplay={{
+              delay: 500,
+              disableOnInteraction: false
+            }}
             breakpoints={{
               240: {
                 slidesPerView: 1,
