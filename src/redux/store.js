@@ -15,6 +15,8 @@ import deleteReducer from "./deleteSlice";
 import depositWalletReducer from "./depositWalletSlice";
 import usdtDepositTransactionsReducer from "./usdtDepositTransactionsSlice";
 import submitFeedbackReducer from "./feedbackSlice";
+import addQueryReducer from "./addQuerySlice";
+import uploadFileReducer from "./uploadFileSlice";
 
 const store = configureStore({
   reducer: {
@@ -34,6 +36,8 @@ const store = configureStore({
     depositWalletReducer: depositWalletReducer,
     usdtDepositTransactionsReducer: usdtDepositTransactionsReducer,
     submitFeedbackReducer: submitFeedbackReducer,
+    addQueryReducer: addQueryReducer,
+    uploadFileReducer: uploadFileReducer,
   },
 });
 

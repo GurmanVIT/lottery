@@ -24,3 +24,4 @@ export const depositWalletApi = "v1/user/deposit_wallet_address";
 export const usdtDepositTransactionsApi = "v1/user/usdt_deposit_transactions";
 export const activateAccountApi = "v1/user/activateAccount";
 export const submitFeedback = "v1/user/submitFeedback";
+export const addQueryApi = "v1/user/submitQuery";
