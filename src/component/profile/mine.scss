@@ -122,6 +122,7 @@
                             img {
                                 position: relative;
                                 top: -1px;
+                                cursor: pointer;
 
                                 @media($breakpoint_350) {
                                     width: 12px;

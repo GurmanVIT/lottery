@@ -12,7 +12,9 @@ import notificationReducer from "./notificationSlice";
 import changePasswordReducer from "./changePasswordSlice";
 import changeNickNameReducer from "./changeNickNameSlice";
 import deleteReducer from "./deleteSlice";
-
+import depositWalletReducer from "./depositWalletSlice";
+import usdtDepositTransactionsReducer from "./usdtDepositTransactionsSlice";
+import activateAccountReducer from "./activateAccountSlice";
 
 const store = configureStore({
   reducer: {
@@ -29,6 +31,9 @@ const store = configureStore({
     changePasswordReducer: changePasswordReducer,
     changeNickNameReducer: changeNickNameReducer,
     deleteReducer: deleteReducer,
+    depositWalletReducer: depositWalletReducer,
+    usdtDepositTransactionsReducer: usdtDepositTransactionsReducer,
+    activateAccountReducer: activateAccountReducer,
   },
 });
 

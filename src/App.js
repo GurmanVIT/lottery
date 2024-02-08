@@ -17,6 +17,10 @@ import Deposit from "./component/Lottery/Deposit/Deposit";
 import Setting from "./component/profile/Setting/Seting";
 import ChangePassword from "./component/profile/Setting/ChangePassword/ChangePassword";
 import Notification from "./component/profile/Notification/Notification";
+import CycleDetail from "./component/Lottery/Deposit/CycleDetail/CycleDetail";
+import Feedback from "./component/profile/Feedback/Feedback";
+import About from "./component/profile/About/About";
+import Service from "./component/profile/Service/Service";
 
 
 // export
@@ -42,6 +46,10 @@ function App() {
           <Route path="/settings" element={<Setting />} />
           <Route path="/changePassword" element={<ChangePassword />} />
           <Route path="/notification" element={<Notification />} />
+          <Route path="/cycle_detail" element={<CycleDetail />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
         </Routes>
       </Router>
     </Provider>

@@ -26,7 +26,7 @@ import { clearOtpData } from "../../redux/otpSlice";
 import { clearResendData } from "../../redux/resendOtpSlice";
 import { profile } from "../../redux/profileSlice";
 import moment from "moment-timezone";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -239,18 +239,18 @@ const Profile = () => {
                     <img src={setting} alt="setting" />
                     <p>Settings</p>
                   </div>
-                  <div className="setting">
+                  <div className="setting" onClick={() => navigation('/feedback')}>
                     <img src={feedback} alt="feedback" />
                     <p>Feedback</p>
                   </div>
-                  <div className="setting">
+                  <div className="setting" onClick={() => navigation('/about')}>
                     <img src={about} alt="about" />
                     <p>About Us</p>
                   </div>
                 </div>
 
                 <div className="service_center">
-                  <div className="setting">
+                  <div className="setting" onClick={() => navigation('/service')}>
                     <img src={customer} alt="customer" />
                     <p>24/7 Customer service</p>
                   </div>

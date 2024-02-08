@@ -25,6 +25,8 @@
             }
 
             .deposit_history {
+                cursor: pointer;
+
                 p {
                     color: $white;
                     font-size: 12px;
@@ -86,6 +88,8 @@
                     color: $forgot;
                     font-size: 16px;
                     margin-top: 15px;
+                    text-align: center;
+                    width: 200px;
                 }
 
                 button {

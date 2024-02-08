@@ -54,6 +54,7 @@
                             border: 2px solid $primary;
                             width: 70px;
                             padding: 5px;
+                            height: 70px;
 
                             @media($breakpoint_350) {
                                 width: 65px;
@@ -90,6 +91,7 @@
                             border: 2px solid $content_border;
                             width: 70px;
                             padding: 5px;
+                            height: 70px;
 
                             @media($breakpoint_350) {
                                 width: 65px;

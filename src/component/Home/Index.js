@@ -6,6 +6,7 @@ import Information from './Information/Index';
 import Bottom_bar from './Bottom/Bottom_bar';
 
 const Index = () => {
+
     return (
         <main>
             <div className='home_page'>

@@ -360,9 +360,8 @@ const Tab_screen = ({
                 </div>
               </div>
             </div>
-
-            {/* <PaginationComponent /> */}
           </Tab>
+
           <Tab eventKey="my_history" title="My History">
             <div className="history_table">
               {myBetData.length > 0 &&
@@ -383,7 +382,6 @@ const Tab_screen = ({
                                 : getBGColor(index) === "violet"
                                   ? myColors.primaryColor
                                   : myColors.txtWhite,
-
                           color:
                             getBGColor(index) === "white"
                               ? myColors.primaryColor

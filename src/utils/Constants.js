@@ -1,6 +1,9 @@
 //BASE URL
 // export const ApiBaseUrl = "http://139.59.85.17:4001/";
+
+
 export const ApiBaseUrl = "https://dapic-api.virtualittechnology.com/";
+
 
 //Production BASE URL
 // export const ApiBaseUrl = "https://dapic.thealliance.co.in/";
@@ -19,3 +22,6 @@ export const notificationApi = "v1/user/notifications";
 export const changePasswordApi = "v1/user/updatePassword";
 export const updateProfile = "v1/user/updateProfile";
 export const deleteApi = "v1/user/deleteNotifications";
+export const depositWalletApi = "v1/user/deposit_wallet_address";
+export const usdtDepositTransactionsApi = "v1/user/usdt_deposit_transactions";
+export const activateAccountApi = "v1/user/activateAccount";

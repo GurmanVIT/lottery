@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import back from '../../../assets/img/back.svg';
-import qr_code from '../../../assets/img/qr_code.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { depositWallet } from '../../../redux/depositWalletSlice';
+import QRCode from 'qrcode.react';
 
 
 
 const Deposit = () => {
 
+    const dispatch = useDispatch()
+
     const navigation = useNavigate();
+
+    const [walletAddress, setWalletAddress] = useState('')
+
+    const data = useSelector((state) => state.depositWalletReducer.data);
+
+
+
+    useEffect(() => {
+
+        dispatch(depositWallet())
+
+    }, [])
+
+
+    useEffect(() => {
+        if (data != null && data.status === 1) {
+            setWalletAddress(data.walletAddress)
+        }
+    }, [data])
 
     return (
         <>
@@ -20,7 +43,7 @@ const Deposit = () => {
                         <div className="deposit_content">
                             <h4>Deposit USDT</h4>
                         </div>
-                        <div className="deposit_history">
+                        <div className="deposit_history" onClick={() => navigation('/cycle_detail')}>
                             <p>DEPOSIT DETAIL</p>
                         </div>
                     </div>
@@ -32,9 +55,14 @@ const Deposit = () => {
 
                         <div className='address'>
                             <p>Deposit address</p>
-                            <img src={qr_code} alt='qr_code' />
-                            <h6>TTohf793lqicxma98UPQJ9</h6>
-                            <button>Copy Address</button>
+                            <QRCode value={walletAddress} />
+                            <div className='d-flex justify-content-center'>
+                                <h6 className='ellipsis'>{walletAddress}</h6>
+                            </div>
+                            <button type='button' onClick={() => {
+                                navigator.clipboard.writeText(walletAddress);
+                                alert("Address Copied");
+                            }}>Copy Address</button>
                         </div>
 
                         <div className='precaution'>

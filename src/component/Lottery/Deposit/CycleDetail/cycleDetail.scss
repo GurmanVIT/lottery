@@ -1,0 +1,95 @@
+.cycle {
+    @include display(center, center);
+
+    .header_cycle {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .cycle_detail {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .detail_section {
+            padding: 30px 10px 30px;
+            background-color: $page_bg;
+
+            .dropdown_cycle {
+                background-color: $white;
+                margin-bottom: 15px;
+
+                button {
+                    padding: 10px 20px;
+                    border: none;
+                    background-color: #f2f2f2;
+                    box-shadow: none;
+                    outline: none;
+                    @include display(space-between, center);
+                    width: 100%;
+                    transition: all .2s linear;
+
+                    &::after {
+                        margin-left: 65%;
+                    }
+
+                    span {
+
+                        .rotate {
+                            transform: rotate(180deg);
+                        }
+
+                    }
+                }
+
+                .down_item {
+                    padding: 15px 0 7px;
+
+                    h6 {
+                        font-size: 15px;
+                        padding: 2px 17px;
+
+                        .ellipsis {
+                            width: 250px;
+                            position: absolute;
+                            margin-left: 5px;
+
+                            @media($breakpoint_ESM) {
+                                width: 200px;
+                            }
+
+                            @media($breakpoint_350) {
+                                width: 180px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

@@ -11,22 +11,22 @@
         height: 58px;
     }
 
-    .active {
-        svg {
-            @media($breakpoint_350) {
-                width: 18px;
-                height: 18px;
-            }
+    // .active {
+    //     svg {
+    //         @media($breakpoint_350) {
+    //             width: 18px;
+    //             height: 18px;
+    //         }
 
-            path {
-                stroke: $white !important;
-            }
-        }
+    //         path {
+    //             stroke: $white !important;
+    //         }
+    //     }
 
-        p {
-            color: $white;
-        }
-    }
+    //     p {
+    //         color: $white;
+    //     }
+    // }
 
     .navbar {
         background-color: $bottom_bar;
