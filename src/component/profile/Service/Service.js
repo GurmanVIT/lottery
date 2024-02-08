@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import back from '../../../assets/img/back.svg';
 import Form from 'react-bootstrap/Form';
+import rectangle from '../../../assets/img/rectangle.svg';
 
 
 const Service = () => {
@@ -32,8 +33,13 @@ const Service = () => {
                             <textarea rows={10} placeholder='Gerenate Token'></textarea>
                         </div>
 
+                        <div className='upload_btn'>
+                            <img src={rectangle} alt='rectangle' />
+                            <p className='ellipsis'>Gurmandeep Singh</p>
+                        </div>
+
                         <div className='sumnit_btn'>
-                            <button className='login_button'>Submit</button>
+                            <button type='button' className='login_button'>Submit</button>
                         </div>
                     </div>
                 </div>
