@@ -14,7 +14,7 @@ import changeNickNameReducer from "./changeNickNameSlice";
 import deleteReducer from "./deleteSlice";
 import depositWalletReducer from "./depositWalletSlice";
 import usdtDepositTransactionsReducer from "./usdtDepositTransactionsSlice";
-import activateAccountReducer from "./activateAccountSlice";
+import submitFeedbackReducer from "./feedbackSlice";
 
 const store = configureStore({
   reducer: {
@@ -33,7 +33,7 @@ const store = configureStore({
     deleteReducer: deleteReducer,
     depositWalletReducer: depositWalletReducer,
     usdtDepositTransactionsReducer: usdtDepositTransactionsReducer,
-    activateAccountReducer: activateAccountReducer,
+    submitFeedbackReducer: submitFeedbackReducer,
   },
 });
 
