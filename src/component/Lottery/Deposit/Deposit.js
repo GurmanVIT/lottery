@@ -50,7 +50,7 @@ const Deposit = () => {
 
                     <div className='deposit_section'>
                         <div className='usdt'>
-                            <p>Deposit Only USDT-TRC20</p>
+                            <p>Deposit Only BEP20-USDT</p>
                         </div>
 
                         <div className='address'>
