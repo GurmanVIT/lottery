@@ -104,6 +104,34 @@ const About = () => {
                         <p>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>
                         <p className='privacy_policy'>The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</p>
                         <p className='interpretation'>Disclosure of Your Personal Data</p>
+                        <p className='interpretation'>Business Transactions</p>
+                        <p className='privacy_policy'>If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</p>
+                        <p className='interpretation'>Law enforcement</p>
+                        <p className='privacy_policy'>Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</p>
+                        <p className='interpretation'>Other legal requirements</p>
+                        <p>The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:</p>
+                        <ul>
+                            <li className='m-0'>Comply with a legal obligation</li>
+                            <li className='m-0'>Protect and defend the rights or property of the Company</li>
+                            <li className='m-0'>Prevent or investigate possible wrongdoing in connection with the Service</li>
+                            <li className='m-0'>Protect the personal safety of Users of the Service or the public</li>
+                            <li className='privacy_policy'>Protect against legal liability</li>
+                        </ul>
+                        <p className='interpretation'>Security of Your Personal Data</p>
+                        <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.</p>
+                        <p className='privacy_policy'>If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information.</p>
+                        <p className='interpretation'>Links to Other Websites</p>
+                        <p>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.</p>
+                        <p className='privacy_policy'>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
+                        <p className='interpretation'>Changes to this Privacy Policy</p>
+                        <p>We may update our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>
+                        <p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.</p>
+                        <p className='privacy_policy'>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                        <p className='interpretation'>Contact Us</p>
+                        <p>If you have any questions about this Privacy Policy, You can contact us:</p>
+                        <ul>
+                            <li>By visiting this page on our website: <Link to="/https://dapicgames.com/home_page">https://dapicgames.in/</Link></li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -167,6 +167,40 @@
                 padding-top: 48px;
             }
 
+            .active_card {
+                @include display(space-between, center);
+                padding: 20px 15px;
+                background-color: $primary;
+                margin-bottom: 15px;
+                border-radius: 10px;
+
+                @media($breakpoint_ESM) {
+                    padding: 15px;
+                }
+
+                @media($breakpoint_350) {
+                    padding: 15px 10px;
+                }
+
+                p {
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    color: $white;
+
+
+                }
+
+                button {
+                    background-color: $red;
+                    border: 1px solid $red;
+                    color: $white;
+                    border-radius: 8px;
+                    padding: 4px 8px;
+                    font-size: 13px;
+                    outline: none;
+                }
+            }
+
             .balance {
                 background-color: $primary;
                 border-radius: 14px;

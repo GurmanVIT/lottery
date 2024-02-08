@@ -27,13 +27,18 @@ import { clearResendData } from "../../redux/resendOtpSlice";
 import { profile } from "../../redux/profileSlice";
 import moment from "moment-timezone";
 import { toast } from "react-toastify";
+import { activateAccount, clearDataActive } from "../../redux/activateAccountSlice";
+
 
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
+  const activateReducer = useSelector((state) => state.activateAccountReducer.data);
   const [profileData, setProfileData] = useState(null);
+  const [changeActive, setChangeActive] = useState(true);
+
 
   const logout = () => {
     localStorage.clear();
@@ -94,6 +99,17 @@ const Profile = () => {
     });
   };
 
+  const onActiveClick = () => {
+    dispatch(activateAccount())
+  }
+
+  useEffect(() => {
+    if (activateReducer != null && activateReducer.status === 1) {
+      dispatch(profile());
+      dispatch(clearDataActive())
+    }
+  }, [activateReducer])
+
   return (
     <>
       <div className="profile lottery_page">
@@ -132,6 +148,12 @@ const Profile = () => {
             </div>
 
             <div className="sec_padding">
+              <div className="active_card">
+                <p>{profileData.paidStatus === 0 ? "This account is not activate" : "This account is activate"}</p>
+                {/* <p>This account is not activate</p> */}
+                {profileData.paidStatus === 0 &&
+                  <button type="button">Active Now</button>}
+              </div>
               <div className="balance">
                 <p>Total Balance</p>
                 <h3>

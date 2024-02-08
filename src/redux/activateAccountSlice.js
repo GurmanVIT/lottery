@@ -31,7 +31,7 @@ const activateAccountSlice = createSlice({
         data: null,
     },
     reducers: {
-        clearData: (state) => {
+        clearDataActive: (state) => {
             // Reset the data property to an empty array
             state.data = null;
         },
@@ -51,5 +51,5 @@ const activateAccountSlice = createSlice({
     },
 });
 
-export const { clearData } = activateAccountSlice.actions;
+export const { clearDataActive } = activateAccountSlice.actions;
 export default activateAccountSlice.reducer;
