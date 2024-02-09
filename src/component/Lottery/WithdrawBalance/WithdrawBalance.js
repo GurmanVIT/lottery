@@ -8,6 +8,7 @@ const WithdrawBalance = () => {
 
     const navigation = useNavigate();
 
+
     return (
         <>
             <div className="withdraw_bls">
