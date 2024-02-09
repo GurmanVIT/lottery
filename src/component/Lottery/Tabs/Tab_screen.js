@@ -7,11 +7,10 @@ import { myColors } from "../../../utils/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { myHistory } from "../../../redux/myHistorySlice";
 import moment from "moment-timezone";
-import red_voilet from '../../../assets/img/red_voilet.svg';
-import red from '../../../assets/img/red.svg';
-import green from '../../../assets/img/green.svg';
-import green_voilet from '../../../assets/img/green_voilet.svg';
-
+import red_voilet from "../../../assets/img/red_voilet.svg";
+import red from "../../../assets/img/red.svg";
+import green from "../../../assets/img/green.svg";
+import green_voilet from "../../../assets/img/green_voilet.svg";
 
 const Tab_screen = ({
   resultHistoryData,
@@ -95,7 +94,6 @@ const Tab_screen = ({
       .add(5, "hours")
       .add(30, "minutes");
 
-
     const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
 
     return formattedDate;
@@ -116,8 +114,8 @@ const Tab_screen = ({
         return myBetData[index].color === 1
           ? "green"
           : myBetData[index].color === 2
-            ? "violet"
-            : "red";
+          ? "violet"
+          : "red";
       } else if (myBetData[index].betType === 1) {
         return myBetData[index].betNumber === 1 ||
           myBetData[index].betNumber === 3 ||
@@ -128,8 +126,8 @@ const Tab_screen = ({
             myBetData[index].betNumber === 4 ||
             myBetData[index].betNumber === 6 ||
             myBetData[index].betNumber === 8
-            ? "red"
-            : "violet";
+          ? "red"
+          : "violet";
       } else {
         return myBetData[index].type === 1 ? "violet" : "white";
       }
@@ -165,12 +163,9 @@ const Tab_screen = ({
                       <td>
                         {item.result.color === 1 ? (
                           <img src={green} alt="green" />
-
                         ) : item.result.color === 12 ? (
                           <img src={green_voilet} alt="green_voilet" />
-
                         ) : item.result.color === 23 ? (
-
                           <img src={red_voilet} alt="red_violet" />
                         ) : (
                           <img src={red} alt="red" />
@@ -378,10 +373,10 @@ const Tab_screen = ({
                             getBGColor(index) === "green"
                               ? myColors.green_color
                               : getBGColor(index) === "red"
-                                ? myColors.red_color
-                                : getBGColor(index) === "violet"
-                                  ? myColors.primaryColor
-                                  : myColors.txtWhite,
+                              ? myColors.red_color
+                              : getBGColor(index) === "violet"
+                              ? myColors.primaryColor
+                              : myColors.txtWhite,
                           color:
                             getBGColor(index) === "white"
                               ? myColors.primaryColor
@@ -397,19 +392,21 @@ const Tab_screen = ({
                         </div>
                       </div>
                     </div>
-                    <div className="win_loss">
-                      {item.isWon === 0 ? (
-                        <div className="failed">Failed</div>
-                      ) : (
-                        <div className="succeed">Success</div>
-                      )}
+                    {item.isCompleted === 1 && (
+                      <div className="win_loss">
+                        {item.isWon === 0 ? (
+                          <div className="failed">Failed</div>
+                        ) : (
+                          <div className="succeed">Success</div>
+                        )}
 
-                      <div className={item.isWon === 0 ? "loss" : "win"}>
-                        {item.isWon === 0
-                          ? item.finalAmount
-                          : item.winningAmount}
+                        <div className={item.isWon === 0 ? "loss" : "win"}>
+                          {item.isWon === 0
+                            ? item.finalAmount
+                            : item.winningAmount}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 ))}
             </div>

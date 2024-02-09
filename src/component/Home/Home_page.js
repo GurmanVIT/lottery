@@ -15,6 +15,7 @@ import Header from "../Header/Header";
 const Home_page = () => {
   // const [token, setToken] = useState(null);
   const token = localStorage.getItem("token");
+  console.log(token);
 
   return (
     <div className="home_page_section">
@@ -28,7 +29,7 @@ const Home_page = () => {
             loop={true}
             autoplay={{
               delay: 500,
-              disableOnInteraction: false
+              disableOnInteraction: false,
             }}
             breakpoints={{
               240: {
