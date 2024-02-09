@@ -29,20 +29,22 @@ const WithdrawBalance = () => {
                         <div className='address'>
                             <div className='address_btn'>
                                 <p>Address</p>
-                                <button type='button'>Update Address</button>
+                                <button type='button' onClick={() => navigation('/update_wallet_address')}>Update Address</button>
                             </div>
                             <div className='input_copy'>
                                 <input type='text' placeholder='uhbbWIP4769JHGhepo739qilmz0' />
-                                <img src={copy} alt='copy' onClick={() => {
-                                    navigator.clipboard.writeText();
-                                    alert("Address Copied");
-                                }} />
+                                <img src={copy} alt='copy'
+                                // onClick={() => {
+                                //     navigator.clipboard.writeText();
+                                //     // alert("Address Copied");
+                                // }}
+                                />
                             </div>
                         </div>
 
                         <div className='quantity_input'>
                             <label>Quantity</label>
-                            <input type='text' placeholder='the minimun number of withdraw 10 USDT' />
+                            <input type='text' placeholder='The minimun number of withdraw 10 USDT' />
                         </div>
 
                         <div className='otp_inputs'>

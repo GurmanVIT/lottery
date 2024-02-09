@@ -161,15 +161,15 @@ const Profile = () => {
                   <img src={refresh_2} alt="refresh_2" />
                 </h3>
                 <div className="four_img">
-                  <div className="wallet_2">
+                  <div className="wallet_2" onClick={() => navigation('/update_wallet_address')}>
                     <img src={wallet_2} alt="wallet_2" />
                     <h5>Wallet</h5>
                   </div>
-                  <div className="deposit">
+                  <div className="deposit" onClick={() => navigation('/deposit')}>
                     <img src={deposit} alt="deposit" />
                     <h5>Deposit</h5>
                   </div>
-                  <div className="withdraw">
+                  <div className="withdraw" onClick={() => navigation('/withdraw_balance')}>
                     <img src={withdraw} alt="withdraw" />
                     <h5>Withdraw</h5>
                   </div>
@@ -192,7 +192,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="card">
+                  <div className="card" onClick={() => navigation('/transfer')}>
                     <div className="transfer_img">
                       <img src={transfer} alt="transfer" />
                     </div>
@@ -204,7 +204,7 @@ const Profile = () => {
                 </div>
 
                 <div className="card_flex mt-2">
-                  <div className="card">
+                  <div className="card" onClick={() => navigation('/deposit_history')}>
                     <div className="deposit_img">
                       <img src={deposit} alt="deposit" />
                     </div>
@@ -214,7 +214,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="card">
+                  <div className="card" onClick={() => navigation('/withdraw_balance')}>
                     <div className="withdraw_img">
                       <img src={withdraw} alt="withdraw" />
                     </div>

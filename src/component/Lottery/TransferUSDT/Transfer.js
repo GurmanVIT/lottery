@@ -1,6 +1,5 @@
 import React from 'react';
 import back from '../../../assets/img/back.svg';
-import copy from '../../../assets/img/copy.svg';
 import { useNavigate } from 'react-router';
 
 

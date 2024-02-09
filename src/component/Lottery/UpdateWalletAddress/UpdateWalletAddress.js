@@ -28,11 +28,13 @@ const UpdateWalletAddress = () => {
                         <div className='address'>
                             <label>Address</label>
                             <div className='input_copy'>
-                                <input type='text' placeholder='uhbbWIP4769JHGhepo739qilmz0' />
-                                <img src={copy} alt='copy' onClick={() => {
-                                    navigator.clipboard.writeText();
-                                    alert("Address Copied");
-                                }} />
+                                <input type='text' placeholder='Please enter address' />
+                                <img src={copy} alt='copy'
+                                // onClick={() => {
+                                //     navigator.clipboard.writeText();
+                                //     // alert("Address Copied");
+                                // }}
+                                />
                             </div>
                         </div>
 
