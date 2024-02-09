@@ -16,6 +16,8 @@ import depositWalletReducer from "./depositWalletSlice";
 import usdtDepositTransactionsReducer from "./usdtDepositTransactionsSlice";
 import submitFeedbackReducer from "./feedbackSlice";
 import activateAccountReducer from "./activateAccountSlice";
+import addQueryReducer from "./addQuerySlice";
+import uploadFileReducer from "./uploadFileSlice";
 
 const store = configureStore({
   reducer: {
@@ -36,6 +38,8 @@ const store = configureStore({
     usdtDepositTransactionsReducer: usdtDepositTransactionsReducer,
     submitFeedbackReducer: submitFeedbackReducer,
     activateAccountReducer: activateAccountReducer,
+    addQueryReducer: addQueryReducer,
+    uploadFileReducer: uploadFileReducer,
   },
 });
 

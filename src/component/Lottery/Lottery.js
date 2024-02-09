@@ -30,6 +30,11 @@ import Modal from "react-modal";
 import you_win from "../../assets/img/you_win.svg";
 import close from "../../assets/img/close.svg";
 import loss_img from "../../assets/img/loss_img.svg";
+import { clearSignUpData } from "../../redux/signupSlice";
+import { clearData } from "../../redux/loginSlice";
+import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
+import { clearOtpData } from "../../redux/otpSlice";
+import { clearResendData } from "../../redux/resendOtpSlice";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -72,16 +77,13 @@ const Lottery = () => {
   const [isWinOpen, setWinOpen] = useState(false);
   const [isLoseOpen, setLoseOpen] = useState(false);
   const [gameType, setGameType] = useState(1);
-
   const navigator = useNavigate();
 
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
   };
 
-
   const navigation = useNavigate();
-
 
   const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
   const dispatch = useDispatch();
@@ -132,6 +134,7 @@ const Lottery = () => {
 
       const data = {
         userId: userId,
+        authorization: token,
       };
 
       socket.emit("touch_server", data);
@@ -151,8 +154,22 @@ const Lottery = () => {
         alert("Low Balance");
       });
 
+      socket.on("token_expired", (data) => {
+        localStorage.clear();
+        dispatch(clearSignUpData());
+        dispatch(clearData());
+        dispatch(clearSponsorData());
+        dispatch(clearOtpData());
+        dispatch(clearResendData());
+
+        setTimeout(() => {
+          navigation("/login");
+        }, 500);
+      });
+
       socket.on("winner", (data) => {
         // if (gameType === 1) {
+        console.log("winner ===>", data);
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
@@ -177,6 +194,7 @@ const Lottery = () => {
       });
       socket.on("looser", (data) => {
         // if (gameType === 1) {
+        console.log("looser ===>", data);
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
@@ -244,7 +262,6 @@ const Lottery = () => {
 
     socket.on("timerForwardThree", (data) => {
       if (gameType === 3) {
-
         setGamerTimer(data.gameTimer);
         const minutes = Math.floor(data.gameTimer / 60);
         const second = data.gameTimer - minutes * 60;
@@ -337,6 +354,7 @@ const Lottery = () => {
         gameId: gameId,
         gameTableId: gameTableId,
         gameType: gameType,
+        authorization: token,
       };
 
       socket.emit("bet_place", betData);
@@ -400,10 +418,16 @@ const Lottery = () => {
               <h4>Wallet Balance</h4>
             </div>
             <div className="btn_flex">
-              <div className="withdraw_btn" onClick={() => navigation('/withdraw')}>
+              <div
+                className="withdraw_btn"
+                onClick={() => navigation("/withdraw")}
+              >
                 <button>Withdraw</button>
               </div>
-              <div className="deposit_btn" onClick={() => navigation('/deposit')}>
+              <div
+                className="deposit_btn"
+                onClick={() => navigation("/deposit")}
+              >
                 <button>Deposit</button>
               </div>
             </div>
@@ -501,19 +525,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
