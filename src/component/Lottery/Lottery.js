@@ -35,6 +35,7 @@ import { clearData } from "../../redux/loginSlice";
 import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
 import { clearOtpData } from "../../redux/otpSlice";
 import { clearResendData } from "../../redux/resendOtpSlice";
+import { Toast } from "react-bootstrap";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -60,9 +61,11 @@ const Lottery = () => {
   const [isSocketConnected, setSocketConnected] = useState(false);
   const [gameId, setGameId] = useState("");
   const [gameTableId, setGameTableId] = useState("");
+  const [show, setShow] = useState(false);
 
   const [gameTimer, setGamerTimer] = useState(0);
   const [skip, setSkip] = useState(0);
+  const [onResult, setResult] = useState(false);
 
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
@@ -169,6 +172,7 @@ const Lottery = () => {
 
       socket.on("winner", (data) => {
         // if (gameType === 1) {
+        setResult(!onResult);
         console.log("winner ===>", data);
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
@@ -176,24 +180,28 @@ const Lottery = () => {
       });
       socket.on("winnerThree", (data) => {
         // if (gameType === 3) {
+        setResult(!onResult);
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("winnerFive", (data) => {
         // if (gameType === 5) {
+        setResult(!onResult);
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("winnerTen", (data) => {
         // if (gameType === 10) {
+        setResult(!onResult);
         setWalletBalance(data.walletPoints);
         setWinOpen(true);
         // }
       });
       socket.on("looser", (data) => {
         // if (gameType === 1) {
+        setResult(!onResult);
         console.log("looser ===>", data);
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
@@ -201,18 +209,21 @@ const Lottery = () => {
       });
       socket.on("looserThree", (data) => {
         // if (gameType === 3) {
+        setResult(!onResult);
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
       });
       socket.on("looserFive", (data) => {
         // if (gameType === 5) {
+        setResult(!onResult);
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
       });
       socket.on("looserTen", (data) => {
         // if (gameType === 10) {
+        setResult(!onResult);
         setWalletBalance(data.walletPoints);
         setLoseOpen(true);
         // }
@@ -237,6 +248,7 @@ const Lottery = () => {
         socket.off("looserThree");
         socket.off("looserFive");
         socket.off("looserTen");
+        socket.off("dummyText");
       };
     }
   }, []);
@@ -314,6 +326,11 @@ const Lottery = () => {
       }
     });
 
+    socket.on("dummyText", (data) => {
+      console.log("Dummy Text ===>", data);
+      setShow(true);
+    });
+
     getGameHistory();
   }, [gameType]);
 
@@ -357,6 +374,8 @@ const Lottery = () => {
         authorization: token,
       };
 
+      console.log("Bet_Place ===> ", betData);
+
       socket.emit("bet_place", betData);
     } else if (selectedValue === "Big" || selectedValue === "Small") {
       const betData = {
@@ -367,6 +386,7 @@ const Lottery = () => {
         gameId: gameId,
         gameTableId: gameTableId,
         gameType: gameType,
+        authorization: token,
       };
       socket.emit("bet_place", betData);
     } else {
@@ -378,6 +398,7 @@ const Lottery = () => {
         gameId: gameId,
         gameTableId: gameTableId,
         gameType: gameType,
+        authorization: token,
       };
       socket.emit("bet_place", betData);
     }
@@ -389,6 +410,16 @@ const Lottery = () => {
     <div className="lottery_page">
       <div className="lottery">
         <div className="header_flex">
+          <Toast
+            onClose={() => setShow(false)}
+            show={show}
+            delay={2000}
+            autohide
+          >
+            <Toast.Body>
+              Woohoo, you're reading this text in a Toast!
+            </Toast.Body>
+          </Toast>
           <div className="back_img">
             <Link to="/Home_page">
               <img src={back} alt="back" />
@@ -795,6 +826,7 @@ const Lottery = () => {
             skip={skip}
             setSkip={setSkip}
             gameType={gameType}
+            onResult={onResult}
           />
           <PaginationComponent
             skip={skip}

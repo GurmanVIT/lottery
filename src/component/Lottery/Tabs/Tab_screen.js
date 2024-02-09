@@ -18,6 +18,7 @@ const Tab_screen = ({
   skip,
   setSkip,
   gameType,
+  onResult,
 }) => {
   const dispatch = useDispatch();
 
@@ -45,7 +46,7 @@ const Tab_screen = ({
     if (activeKey === "my_history") {
       getMyHistory();
     }
-  }, [skip, gameType]);
+  }, [skip, gameType, onResult]);
 
   const getMyHistory = () => {
     const payload = {
