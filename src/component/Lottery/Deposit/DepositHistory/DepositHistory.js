@@ -49,7 +49,7 @@ const DepositHistory = () => {
                             <img src={back} alt="back" />
                         </div>
                         <div className="deposit_historys_content">
-                            <h4>Deposit Fund History</h4>
+                            <h4>Deposit History</h4>
                         </div>
                     </div>
                     <div className="card_deposit_historys">

@@ -377,6 +377,7 @@ const Lottery = () => {
       console.log("Bet_Place ===> ", betData);
 
       socket.emit("bet_place", betData);
+      setResult(!onResult)
     } else if (selectedValue === "Big" || selectedValue === "Small") {
       const betData = {
         userId: userId,
@@ -387,8 +388,10 @@ const Lottery = () => {
         gameTableId: gameTableId,
         gameType: gameType,
         authorization: token,
+
       };
       socket.emit("bet_place", betData);
+      setResult(!onResult)
     } else {
       const betData = {
         userId: userId,
@@ -401,6 +404,7 @@ const Lottery = () => {
         authorization: token,
       };
       socket.emit("bet_place", betData);
+      setResult(!onResult)
     }
 
     setOpenModal(false);

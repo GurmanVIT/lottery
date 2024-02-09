@@ -6,10 +6,6 @@ import Activity from '../../SVG/activity';
 import Wallet from '../../SVG/wallet';
 import { useNavigate } from 'react-router';
 
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
-import Home_page from '../Home_page';
-
 
 
 const Bottom_bar = () => {
@@ -48,8 +44,12 @@ const Bottom_bar = () => {
 
             <div className="navbar">
                 <div className='bottom_img' onClick={() => onTabClick(0, '/home_page')}>
-                    <Home stroke={value === 0 ? "#fff" : "#6A6A6A"} />
-                    <p style={{ color: value === 0 ? "#fff" : "#6A6A6A" }}>Home</p>
+                    <Home
+                        stroke={"#6A6A6A"}
+                    // stroke={value === 0 ? "#fff" : "#6A6A6A"}
+                    />
+                    <p>Home</p>
+                    {/* <p style={{ color: value === 0 ? "#fff" : "#6A6A6A" }}>Home</p> */}
                 </div>
                 <div className='bottom_img'>
                     <Activity />
@@ -64,8 +64,12 @@ const Bottom_bar = () => {
                     <p>Wallet</p>
                 </div>
                 <div className='bottom_img' onClick={() => onTabClick(4, '/profile')}>
-                    <Mine stroke={value === 4 ? "#fff" : "#6A6A6A"} />
-                    <p style={{ color: value === 4 ? "#fff" : "#6A6A6A" }}>Mine</p>
+                    <Mine
+                        stroke={"#6A6A6A"}
+                    // stroke={value === 4 ? "#fff" : "#6A6A6A"} 
+                    />
+                    <p>Mine</p>
+                    {/* <p style={{ color: value === 4 ? "#fff" : "#6A6A6A" }}>Mine</p> */}
                 </div>
             </div>
         </div >
