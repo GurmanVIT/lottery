@@ -1,0 +1,119 @@
+.deposit_historys {
+    @include display(center, center);
+
+    .header_deposit_historys {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            padding: 20px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            @media($breakpoint_ESM) {
+                padding: 15px 10px;
+            }
+
+            .back_img {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: -5px;
+                    left: 5px;
+                    cursor: pointer;
+
+                    @media($breakpoint_ESM) {
+                        width: 25px;
+                        top: -3px;
+                    }
+                }
+            }
+
+            .deposit_historys_content {
+                h4 {
+                    text-align: center;
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .card_deposit_historys {
+            padding: 60px 10px 30px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding-top: 50px;
+            }
+
+            .card {
+                margin-top: 15px;
+                padding: 10px 10px 17px;
+                border-radius: 8px;
+
+                @media($breakpoint_ESM) {
+                    padding: 8px 5px 13px;
+                    margin-top: 10px;
+                }
+
+                .login_notification {
+                    @include display(space-between, center);
+                    gap: 3px;
+
+                    .fund_send {
+                        h6 {
+                            margin-bottom: 5px;
+                            font-size: 14px;
+                            font-weight: 600;
+                            width: 220px;
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                                margin-bottom: 3px;
+                            }
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            font-size: 13px;
+                            text-align: start;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 11px;
+                            }
+
+                            @media($breakpoint_350) {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+
+                    .amount_result {
+                        h6 {
+                            font-size: 14px;
+                            margin-bottom: 0;
+                            font-weight: 600;
+
+                            @media($breakpoint_350) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

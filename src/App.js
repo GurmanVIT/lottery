@@ -21,6 +21,10 @@ import CycleDetail from "./component/Lottery/Deposit/CycleDetail/CycleDetail";
 import Feedback from "./component/profile/Feedback/Feedback";
 import About from "./component/profile/About/About";
 import Service from "./component/profile/Service/Service";
+import WithdrawBalance from "./component/Lottery/WithdrawBalance/WithdrawBalance";
+import UpdateWalletAddress from "./component/Lottery/UpdateWalletAddress/UpdateWalletAddress";
+import Transfer from "./component/Lottery/TransferUSDT/Transfer";
+import DepositHistory from "./component/Lottery/Deposit/DepositHistory/DepositHistory";
 
 
 // export
@@ -50,6 +54,10 @@ function App() {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
+          <Route path="/withdraw_balance" element={<WithdrawBalance />} />
+          <Route path="/update_wallet_address" element={<UpdateWalletAddress />} />
+          <Route path="/transfer" element={<Transfer />} />
+          <Route path="/deposit_history" element={<DepositHistory />} />
         </Routes>
       </Router>
     </Provider>
