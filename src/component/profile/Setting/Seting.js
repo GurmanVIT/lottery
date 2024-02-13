@@ -15,6 +15,7 @@ import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
 
+
 const modal_setting = {
     content: {
         top: "10%",
