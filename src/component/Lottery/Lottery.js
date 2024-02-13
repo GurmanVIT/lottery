@@ -77,6 +77,7 @@ const Lottery = () => {
   const [gameId, setGameId] = useState("");
   const [gameTableId, setGameTableId] = useState("");
   const [show, setShow] = useState(false);
+  const [messageText, setMessageText] = useState("");
 
   const [gameTimer, setGamerTimer] = useState(0);
   const [skip, setSkip] = useState(0);
@@ -349,6 +350,7 @@ const Lottery = () => {
 
     socket.on("dummyText", (data) => {
       console.log("Dummy Text ===>", data);
+      setMessageText(data.text);
       setShow(true);
     });
 
@@ -398,7 +400,7 @@ const Lottery = () => {
       console.log("Bet_Place ===> ", betData);
 
       socket.emit("bet_place", betData);
-      setResult(!onResult)
+      setResult(!onResult);
     } else if (selectedValue === "Big" || selectedValue === "Small") {
       const betData = {
         userId: userId,
@@ -409,10 +411,9 @@ const Lottery = () => {
         gameTableId: gameTableId,
         gameType: gameType,
         authorization: token,
-
       };
       socket.emit("bet_place", betData);
-      setResult(!onResult)
+      setResult(!onResult);
     } else {
       const betData = {
         userId: userId,
@@ -425,7 +426,7 @@ const Lottery = () => {
         authorization: token,
       };
       socket.emit("bet_place", betData);
-      setResult(!onResult)
+      setResult(!onResult);
     }
 
     setOpenModal(false);
@@ -441,9 +442,7 @@ const Lottery = () => {
             delay={2000}
             autohide
           >
-            <Toast.Body>
-              Woohoo, you're reading this text in a Toast!
-            </Toast.Body>
+            <Toast.Body>{messageText}</Toast.Body>
           </Toast>
           <div className="back_img">
             <Link to="/Home_page">
@@ -565,7 +564,10 @@ const Lottery = () => {
                 </div>
               </div>
               <div className="play">
-                <button type="button" onClick={() => openPlayModal()}> HOW TO PLAY</button>
+                <button type="button" onClick={() => openPlayModal()}>
+                  {" "}
+                  HOW TO PLAY
+                </button>
               </div>
             </div>
             <div className="timing">
@@ -581,19 +583,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
@@ -932,14 +934,39 @@ const Lottery = () => {
               <h3>How to play</h3>
               <div className="how_play_section">
                 <div className="play_this">
-                  <p>1 minutes 1 issue, 45 seconds to order, 15 seconds waiting for the draw. It opens all day. The total number of trade is 1440 issues.</p>
-                  <p>If you spend 100 to trade, after deducting 2 service fee, your contract amount is 98:</p>
-                  <p>1. Select green: if the result shows 1,3,7,9 you will get (98*2) 196;If the result shows 5, you will get (98*1.5) 147</p>
-                  <p>2. Select red: if the result shows 2,4,6,8 you will get (98*2) 196;If the result shows 0, you will get (98*1.5) 147</p>
-                  <p>3. Select violet:if the result shows 0 or 5, you will get (98*4.5) 441</p>
-                  <p>4. Select number:if the result is the same as the number you selected, you will get (98*9) 882</p>
-                  <p>5. Select big: if the result shows 5,6,7,8,9 you will get (98 * 2) 196</p>
-                  <p>6. Select small: if the result shows 0,1,2,3,4 you will get (98 * 2) 196</p>
+                  <p>
+                    1 minutes 1 issue, 45 seconds to order, 15 seconds waiting
+                    for the draw. It opens all day. The total number of trade is
+                    1440 issues.
+                  </p>
+                  <p>
+                    If you spend 100 to trade, after deducting 2 service fee,
+                    your contract amount is 98:
+                  </p>
+                  <p>
+                    1. Select green: if the result shows 1,3,7,9 you will get
+                    (98*2) 196;If the result shows 5, you will get (98*1.5) 147
+                  </p>
+                  <p>
+                    2. Select red: if the result shows 2,4,6,8 you will get
+                    (98*2) 196;If the result shows 0, you will get (98*1.5) 147
+                  </p>
+                  <p>
+                    3. Select violet:if the result shows 0 or 5, you will get
+                    (98*4.5) 441
+                  </p>
+                  <p>
+                    4. Select number:if the result is the same as the number you
+                    selected, you will get (98*9) 882
+                  </p>
+                  <p>
+                    5. Select big: if the result shows 5,6,7,8,9 you will get
+                    (98 * 2) 196
+                  </p>
+                  <p>
+                    6. Select small: if the result shows 0,1,2,3,4 you will get
+                    (98 * 2) 196
+                  </p>
                 </div>
               </div>
 
