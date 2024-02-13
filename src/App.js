@@ -25,6 +25,10 @@ import WithdrawBalance from "./component/Lottery/WithdrawBalance/WithdrawBalance
 import UpdateWalletAddress from "./component/Lottery/UpdateWalletAddress/UpdateWalletAddress";
 import Transfer from "./component/Lottery/TransferUSDT/Transfer";
 import DepositHistory from "./component/Lottery/Deposit/DepositHistory/DepositHistory";
+import LinkMebmer from "./component/Lottery/LinkMember/LinkMember";
+import MyTicket from "./component/Lottery/MyTiclket/MyTicket";
+import TicketSummery from "./component/Lottery/TicketSummery/TicketSummery";
+import BetHistory from "./component/profile/BetHistory/BetHistory";
 
 
 // export
@@ -58,6 +62,10 @@ function App() {
           <Route path="/update_wallet_address" element={<UpdateWalletAddress />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/deposit_history" element={<DepositHistory />} />
+          <Route path="/link" element={<LinkMebmer />} />
+          <Route path="/my_ticket" element={<MyTicket />} />
+          <Route path="/ticket_summery" element={<TicketSummery />} />
+          <Route path="/bet_history" element={<BetHistory />} />
         </Routes>
       </Router>
     </Provider>

@@ -222,14 +222,13 @@
 
                 h3 {
                     color: $white;
-                    font-size: 28px;
+                    font-size: 24px;
                     font-weight: 600;
                     margin-bottom: 5px;
                     border-bottom: 2px dashed $white;
                     padding-bottom: 16px;
 
                     @media($breakpoint_ESM) {
-                        font-size: 24px;
                         padding-bottom: 20px;
                     }
 
@@ -256,6 +255,7 @@
                     .wallet_2 {
                         @include display(center, center);
                         flex-direction: column;
+                        cursor: pointer;
 
                         img {
                             @media($breakpoint_ESM) {
@@ -278,6 +278,7 @@
                     .deposit {
                         @include display(center, center);
                         flex-direction: column;
+                        cursor: pointer;
 
                         img {
                             @media($breakpoint_ESM) {
@@ -300,6 +301,7 @@
                     .withdraw {
                         @include display(center, center);
                         flex-direction: column;
+                        cursor: pointer;
 
                         img {
                             @media($breakpoint_ESM) {
@@ -322,6 +324,7 @@
                     .vip {
                         @include display(center, center);
                         flex-direction: column;
+                        cursor: pointer;
 
                         img {
                             @media($breakpoint_ESM) {
@@ -349,6 +352,7 @@
                 .card_flex {
                     @include display (space-between, center);
                     column-gap: 7px;
+                    cursor: pointer;
 
                     .card {
                         @include display(flex-start, center);

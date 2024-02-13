@@ -41,7 +41,7 @@ const Withdraw = () => {
                                         <h6>Wallet Balance</h6>
                                     </div>
                                     <div className='rupees'>
-                                        <h2>₹0.00</h2>
+                                        <h2>$0.00</h2>
                                         <img src={refresh_2} alt='refresh_2' />
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ const Withdraw = () => {
                             </div>
 
                             <div className='balance_btn'>
-                                <p>Withdrawable balance <span> <b>₹0.00</b></span></p>
+                                <p>Withdrawable balance <span> <b>$0.00</b></span></p>
                                 <div className='all_btn'>
                                     <button type='button'>All</button>
                                 </div>
@@ -80,7 +80,7 @@ const Withdraw = () => {
 
                             <div className='amount_received'>
                                 <p>Withdrawable amount received </p>
-                                <span> <b>₹0.00</b></span>
+                                <span> <b>$0.00</b></span>
                             </div>
 
                             <button type='button' className='withdraw_btn'>Withdraw</button>
@@ -88,7 +88,7 @@ const Withdraw = () => {
                             <div className='card_bet'>
                                 <div className='need_bet'>
                                     <img src={star} alt='star' />
-                                    <p>Need to bet <span><b> ₹0.00</b> </span>to be able to withdraw</p>
+                                    <p>Need to bet <span><b> $0.00</b> </span>to be able to withdraw</p>
                                 </div>
                                 <div className='need_bet'>
                                     <img src={star} alt='star' />
@@ -100,7 +100,7 @@ const Withdraw = () => {
                                 </div>
                                 <div className='need_bet'>
                                     <img src={star} alt='star' />
-                                    <p>Withdrawal amount range <span><b>₹100.00-₹10,000,000.00</b></span></p>
+                                    <p>Withdrawal amount range <span><b>$100.00-$10,000,000.00</b></span></p>
                                 </div>
                             </div>
 

@@ -1,0 +1,81 @@
+.my_ticket {
+    @include display(center, center);
+
+    .header_my_ticket {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+
+                @media($breakpoint_ESM) {
+                    top: 13px;
+                    left: 12px;
+                    width: 20px;
+                }
+            }
+
+            .ticket {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .my_ticket_section {
+            padding: 13px;
+            border-radius: 4px;
+            margin: 25px 15px;
+            background-color: $white;
+            box-shadow: $input_shadow;
+            @include display(space-between, center);
+
+            @media($breakpoint_ESM) {
+                padding: 11px 8px 8px;
+            }
+
+            p {
+                font-size: 14px;
+                color: $forgot;
+                margin-bottom: 3px;
+                font-weight: 600;
+
+                @media($breakpoint_ESM) {
+                    font-size: 13px;
+                }
+            }
+
+            button {
+                font-size: 13px;
+                border: 1px solid $green;
+                background-color: $green;
+                color: $white;
+                padding: 2px 7px;
+                border-radius: 2px;
+            }
+        }
+    }
+}

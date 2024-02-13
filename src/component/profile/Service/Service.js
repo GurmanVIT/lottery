@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import Form from "react-bootstrap/Form";
-import rectangle from "../../../assets/img/rectangle.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadFile } from "../../../redux/uploadFileSlice";
 import { addQuery, clearData } from "../../../redux/addQuerySlice";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
+
 
 const Service = () => {
   const navigation = useNavigate();
@@ -18,6 +20,7 @@ const Service = () => {
 
   const uploadFileData = useSelector((state) => state.uploadFileReducer.data);
   const submitQueryReducer = useSelector((state) => state.addQueryReducer.data);
+  const isLoading = useSelector((state) => state.addQueryReducer.isLoading);
 
   const setDocumentImage = (pan_image_path) => {
     dispatch(uploadFile(pan_image_path));
@@ -107,7 +110,11 @@ const Service = () => {
                 className="login_button"
                 onClick={() => submitToken()}
               >
-                Submit
+                {isLoading ? (
+                  <ClipLoader color={myColors.txtWhite} />
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </div>

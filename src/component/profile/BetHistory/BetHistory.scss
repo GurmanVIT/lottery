@@ -1,0 +1,176 @@
+.bet_history {
+    @include display(center, center);
+
+    .header_bet_history {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+
+                @media($breakpoint_ESM) {
+                    top: 13px;
+                    left: 12px;
+                    width: 20px;
+                }
+            }
+
+            .bets {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .tab_btn {
+            border-bottom: 1px solid $dark_watch;
+            overflow: hidden;
+            @include display(flex-start, center);
+            overflow-x: scroll;
+
+            white-space: nowrap;
+
+            button {
+                border: none;
+                outline: none;
+                box-shadow: none;
+                padding: 7px 30px;
+                background-color: transparent;
+
+            }
+        }
+
+        .bet_history_section {
+            padding: 15px;
+            background-color: $page_bg;
+
+            p {
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+            .history_table {
+                background-color: $white;
+                border-radius: 10px;
+                margin: 10px 0 15px;
+
+                @media ($breakpoint_ESM) {
+                    margin-top: 20px;
+                }
+
+                .table_div {
+                    @include display(space-between, center);
+                    background-color: $white;
+                    padding: 15px 10px 10px;
+                    border-bottom: 1px solid $dark_watch;
+
+                    .big_id {
+                        @include display(center, center);
+                        column-gap: 10px;
+
+                        .bg_primary {
+                            border: 1px solid;
+                            color: $white;
+                            padding: 9px 3px;
+                            border-radius: 10px;
+                            @include display(center, center);
+                        }
+
+                        .bg_white {
+                            background-color: $white;
+                            border: 1px solid $primary;
+                            padding: 7px 4px;
+                            border-radius: 6px;
+                            color: $primary;
+                            font-size: 13px;
+                        }
+
+                        .id_date_number {
+                            .id_number {
+                                letter-spacing: 0.4px;
+                                font-size: 15px;
+
+                                @media ($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .date {
+                                color: $forgot;
+                                font-size: 14px;
+
+                                @media ($breakpoint_ESM) {
+                                    font-size: 13px;
+                                }
+
+                                span {
+                                    @media ($breakpoint_ESM) {
+                                        margin-left: 2px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .win_loss {
+                        .failed {
+                            border: 1px solid $red;
+                            border-radius: 5px;
+                            padding: 1px 13px;
+                            font-size: 12px;
+                            color: $red;
+                            text-align: center;
+                        }
+
+                        .succeed {
+                            border: 1px solid $green;
+                            border-radius: 5px;
+                            padding: 1px 13px;
+                            font-size: 12px;
+                            color: $green;
+                            text-align: center;
+                        }
+
+                        .loss {
+                            text-align: end;
+                            color: $red;
+                            margin-top: 3px;
+                            letter-spacing: 0.3px;
+                        }
+
+                        .win {
+                            text-align: end;
+                            color: $green;
+                            margin-top: 3px;
+                            letter-spacing: 0.3px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

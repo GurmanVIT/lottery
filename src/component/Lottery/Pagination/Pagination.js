@@ -1,6 +1,6 @@
 import Pagination from "react-bootstrap/Pagination";
 
-const PaginationComponent = ({ skip, setSkip, getGameHistory }) => (
+const PaginationComponent = ({ skip, setSkip, getGameHistory, limit }) => (
   <>
     <Pagination>
       <Pagination.Prev onClick={() => (skip > 0 ? setSkip(skip - 1) : "")} />

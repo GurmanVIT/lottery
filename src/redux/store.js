@@ -18,6 +18,7 @@ import submitFeedbackReducer from "./feedbackSlice";
 import activateAccountReducer from "./activateAccountSlice";
 import addQueryReducer from "./addQuerySlice";
 import uploadFileReducer from "./uploadFileSlice";
+import walletTransactionsReducer from "./walletTransactionSlice"
 
 const store = configureStore({
   reducer: {
@@ -40,6 +41,7 @@ const store = configureStore({
     activateAccountReducer: activateAccountReducer,
     addQueryReducer: addQueryReducer,
     uploadFileReducer: uploadFileReducer,
+    walletTransactionsReducer: walletTransactionsReducer,
   },
 });
 

@@ -55,6 +55,21 @@ const customStyles = {
   },
 };
 
+const modal_notifications = {
+  content: {
+    top: "10%",
+    left: "50%",
+    right: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, 0)",
+    maxWidth: "100%",
+    width: "420px",
+    borderRadius: "5px",
+    backgroundColor: "#74707008",
+    borderRadius: "14px",
+  },
+};
+
 const Lottery = () => {
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
@@ -81,6 +96,12 @@ const Lottery = () => {
   const [isLoseOpen, setLoseOpen] = useState(false);
   const [gameType, setGameType] = useState(1);
   const navigator = useNavigate();
+
+  const [isOpenPlay, setOpenPlay] = useState(false);
+
+  const openPlayModal = () => {
+    setOpenPlay(true);
+  };
 
   const togglePlay = () => {
     setIsPlaying((prevState) => !prevState);
@@ -447,7 +468,7 @@ const Lottery = () => {
             <div className="refresh">
               <img src={refresh} alt="refresh" />
             </div>
-            <h1>₹{walletBalance}.00</h1>
+            <h1>${walletBalance}.00</h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
               <h4>Wallet Balance</h4>
@@ -544,7 +565,7 @@ const Lottery = () => {
                 </div>
               </div>
               <div className="play">
-                <button> HOW TO PLAY</button>
+                <button type="button" onClick={() => openPlayModal()}> HOW TO PLAY</button>
               </div>
             </div>
             <div className="timing">
@@ -900,6 +921,37 @@ const Lottery = () => {
                 </div>
               </div>
             </>
+          </Modal>
+
+          <Modal
+            isOpen={isOpenPlay}
+            style={modal_notifications}
+            onRequestClose={() => setOpenPlay(false)}
+          >
+            <div className="how_play">
+              <h3>How to play</h3>
+              <div className="how_play_section">
+                <div className="play_this">
+                  <p>1 minutes 1 issue, 45 seconds to order, 15 seconds waiting for the draw. It opens all day. The total number of trade is 1440 issues.</p>
+                  <p>If you spend 100 to trade, after deducting 2 service fee, your contract amount is 98:</p>
+                  <p>1. Select green: if the result shows 1,3,7,9 you will get (98*2) 196;If the result shows 5, you will get (98*1.5) 147</p>
+                  <p>2. Select red: if the result shows 2,4,6,8 you will get (98*2) 196;If the result shows 0, you will get (98*1.5) 147</p>
+                  <p>3. Select violet:if the result shows 0 or 5, you will get (98*4.5) 441</p>
+                  <p>4. Select number:if the result is the same as the number you selected, you will get (98*9) 882</p>
+                  <p>5. Select big: if the result shows 5,6,7,8,9 you will get (98 * 2) 196</p>
+                  <p>6. Select small: if the result shows 0,1,2,3,4 you will get (98 * 2) 196</p>
+                </div>
+              </div>
+
+              <div className="clsoe_modal_btn">
+                <button
+                  className="close_btn"
+                  onClick={() => setOpenPlay(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </Modal>
         </div>
       </div>

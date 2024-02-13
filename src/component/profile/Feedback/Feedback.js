@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, submitFeedbackApi } from "../../../redux/feedbackSlice";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
+
 
 const Feedback = () => {
   const navigation = useNavigate();
@@ -10,9 +13,8 @@ const Feedback = () => {
   const dispatch = useDispatch();
   const [description, setDescription] = useState("");
 
-  const feedbackReducer = useSelector(
-    (state) => state.submitFeedbackReducer.data
-  );
+  const feedbackReducer = useSelector((state) => state.submitFeedbackReducer.data);
+  const isLoading = useSelector((state) => state.submitFeedbackReducer.isLoading);
 
   const sendFeedback = () => {
     if (description === "") {
@@ -60,7 +62,11 @@ const Feedback = () => {
             </div>
             <div className="sumnit_btn">
               <button className="login_button" onClick={() => sendFeedback()}>
-                Submit
+                {isLoading ? (
+                  <ClipLoader color={myColors.txtWhite} />
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </div>

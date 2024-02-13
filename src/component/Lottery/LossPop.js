@@ -10,7 +10,7 @@ const LossPop = () => {
                     <div className='loss_reward'>
                         <img src={loss_img} alt='loss_img' className='loss_img' />
                         <h4>Lose</h4>
-                        <h5>₹10.56</h5>
+                        <h5>$10.56</h5>
                         <p>3 seconds auto close</p>
                         <div className='close_btn'>
                             <img src={close} alt='close' className='close_img' />

@@ -19,9 +19,11 @@
         position: absolute;
         width: 95.5%;
         background-color: $white;
+
         @media ($breakpoint_350) {
           width: 94.5%;
         }
+
         .toast-body {
           text-align: center;
         }
@@ -224,11 +226,9 @@
             border-radius: 12px 12px 0 0;
             margin-top: 20px;
             padding: 15px 10px;
-            background: linear-gradient(
-              191deg,
-              #6a66c2 -86.72%,
-              #9793ff 72.22%
-            );
+            background: linear-gradient(191deg,
+                #6a66c2 -86.72%,
+                #9793ff 72.22%);
             border-bottom: 3px dashed $white;
 
             @media ($breakpoint_350) {
@@ -1033,6 +1033,60 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+.how_play {
+  border-radius: 10px;
+  background-color: $white;
+
+  h3 {
+    background-color: $primary;
+    padding: 15px;
+    color: $white;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .how_play_section {
+    background-color: $white;
+    padding: 15px;
+    border-radius: 14px;
+    height: 325px;
+    overflow-y: scroll;
+
+    .play_this {
+      margin-bottom: 20px;
+
+      p {
+        margin-bottom: 7px;
+        font-size: 14px;
+
+        @media($breakpoint_ESM) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .clsoe_modal_btn {
+    @include display(space-around, center);
+    padding: 20px 15px 15px;
+
+    .close_btn {
+      border: 1px solid $primary;
+      background-color: $primary;
+      font-weight: 600;
+      color: $white;
+      padding: 10px 75px;
+      border-radius: 10px;
+
+      @media($breakpoint_ESM) {
+        padding: 8px 60px;
+        border-radius: 8px;
+        font-size: 14px;
       }
     }
   }

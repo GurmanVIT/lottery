@@ -255,7 +255,7 @@ const ModalBottom = ({
             style={{ backgroundColor: myColor }}
             onClick={() => placeBet()}
           >
-            Total amount ₹ {balance * selectedX}
+            Total amount $ {balance * selectedX}
           </button>
         </div>
       </Modal>

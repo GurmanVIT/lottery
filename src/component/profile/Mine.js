@@ -30,6 +30,7 @@ import { toast } from "react-toastify";
 import { activateAccount, clearDataActive } from "../../redux/activateAccountSlice";
 
 
+
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -157,7 +158,7 @@ const Profile = () => {
               <div className="balance">
                 <p>Total Balance</p>
                 <h3>
-                  ₹{profileData.walletPoints}{" "}
+                  ${profileData.walletPoints}{" "}
                   <img src={refresh_2} alt="refresh_2" />
                 </h3>
                 <div className="four_img">
@@ -182,7 +183,7 @@ const Profile = () => {
 
               <div className="card_history">
                 <div className="card_flex">
-                  <div className="card">
+                  <div className="card" onClick={() => navigation('/bet_history')}>
                     <div className="bet_img">
                       <img src={bet_img} alt="bet_img" />
                     </div>
