@@ -4,6 +4,8 @@
     .header_setting {
         width: 100%;
         max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
 
         .header_flex {
             background: $profile_bg;
@@ -51,7 +53,6 @@
         .setting_section {
             padding: 60px 10px 30px;
             background-color: $page_bg;
-            height: 100vh;
 
             @media($breakpoint_ESM) {
                 padding-top: 50px;
@@ -192,7 +193,11 @@
             }
 
             .security_information {
-                margin-top: 30px;
+                margin: 30px 0;
+
+                @media($breakpoint_ESM) {
+                    margin-bottom: 20px;
+                }
 
                 h6 {
                     margin-bottom: 15px;
@@ -215,6 +220,7 @@
 
                     @media($breakpoint_ESM) {
                         margin-top: 10px;
+                        padding: 15px 10px;
                     }
 
                     .pass_edit {
@@ -229,6 +235,7 @@
 
                                 @media($breakpoint_ESM) {
                                     width: 17px;
+                                    margin-right: 6px;
                                 }
                             }
 
@@ -248,6 +255,10 @@
 
 
                         .edit {
+                            a {
+                                font-size: 14px;
+                            }
+
                             p {
                                 margin-bottom: 0;
                                 font-size: 15px;
