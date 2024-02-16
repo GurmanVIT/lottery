@@ -68,6 +68,7 @@ const Tab_screen = ({
     setActiveKey(key);
   };
   useEffect(() => {
+    console.log("My History data");
     if (myHistoryData != null && myHistoryData.status === 1) {
       setMyBetData(myHistoryData.data);
     }
