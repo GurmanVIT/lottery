@@ -772,7 +772,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={nineth} alt="nineth" />
-                    {/* <h4>9</h4> */}
                   </div>
                 </div>
               </div>
