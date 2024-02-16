@@ -19,6 +19,8 @@ const Tab_screen = ({
   setSkip,
   gameType,
   onResult,
+  pageCount,
+  setPageCount,
 }) => {
   const dispatch = useDispatch();
 
@@ -114,9 +116,9 @@ const Tab_screen = ({
       if (myBetData[index].betType === 2) {
         return myBetData[index].color === 1
           ? "green"
-          : myBetData[index].color === 2
-            ? "violet"
-            : "red";
+          : myBetData[index].color === 3
+          ? "red"
+          : "violet";
       } else if (myBetData[index].betType === 1) {
         return myBetData[index].betNumber === 1 ||
           myBetData[index].betNumber === 3 ||
@@ -127,8 +129,8 @@ const Tab_screen = ({
             myBetData[index].betNumber === 4 ||
             myBetData[index].betNumber === 6 ||
             myBetData[index].betNumber === 8
-            ? "red"
-            : "violet";
+          ? "red"
+          : "violet";
       } else {
         return myBetData[index].type === 1 ? "violet" : "white";
       }
@@ -374,10 +376,10 @@ const Tab_screen = ({
                             getBGColor(index) === "green"
                               ? myColors.green_color
                               : getBGColor(index) === "red"
-                                ? myColors.red_color
-                                : getBGColor(index) === "violet"
-                                  ? myColors.primaryColor
-                                  : myColors.txtWhite,
+                              ? myColors.red_color
+                              : getBGColor(index) === "violet"
+                              ? myColors.primaryColor
+                              : myColors.txtWhite,
                           color:
                             getBGColor(index) === "white"
                               ? myColors.primaryColor

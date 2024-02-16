@@ -91,6 +91,7 @@ const Lottery = () => {
 
   const [isOpenModal, setOpenModal] = useState(false);
   const [historyData, setHistoryData] = useState([]);
+  const [pageCount, setPageCount] = useState(1);
   const [walletBalance, setWalletBalance] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isWinOpen, setWinOpen] = useState(false);
@@ -122,9 +123,11 @@ const Lottery = () => {
   }, [skip]);
 
   useEffect(() => {
+    console.log("Game History ===> ", gameHistoryData);
     if (gameHistoryData != null && gameHistoryData.status === 1) {
       const data = gameHistoryData.data;
       setHistoryData(data);
+      setPageCount(gameHistoryData.count % 10);
     }
   }, [gameHistoryData]);
 
@@ -854,11 +857,14 @@ const Lottery = () => {
             setSkip={setSkip}
             gameType={gameType}
             onResult={onResult}
+            pageCount={pageCount}
+            setPageCount={pageCount}
           />
           <PaginationComponent
             skip={skip}
             setSkip={setSkip}
             getGameHistory={getGameHistory}
+            pageCount={pageCount}
           />
           <ModalBottom
             myColor={selectedColor}
