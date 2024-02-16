@@ -261,13 +261,9 @@
 
                             p {
                                 margin-bottom: 0;
-                                font-size: 15px;
+                                font-size: 14px;
 
                                 @media($breakpoint_ESM) {
-                                    font-size: 14px;
-                                }
-
-                                @media($breakpoint_350) {
                                     font-size: 13px;
                                 }
 

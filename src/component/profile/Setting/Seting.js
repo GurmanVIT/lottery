@@ -147,10 +147,11 @@ const Setting = () => {
                                             <p> Right Referral Link</p>
                                         </div>
                                         <div className='edit'>
-                                            <Link to='/'>ID </Link><img src={copy} alt='copy' className='ms-1' onClick={() => {
-                                                navigator.clipboard.writeText("");
-                                                alert("Copy Link");
+                                            <p>{profileData.userId}<img src={copy} alt='copy' className='ms-1' onClick={() => {
+                                                navigator.clipboard.writeText("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=R");
+                                                alert("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=R");
                                             }} />
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -162,10 +163,11 @@ const Setting = () => {
                                             <p>Left Referral Link</p>
                                         </div>
                                         <div className='edit'>
-                                            <Link to='/'>ID</Link><img src={copy} alt='copy' className='ms-1' onClick={() => {
-                                                navigator.clipboard.writeText("");
-                                                alert("Copy Link");
+                                            <p>{profileData.userId}<img src={copy} alt='copy' className='ms-1' onClick={() => {
+                                                navigator.clipboard.writeText("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=L");
+                                                alert("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=L");
                                             }} />
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

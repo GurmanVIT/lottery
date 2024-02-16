@@ -241,10 +241,10 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game">
+              <div className="game" onClick={() => navigation('/team_member')}>
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
-                  <p>Game statistics</p>
+                  <p>My Team Member</p>
                 </div>
                 <div className="next_img">
                   <img src={next} alt="next" />
