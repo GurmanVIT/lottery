@@ -33,7 +33,7 @@ const TeamMember = () => {
                                     <p>Email : <span>jided@gmail.com</span></p>
                                     <p>UserId : <span>djedj</span></p>
                                     <p>Staus : <span>853</span></p>
-                                    <p>Date : <span>853</span></p>
+                                    <p>Joining Date : <span>853</span></p>
                                 </div>
                             </Tab>
 

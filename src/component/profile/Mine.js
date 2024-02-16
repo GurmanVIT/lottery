@@ -251,6 +251,16 @@ const Profile = () => {
                 </div>
               </div>
 
+              <div className="game" onClick={() => navigation('/team_member')}>
+                <div className="img_game">
+                  <img src={game_static} alt="game_static" />
+                  <p>Team Tree</p>
+                </div>
+                <div className="next_img">
+                  <img src={next} alt="next" />
+                </div>
+              </div>
+
               <div className="service">
                 <h5>Service center</h5>
 
