@@ -175,7 +175,9 @@ const Lottery = () => {
       });
 
       socket.on("bet_placed", (data) => {
+        console.log("bet_Placed ===> ", data.walletPoints);
         setWalletBalance(data.walletPoints);
+        setResult(!onResult);
       });
 
       socket.on("less_wallet_points", (data) => {
@@ -352,7 +354,6 @@ const Lottery = () => {
     });
 
     socket.on("dummyText", (data) => {
-      console.log("Dummy Text ===>", data);
       setMessageText(data.text);
       setShow(true);
     });
@@ -403,7 +404,6 @@ const Lottery = () => {
       console.log("Bet_Place ===> ", betData);
 
       socket.emit("bet_place", betData);
-      setResult(!onResult);
     } else if (selectedValue === "Big" || selectedValue === "Small") {
       const betData = {
         userId: userId,
@@ -416,7 +416,6 @@ const Lottery = () => {
         authorization: token,
       };
       socket.emit("bet_place", betData);
-      setResult(!onResult);
     } else {
       const betData = {
         userId: userId,
@@ -429,7 +428,6 @@ const Lottery = () => {
         authorization: token,
       };
       socket.emit("bet_place", betData);
-      setResult(!onResult);
     }
 
     setOpenModal(false);
@@ -859,6 +857,7 @@ const Lottery = () => {
             onResult={onResult}
             pageCount={pageCount}
             setPageCount={pageCount}
+            walletBalance={walletBalance}
           />
           <PaginationComponent
             skip={skip}

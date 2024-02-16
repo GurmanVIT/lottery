@@ -21,6 +21,7 @@ const Tab_screen = ({
   onResult,
   pageCount,
   setPageCount,
+  walletBalance,
 }) => {
   const dispatch = useDispatch();
 
@@ -45,10 +46,8 @@ const Tab_screen = ({
   }, []);
 
   useEffect(() => {
-    if (activeKey === "my_history") {
-      getMyHistory();
-    }
-  }, [skip, gameType, onResult]);
+    getMyHistory();
+  }, [skip, gameType, onResult, walletBalance]);
 
   const getMyHistory = () => {
     const payload = {
@@ -68,7 +67,7 @@ const Tab_screen = ({
     setActiveKey(key);
   };
   useEffect(() => {
-    console.log("My History data");
+    console.log("My History data ===> ", myHistoryData);
     if (myHistoryData != null && myHistoryData.status === 1) {
       setMyBetData(myHistoryData.data);
     }
