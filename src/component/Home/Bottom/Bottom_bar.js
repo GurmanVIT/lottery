@@ -56,7 +56,7 @@ const Bottom_bar = () => {
                     <p>Activity</p>
                 </div>
                 <div className='promotion_img'>
-                    <img src={Promotion} alt="Promotion" />
+                    <img src={Promotion} alt="Promotion" className='pro_img' />
                     <p>Promotion</p>
                 </div>
                 <div className='bottom_img'>

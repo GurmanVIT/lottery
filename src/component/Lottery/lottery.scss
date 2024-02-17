@@ -18,14 +18,20 @@
       .toast {
         position: absolute;
         width: 95.5%;
+        background-color: transparent;
 
         @media ($breakpoint_350) {
           width: 94.5%;
         }
 
         .toast-body {
+          img {
+            height: 25px;
+          }
+
           text-align: center;
-          font-weight: 600
+          font-weight: 600;
+          background-color: rgb(255 255 255 / 72%);
         }
       }
 

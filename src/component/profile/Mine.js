@@ -59,6 +59,7 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
+    console.log("profile response ===>", profileResponse)
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
     }
@@ -114,7 +115,7 @@ const Profile = () => {
   return (
     <>
       <div className="profile lottery_page">
-        {profileData != null && (
+        {profileData != null ? (
           <div className="profile_width lottery" style={{ height: "100vh" }}>
             {/* <ToastContainer /> */}
             <div className="mine">
@@ -299,7 +300,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-        )}
+        ) : <div className="profile_width lottery" style={{ height: "100vh" }}></div>}
       </div>
     </>
   );

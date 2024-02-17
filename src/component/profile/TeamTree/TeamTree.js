@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
-import crypto_logo from "../../../assets/img/crypto_logo.png";
 
 
 const TeamTree = () => {
@@ -22,8 +21,7 @@ const TeamTree = () => {
                     </div>
 
                     <div className="team_tree_section">
-                        <iframe src={crypto_logo} name="iframe_a" title="Iframe Example"></iframe>
-                        <p><a href="https://cryptokity.com/" target="iframe_a">https://cryptokity.com</a></p>
+                        <iframe src="https://cryptokity.com/" name="iframe_a" title="Iframe Example"></iframe>
                     </div>
                 </div>
             </div>
