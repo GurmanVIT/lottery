@@ -39,11 +39,11 @@ const TeamMember = () => {
 
                             <Tab eventKey="right" title="Right">
                                 <div className='card_amount'>
-                                    <p>Amount : <span>853.0 USDT</span></p>
-                                    <p>Admin Charges : <span>853</span></p>
-                                    <p>Payable Amount : <span>853</span></p>
+                                    <p>Name : <span>853.0 USDT</span></p>
+                                    <p>Email : <span>853</span></p>
+                                    <p>UserId : <span>853</span></p>
                                     <p>Staus : <span>853</span></p>
-                                    <p>Date : <span>853</span></p>
+                                    <p>Joining Date : <span>853</span></p>
                                 </div>
                             </Tab>
                         </Tabs>
