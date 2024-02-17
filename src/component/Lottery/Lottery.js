@@ -172,6 +172,8 @@ const Lottery = () => {
       }
       socket.on("wallet_points", (data) => {
         setWalletBalance(data.walletPoints);
+
+        setResult(!onResult);
       });
 
       socket.on("bet_placed", (data) => {
@@ -199,60 +201,68 @@ const Lottery = () => {
 
       socket.on("winner", (data) => {
         // if (gameType === 1) {
+        setWinOpen(true);
         setResult(!onResult);
         console.log("winner ===>", data);
         setWalletBalance(data.walletPoints);
-        setWinOpen(true);
+
         // }
       });
       socket.on("winnerThree", (data) => {
         // if (gameType === 3) {
+        setWinOpen(true);
         setResult(!onResult);
         setWalletBalance(data.walletPoints);
-        setWinOpen(true);
+
         // }
       });
       socket.on("winnerFive", (data) => {
         // if (gameType === 5) {
+        setWinOpen(true);
         setResult(!onResult);
         setWalletBalance(data.walletPoints);
-        setWinOpen(true);
+
         // }
       });
       socket.on("winnerTen", (data) => {
         // if (gameType === 10) {
+        setWinOpen(true);
         setResult(!onResult);
         setWalletBalance(data.walletPoints);
-        setWinOpen(true);
+
         // }
       });
       socket.on("looser", (data) => {
         // if (gameType === 1) {
+        setLoseOpen(true);
         setResult(!onResult);
         console.log("looser ===>", data);
         setWalletBalance(data.walletPoints);
-        setLoseOpen(true);
+
         // }
       });
       socket.on("looserThree", (data) => {
         // if (gameType === 3) {
+        setLoseOpen(true);
         setResult(!onResult);
         setWalletBalance(data.walletPoints);
-        setLoseOpen(true);
+
         // }
       });
       socket.on("looserFive", (data) => {
         // if (gameType === 5) {
+        setLoseOpen(true);
         setResult(!onResult);
         setWalletBalance(data.walletPoints);
-        setLoseOpen(true);
+
         // }
       });
       socket.on("looserTen", (data) => {
         // if (gameType === 10) {
+        setLoseOpen(true);
         setResult(!onResult);
         setWalletBalance(data.walletPoints);
-        setLoseOpen(true);
+
         // }
       });
 

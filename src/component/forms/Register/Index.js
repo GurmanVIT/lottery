@@ -4,7 +4,7 @@ import group from "../../../assets/img/group.svg";
 import email_icon from "../../../assets/img/email_icon.svg";
 import password_icon from "../../../assets/img/password_icon.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import support from "../../../assets/img/support.svg";
 import DG from "../../../assets/img/DG.svg";
 import back_back from "../../../assets/img/back_back.svg";
@@ -16,6 +16,9 @@ import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
 const Register = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams.get("sponser_id"));
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState("");
@@ -80,6 +83,10 @@ const Register = () => {
   };
 
   useEffect(() => {
+    if (searchParams != null) {
+      setSponsorId(searchParams.get("sponser_id"));
+      setSelectedOption(searchParams.get("position").toLowerCase());
+    }
     if (signupSuccess != null && signupSuccess.status == 1) {
       localStorage.setItem("userId", signupSuccess.data._id);
       navigation("/otp");
@@ -109,7 +116,12 @@ const Register = () => {
       <div className="register login">
         <div className="register_section login_section">
           <div className="logo">
-            <img src={back_back} alt="back_back" className="back_back" onClick={() => navigation('/home_page')} />
+            <img
+              src={back_back}
+              alt="back_back"
+              className="back_back"
+              onClick={() => navigation("/home_page")}
+            />
             <div className="dg_image">
               <img src={DG} alt="DG" />
               <h2>Dapic games</h2>
@@ -246,6 +258,7 @@ const Register = () => {
                   type="email"
                   placeholder="name@example.com"
                   disabled={isLoading}
+                  value={sponsorId}
                   onChange={(e) => setSponsorId(e.target.value)}
                 />
               </FloatingLabel>
