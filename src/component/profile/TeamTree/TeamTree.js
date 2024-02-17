@@ -17,7 +17,7 @@ const TeamTree = () => {
                             <img src={back} alt="back" />
                         </div>
                         <div className="team_tree_content">
-                            <h4>Team Member</h4>
+                            <h4>Team Tree</h4>
                         </div>
                     </div>
 
