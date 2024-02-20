@@ -55,7 +55,7 @@ const Bottom_bar = () => {
                     <Activity />
                     <p>Activity</p>
                 </div>
-                <div className='promotion_img'>
+                <div className='promotion_img' >
                     <img src={Promotion} alt="Promotion" className='pro_img' />
                     <p>Promotion</p>
                 </div>

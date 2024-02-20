@@ -1,7 +1,6 @@
 //common
 @import "../style/common.scss";
 
-
 //theme.scss
 @import "../style/theme.scss";
 
@@ -148,3 +147,7 @@
 
 //teamTree
 @import '../../component//profile/TeamTree/teamTree.scss';
+
+
+//promotion
+@import "../../component//Promotion/promotion.scss";

@@ -31,6 +31,7 @@ import TicketSummery from "./component/Lottery/TicketSummery/TicketSummery";
 import BetHistory from "./component/profile/BetHistory/BetHistory";
 import TeamMember from "./component/profile/TeamMember/TeamMember";
 import TeamTree from "./component/profile/TeamTree/TeamTree";
+import Promotion from "./component/Promotion/Promotion";
 
 
 // export
@@ -70,6 +71,7 @@ function App() {
           <Route path="/bet_history" element={<BetHistory />} />
           <Route path="/team_member" element={<TeamMember />} />
           <Route path="/team_tree" element={<TeamTree />} />
+          <Route path="/promotion" element={<Promotion />} />
         </Routes>
       </Router>
     </Provider>

@@ -1,0 +1,36 @@
+.promotions {
+    @include display(center, center);
+
+    .header_promotions {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+
+            .promotions_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .promotions_section {
+            padding: 30px 15px;
+            background-color: $page_bg;
+        }
+    }
+}
