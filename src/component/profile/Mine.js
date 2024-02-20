@@ -27,19 +27,21 @@ import { clearResendData } from "../../redux/resendOtpSlice";
 import { profile } from "../../redux/profileSlice";
 import moment from "moment-timezone";
 import { toast } from "react-toastify";
-import { activateAccount, clearDataActive } from "../../redux/activateAccountSlice";
-
-
+import {
+  activateAccount,
+  clearDataActive,
+} from "../../redux/activateAccountSlice";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
-  const activateReducer = useSelector((state) => state.activateAccountReducer.data);
+  const activateReducer = useSelector(
+    (state) => state.activateAccountReducer.data
+  );
   const [profileData, setProfileData] = useState(null);
   const [changeActive, setChangeActive] = useState(true);
-
 
   const logout = () => {
     localStorage.clear();
@@ -59,9 +61,12 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    console.log("profile response ===>", profileResponse)
+    console.log("profile response ===>", profileResponse);
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
+      localStorage.setItem("email", profileResponse.data.email);
+    } else {
+      navigation("/login");
     }
   }, [profileResponse]);
 
@@ -102,15 +107,15 @@ const Profile = () => {
   };
 
   const onActiveClick = () => {
-    dispatch(activateAccount())
-  }
+    dispatch(activateAccount());
+  };
 
   useEffect(() => {
     if (activateReducer != null && activateReducer.status === 1) {
       dispatch(profile());
-      dispatch(clearDataActive())
+      dispatch(clearDataActive());
     }
-  }, [activateReducer])
+  }, [activateReducer]);
 
   return (
     <>
@@ -151,10 +156,15 @@ const Profile = () => {
 
             <div className="sec_padding">
               <div className="active_card">
-                <p>{profileData.paidStatus === 0 ? "This account is not activate" : "This account is activate"}</p>
+                <p>
+                  {profileData.paidStatus === 0
+                    ? "This account is not activate"
+                    : "This account is activate"}
+                </p>
                 {/* <p>This account is not activate</p> */}
-                {profileData.paidStatus === 0 &&
-                  <button type="button">Active Now</button>}
+                {profileData.paidStatus === 0 && (
+                  <button type="button">Active Now</button>
+                )}
               </div>
               <div className="balance">
                 <p>Total Balance</p>
@@ -163,15 +173,24 @@ const Profile = () => {
                   <img src={refresh_2} alt="refresh_2" />
                 </h3>
                 <div className="four_img">
-                  <div className="wallet_2" onClick={() => navigation('/update_wallet_address')}>
+                  <div
+                    className="wallet_2"
+                    onClick={() => navigation("/update_wallet_address")}
+                  >
                     <img src={wallet_2} alt="wallet_2" />
                     <h5>Wallet</h5>
                   </div>
-                  <div className="deposit" onClick={() => navigation('/deposit')}>
+                  <div
+                    className="deposit"
+                    onClick={() => navigation("/deposit")}
+                  >
                     <img src={deposit} alt="deposit" />
                     <h5>Deposit</h5>
                   </div>
-                  <div className="withdraw" onClick={() => navigation('/withdraw_balance')}>
+                  <div
+                    className="withdraw"
+                    onClick={() => navigation("/withdraw_balance")}
+                  >
                     <img src={withdraw} alt="withdraw" />
                     <h5>Withdraw</h5>
                   </div>
@@ -184,7 +203,10 @@ const Profile = () => {
 
               <div className="card_history">
                 <div className="card_flex">
-                  <div className="card" onClick={() => navigation('/bet_history')}>
+                  <div
+                    className="card"
+                    onClick={() => navigation("/bet_history")}
+                  >
                     <div className="bet_img">
                       <img src={bet_img} alt="bet_img" />
                     </div>
@@ -194,7 +216,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="card" onClick={() => navigation('/transfer')}>
+                  <div className="card" onClick={() => navigation("/transfer")}>
                     <div className="transfer_img">
                       <img src={transfer} alt="transfer" />
                     </div>
@@ -206,7 +228,10 @@ const Profile = () => {
                 </div>
 
                 <div className="card_flex mt-2">
-                  <div className="card" onClick={() => navigation('/deposit_history')}>
+                  <div
+                    className="card"
+                    onClick={() => navigation("/deposit_history")}
+                  >
                     <div className="deposit_img">
                       <img src={deposit} alt="deposit" />
                     </div>
@@ -216,7 +241,10 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="card" onClick={() => navigation('/withdraw_balance')}>
+                  <div
+                    className="card"
+                    onClick={() => navigation("/withdraw_balance")}
+                  >
                     <div className="withdraw_img">
                       <img src={withdraw} alt="withdraw" />
                     </div>
@@ -242,7 +270,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation('/team_member')}>
+              <div className="game" onClick={() => navigation("/team_member")}>
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>My Team Member</p>
@@ -252,7 +280,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation('/team_tree')}>
+              <div className="game" onClick={() => navigation("/team_tree")}>
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>Team Tree</p>
@@ -273,18 +301,24 @@ const Profile = () => {
                     <img src={setting} alt="setting" />
                     <p>Settings</p>
                   </div>
-                  <div className="setting" onClick={() => navigation('/feedback')}>
+                  <div
+                    className="setting"
+                    onClick={() => navigation("/feedback")}
+                  >
                     <img src={feedback} alt="feedback" />
                     <p>Feedback</p>
                   </div>
-                  <div className="setting" onClick={() => navigation('/about')}>
+                  <div className="setting" onClick={() => navigation("/about")}>
                     <img src={about} alt="about" />
                     <p>About Us</p>
                   </div>
                 </div>
 
                 <div className="service_center">
-                  <div className="setting" onClick={() => navigation('/service')}>
+                  <div
+                    className="setting"
+                    onClick={() => navigation("/service")}
+                  >
                     <img src={customer} alt="customer" />
                     <p>24/7 Customer service</p>
                   </div>
@@ -300,7 +334,12 @@ const Profile = () => {
               </div>
             </div>
           </div>
-        ) : <div className="profile_width lottery" style={{ height: "100vh" }}></div>}
+        ) : (
+          <div
+            className="profile_width lottery"
+            style={{ height: "100vh" }}
+          ></div>
+        )}
       </div>
     </>
   );

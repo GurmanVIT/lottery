@@ -31,9 +31,11 @@ const Tab_screen = ({
   const [myBetData, setMyBetData] = useState([]);
   useEffect(() => {
     socket.on("gameResult", (data) => {
+      console.log("game Result ===> ", data);
+
       if (activeKey === "game_history") {
         if (resultHistoryData != null) {
-          const addedData = resultHistoryData.reverse();
+          // const addedData = resultHistoryData.reverse();
           // addedData.pop();
           const newArray = (addedData) => {
             const updatedArray = addedData.slice(0, -1);

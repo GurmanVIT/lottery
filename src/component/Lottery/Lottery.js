@@ -453,8 +453,12 @@ const Lottery = () => {
             show={show}
             delay={2000}
             autohide
+            style={{ width: "68%", marginLeft: 36, marginTop: 10 }}
           >
-            <Toast.Body><img src={mark_ex} alt="mark_ex" />{messageText}</Toast.Body>
+            <Toast.Body>
+              <img src={mark_ex} alt="mark_ex" />
+              {messageText}
+            </Toast.Body>
           </Toast>
           <div className="back_img">
             <Link to="/Home_page">
@@ -595,19 +599,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>

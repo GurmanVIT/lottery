@@ -18,7 +18,10 @@ import submitFeedbackReducer from "./feedbackSlice";
 import activateAccountReducer from "./activateAccountSlice";
 import addQueryReducer from "./addQuerySlice";
 import uploadFileReducer from "./uploadFileSlice";
-import walletTransactionsReducer from "./walletTransactionSlice"
+import walletTransactionsReducer from "./walletTransactionSlice";
+import updateWalletAddressReducer from "./updateWalletAddressSlice";
+import apiWithdrawRequestReducer from "./withdrawRequestSlice";
+import submitWithdrawRequest from "./submitWithdrawRequestSlice";
 
 const store = configureStore({
   reducer: {
@@ -42,6 +45,9 @@ const store = configureStore({
     addQueryReducer: addQueryReducer,
     uploadFileReducer: uploadFileReducer,
     walletTransactionsReducer: walletTransactionsReducer,
+    updateWalletAddressReducer: updateWalletAddressReducer,
+    apiWithdrawRequestReducer: apiWithdrawRequestReducer,
+    submitWithdrawRequest: submitWithdrawRequest,
   },
 });
 

@@ -26,3 +26,6 @@ export const activateAccountApi = "v1/user/activateAccount";
 export const submitFeedback = "v1/user/submitFeedback";
 export const addQueryApi = "v1/user/submitQuery";
 export const walletTransactionApi = "v1/user/wallet_transactions";
+export const updateWalletAddressApi = "v1/user/update_wallet_address";
+export const withdrawRequestsApi = "v1/user/withdraw_requests";
+export const submitWithdrawRequestApi = "v1/user/submit_withdraw_request";
