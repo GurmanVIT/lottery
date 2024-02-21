@@ -16,7 +16,6 @@
             z-index: 1;
             width: 100%;
             max-width: 420px;
-            position: relative;
 
             img {
                 position: absolute;
@@ -46,9 +45,12 @@
         }
 
         .withdraw_balance_section {
-            padding: 20px 10px 30px;
+            padding: 70px 10px 30px;
             background-color: $page_bg;
-            padding-top: 12px;
+
+            @media($breakpoint_ESM) {
+                padding-top: 65px;
+            }
 
             .usdt {
                 p {

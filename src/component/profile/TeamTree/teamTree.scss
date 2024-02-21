@@ -16,7 +16,6 @@
       z-index: 1;
       width: 100%;
       max-width: 420px;
-      position: relative;
 
       img {
         position: absolute;
@@ -36,8 +35,12 @@
     }
 
     .team_tree_section {
-      padding: 30px 15px;
+      padding: 70px 15px;
       background-color: $page_bg;
+
+      @media($breakpoint_ESM) {
+        padding-top: 65px;
+      }
 
       iframe {
         height: 550px;

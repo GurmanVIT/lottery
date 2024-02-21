@@ -16,7 +16,6 @@
             z-index: 1;
             width: 100%;
             max-width: 420px;
-            position: relative;
 
             img {
                 position: absolute;
@@ -36,8 +35,12 @@
         }
 
         .about_section {
-            padding: 30px 10px 30px;
+            padding: 70px 10px 30px;
             background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                margin-top: 65px;
+            }
 
             .privacy_policy {
                 font-size: 13px;

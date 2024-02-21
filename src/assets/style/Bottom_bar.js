@@ -55,7 +55,7 @@ const Bottom_bar = () => {
                     <Activity />
                     <p>Activity</p>
                 </div>
-                <div className='promotion_img' onClick={() => navigation('/promotion')}>
+                <div className='promotion_img' onClick={() => navigation(3, '/promotions')}>
                     <img src={Promotion} alt="Promotion" className='pro_img' />
                     <p>Promotion</p>
                 </div>
