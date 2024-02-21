@@ -30,6 +30,8 @@ const TeamTree = () => {
               }
               name="iframe_a"
               title="Iframe Example"
+              scrolling="no"
+              frameborder="0"
             ></iframe>
           </div>
         </div>

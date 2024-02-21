@@ -83,11 +83,12 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (searchParams != null) {
+    console.log("Search Param ===> ", searchParams);
+    if (searchParams.size > 0) {
       setSponsorId(searchParams.get("sponser_id"));
       setSelectedOption(searchParams.get("position").toLowerCase());
     }
-    if (signupSuccess != null && signupSuccess.status == 1) {
+    if (signupSuccess !== null && signupSuccess.status === 1) {
       localStorage.setItem("userId", signupSuccess.data._id);
       navigation("/otp");
     } else if (signupSuccess != null) {
@@ -180,7 +181,7 @@ const Register = () => {
                 />
               </FloatingLabel>
 
-              {email.length != 0 && !isValid ? (
+              {email.length !== 0 && !isValid ? (
                 <p style={{ color: "red" }}>Invalid email address</p>
               ) : (
                 ""
