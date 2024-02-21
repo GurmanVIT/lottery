@@ -36,7 +36,6 @@ const Login = () => {
 
   const navigation = useNavigate();
 
-
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
@@ -47,6 +46,7 @@ const Login = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    console.log("Token ==> ", token);
     if (token?.length > 0) {
       navigation("/home_page");
     }

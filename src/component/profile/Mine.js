@@ -31,6 +31,8 @@ import {
   activateAccount,
   clearDataActive,
 } from "../../redux/activateAccountSlice";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../utils/Colors";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -66,7 +68,8 @@ const Profile = () => {
       setProfileData(profileResponse.data);
       localStorage.setItem("email", profileResponse.data.email);
     } else {
-      navigation("/login");
+      logout();
+      alert("You logged-in on another device!");
     }
   }, [profileResponse]);
 
@@ -338,10 +341,11 @@ const Profile = () => {
             </div>
           </div>
         ) : (
-          <div
-            className="profile_width lottery"
-            style={{ height: "100vh" }}
-          ></div>
+          <div className="profile_width lottery" style={{ height: "100vh" }}>
+            <div className="main_loader">
+              <ClipLoader color={myColors.primaryColor} />
+            </div>
+          </div>
         )}
       </div>
     </>
