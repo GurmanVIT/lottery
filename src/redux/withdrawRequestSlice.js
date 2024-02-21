@@ -1,11 +1,7 @@
 // src/redux/slices/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import {
-  ApiBaseUrl,
-  withdrawRequestsApi,
-  withdraw_requestsApi,
-} from "../utils/Constants";
+import { ApiBaseUrl, withdrawRequestsApi } from "../utils/Constants";
 
 export const apiWithdrawRequest = createAsyncThunk(
   "apiWithdrawRequest",
@@ -17,8 +13,7 @@ export const apiWithdrawRequest = createAsyncThunk(
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWMzNzZkYzQ0NzY3YjZmYmVlMTM3ZDEiLCJlbWFpbCI6Imd1cm1hbkBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJndXIiLCJsYXN0TmFtZSI6Im1hbiIsImlhdCI6MTcwODI3MzU3MSwiZXhwIjoxNzA4MzU5OTcxfQ.baP8jFAbmPSN4M3pWSBBw_V2RZszYAh3gt8vOQZEyIs",
+          authorization: token,
         },
       };
       console.log("Config ===> ", config);

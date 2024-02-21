@@ -25,18 +25,16 @@ import WithdrawBalance from "./component/Lottery/WithdrawBalance/WithdrawBalance
 import UpdateWalletAddress from "./component/Lottery/UpdateWalletAddress/UpdateWalletAddress";
 import Transfer from "./component/Lottery/TransferUSDT/Transfer";
 import DepositHistory from "./component/Lottery/Deposit/DepositHistory/DepositHistory";
-import LinkMebmer from "./component/Lottery/LinkMember/LinkMember";
+import Transaction from "./component/Lottery/LinkMember/LinkMember";
 import MyTicket from "./component/Lottery/MyTiclket/MyTicket";
 import TicketSummery from "./component/Lottery/TicketSummery/TicketSummery";
 import BetHistory from "./component/profile/BetHistory/BetHistory";
 import TeamMember from "./component/profile/TeamMember/TeamMember";
 import TeamTree from "./component/profile/TeamTree/TeamTree";
 
-
 // export
 
 function App() {
-
   return (
     <Provider store={store}>
       <Router>
@@ -61,10 +59,13 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/withdraw_balance" element={<WithdrawBalance />} />
-          <Route path="/update_wallet_address" element={<UpdateWalletAddress />} />
+          <Route
+            path="/update_wallet_address"
+            element={<UpdateWalletAddress />}
+          />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/deposit_history" element={<DepositHistory />} />
-          <Route path="/link" element={<LinkMebmer />} />
+          <Route path="/transaction" element={<Transaction />} />
           <Route path="/my_ticket" element={<MyTicket />} />
           <Route path="/ticket_summery" element={<TicketSummery />} />
           <Route path="/bet_history" element={<BetHistory />} />

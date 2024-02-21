@@ -216,7 +216,10 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="card" onClick={() => navigation("/transfer")}>
+                  <div
+                    className="card"
+                    onClick={() => navigation("/transaction")}
+                  >
                     <div className="transfer_img">
                       <img src={transfer} alt="transfer" />
                     </div>
