@@ -55,7 +55,7 @@ const Register = () => {
 
   const dispatch = useDispatch();
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("L");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -258,7 +258,7 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
-                  disabled={isLoading}
+                  disabled={isLoading || searchParams.size > 0}
                   value={sponsorId}
                   onChange={(e) => setSponsorId(e.target.value)}
                 />
@@ -269,8 +269,9 @@ const Register = () => {
                 <label className="left">
                   <input
                     type="radio"
-                    value="l"
-                    checked={selectedOption === "l"}
+                    value="L"
+                    disabled={selectedOption !== "L"}
+                    checked={selectedOption === "L"}
                     onChange={handleOptionChange}
                   />
                   {"  "}Left
@@ -280,8 +281,9 @@ const Register = () => {
                   <input
                     className="ms-3"
                     type="radio"
-                    value="r"
-                    checked={selectedOption === "r"}
+                    value="R"
+                    disabled={selectedOption !== "R"}
+                    checked={selectedOption === "R"}
                     onChange={handleOptionChange}
                   />
                   {"   "}Right

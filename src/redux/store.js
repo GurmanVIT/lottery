@@ -22,6 +22,8 @@ import walletTransactionsReducer from "./walletTransactionSlice";
 import updateWalletAddressReducer from "./updateWalletAddressSlice";
 import apiWithdrawRequestReducer from "./withdrawRequestSlice";
 import submitWithdrawRequest from "./submitWithdrawRequestSlice";
+import directMemberListReducer from "./directMembersListSlice";
+import transactionListReducer from "./transactionListSlice";
 
 const store = configureStore({
   reducer: {
@@ -48,6 +50,8 @@ const store = configureStore({
     updateWalletAddressReducer: updateWalletAddressReducer,
     apiWithdrawRequestReducer: apiWithdrawRequestReducer,
     submitWithdrawRequest: submitWithdrawRequest,
+    directMemberListReducer: directMemberListReducer,
+    transactionListReducer: transactionListReducer,
   },
 });
 

@@ -32,16 +32,67 @@ const Tab_screen = ({
   useEffect(() => {
     socket.on("gameResult", (data) => {
       console.log("game Result ===> ", data);
+      if (gameType === 1) {
+        if (activeKey === "game_history") {
+          if (resultHistoryData != null) {
+            // const addedData = resultHistoryData.reverse();
+            // addedData.pop();
+            const newArray = (addedData) => {
+              const updatedArray = addedData.slice(0, -1);
+              return [data, ...updatedArray];
+            };
+            setHistoryData(newArray);
+          }
+        }
+      }
+    });
+    socket.on("gameResultThree", (data) => {
+      console.log("game ResultThree ===> ", data);
+      if (gameType === 3) {
+        if (activeKey === "game_history") {
+          if (resultHistoryData != null) {
+            // const addedData = resultHistoryData.reverse();
+            // addedData.pop();
+            const newArray = (addedData) => {
+              const updatedArray = addedData.slice(0, -1);
+              return [data, ...updatedArray];
+            };
+            setHistoryData(newArray);
+          }
+        }
+      }
+    });
+    socket.on("gameResultFive", (data) => {
+      console.log("game ResultFive ===> ", data);
 
-      if (activeKey === "game_history") {
-        if (resultHistoryData != null) {
-          // const addedData = resultHistoryData.reverse();
-          // addedData.pop();
-          const newArray = (addedData) => {
-            const updatedArray = addedData.slice(0, -1);
-            return [data, ...updatedArray];
-          };
-          setHistoryData(newArray);
+      if (gameType === 5) {
+        if (activeKey === "game_history") {
+          if (resultHistoryData != null) {
+            // const addedData = resultHistoryData.reverse();
+            // addedData.pop();
+            const newArray = (addedData) => {
+              const updatedArray = addedData.slice(0, -1);
+              return [data, ...updatedArray];
+            };
+            setHistoryData(newArray);
+          }
+        }
+      }
+    });
+    socket.on("gameResultTen", (data) => {
+      console.log("game Result Ten ===> ", data);
+
+      if (gameType === 10) {
+        if (activeKey === "game_history") {
+          if (resultHistoryData != null) {
+            // const addedData = resultHistoryData.reverse();
+            // addedData.pop();
+            const newArray = (addedData) => {
+              const updatedArray = addedData.slice(0, -1);
+              return [data, ...updatedArray];
+            };
+            setHistoryData(newArray);
+          }
         }
       }
     });

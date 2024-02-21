@@ -29,3 +29,5 @@ export const walletTransactionApi = "v1/user/wallet_transactions";
 export const updateWalletAddressApi = "v1/user/update_wallet_address";
 export const withdrawRequestsApi = "v1/user/withdraw_requests";
 export const submitWithdrawRequestApi = "v1/user/submit_withdraw_request";
+export const directMembersListApi = "v1/user/direct_members_list";
+export const walletTransactionsApi = "v1/user/wallet_transactions";
