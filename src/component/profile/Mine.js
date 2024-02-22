@@ -69,8 +69,8 @@ const Profile = () => {
       setProfileData(profileResponse.data);
       localStorage.setItem("email", profileResponse.data.email);
     } else if (profileResponse != null && profileResponse.status === 0) {
-      logout();
-      alert("You logged-in on another device!");
+      // logout();
+      // alert("You logged-in on another device!");
     }
   }, [profileResponse]);
 
