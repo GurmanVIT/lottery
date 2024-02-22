@@ -7,13 +7,17 @@
     height: 63px;
     background: $bottom_bar;
 
-    @media($breakpoint_350 ) {
-        height: 58px;
+    @media($breakpoint_ESM) {
+        height: 55px;
     }
 
     .navbar {
         background-color: $bottom_bar;
-        padding: 10px 0px 10px;
+        padding-top: 5px;
+
+        @media($breakpoint_ESM) {
+            padding-top: 0;
+        }
 
         .bottom_img {
             @include display (center, center);
@@ -33,6 +37,7 @@
             p {
                 color: $disable_button;
                 font-size: 12px;
+                margin-top: 3px;
 
                 @media($breakpoint_350) {
                     font-size: 11px;
@@ -49,36 +54,40 @@
             @include display (center, center);
             flex-direction: column;
             column-gap: 4px;
-            padding: 8px 23px 0px;
+            padding: 8px 19px 0px;
 
             @media($breakpoint_450) {
                 padding: 8px 16px 0px;
             }
 
             @media($breakpoint_ESM) {
-                margin-top: -35px;
+                margin-top: -43px;
             }
-
 
             @media($breakpoint_350) {
                 padding: 8px 11px 0px;
             }
 
             .pro_img {
+                box-shadow: 0px -13px 43px -15px rgba(255, 255, 255, 1);
+                background: $white;
+                padding: 4px;
+                border-radius: 50%;
+
                 @media($breakpoint_ESM) {
-                    width: 45px;
-                    height: 45px;
+                    width: 50px;
+                    height: 50px;
                 }
             }
 
             p {
                 color: $disable_button;
                 font-size: 13px;
-                margin-top: 9px;
+                margin-top: 5px;
 
-                @media($breakpoint_350) {
+                @media($breakpoint_ESM) {
                     font-size: 12px;
-                    margin-top: 9px;
+                    margin-bottom: 5px;
                 }
             }
         }
