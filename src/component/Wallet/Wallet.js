@@ -92,7 +92,7 @@ const Wallet = () => {
                         >
                             <Tab eventKey="left" title="Fund Wallet">
 
-                                <div className="card_amount">
+                                <div className="card_amount mb-2">
                                     <p>
                                         Name :{" "}
                                         {/* <span>
@@ -112,7 +112,7 @@ const Wallet = () => {
 
                             <Tab eventKey="right" title="Income Wallet">
 
-                                <div className="card_amount">
+                                <div className="card_amount mb-2">
                                     <p>
                                         Name :{" "}
                                         {/* <span>

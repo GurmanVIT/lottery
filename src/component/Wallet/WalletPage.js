@@ -2,7 +2,7 @@ import React from 'react'
 import Wallet from './Wallet'
 import Bottom_bar from '../Home/Bottom/Bottom_bar'
 
-const index = () => {
+const WalletPage = () => {
     return (
         <div className='home_page'>
             <Wallet />
@@ -11,4 +11,4 @@ const index = () => {
     )
 }
 
-export default index
+export default WalletPage;

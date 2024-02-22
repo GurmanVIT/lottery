@@ -291,7 +291,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation("/team_member")}>
+              <div className="game" onClick={() => navigation("/team_member")} style={{ cursor: "pointer" }}>
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>My Team Member</p>
@@ -301,7 +301,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation("/team_tree")}>
+              <div className="game" onClick={() => navigation("/team_tree")} style={{ cursor: "pointer" }}>
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>Matching Tree</p>
@@ -311,7 +311,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation("/refferal_deposit")}>
+              <div className="game" >
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>Refferal Deposit</p>
