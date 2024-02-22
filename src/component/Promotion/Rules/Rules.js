@@ -63,116 +63,129 @@ const Rules = () => {
                             <p>Team Deposit: Your downline deposits within one day.</p>
                         </div>
 
-                        <Table responsive>
-                            <thead>
-                                <tr>
-                                    <th>INVITE PEOPLE</th>
-                                    <th>DEPOSIT AMOUNT</th>
-                                    <th>BONUS</th>
-                                    <th>STATUS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Level-0
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                        <div className="level_table">
+                            <Table responsive>
+                                <thead>
+                                    <tr>
+                                        <th>Lvl</th>
+                                        <th>Inv-Pepl</th>
+                                        <th>Dep-Amut</th>
+                                        <th>Bonus</th>
+                                        <th>Sta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Level-0
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-1
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-1
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-2
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-2
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-3
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-3
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-4
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-4
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-5
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-5
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-6
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-6
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-7
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-8
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-8
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-9
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
+                                    <tr>
+                                        <td>Level-9
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Level-10
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-                            </tbody>
-                        </Table>
+                                    <tr>
+                                        <td>Level-10
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </div>
 
                         <div className="card_subordination mt-4">
                             <div className="number_one">

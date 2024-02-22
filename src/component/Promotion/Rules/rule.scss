@@ -102,34 +102,38 @@
                 }
             }
 
-            table {
-                border: 1px solid $primary;
+            .level_table {
+                width: 100%;
+                max-width: 400px;
+                white-space: nowrap;
+                overflow: hidden;
 
-                thead {
-                    background-color: $primary;
+                table {
+                    border: 1px solid $primary;
 
-                    th {
-                        color: $white;
-                        font-size: 13px;
-                        font-weight: 600;
-                        border: none;
-                        text-align: center;
+                    thead {
+                        background-color: $primary;
 
-                        @media($breakpoint_450) {
-                            font-size: 11px;
+                        th {
+                            color: $white;
+                            font-size: 13px;
+                            font-weight: 600;
+                            border: none;
+                            text-align: center;
                             padding: 8px 3px;
+
+                            @media($breakpoint_450) {
+                                font-size: 11px;
+                            }
                         }
                     }
-                }
 
-                tbody {
-                    td {
-                        font-size: 13px;
-                        text-align: center;
-                        border: 1px solid $primary;
-
-                        @media($breakpoint_ESM) {
-                            padding: 8px 4px;
+                    tbody {
+                        td {
+                            font-size: 13px;
+                            text-align: center;
+                            border: 1px solid $primary;
+                            padding: 8px 3px;
                         }
                     }
                 }
