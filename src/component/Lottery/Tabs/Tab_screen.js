@@ -31,7 +31,7 @@ const Tab_screen = ({
   const [myBetData, setMyBetData] = useState([]);
   useEffect(() => {
     socket.on("gameResult", (data) => {
-      console.log("game Result ===> ", data);
+      console.log("game Result 1===> ", data);
       if (gameType === 1) {
         if (activeKey === "game_history") {
           if (resultHistoryData != null) {

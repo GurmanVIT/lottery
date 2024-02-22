@@ -86,7 +86,7 @@ const Register = () => {
     console.log("Search Param ===> ", searchParams);
     if (searchParams.size > 0) {
       setSponsorId(searchParams.get("sponser_id"));
-      setSelectedOption(searchParams.get("position").toLowerCase());
+      setSelectedOption(searchParams.get("position"));
     }
     if (signupSuccess !== null && signupSuccess.status === 1) {
       localStorage.setItem("userId", signupSuccess.data._id);

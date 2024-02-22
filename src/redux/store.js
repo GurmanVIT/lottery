@@ -24,6 +24,7 @@ import apiWithdrawRequestReducer from "./withdrawRequestSlice";
 import submitWithdrawRequest from "./submitWithdrawRequestSlice";
 import directMemberListReducer from "./directMembersListSlice";
 import transactionListReducer from "./transactionListSlice";
+import promotionDataReducer from "./promotionDataSlice";
 
 const store = configureStore({
   reducer: {
@@ -52,6 +53,7 @@ const store = configureStore({
     submitWithdrawRequest: submitWithdrawRequest,
     directMemberListReducer: directMemberListReducer,
     transactionListReducer: transactionListReducer,
+    promotionDataReducer: promotionDataReducer,
   },
 });
 

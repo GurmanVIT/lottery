@@ -59,6 +59,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    console.log("profile");
     dispatch(profile());
   }, []);
 
@@ -67,7 +68,7 @@ const Profile = () => {
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
       localStorage.setItem("email", profileResponse.data.email);
-    } else {
+    } else if (profileResponse != null && profileResponse.status === 0) {
       logout();
       alert("You logged-in on another device!");
     }
@@ -115,7 +116,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (activateReducer != null && activateReducer.status === 1) {
-      dispatch(profile());
+      // dispatch(profile());
       dispatch(clearDataActive());
     }
   }, [activateReducer]);

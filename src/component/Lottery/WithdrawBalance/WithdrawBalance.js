@@ -10,6 +10,7 @@ import {
 } from "../../../redux/withdrawRequestSlice";
 import { resendOtpApi } from "../../../redux/resendOtpSlice";
 import { submitWithdrawRequest } from "../../../redux/submitWithdrawRequestSlice";
+import moment from "moment";
 
 const WithdrawBalance = () => {
   const navigation = useNavigate();
@@ -38,7 +39,7 @@ const WithdrawBalance = () => {
       withdrawRequestReducer != null &&
       withdrawRequestReducer.success === 1
     ) {
-      // setWithdrawRequest()
+      setWithdrawRequest(withdrawRequestReducer.data);
     }
   }, [withdrawRequestReducer]);
 
@@ -80,6 +81,35 @@ const WithdrawBalance = () => {
     }
   };
 
+  const getFormattedDateTime = (utcDate) => {
+    const timestampStr = new Date(utcDate);
+    // Convert to Indian time zone (IST)
+    // const timestamp = moment(timestampStr).tz("Asia/Kolkata");
+    const options = {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false, // Use 24-hour format
+    };
+
+    // Format the date as "2024-01-30"
+    const formattedDate = timestampStr.toLocaleDateString("en-IN", options);
+
+    const dateData = formattedDate.split(" ");
+
+    const createdTime = moment(dateData[1], "HH:mm:ss")
+      .add(5, "hours")
+      .add(30, "minutes");
+
+    const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
+
+    return formattedDate;
+  };
+
   return (
     <>
       <div className="withdraw_bls">
@@ -95,7 +125,13 @@ const WithdrawBalance = () => {
           <div className="withdraw_balance_section">
             <div className="usdt">
               <p>
-                Available Balance : <span>$195.735</span>
+                Available Balance :{" "}
+                <span>
+                  $
+                  {withdrawRequestData != null
+                    ? withdrawRequestData.incomeBalance
+                    : 0.0}
+                </span>
               </p>
             </div>
 
@@ -183,23 +219,34 @@ const WithdrawBalance = () => {
               </button>
             </div>
 
-            <div className="card_amount">
-              <p>
-                Amount : <span>853.0 USDT</span>
-              </p>
-              <p>
-                Admin Charges : <span>853</span>
-              </p>
-              <p>
-                Payable Amount : <span>853</span>
-              </p>
-              <p>
-                Staus : <span>853</span>
-              </p>
-              <p>
-                Date : <span>853</span>
-              </p>
-            </div>
+            {withdrawRequestData != null &&
+              withdrawRequestData.map((item, index) => (
+                <div className="card_amount">
+                  <p>
+                    Amount : <span>{item.amount} USDT</span>
+                  </p>
+                  <p>
+                    Admin Charges :{" "}
+                    <span>{item.amount - item.payable_amount}</span>
+                  </p>
+                  <p>
+                    Payable Amount : <span>{item.payable_amount}</span>
+                  </p>
+                  <p>
+                    Status :{" "}
+                    <span>
+                      {item.status === 0
+                        ? "Pending"
+                        : item.status === 1
+                        ? "Approved"
+                        : "Rejected"}
+                    </span>
+                  </p>
+                  <p>
+                    Date : <span>{getFormattedDateTime(item.createdAt)}</span>
+                  </p>
+                </div>
+              ))}
           </div>
         </div>
       </div>

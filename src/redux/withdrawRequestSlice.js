@@ -19,7 +19,7 @@ export const apiWithdrawRequest = createAsyncThunk(
       console.log("Config ===> ", config);
       console.log("Token ===>", config);
       const url = ApiBaseUrl + withdrawRequestsApi;
-      const response = await axios.post(url, config);
+      const response = await axios.get(url, config);
       console.log("Response ===>", response.data);
       return response.data;
     } catch (error) {
