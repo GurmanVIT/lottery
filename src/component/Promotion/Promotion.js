@@ -190,7 +190,7 @@ const Promotion = () => {
               </div>
             </div> */}
 
-            <div className="game" onClick={() => navigation("/rule")}>
+            <div className="game" onClick={() => navigation("/rule")} style={{ cursor: "pointer" }}>
               <div className="img_game">
                 <img src={rules} alt="rules" />
                 <p>Invitation rules</p>
