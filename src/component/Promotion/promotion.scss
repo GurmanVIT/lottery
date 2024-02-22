@@ -217,12 +217,16 @@
             }
 
             .game {
-                margin-top: 20px;
+                margin-top: 15px;
                 padding: 15px;
                 background-color: $white;
                 box-shadow: $input_shadow;
                 border-radius: 9px;
                 @include display(space-between, center);
+
+                @media($breakpoint_ESM) {
+                    margin-top: 12px;
+                }
 
                 .img_game {
                     @include display(center, center);
