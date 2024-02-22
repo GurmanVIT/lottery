@@ -133,6 +133,7 @@ const BetHistory = () => {
                         </div>
                     </div>
 
+
                     <div className='tab_btn'>
                         <button type='button' onClick={() => setActiveKey(1)} style={{
                             color: activeKey === 1 ? "#0d6efd" : "#707070",

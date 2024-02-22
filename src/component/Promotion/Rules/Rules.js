@@ -63,138 +63,15 @@ const Rules = () => {
                             <p>Team Deposit: Your downline deposits within one day.</p>
                         </div>
 
-                        <Table responsive>
-                            <thead>
-                                <tr>
-                                    <th>Agency Lvl</th>
-                                    <th>Team Number</th>
-                                    <th>Team Betting</th>
-                                    <th>Team Deposit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Level-0
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-1
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-2
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-3
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-4
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-5
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-6
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-7
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-8
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-9
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Level-10
-                                        {/* <img src={level_0} alt="level_0" /> */}
-                                    </td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-
-                        <div className="card_subordination mt-4">
-                            <div className="number_one">
-                                <h6>06</h6>
-                            </div>
-                            <p>The commission percentage depends on the membership level. The higher the membership level, the higher the bonus percentage. Different game types also have different payout percentages. </p>
-                            <p>The commission rate is specifically explained as follows</p>
-                        </div>
-
-                        <div className="Lottery_percentage">
-                            <h4>Lottery commission percentage</h4>
-                        </div>
-
-                        <div className="lottery_table">
+                        <div className="level_table">
                             <Table responsive>
                                 <thead>
                                     <tr>
-                                        <th>Commission level</th>
-                                        <th>Tier 1</th>
-                                        <th>Tier 2</th>
-                                        <th>Tier 3</th>
-                                        <th>Tier 4</th>
+                                        <th>Lvl</th>
+                                        <th>Inv-Pepl</th>
+                                        <th>Dep-Amut</th>
+                                        <th>Bonus</th>
+                                        <th>Sta</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -295,13 +172,126 @@ const Rules = () => {
                                         <td>0</td>
                                         <td>0</td>
                                         <td>0</td>
-                                        <td>0</td>
                                     </tr>
 
                                     <tr>
                                         <td>Level-10
                                             {/* <img src={level_0} alt="level_0" /> */}
                                         </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </div>
+
+                        <div className="card_subordination mt-4">
+                            <div className="number_one">
+                                <h6>06</h6>
+                            </div>
+                            <p>The commission percentage depends on the membership level. The higher the membership level, the higher the bonus percentage. Different game types also have different payout percentages. </p>
+                            <p>The commission rate is specifically explained as follows</p>
+                        </div>
+
+                        <div className="Lottery_percentage">
+                            <h4>Lottery commission percentage</h4>
+                        </div>
+
+                        <div className="lottery_table">
+                            <Table responsive>
+                                <thead>
+                                    <tr>
+                                        <th>Lvl</th>
+                                        <th>Dir</th>
+                                        <th>T-Size</th>
+                                        <th>T-Bet</th>
+                                        <th>T-Rec</th>
+                                        <th>L-Bonus</th>
+                                        <th>Sta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lvl-1
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lvl-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lvl-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lvl-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lvl-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lvl-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lvl-7
+                                            {/* <img src={level_0} alt="level_0" /> */}
+                                        </td>
+                                        <td>0</td>
+                                        <td>0</td>
                                         <td>0</td>
                                         <td>0</td>
                                         <td>0</td>

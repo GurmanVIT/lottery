@@ -643,6 +643,23 @@
                             width: 20px;
                         }
                     }
+
+                    h6 {
+                        background-color: $primary;
+                        padding: 6px 10px;
+                        font-size: 13px;
+                        margin-bottom: 0;
+                        border-radius: 4px;
+                        color: $white;
+                        @include display(center, center);
+
+                        img {
+                            width: 16px;
+                            height: 16px;
+                            margin-right: 5px;
+                            margin-top: -1px;
+                        }
+                    }
                 }
             }
 

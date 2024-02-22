@@ -7,9 +7,7 @@ import Wallet from '../../SVG/wallet';
 import { useNavigate } from 'react-router';
 
 
-
 const Bottom_bar = () => {
-
 
     const navigation = useNavigate();
 
@@ -55,11 +53,11 @@ const Bottom_bar = () => {
                     <Activity />
                     <p>Activity</p>
                 </div>
-                <div className='promotion_img' onClick={() => navigation('/promotion')}>
+                <div className='promotion_img' onClick={() => navigation('/promotion')} style={{ cursor: "pointer" }}>
                     <img src={Promotion} alt="Promotion" className='pro_img' />
                     <p>Promotion</p>
                 </div>
-                <div className='bottom_img'>
+                <div className='bottom_img' onClick={() => navigation('/wallet')}>
                     <Wallet />
                     <p>Wallet</p>
                 </div>
