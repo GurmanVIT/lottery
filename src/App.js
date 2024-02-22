@@ -33,7 +33,7 @@ import TeamMember from "./component/profile/TeamMember/TeamMember";
 import TeamTree from "./component/profile/TeamTree/TeamTree";
 import PromotionData from "./component/Promotion/Index";
 import Rules from "./component/Promotion/Rules/Rules";
-import Wallet from "./component/Wallet";
+import Wallet from "./component/Wallet/Wallet";
 
 // export
 
@@ -62,11 +62,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
           <Route path="/withdraw_balance" element={<WithdrawBalance />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route
-            path="/update_wallet_address"
-            element={<UpdateWalletAddress />}
-          />
+          <Route path="/update_wallet_address" element={<UpdateWalletAddress />} />
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/deposit_history" element={<DepositHistory />} />
           <Route path="/transaction" element={<Transaction />} />
@@ -77,6 +73,7 @@ function App() {
           <Route path="/team_tree" element={<TeamTree />} />
           <Route path="/promotion" element={<PromotionData />} />
           <Route path="/rule" element={<Rules />} />
+          <Route path="/wallet" element={<Wallet />} />
         </Routes>
       </Router>
     </Provider>

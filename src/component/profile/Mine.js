@@ -33,17 +33,23 @@ import {
 } from "../../redux/activateAccountSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
+import chips from "../../assets/img/chips.svg";
+import { refferalDeposit } from "../../redux/refferalDepositSlice";
+
+
 
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
+  const refferalDepositResponse = useSelector((state) => state.refferalDepositReducer.data);
   const activateReducer = useSelector(
     (state) => state.activateAccountReducer.data
   );
   const [profileData, setProfileData] = useState(null);
   const [changeActive, setChangeActive] = useState(true);
+  const [refferalDepositData, setRefferralDeposit] = useState(null);
 
   const logout = () => {
     localStorage.clear();
@@ -61,6 +67,7 @@ const Profile = () => {
   useEffect(() => {
     console.log("profile");
     dispatch(profile());
+    dispatch(refferalDeposit())
   }, []);
 
   useEffect(() => {
@@ -69,10 +76,17 @@ const Profile = () => {
       setProfileData(profileResponse.data);
       localStorage.setItem("email", profileResponse.data.email);
     } else if (profileResponse != null && profileResponse.status === 0) {
-      logout();
-      alert("You logged-in on another device!");
+      // logout();
+      // alert("You logged-in on another device!");
     }
   }, [profileResponse]);
+
+  useEffect(() => {
+    console.log("RefferalDeposit ===>", refferalDepositResponse)
+    if (refferalDepositResponse != null && refferalDepositResponse.success === 1) {
+      setRefferralDeposit(refferalDepositResponse.data)
+    }
+  }, [refferalDepositResponse])
 
   const getFormattedDateTime = (utcDate) => {
     const timestampStr = new Date(utcDate);
@@ -290,10 +304,20 @@ const Profile = () => {
               <div className="game" onClick={() => navigation("/team_tree")}>
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
-                  <p>Mathcing Tree</p>
+                  <p>Matching Tree</p>
                 </div>
                 <div className="next_img">
                   <img src={next} alt="next" />
+                </div>
+              </div>
+
+              <div className="game" onClick={() => navigation("/refferal_deposit")}>
+                <div className="img_game">
+                  <img src={game_static} alt="game_static" />
+                  <p>Refferal Deposit</p>
+                </div>
+                <div className="next_img">
+                  <h6><img src={chips} alt="chips" />{refferalDepositData !== null ? refferalDepositData[0].totalValue : 0.0}</h6>
                 </div>
               </div>
 

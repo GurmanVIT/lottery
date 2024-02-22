@@ -57,13 +57,13 @@ const Promotion = () => {
 
           <div className="promotions_section">
             <div className="agency">
-              <h3>{promotion.yesterday_total_commision}</h3>
+              <h3>{promotion != null ? promotion.yesterday_total_commision : 0.0}</h3>
               <div className="bg_total">
                 <h6>Yesterday's total commission</h6>
               </div>
               <p>Upgrade the level to increase commission income</p>
             </div>
-            <div className="direct_team">
+            {promotion != null && <div className="direct_team">
               <div className="deposit_direct">
                 <div className="direct">
                   <img src={team_group} alt="team_group" />
@@ -87,6 +87,7 @@ const Promotion = () => {
                     <p> Number of people making first deposit</p>
                   </div>
                 </div>
+
               </div>
 
               <div className="deposit_direct">
@@ -114,6 +115,7 @@ const Promotion = () => {
                 </div>
               </div>
             </div>
+            }
 
             <div className="mt-4 link_btn">
               <button type="button" className="login_button">
@@ -126,13 +128,13 @@ const Promotion = () => {
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=L"
+                  profileData.userId +
+                  "&position=L"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=L"
+                  profileData.userId +
+                  "&position=L"
                 );
               }}
             >
@@ -149,13 +151,13 @@ const Promotion = () => {
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=L"
+                  profileData.userId +
+                  "&position=L"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=R"
+                  profileData.userId +
+                  "&position=R"
                 );
               }}
             >
@@ -207,7 +209,7 @@ const Promotion = () => {
                 />{" "}
                 Promotion data
               </h5>
-              <div className="data_details">
+              {promotion != null && <div className="data_details">
                 <div className="total_number">
                   <div className="this_week">
                     <h6>{promotion.promotion_profit_this_week}</h6>
@@ -228,7 +230,7 @@ const Promotion = () => {
                     <p>Total number of subordinates in the team</p>
                   </div>
                 </div>
-              </div>
+              </div>}
             </div>
           </div>
         </div>

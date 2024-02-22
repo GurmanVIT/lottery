@@ -93,7 +93,7 @@ const TeamMember = () => {
               <Tab eventKey="left" title="Left">
                 {dataList != null &&
                   dataList.map((item, index) => (
-                    <div className="card_amount">
+                    <div className="card_amount mb-2">
                       <p>
                         Name :{" "}
                         <span>
@@ -114,7 +114,7 @@ const TeamMember = () => {
               <Tab eventKey="right" title="Right">
                 {dataList != null &&
                   dataList.map((item, index) => (
-                    <div className="card_amount">
+                    <div className="card_amount mb-2">
                       <p>
                         Name :{" "}
                         <span>
