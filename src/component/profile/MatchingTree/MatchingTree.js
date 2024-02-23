@@ -52,7 +52,7 @@ const MatchingTree = () => {
                             <div className="team_img2">
 
                                 <OverlayTrigger
-                                    placement="top"
+                                    placement="right"
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={leftCounter}
                                 >
@@ -64,7 +64,7 @@ const MatchingTree = () => {
 
 
                                 <OverlayTrigger
-                                    placement="top"
+                                    placement="left"
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={rightCounter}
                                 >

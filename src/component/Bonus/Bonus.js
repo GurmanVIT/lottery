@@ -9,16 +9,16 @@ const Bonus = () => {
     const [dropdownContent, setDropdownContent] = useState(null);
 
 
-    // const toggleDropdown = () => {
-    //     setIsOpen(!isOpen);
-    //     setTimeout(() => {
-    //         setDropdownContent(
-    //             <div className='down_item'>
-    //                 <p>Gurmandeep Singh</p>
-    //             </div>
-    //         );
-    //     }, 100);
-    // };
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+        setTimeout(() => {
+            setDropdownContent(
+                <div className='down_item'>
+                    <p>Gurmandeep Singh</p>
+                </div>
+            );
+        }, 100);
+    };
 
     return (
         <>
@@ -32,7 +32,7 @@ const Bonus = () => {
 
                     <div className="bonus_section">
 
-                        <div className="notification">
+                        <div className="notification" onClick={() => toggleDropdown()}>
                             <div className="img_notification">
                                 <img src={notification} alt="notification" />
                                 <p>Play & Earn</p>
