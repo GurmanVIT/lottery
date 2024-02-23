@@ -5,20 +5,6 @@ import next from '../../assets/img/next.svg';
 
 const Bonus = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [dropdownContent, setDropdownContent] = useState(null);
-
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-        setTimeout(() => {
-            setDropdownContent(
-                <div className='down_item'>
-                    <p>Gurmandeep Singh</p>
-                </div>
-            );
-        }, 100);
-    };
 
     return (
         <>
@@ -32,7 +18,7 @@ const Bonus = () => {
 
                     <div className="bonus_section">
 
-                        <div className="notification" onClick={() => toggleDropdown()}>
+                        <div className="notification">
                             <div className="img_notification">
                                 <img src={notification} alt="notification" />
                                 <p>Play & Earn</p>
@@ -42,11 +28,8 @@ const Bonus = () => {
                                 <img src={next} alt="next" />
                             </div>
                         </div>
-                        {isOpen && dropdownContent}
 
-                        <div
-                            className="notification"
-                        >
+                        <div className="notification">
                             <div className="img_notification">
                                 <img src={notification} alt="notification" />
                                 <p>Matching Bonus</p>

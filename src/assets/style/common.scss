@@ -28,6 +28,16 @@ body {
   height: 100%;
 }
 
+.float_img {
+  .floating_icon {
+    position: fixed;
+    z-index: 99999;
+    bottom: 90PX;
+    right: 70PX;
+  }
+}
+
+
 //home_page
 .home_page {
   max-width: 420px;

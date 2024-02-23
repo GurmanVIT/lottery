@@ -45,7 +45,7 @@
             .frame_card {
                 background-color: $white;
                 padding: 15px 15px 30px;
-                height: 450px;
+                height: 400px;
 
                 h5 {
                     font-size: 20px;
@@ -81,10 +81,10 @@
                     @include display(center, center);
 
                     img {
-                        height: 106px;
+                        height: 79px;
 
                         @media($breakpoint_ESM) {
-                            height: 95px;
+                            height: 70px;
                         }
                     }
                 }
