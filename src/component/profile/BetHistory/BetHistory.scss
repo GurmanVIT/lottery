@@ -16,7 +16,6 @@
             z-index: 1;
             width: 100%;
             max-width: 420px;
-            position: relative;
 
             img {
                 position: absolute;
@@ -50,8 +49,8 @@
             overflow: hidden;
             @include display(flex-start, center);
             overflow-x: scroll;
-
             white-space: nowrap;
+            padding-top: 50px;
 
             button {
                 border: none;

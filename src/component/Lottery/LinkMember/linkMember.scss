@@ -16,7 +16,6 @@
       z-index: 1;
       width: 100%;
       max-width: 420px;
-      position: relative;
 
       img {
         position: absolute;
@@ -47,7 +46,7 @@
 
     .link_member_section {
       background-color: $page_bg;
-      padding: 20px 15px;
+      padding: 70px 15px 20px;
 
       @media ($breakpoint_ESM) {
         padding: 15px 10px;
@@ -55,14 +54,11 @@
 
       .card_link {
         font-size: 14px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         padding: 15px;
         box-shadow: $input_shadow;
         border-radius: 4px;
         background-color: $white;
-        @media ($breakpoint_ESM) {
-          margin-bottom: 10px;
-        }
 
         p {
           font-size: 14px;
@@ -76,9 +72,11 @@
           .ellipsis {
             width: 230px;
             position: absolute;
+
             @media ($breakpoint_ESM) {
               width: 180px;
             }
+
             @media ($breakpoint_350) {
               width: 150px;
             }

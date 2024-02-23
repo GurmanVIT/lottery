@@ -1,0 +1,153 @@
+.team_tree {
+    @include display(center, center);
+
+    .header_team {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .team_tree_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .team_tree_section {
+            padding: 70px 15px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding-top: 65px;
+            }
+
+            .frame_card {
+                background-color: $white;
+                padding: 15px 15px 30px;
+                height: 450px;
+
+                h5 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    text-align: center;
+                    margin-bottom: 25px
+                }
+
+                .team_img {
+                    @include display(center, center);
+                    flex-direction: column;
+
+                    // &::after {
+                    //     content: "";
+                    //     position: absolute;
+                    //     width: 2px;
+                    //     height: 24px;
+                    //     top: 38.9%;
+                    //     background-color: $forgot;
+                    // }
+
+                    img {
+                        width: 62px;
+                        height: 62px;
+                    }
+
+                    p {
+                        margin: 3px 0 0;
+                    }
+                }
+
+                .road_map {
+                    @include display(center, center);
+
+                    img {
+                        height: 106px;
+                    }
+                }
+
+                .team_img2 {
+                    @include display(space-around, center);
+                    // margin-top: 35px;
+
+                    // &::after {
+                    //     content: "";
+                    //     position: absolute;
+                    //     width: 182px;
+                    //     height: 2px;
+                    //     top: 43%;
+                    //     background-color: $forgot;
+                    // }
+
+                    .team_left {
+                        margin-right: 120px;
+
+                        // &::after {
+                        //     content: "";
+                        //     position: absolute;
+                        //     width: 2px;
+                        //     height: 25px;
+                        //     top: 43%;
+                        //     background-color: $forgot;
+                        //     margin: 1px 0 0 24px;
+                        // }
+
+                        .team_img3 {
+                            width: 50px;
+                            height: 50px;
+                            margin-top: 10px;
+                        }
+
+                        p {
+                            margin: 3px 0 0;
+                            text-align: center;
+                        }
+                    }
+
+                    .team_right {
+
+                        // &::after {
+                        //     content: "";
+                        //     position: absolute;
+                        //     width: 2px;
+                        //     height: 25px;
+                        //     top: 43%;
+                        //     background-color: $forgot;
+                        //     margin: 1px 0 0 26px;
+                        // }
+
+                        .team_img4 {
+                            width: 50px;
+                            height: 50px;
+                            margin-top: 10px;
+                        }
+
+                        p {
+                            margin: 3px 0 0;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

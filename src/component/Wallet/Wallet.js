@@ -1,45 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../assets/img/back.svg";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+import flat from "../../assets/img/Flat.svg";
+import chips from "../../assets/img/chips.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { directMemberList } from "../../redux/directMembersListSlice";
+import { transactionList } from "../../redux/transactionListSlice";
 import moment from "moment";
-import { clearData } from "../../redux/transactionListSlice";
+
+
 
 const Wallet = () => {
+
     const navigation = useNavigate();
+
+    const transactionListData = useSelector(
+        (state) => state.transactionListReducer.data
+    );
+
+    const [transactionData, setTransactionData] = useState(null);
+
     const dispatch = useDispatch();
-    const [position, setPosition] = useState("L");
-
-    const myData = useSelector((state) => state.directMemberListReducer.data);
-    const [dataList, setDataList] = useState(null);
 
     useEffect(() => {
-        const payload = {
-            position: position,
-        };
-
-        dispatch(directMemberList(payload));
-    }, [position]);
+        dispatch(transactionList());
+    }, []);
 
     useEffect(() => {
-        console.log("directMemberListReducer ===> ", myData);
-        if (myData != null && myData.success === 1) {
-            setDataList(myData.data);
+        console.log("transactionListReducer ===> ", transactionListData);
+        if (transactionListData != null && transactionListData.success === 1) {
+            setTransactionData(transactionListData.data.transactions);
         }
-    }, [myData]);
-
-    const handleSelect = (key) => {
-        if (key === "left") {
-            dispatch(clearData());
-            setPosition("L");
-        } else {
-            dispatch(clearData());
-            setPosition("R");
-        }
-    };
+    }, [transactionListData]);
 
     const getFormattedDateTime = (utcDate) => {
         const timestampStr = new Date(utcDate);
@@ -83,53 +74,38 @@ const Wallet = () => {
                         </div>
                     </div>
 
+                    <div className="dapic_header"></div>
+
                     <div className="wallet_section">
-                        <Tabs
-                            defaultActiveKey="left"
-                            id="uncontrolled-tab-example"
-                            className="mb-3"
-                            onSelect={handleSelect}
-                        >
-                            <Tab eventKey="left" title="Fund Wallet">
+                        <div className="wallet_card">
+                            <div className="flat_img">
+                                <img src={flat} alt="flat" />
+                            </div>
+                            <h1><img src={chips} alt="chips" /> {" "}00</h1>
+                            <h4>Total Balance</h4>
+                        </div>
+                    </div>
 
-                                <div className="card_amount mb-2">
+                    <div className="link_member_section">
+                        <h5>Fund Transactions</h5>
+                        {transactionData != null &&
+                            transactionData.map((item, index) => (
+                                <div className="card_link">
                                     <p>
-                                        Name :{" "}
-                                        {/* <span>
-                                            {item.firstName} {item.lastName}
-                                        </span> */}
+                                        Amount : <span className="ellipsis">{item.amount}</span>
                                     </p>
                                     <p>
-                                        UserId :
-                                        {/* <span>{item.userId}</span> */}
+                                        Description :{" "}
+                                        <span className="ellipsis">{item.description}</span>
                                     </p>
                                     <p>
-                                        Joining Date :{" "}
-                                        {/* <span>{getFormattedDateTime(item.createdAt)}</span> */}
+                                        Date :{" "}
+                                        <span className="ellipsis">
+                                            {getFormattedDateTime(item.createdAt)}
+                                        </span>
                                     </p>
                                 </div>
-                            </Tab>
-
-                            <Tab eventKey="right" title="Income Wallet">
-
-                                <div className="card_amount mb-2">
-                                    <p>
-                                        Name :{" "}
-                                        {/* <span>
-                                            {item.firstName} {item.lastName}
-                                        </span> */}
-                                    </p>
-                                    <p>
-                                        UserId :
-                                        {/* <span>{item.userId}</span> */}
-                                    </p>
-                                    <p>
-                                        Joining Date :{" "}
-                                        {/* <span>{getFormattedDateTime(item.createdAt)}</span> */}
-                                    </p>
-                                </div>
-                            </Tab>
-                        </Tabs>
+                            ))}
                     </div>
                 </div>
             </div>

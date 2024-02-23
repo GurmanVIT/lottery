@@ -49,9 +49,9 @@ const Bottom_bar = () => {
                     <p>Home</p>
                     {/* <p style={{ color: value === 0 ? "#fff" : "#6A6A6A" }}>Home</p> */}
                 </div>
-                <div className='bottom_img'>
+                <div className='bottom_img' onClick={() => navigation('/bonus')}>
                     <Activity />
-                    <p>Activity</p>
+                    <p>Bonus</p>
                 </div>
                 <div className='promotion_img' onClick={() => navigation('/promotion')} style={{ cursor: "pointer" }}>
                     <img src={Promotion} alt="Promotion" className='pro_img' />
@@ -66,7 +66,7 @@ const Bottom_bar = () => {
                         stroke={"#6A6A6A"}
                     // stroke={value === 4 ? "#fff" : "#6A6A6A"} 
                     />
-                    <p>Mine</p>
+                    <p>Profile</p>
                     {/* <p style={{ color: value === 4 ? "#fff" : "#6A6A6A" }}>Mine</p> */}
                 </div>
             </div>

@@ -34,6 +34,9 @@ import TeamTree from "./component/profile/TeamTree/TeamTree";
 import PromotionData from "./component/Promotion/Index";
 import Rules from "./component/Promotion/Rules/Rules";
 import WalletPage from "./component/Wallet/WalletPage";
+import MatchingTree from "./component/profile/MatchingTree/MatchingTree";
+import Bonus from "./component/Bonus/Bonus";
+import BonusPage from "./component/Bonus/Index";
 
 // export
 
@@ -74,6 +77,8 @@ function App() {
           <Route path="/promotion" element={<PromotionData />} />
           <Route path="/rule" element={<Rules />} />
           <Route path="/wallet" element={<WalletPage />} />
+          <Route path="/matching_tree" element={<MatchingTree />} />
+          <Route path="/bonus" element={<BonusPage />} />
         </Routes>
       </Router>
     </Provider>

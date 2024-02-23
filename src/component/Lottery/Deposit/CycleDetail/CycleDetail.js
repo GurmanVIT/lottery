@@ -84,7 +84,6 @@ const CycleDetail = () => {
                             </div>
                         ))}
                     </div>
-
                 </div>
             </div>
         </>

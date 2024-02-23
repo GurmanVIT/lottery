@@ -55,7 +55,7 @@ const Register = () => {
 
   const dispatch = useDispatch();
 
-  const [selectedOption, setSelectedOption] = useState("L");
+  const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
