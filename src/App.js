@@ -35,8 +35,9 @@ import PromotionData from "./component/Promotion/Index";
 import Rules from "./component/Promotion/Rules/Rules";
 import WalletPage from "./component/Wallet/WalletPage";
 import MatchingTree from "./component/profile/MatchingTree/MatchingTree";
-import Bonus from "./component/Bonus/Bonus";
 import BonusPage from "./component/Bonus/Index";
+import floating_icon from '../src/assets/img/floating_icon.svg';
+
 
 // export
 
@@ -81,6 +82,9 @@ function App() {
           <Route path="/bonus" element={<BonusPage />} />
         </Routes>
       </Router>
+      <div class="float_img">
+        <img src={floating_icon} alt="floating_icon" class="floating_icon" />
+      </div>
     </Provider>
   );
 }
