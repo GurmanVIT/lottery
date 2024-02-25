@@ -36,18 +36,19 @@ import { myColors } from "../../utils/Colors";
 import chips from "../../assets/img/chips.svg";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
 
-
-
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
-  const refferalDepositResponse = useSelector((state) => state.refferalDepositReducer.data);
+  const refferalDepositResponse = useSelector(
+    (state) => state.refferalDepositReducer.data
+  );
   const activateReducer = useSelector(
     (state) => state.activateAccountReducer.data
   );
   const [profileData, setProfileData] = useState(null);
+  const [profileInfo, setInfoData] = useState(null);
   const [changeActive, setChangeActive] = useState(true);
   const [refferalDepositData, setRefferralDeposit] = useState(null);
 
@@ -66,12 +67,13 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(profile());
-    dispatch(refferalDeposit())
+    dispatch(refferalDeposit());
   }, []);
 
   useEffect(() => {
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
+      setInfoData(profileResponse.userInfo);
       localStorage.setItem("email", profileResponse.data.email);
     } else if (profileResponse != null && profileResponse.status === 0) {
       // logout();
@@ -80,10 +82,14 @@ const Profile = () => {
   }, [profileResponse]);
 
   useEffect(() => {
-    if (refferalDepositResponse != null && refferalDepositResponse.success === 1) {
-      setRefferralDeposit(refferalDepositResponse.data)
+    console.log("RefferalDeposit ===>", refferalDepositResponse);
+    if (
+      refferalDepositResponse != null &&
+      refferalDepositResponse.success === 1
+    ) {
+      setRefferralDeposit(refferalDepositResponse.data);
     }
-  }, [refferalDepositResponse])
+  }, [refferalDepositResponse]);
 
   const getFormattedDateTime = (utcDate) => {
     const timestampStr = new Date(utcDate);
@@ -126,6 +132,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    console.log("Active Data ===>", activateReducer);
     if (activateReducer != null && activateReducer.status === 1) {
       // dispatch(profile());
       dispatch(clearDataActive());
@@ -135,7 +142,7 @@ const Profile = () => {
   return (
     <>
       <div className="profile lottery_page">
-        {profileData != null ? (
+        {profileData != null && profileInfo != null ? (
           <div className="profile_width lottery" style={{ height: "100vh" }}>
             {/* <ToastContainer /> */}
             <div className="mine">
@@ -172,13 +179,15 @@ const Profile = () => {
             <div className="sec_padding">
               <div className="active_card">
                 <p>
-                  {profileData.paidStatus === 0
+                  {profileInfo.paidStatus === 0
                     ? "This account is not activate"
                     : "This account is activate"}
                 </p>
                 {/* <p>This account is not activate</p> */}
-                {profileData.paidStatus === 0 && (
-                  <button type="button">Active Now</button>
+                {profileInfo.paidStatus === 0 && (
+                  <button type="button" onClick={() => onActiveClick()}>
+                    Active Now
+                  </button>
                 )}
               </div>
               <div className="balance">
@@ -288,7 +297,11 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation("/team_member")} style={{ cursor: "pointer" }}>
+              <div
+                className="game"
+                onClick={() => navigation("/team_member")}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>My Team Member</p>
@@ -298,7 +311,11 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" onClick={() => navigation("/team_tree")} style={{ cursor: "pointer" }}>
+              <div
+                className="game"
+                onClick={() => navigation("/team_tree")}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>Matching Tree</p>
@@ -308,13 +325,18 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game" >
+              <div className="game">
                 <div className="img_game">
                   <img src={game_static} alt="game_static" />
                   <p>Refferal Deposit</p>
                 </div>
                 <div className="next_img">
-                  <h6><img src={chips} alt="chips" />{refferalDepositData !== null ? refferalDepositData[0] : 0.0}</h6>
+                  <h6>
+                    <img src={chips} alt="chips" />
+                    {refferalDepositData !== null
+                      ? refferalDepositData[0].totalValue
+                      : 0.0}
+                  </h6>
                 </div>
               </div>
 

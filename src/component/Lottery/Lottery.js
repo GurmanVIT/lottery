@@ -298,11 +298,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        if (second < 7) {
-          setIsPlaying(true);
-        } else if (data.gameTimer === 1) {
-          setIsPlaying(false);
-        }
+        // if (second < 7) {
+        //   setIsPlaying(true);
+        // } else if (data.gameTimer === 1) {
+        //   setIsPlaying(false);
+        // }
       }
     });
 
@@ -316,11 +316,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        if (second < 7) {
-          setIsPlaying(true);
-        } else if (data.gameTimer === 1) {
-          setIsPlaying(false);
-        }
+        // if (second < 7) {
+        //   setIsPlaying(true);
+        // } else if (data.gameTimer === 1) {
+        //   setIsPlaying(false);
+        // }
       }
     });
 
@@ -334,11 +334,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        if (second < 7) {
-          setIsPlaying(true);
-        } else if (data.gameTimer === 1) {
-          setIsPlaying(false);
-        }
+        // if (second < 7) {
+        //   setIsPlaying(true);
+        // } else if (data.gameTimer === 1) {
+        //   setIsPlaying(false);
+        // }
       }
     });
 
@@ -352,11 +352,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        if (second < 7) {
-          setIsPlaying(true);
-        } else if (data.gameTimer === 1) {
-          setIsPlaying(false);
-        }
+        // if (second < 7) {
+        //   setIsPlaying(true);
+        // } else if (data.gameTimer === 1) {
+        //   setIsPlaying(false);
+        // }
       }
     });
 
@@ -437,7 +437,6 @@ const Lottery = () => {
 
     setOpenModal(false);
   };
-
 
   return (
     <div className="lottery_page">
@@ -594,19 +593,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>

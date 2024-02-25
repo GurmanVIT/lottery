@@ -56,65 +56,67 @@ const Promotion = () => {
 
           <div className="promotions_section">
             <div className="agency">
-              <h3>{promotion != null ? promotion.yesterday_total_commision : 0.0}</h3>
+              <h3>
+                {promotion != null ? promotion.yesterday_total_commision : 0.0}
+              </h3>
               <div className="bg_total">
                 <h6>Yesterday's total commission</h6>
               </div>
               <p>Upgrade the level to increase commission income</p>
             </div>
-            {promotion != null && <div className="direct_team">
-              <div className="deposit_direct">
-                <div className="direct">
-                  <img src={team_group} alt="team_group" />
-                  <h6>Direct subordinates</h6>
-                </div>
-                <div className="p-3 pb-1">
-                  <div className="register_number">
-                    <h6>{promotion.directs_number_of_registration}</h6>
-                    <p> number of register</p>
+            {promotion != null && (
+              <div className="direct_team">
+                <div className="deposit_direct">
+                  <div className="direct">
+                    <img src={team_group} alt="team_group" />
+                    <h6>Direct subordinates</h6>
                   </div>
-                  <div className="register_number">
-                    <h6>{promotion.directs_number_of_deposit}</h6>
-                    <p> Deposit number</p>
-                  </div>
-                  <div className="register_number">
-                    <h6>{promotion.directs_deposit_amount}</h6>
-                    <p> Deposit amount</p>
-                  </div>
-                  <div className="register_number">
-                    <h6>{promotion.directs_first_deposit}</h6>
-                    <p> Number of people making first deposit</p>
+                  <div className="p-3 pb-1">
+                    <div className="register_number">
+                      <h6>{promotion.directs_number_of_registration}</h6>
+                      <p> number of register</p>
+                    </div>
+                    <div className="register_number">
+                      <h6>{promotion.directs_number_of_deposit}</h6>
+                      <p> Deposit number</p>
+                    </div>
+                    <div className="register_number">
+                      <h6>{promotion.directs_deposit_amount}</h6>
+                      <p> Deposit amount</p>
+                    </div>
+                    <div className="register_number">
+                      <h6>{promotion.directs_first_deposit}</h6>
+                      <p> Number of people making first deposit</p>
+                    </div>
                   </div>
                 </div>
 
-              </div>
-
-              <div className="deposit_direct">
-                <div className="direct people">
-                  <img src={team_group} alt="team_group" />
-                  <h6>Team subordinates</h6>
+                <div className="deposit_direct">
+                  <div className="direct people">
+                    <img src={team_group} alt="team_group" />
+                    <h6>Team subordinates</h6>
+                  </div>
+                  <div className="p-3 pb-1 border_left">
+                    <div className="register_number">
+                      <h6>{promotion.team_number_of_registration}</h6>
+                      <p> number of register</p>
+                    </div>
+                    <div className="Deposit_number">
+                      <h6>{promotion.team_number_of_deposit}</h6>
+                      <p> Deposit number</p>
+                    </div>
+                    <div className="amount_number">
+                      <h6>{promotion.team_first_deposit}</h6>
+                      <p> Deposit amount</p>
+                    </div>
+                    <div className="people_number">
+                      <h6>0</h6>
+                      <p> Number of people making first deposit</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-3 pb-1 border_left">
-                  <div className="register_number">
-                    <h6>{promotion.team_number_of_registration}</h6>
-                    <p> number of register</p>
-                  </div>
-                  <div className="Deposit_number">
-                    <h6>{promotion.team_number_of_deposit}</h6>
-                    <p> Deposit number</p>
-                  </div>
-                  <div className="amount_number">
-                    <h6>{promotion.team_first_deposit}</h6>
-                    <p> Deposit amount</p>
-                  </div>
-                  <div className="people_number">
-                    <h6>0</h6>
-                    <p> Number of people making first deposit</p>
-                  </div>
-                </div>
               </div>
-            </div>
-            }
+            )}
 
             <div className="mt-4 link_btn">
               <button type="button" className="login_button">
@@ -127,13 +129,13 @@ const Promotion = () => {
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
-                  profileData.userId +
-                  "&position=L"
+                    profileData.userId +
+                    "&position=L"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
-                  profileData.userId +
-                  "&position=L"
+                    profileData.userId +
+                    "&position=L"
                 );
               }}
             >
@@ -150,13 +152,13 @@ const Promotion = () => {
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
-                  profileData.userId +
-                  "&position=L"
+                    profileData.userId +
+                    "&position=L"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
-                  profileData.userId +
-                  "&position=R"
+                    profileData.userId +
+                    "&position=R"
                 );
               }}
             >
@@ -189,7 +191,11 @@ const Promotion = () => {
               </div>
             </div> */}
 
-            <div className="game" onClick={() => navigation("/rule")} style={{ cursor: "pointer" }}>
+            <div
+              className="game"
+              onClick={() => navigation("/rule")}
+              style={{ cursor: "pointer" }}
+            >
               <div className="img_game">
                 <img src={rules} alt="rules" />
                 <p>Invitation rules</p>
@@ -208,28 +214,30 @@ const Promotion = () => {
                 />{" "}
                 Promotion data
               </h5>
-              {promotion != null && <div className="data_details">
-                <div className="total_number">
-                  <div className="this_week">
-                    <h6>{promotion.promotion_profit_this_week}</h6>
-                    <p>This Week</p>
+              {promotion != null && (
+                <div className="data_details">
+                  <div className="total_number">
+                    <div className="this_week">
+                      <h6>{promotion.promotion_profit_this_week}</h6>
+                      <p>This Week</p>
+                    </div>
+                    <div className="this_week">
+                      <h6>{promotion.this_week_directs}</h6>
+                      <p>Direct subordinate</p>
+                    </div>
                   </div>
-                  <div className="this_week">
-                    <h6>{promotion.this_week_directs}</h6>
-                    <p>Direct subordinate</p>
+                  <div className="total_number">
+                    <div className="this_week">
+                      <h6>{promotion.total_commision}</h6>
+                      <p>Total commission</p>
+                    </div>
+                    <div className="this_week">
+                      <h6>{promotion.total_team_members}</h6>
+                      <p>Total number of subordinates in the team</p>
+                    </div>
                   </div>
                 </div>
-                <div className="total_number">
-                  <div className="this_week">
-                    <h6>{promotion.total_commision}</h6>
-                    <p>Total commission</p>
-                  </div>
-                  <div className="this_week">
-                    <h6>{promotion.total_team_members}</h6>
-                    <p>Total number of subordinates in the team</p>
-                  </div>
-                </div>
-              </div>}
+              )}
             </div>
           </div>
         </div>

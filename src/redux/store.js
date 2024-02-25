@@ -27,6 +27,7 @@ import transactionListReducer from "./transactionListSlice";
 import promotionDataReducer from "./promotionDataSlice";
 import refferalDepositReducer from "./refferalDepositSlice";
 import inviteBonusSheetReducer from "./inviteBonusSheetSlice";
+import getInvitationBonusReducer from "./invitationBonusSlice";
 
 const store = configureStore({
   reducer: {
@@ -58,6 +59,7 @@ const store = configureStore({
     promotionDataReducer: promotionDataReducer,
     refferalDepositReducer: refferalDepositReducer,
     inviteBonusSheetReducer: inviteBonusSheetReducer,
+    getInvitationBonusReducer: getInvitationBonusReducer,
   },
 });
 
