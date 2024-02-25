@@ -4,6 +4,8 @@
     .screen_otp {
         width: 100%;
         max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
 
         .logo {
             @include display(center, center);
@@ -52,7 +54,6 @@
         }
 
         .digit-group {
-            height: 100vh;
             background-color: $page_bg;
             padding: 40px 20px;
             text-align: center;

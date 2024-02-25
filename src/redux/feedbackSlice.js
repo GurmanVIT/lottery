@@ -17,7 +17,6 @@ export const submitFeedbackApi = createAsyncThunk(
       };
       const url = ApiBaseUrl + submitFeedback;
       const response = await axios.post(url, payload, config);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       throw error.response.data;

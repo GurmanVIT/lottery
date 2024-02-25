@@ -14,14 +14,12 @@ const Bottom_bar = () => {
     const [value, setValue] = useState(0);
 
     const onTabClick = (val, navigateTo) => {
-        console.log("Value ===> ", val)
         setValue(val);
         navigation(navigateTo);
 
     };
 
     useEffect(() => {
-        console.log("Value ===> ", value)
         setValue(value);
     }, [value])
 

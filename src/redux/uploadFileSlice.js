@@ -19,7 +19,6 @@ export const uploadFile = createAsyncThunk("uploadFile", async (image) => {
 
     return response.data;
   } catch (error) {
-    console.log("Upload Image Error ===> ", error.message);
     throw error;
   }
 });
@@ -43,7 +42,6 @@ const uploadFileSlice = createSlice({
         state.error = null;
       })
       .addCase(uploadFile.rejected, (state, action) => {
-        console.log("Upload Image Error ===> ", action.payload);
         state.loading = "idle";
         state.error = action.error.message;
       });

@@ -6,7 +6,6 @@ import { ApiBaseUrl, profileApi } from "../utils/Constants";
 export const profile = createAsyncThunk("profile", async () => {
   try {
     const token = localStorage.getItem("token");
-    console.log("Token ===>", token);
     const config = {
       headers: {
         "Access-Control-Allow-Origin": "*",

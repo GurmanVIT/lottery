@@ -1,12 +1,11 @@
 // src/redux/slices/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ApiBaseUrl, profileApi, promotionDataApi } from "../utils/Constants";
+import { ApiBaseUrl, promotionDataApi } from "../utils/Constants";
 
 export const promotionData = createAsyncThunk("promotionData", async () => {
   try {
     const token = localStorage.getItem("token");
-    console.log("Token ===>", token);
     const config = {
       headers: {
         "Access-Control-Allow-Origin": "*",

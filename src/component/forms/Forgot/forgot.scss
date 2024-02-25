@@ -4,6 +4,8 @@
     .screen_forgot {
         width: 100%;
         max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
 
         .logo {
             @include display(center, center);

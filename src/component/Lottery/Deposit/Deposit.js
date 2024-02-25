@@ -19,7 +19,6 @@ const Deposit = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Address data ===> ", data);
     if (data != null && data.status === 1) {
       setWalletAddress(data.walletAddress);
     }

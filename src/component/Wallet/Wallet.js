@@ -6,7 +6,8 @@ import chips from "../../assets/img/chips.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { transactionList } from "../../redux/transactionListSlice";
 import moment from "moment";
-
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../utils/Colors";
 
 
 const Wallet = () => {
@@ -26,7 +27,6 @@ const Wallet = () => {
     }, []);
 
     useEffect(() => {
-        console.log("transactionListReducer ===> ", transactionListData);
         if (transactionListData != null && transactionListData.success === 1) {
             setTransactionData(transactionListData.data.transactions);
         }
@@ -61,53 +61,62 @@ const Wallet = () => {
         return formattedDate;
     };
 
+
     return (
         <>
             <div className="wallet_inner">
-                <div className="header_wallet">
-                    <div className="header_flex">
-                        <div className="back_img" onClick={() => navigation(-1)}>
-                            <img src={back} alt="back" />
-                        </div>
-                        <div className="wallet_content">
-                            <h4>Wallet</h4>
-                        </div>
-                    </div>
-
-                    <div className="dapic_header"></div>
-
-                    <div className="wallet_section">
-                        <div className="wallet_card">
-                            <div className="flat_img">
-                                <img src={flat} alt="flat" />
+                {transactionData != null ? (
+                    <div className="header_wallet">
+                        <div className="header_flex">
+                            <div className="back_img" onClick={() => navigation(-1)}>
+                                <img src={back} alt="back" />
                             </div>
-                            <h1><img src={chips} alt="chips" /> {" "}00</h1>
-                            <h4>Total Balance</h4>
+                            <div className="wallet_content">
+                                <h4>Wallet</h4>
+                            </div>
+                        </div>
+
+                        <div className="dapic_header"></div>
+
+                        <div className="wallet_section">
+                            <div className="wallet_card">
+                                <div className="flat_img">
+                                    <img src={flat} alt="flat" />
+                                </div>
+                                <h1><img src={chips} alt="chips" /> {" "}00</h1>
+                                <h4>Total Balance</h4>
+                            </div>
+                        </div>
+
+                        <div className="link_member_section">
+                            <h5>Fund Transactions</h5>
+                            {transactionData != null &&
+                                transactionData.map((item, index) => (
+                                    <div className="card_link">
+                                        <p>
+                                            Amount : <span className="ellipsis">{item.amount}</span>
+                                        </p>
+                                        <p>
+                                            Description :{" "}
+                                            <span className="ellipsis">{item.description}</span>
+                                        </p>
+                                        <p>
+                                            Date :{" "}
+                                            <span className="ellipsis">
+                                                {getFormattedDateTime(item.createdAt)}
+                                            </span>
+                                        </p>
+                                    </div>
+                                ))}
                         </div>
                     </div>
-
-                    <div className="link_member_section">
-                        <h5>Fund Transactions</h5>
-                        {transactionData != null &&
-                            transactionData.map((item, index) => (
-                                <div className="card_link">
-                                    <p>
-                                        Amount : <span className="ellipsis">{item.amount}</span>
-                                    </p>
-                                    <p>
-                                        Description :{" "}
-                                        <span className="ellipsis">{item.description}</span>
-                                    </p>
-                                    <p>
-                                        Date :{" "}
-                                        <span className="ellipsis">
-                                            {getFormattedDateTime(item.createdAt)}
-                                        </span>
-                                    </p>
-                                </div>
-                            ))}
+                ) : (
+                    <div className="wallet_inner " style={{ height: "100vh" }}>
+                        <div className="main_loader">
+                            <ClipLoader color={myColors.primaryColor} />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </>
     );

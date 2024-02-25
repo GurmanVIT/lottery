@@ -30,48 +30,36 @@ const UpdateWalletAddress = () => {
     const payload = {
       email: email,
     };
-    console.log("Payload otp ===>", payload);
     dispatch(resendOtpApi(payload));
   };
 
   useEffect(() => {
-    console.log("Otp ===> ", resendOtpReducer);
     if (resendOtpReducer != null && resendOtpReducer.status === 1) {
       alert("Please check otp on your mail");
     }
   }, [resendOtpReducer]);
 
   useEffect(() => {
-    console.log("profileResponse ===>", profileResponse);
     if (profileResponse != null && profileResponse.status === 1) {
       setWalletAddress(profileResponse.data.withdrawAddress);
     }
   }, [profileResponse]);
 
   const onUpdateClick = () => {
-    console.log("api hit");
     if (otp === "") {
-      console.log("enter otp");
       alert("Please enter otp!");
     } else if (walletAddress === "") {
-      console.log("enter wallet");
       alert("Please enter WalletAddress!");
     } else {
-      console.log("enter hii");
       const payload = {
         wallet_address: walletAddress,
         otp: otp,
       };
-      console.log("update wallet ==>", payload);
       dispatch(updateWalletAddress(payload));
     }
   };
 
   useEffect(() => {
-    console.log(
-      "updateWalletAddressResponse ===> ",
-      updateWalletAddressResponse
-    );
     if (
       updateWalletAddressResponse != null &&
       updateWalletAddressResponse.success === 1
@@ -112,10 +100,10 @@ const UpdateWalletAddress = () => {
                 <img
                   src={copy}
                   alt="copy"
-                  // onClick={() => {
-                  //     navigator.clipboard.writeText();
-                  //     // alert("Address Copied");
-                  // }}
+                // onClick={() => {
+                //     navigator.clipboard.writeText();
+                //     // alert("Address Copied");
+                // }}
                 />
               </div>
             </div>

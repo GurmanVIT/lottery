@@ -124,7 +124,6 @@ const Lottery = () => {
   }, [skip]);
 
   useEffect(() => {
-    console.log("Game History ===> ", gameHistoryData);
     if (gameHistoryData != null && gameHistoryData.status === 1) {
       const data = gameHistoryData.data;
       setHistoryData(data);
@@ -178,7 +177,6 @@ const Lottery = () => {
       });
 
       socket.on("bet_placed", (data) => {
-        console.log("bet_Placed ===> ", data.walletPoints);
         setWalletBalance(data.walletPoints);
         setResult(!onResult);
       });
@@ -204,7 +202,6 @@ const Lottery = () => {
         // if (gameType === 1) {
         setWinOpen(true);
         setResult(!onResult);
-        console.log("winner ===>", data);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -237,7 +234,6 @@ const Lottery = () => {
         // if (gameType === 1) {
         setLoseOpen(true);
         setResult(!onResult);
-        console.log("looser ===>", data);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -411,8 +407,6 @@ const Lottery = () => {
         gameType: gameType,
         authorization: token,
       };
-
-      console.log("Bet_Place ===> ", betData);
 
       socket.emit("bet_place", betData);
     } else if (selectedValue === "Big" || selectedValue === "Small") {

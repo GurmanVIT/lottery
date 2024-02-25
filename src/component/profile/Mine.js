@@ -65,13 +65,11 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    console.log("profile");
     dispatch(profile());
     dispatch(refferalDeposit())
   }, []);
 
   useEffect(() => {
-    console.log("profile response ===>", profileResponse);
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
       localStorage.setItem("email", profileResponse.data.email);
@@ -82,7 +80,6 @@ const Profile = () => {
   }, [profileResponse]);
 
   useEffect(() => {
-    console.log("RefferalDeposit ===>", refferalDepositResponse)
     if (refferalDepositResponse != null && refferalDepositResponse.success === 1) {
       setRefferralDeposit(refferalDepositResponse.data)
     }
@@ -317,7 +314,7 @@ const Profile = () => {
                   <p>Refferal Deposit</p>
                 </div>
                 <div className="next_img">
-                  <h6><img src={chips} alt="chips" />{refferalDepositData !== null ? refferalDepositData[0].totalValue : 0.0}</h6>
+                  <h6><img src={chips} alt="chips" />{refferalDepositData !== null ? refferalDepositData[0] : 0.0}</h6>
                 </div>
               </div>
 

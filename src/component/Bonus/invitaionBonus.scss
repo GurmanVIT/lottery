@@ -1,0 +1,274 @@
+.invitaion_bonus {
+    @include display(center, center);
+
+    .header_invitaion_bonus {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .invitaion_bonus_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .invitaion_bonus_section {
+            padding: 70px 15px 25px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding-top: 65px;
+            }
+
+            .notification {
+                margin-bottom: 20px;
+                padding: 12px;
+                background-color: $white;
+                box-shadow: $input_shadow;
+                border-radius: 9px;
+                @include display(space-between, center);
+                cursor: pointer;
+
+                .img_notification {
+                    @include display(center, center);
+                    column-gap: 13px;
+
+                    .non_rotate {
+                        transform: rotate(90deg);
+                    }
+
+                    .rotate {
+                        transform: rotate(180deg);
+                    }
+
+                    p {
+                        font-weight: 600;
+                        margin-bottom: 0;
+                        font-size: 14px;
+                    }
+                }
+
+                .number_noti {
+                    @include display(center, center);
+                    column-gap: 15px;
+
+                    @media($breakpoint_ESM) {
+                        column-gap: 8px;
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                        padding: 2px 10px;
+                        background-color: $primary;
+                        color: $white;
+                        border-radius: 50%;
+
+                        @media($breakpoint_ESM) {
+                            padding: 0px 7px;
+                            font-size: 14px;
+                        }
+                    }
+
+                    img {
+                        @media($breakpoint_ESM) {
+                            width: 20px;
+                        }
+                    }
+
+                }
+            }
+
+            .bonus_card {
+                background-color: $white;
+                border-radius: 14px;
+
+                .head_bonus {
+                    @include display(space-between, center);
+                    border-bottom: 1px solid $dark_watch;
+
+                    .bonus_bg {
+                        background-color: #babfe0;
+                        padding: 11px 12px 11px 10px;
+                        width: 150px;
+                        @include display(space-between, center);
+                        border-top-left-radius: 14px;
+
+                        @media($breakpoint_ESM) {
+                            width: 135px;
+                            padding-right: 7px;
+                            padding: 9px 12px 9px 10px;
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: $white;
+
+
+                            span {
+                                background-color: $white;
+                                width: 20px;
+                                border-radius: 50%;
+                                position: absolute;
+                                text-align: center;
+                                margin-left: 8px;
+                                font-weight: 600;
+                                color: #babfe0;
+                            }
+                        }
+
+                        .close_btn {
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+
+                    .right_number {
+                        padding: 10px 15px 10px 10px;
+                        color: $primary;
+                        font-size: 13px;
+                        font-weight: 600;
+
+                        @media($breakpoint_ESM) {
+                            padding: 9px 15px 9px 10px;
+                        }
+                    }
+                }
+
+                .bonus_around {
+                    padding: 15px 15px 25px;
+
+                    .numbers_one {
+                        width: 100%;
+                        margin-bottom: 10px;
+                        display: flex;
+                        background-color: #f6f6f6;
+                        padding: 5px 10px;
+
+                        p {
+                            margin-bottom: 0;
+                            font-size: 12px;
+                            width: 50%;
+                            text-align: center;
+                        }
+                    }
+
+                    .recharge_member {
+                        width: 100%;
+                        margin-bottom: 10px;
+                        display: flex;
+                        background-color: #f6f6f6;
+                        padding: 5px 10px;
+
+                        p {
+                            margin-bottom: 0;
+                            font-size: 12px;
+                            width: 50%;
+                            text-align: center;
+                        }
+                    }
+
+                    .border_center {
+                        margin: 30px 20px 25px;
+
+                        @media($breakpoint_ESM) {
+                            margin: 25px 15px 20px;
+                        }
+
+                        .border_width {
+                            border: 1px solid #babfe0;
+                        }
+                    }
+
+                    .invite_deposit {
+                        @include display(space-around, center);
+                        gap: 10px;
+                        margin-bottom: 15px;
+
+                        .invited_number {
+
+                            .number_two {
+                                font-size: 16px;
+                                color: $primary;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 15px;
+                                }
+                            }
+
+                            p {
+                                text-align: center;
+                                font-size: 14px;
+                                margin-bottom: 0;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+
+                        .deposit_number {
+
+                            .number_two {
+                                color: $primary;
+                                font-size: 16px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 15px;
+                                }
+                            }
+
+                            p {
+                                text-align: center;
+                                font-size: 14px;
+                                margin-bottom: 0;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+
+                    .finished_btn {
+                        button {
+                            width: 100%;
+                            padding: 8px 30px;
+                            border-radius: 24px;
+                            color: $white;
+                            background-color: #bfbfbf;
+                            border: none;
+                            font-weight: 600;
+                            letter-spacing: .6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

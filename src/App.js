@@ -36,7 +36,8 @@ import Rules from "./component/Promotion/Rules/Rules";
 import WalletPage from "./component/Wallet/WalletPage";
 import MatchingTree from "./component/profile/MatchingTree/MatchingTree";
 import BonusPage from "./component/Bonus/Index";
-import floating_icon from '../src/assets/img/floating_icon.svg';
+import InvitationBonus from "./component/Bonus/InvitationBonus";
+import InvitationRules from "./component/Bonus/InvitationRules/InvitationRules";
 
 
 // export
@@ -80,11 +81,11 @@ function App() {
           <Route path="/wallet" element={<WalletPage />} />
           <Route path="/matching_tree" element={<MatchingTree />} />
           <Route path="/bonus" element={<BonusPage />} />
+          <Route path="/invitation_bonus" element={<InvitationBonus />} />
+          <Route path="/invitation_rules" element={<InvitationRules />} />
         </Routes>
       </Router>
-      <div class="float_img">
-        <img src={floating_icon} alt="floating_icon" class="floating_icon" />
-      </div>
+
     </Provider>
   );
 }

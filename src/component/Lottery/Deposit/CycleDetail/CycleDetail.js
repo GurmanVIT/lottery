@@ -4,6 +4,8 @@ import back from '../../../../assets/img/back.svg';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useDispatch, useSelector } from 'react-redux';
 import { usdtDepositTransactions } from '../../../../redux/usdtDepositTransactionsSlice';
+import { ClipLoader } from "react-spinners";
+import { myColors } from '../../../../utils/Colors'
 
 
 const CycleDetail = () => {
@@ -31,7 +33,6 @@ const CycleDetail = () => {
 
     useEffect(() => {
         if (data != null && data.success === 1) {
-            console.log("Transaction Response ===> ", data)
             setTransactions(data.transactions)
         }
     }, [data])
@@ -65,26 +66,34 @@ const CycleDetail = () => {
     return (
         <>
             <div className="cycle">
-                <div className="header_cycle">
-                    <div className="header_flex">
-                        <div className="back_img" onClick={() => navigation(-1)}>
-                            <img src={back} alt="back" />
-                        </div>
-                        <div className="cycle_detail">
-                            <h4>Cycle Detail</h4>
-                        </div>
-                    </div>
-
-
-                    <div className='detail_section'>
-                        {transactions != null && transactions.map((item, index) => (
-                            <div class="dropdown_cycle">
-                                <button onClick={() => toggleDropdown(item, index)}>{formatDate(item.createdAt)} <span><KeyboardArrowDownIcon className={isOpen && selectedIndex === index ? 'rotate' : ''} /></span></button>
-                                {selectedIndex === index && dropdownContent}
+                {transactions != null ? (
+                    <div className="header_cycle">
+                        <div className="header_flex">
+                            <div className="back_img" onClick={() => navigation(-1)}>
+                                <img src={back} alt="back" />
                             </div>
-                        ))}
+                            <div className="cycle_detail">
+                                <h4>Cycle Detail</h4>
+                            </div>
+                        </div>
+
+
+                        <div className='detail_section'>
+                            {transactions != null && transactions.map((item, index) => (
+                                <div class="dropdown_cycle">
+                                    <button onClick={() => toggleDropdown(item, index)}>{formatDate(item.createdAt)} <span><KeyboardArrowDownIcon className={isOpen && selectedIndex === index ? 'rotate' : ''} /></span></button>
+                                    {selectedIndex === index && dropdownContent}
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <div className="cycle" style={{ height: "100vh" }}>
+                        <div className="main_loader">
+                            <ClipLoader color={myColors.primaryColor} />
+                        </div>
+                    </div>
+                )}
             </div>
         </>
     )

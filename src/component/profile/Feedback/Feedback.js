@@ -21,7 +21,6 @@ const Feedback = () => {
       alert("Please enter any description!");
     } else {
       const payload = { description: description, media: "" };
-      console.log(payload);
       dispatch(submitFeedbackApi(payload));
     }
   };

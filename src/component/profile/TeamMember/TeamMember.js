@@ -7,6 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { directMemberList } from "../../../redux/directMembersListSlice";
 import moment from "moment";
 import { clearData } from "../../../redux/transactionListSlice";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
+
 
 const TeamMember = () => {
   const navigation = useNavigate();
@@ -25,7 +28,6 @@ const TeamMember = () => {
   }, [position]);
 
   useEffect(() => {
-    console.log("directMemberListReducer ===> ", myData);
     if (myData != null && myData.success === 1) {
       setDataList(myData.data);
     }
@@ -73,67 +75,75 @@ const TeamMember = () => {
   return (
     <>
       <div className="team_member">
-        <div className="header_member">
-          <div className="header_flex">
-            <div className="back_img" onClick={() => navigation(-1)}>
-              <img src={back} alt="back" />
+        {dataList != null ? (
+          <div className="header_member">
+            <div className="header_flex">
+              <div className="back_img" onClick={() => navigation(-1)}>
+                <img src={back} alt="back" />
+              </div>
+              <div className="member_content">
+                <h4>Team Member</h4>
+              </div>
             </div>
-            <div className="member_content">
-              <h4>Team Member</h4>
+
+            <div className="team_member_section">
+              <Tabs
+                defaultActiveKey="left"
+                id="uncontrolled-tab-example"
+                className="mb-3"
+                onSelect={handleSelect}
+              >
+                <Tab eventKey="left" title="Left">
+                  {dataList != null &&
+                    dataList.map((item, index) => (
+                      <div className="card_amount mb-2">
+                        <p>
+                          Name :{" "}
+                          <span>
+                            {item.firstName} {item.lastName}
+                          </span>
+                        </p>
+                        <p>
+                          UserId : <span>{item.userId}</span>
+                        </p>
+                        <p>
+                          Joining Date :{" "}
+                          <span>{getFormattedDateTime(item.createdAt)}</span>
+                        </p>
+                      </div>
+                    ))}
+                </Tab>
+
+                <Tab eventKey="right" title="Right">
+                  {dataList != null &&
+                    dataList.map((item, index) => (
+                      <div className="card_amount mb-2">
+                        <p>
+                          Name :{" "}
+                          <span>
+                            {item.firstName} {item.lastName}
+                          </span>
+                        </p>
+                        <p>
+                          UserId : <span>{item.userId}</span>
+                        </p>
+                        <p>
+                          Joining Date :{" "}
+                          <span>{getFormattedDateTime(item.createdAt)}</span>
+                        </p>
+                      </div>
+                    ))}
+                </Tab>
+              </Tabs>
             </div>
           </div>
-
-          <div className="team_member_section">
-            <Tabs
-              defaultActiveKey="left"
-              id="uncontrolled-tab-example"
-              className="mb-3"
-              onSelect={handleSelect}
-            >
-              <Tab eventKey="left" title="Left">
-                {dataList != null &&
-                  dataList.map((item, index) => (
-                    <div className="card_amount mb-2">
-                      <p>
-                        Name :{" "}
-                        <span>
-                          {item.firstName} {item.lastName}
-                        </span>
-                      </p>
-                      <p>
-                        UserId : <span>{item.userId}</span>
-                      </p>
-                      <p>
-                        Joining Date :{" "}
-                        <span>{getFormattedDateTime(item.createdAt)}</span>
-                      </p>
-                    </div>
-                  ))}
-              </Tab>
-
-              <Tab eventKey="right" title="Right">
-                {dataList != null &&
-                  dataList.map((item, index) => (
-                    <div className="card_amount mb-2">
-                      <p>
-                        Name :{" "}
-                        <span>
-                          {item.firstName} {item.lastName}
-                        </span>
-                      </p>
-                      <p>
-                        UserId : <span>{item.userId}</span>
-                      </p>
-                      <p>
-                        Joining Date :{" "}
-                        <span>{getFormattedDateTime(item.createdAt)}</span>
-                      </p>
-                    </div>
-                  ))}
-              </Tab>
-            </Tabs>
+        ) : (
+          <div className="team_member" style={{ height: "100vh" }}>
+            <div className="main_loader">
+              <ClipLoader color={myColors.primaryColor} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

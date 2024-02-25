@@ -49,7 +49,6 @@ const BetHistory = () => {
 
 
     useEffect(() => {
-        console.log("MyHistory ===> ", myHistoryData)
         if (myHistoryData != null && myHistoryData.status === 1) {
             setMyBetData(myHistoryData.data);
         }

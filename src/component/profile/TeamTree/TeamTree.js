@@ -4,9 +4,11 @@ import back from "../../../assets/img/back.svg";
 import { useSelector } from "react-redux";
 
 const TeamTree = () => {
+
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
+
 
   return (
     <>

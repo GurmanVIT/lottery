@@ -12,6 +12,7 @@ export const loginUser = createAsyncThunk("loginUser", async (payload) => {
       },
     };
     const response = await axios.post(ApiBaseUrl + loginApi, payload, config);
+    console.log("uuuuu", response.data)
     return response.data;
   } catch (error) {
     throw error.response.data;

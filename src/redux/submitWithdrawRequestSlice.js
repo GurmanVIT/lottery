@@ -17,10 +17,8 @@ export const submitWithdrawRequest = createAsyncThunk(
       };
       const url = ApiBaseUrl + submitWithdrawRequestApi;
       const response = await axios.post(url, payload, config);
-      console.log("Response Submit withdraw===> ", response.data);
       return response.data;
     } catch (error) {
-      console.log("Error ===> ", error);
       throw error.response.data;
     }
   }

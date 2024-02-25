@@ -8,7 +8,6 @@ export const deleteNotifications = createAsyncThunk(
   async (payload) => {
     try {
       const token = localStorage.getItem("token");
-      console.log(token);
       const config = {
         headers: {
           "Access-Control-Allow-Origin": "*",

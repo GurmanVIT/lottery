@@ -1,8 +1,10 @@
 .register {
     .register_section {
         .secound_section {
+            height: 100vh;
+            background-color: $page_bg;
+
             .inner {
-                height: auto;
 
                 .flex_input {
                     .form-floating {

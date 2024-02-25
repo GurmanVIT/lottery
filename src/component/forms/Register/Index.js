@@ -17,7 +17,6 @@ import { myColors } from "../../../utils/Colors";
 
 const Register = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("sponser_id"));
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -83,7 +82,6 @@ const Register = () => {
   };
 
   useEffect(() => {
-    console.log("Search Param ===> ", searchParams);
     if (searchParams.size > 0) {
       setSponsorId(searchParams.get("sponser_id"));
       setSelectedOption(searchParams.get("position"));

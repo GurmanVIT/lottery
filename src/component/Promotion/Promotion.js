@@ -36,7 +36,6 @@ const Promotion = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Promotion Data ===>", promotionDataReducerData);
     if (
       promotionDataReducerData != null &&
       promotionDataReducerData.success === 1

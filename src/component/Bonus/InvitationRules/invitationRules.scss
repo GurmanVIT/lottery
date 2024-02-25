@@ -1,0 +1,91 @@
+.invitaion_rule {
+    @include display(center, center);
+
+    .header_invitaion_rule {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .invitaion_rule_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .invitaion_rule_section {
+            padding: 70px 15px 30px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding: 65px 10px 20px;
+            }
+
+            p {
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+
+            .invitaion_rule_table {
+                width: 100%;
+                max-width: 400px;
+                white-space: nowrap;
+                overflow: hidden;
+
+                table {
+
+                    thead {
+                        background-color: $primary;
+
+                        th {
+                            color: $white;
+                            font-size: 13px;
+                            font-weight: 600;
+                            border: none;
+                            text-align: center;
+                            padding: 10px 4px;
+
+                            @media($breakpoint_450) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        background-color: rgb(97 91 234 / 64%);
+
+                        td {
+                            color: $white;
+                            border-bottom: 1px solid $primary;
+                            font-size: 13px;
+                            width: 40px;
+                            padding: 8px 3px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

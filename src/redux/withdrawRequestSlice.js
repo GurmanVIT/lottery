@@ -16,14 +16,10 @@ export const apiWithdrawRequest = createAsyncThunk(
           authorization: token,
         },
       };
-      console.log("Config ===> ", config);
-      console.log("Token ===>", config);
       const url = ApiBaseUrl + withdrawRequestsApi;
       const response = await axios.get(url, config);
-      console.log("Response ===>", response.data);
       return response.data;
     } catch (error) {
-      console.log("Error ===> ", error);
       throw error.response.data;
     }
   }

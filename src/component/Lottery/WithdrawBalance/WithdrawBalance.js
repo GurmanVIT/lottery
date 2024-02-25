@@ -34,7 +34,6 @@ const WithdrawBalance = () => {
   }, []);
 
   useEffect(() => {
-    console.log("withdrawRequest ===> ", withdrawRequestReducer);
     if (
       withdrawRequestReducer != null &&
       withdrawRequestReducer.success === 1
@@ -48,12 +47,10 @@ const WithdrawBalance = () => {
     const payload = {
       email: email,
     };
-    console.log("Payload otp ===>", payload);
     dispatch(resendOtpApi(payload));
   };
 
   useEffect(() => {
-    console.log("Otp ===> ", resendOtpReducer);
     if (resendOtpReducer != null && resendOtpReducer.status === 1) {
       alert("Please check otp on your mail");
     }
@@ -155,10 +152,10 @@ const WithdrawBalance = () => {
                 <img
                   src={copy}
                   alt="copy"
-                  // onClick={() => {
-                  //     navigator.clipboard.writeText();
-                  //     // alert("Address Copied");
-                  // }}
+                // onClick={() => {
+                //     navigator.clipboard.writeText();
+                //     // alert("Address Copied");
+                // }}
                 />
               </div>
             </div>
@@ -238,8 +235,8 @@ const WithdrawBalance = () => {
                       {item.status === 0
                         ? "Pending"
                         : item.status === 1
-                        ? "Approved"
-                        : "Rejected"}
+                          ? "Approved"
+                          : "Rejected"}
                     </span>
                   </p>
                   <p>

@@ -17,7 +17,6 @@ const Bottom_bar = () => {
   };
 
   useEffect(() => {
-    console.log("Value ===> ", value);
     setValue(value);
   }, [value]);
 
@@ -39,7 +38,7 @@ const Bottom_bar = () => {
         <div className="bottom_img" onClick={() => onTabClick(0, "/home_page")}>
           <Home
             stroke={"#6A6A6A"}
-            // stroke={value === 0 ? "#fff" : "#6A6A6A"}
+          // stroke={value === 0 ? "#fff" : "#6A6A6A"}
           />
           <p>Home</p>
           {/* <p style={{ color: value === 0 ? "#fff" : "#6A6A6A" }}>Home</p> */}
@@ -62,7 +61,7 @@ const Bottom_bar = () => {
         <div className="bottom_img" onClick={() => onTabClick(4, "/profile")}>
           <Mine
             stroke={"#6A6A6A"}
-            // stroke={value === 4 ? "#fff" : "#6A6A6A"}
+          // stroke={value === 4 ? "#fff" : "#6A6A6A"}
           />
           <p>Mine</p>
           {/* <p style={{ color: value === 4 ? "#fff" : "#6A6A6A" }}>Mine</p> */}

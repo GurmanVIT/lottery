@@ -31,7 +31,6 @@ const Tab_screen = ({
   const [myBetData, setMyBetData] = useState([]);
   useEffect(() => {
     socket.on("gameResult", (data) => {
-      console.log("game Result 1===> ", data);
       if (gameType === 1) {
         if (activeKey === "game_history") {
           if (resultHistoryData != null) {
@@ -47,7 +46,6 @@ const Tab_screen = ({
       }
     });
     socket.on("gameResultThree", (data) => {
-      console.log("game ResultThree ===> ", data);
       if (gameType === 3) {
         if (activeKey === "game_history") {
           if (resultHistoryData != null) {
@@ -63,7 +61,6 @@ const Tab_screen = ({
       }
     });
     socket.on("gameResultFive", (data) => {
-      console.log("game ResultFive ===> ", data);
 
       if (gameType === 5) {
         if (activeKey === "game_history") {
@@ -80,7 +77,6 @@ const Tab_screen = ({
       }
     });
     socket.on("gameResultTen", (data) => {
-      console.log("game Result Ten ===> ", data);
 
       if (gameType === 10) {
         if (activeKey === "game_history") {
@@ -120,7 +116,6 @@ const Tab_screen = ({
     setActiveKey(key);
   };
   useEffect(() => {
-    console.log("My History data ===> ", myHistoryData);
     if (myHistoryData != null && myHistoryData.status === 1) {
       setMyBetData(myHistoryData.data);
     }
@@ -170,8 +165,8 @@ const Tab_screen = ({
         return myBetData[index].color === 1
           ? "green"
           : myBetData[index].color === 3
-          ? "red"
-          : "violet";
+            ? "red"
+            : "violet";
       } else if (myBetData[index].betType === 1) {
         return myBetData[index].betNumber === 1 ||
           myBetData[index].betNumber === 3 ||
@@ -182,8 +177,8 @@ const Tab_screen = ({
             myBetData[index].betNumber === 4 ||
             myBetData[index].betNumber === 6 ||
             myBetData[index].betNumber === 8
-          ? "red"
-          : "violet";
+            ? "red"
+            : "violet";
       } else {
         return myBetData[index].type === 1 ? "violet" : "white";
       }
@@ -429,10 +424,10 @@ const Tab_screen = ({
                             getBGColor(index) === "green"
                               ? myColors.green_color
                               : getBGColor(index) === "red"
-                              ? myColors.red_color
-                              : getBGColor(index) === "violet"
-                              ? myColors.primaryColor
-                              : myColors.txtWhite,
+                                ? myColors.red_color
+                                : getBGColor(index) === "violet"
+                                  ? myColors.primaryColor
+                                  : myColors.txtWhite,
                           color:
                             getBGColor(index) === "white"
                               ? myColors.primaryColor

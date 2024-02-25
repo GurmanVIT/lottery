@@ -21,7 +21,6 @@ const Transaction = () => {
   }, []);
 
   useEffect(() => {
-    console.log("transactionListReducer ===> ", transactionListData);
     if (transactionListData != null && transactionListData.success === 1) {
       setTransactionData(transactionListData.data.transactions);
     }

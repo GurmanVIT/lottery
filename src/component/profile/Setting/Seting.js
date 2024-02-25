@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import back from '../../../assets/img/back.svg';
 import card_emoji from '../../../assets/img/card_emoji.svg';
 import next from '../../../assets/img/next.svg';
@@ -80,8 +80,7 @@ const Setting = () => {
     return (
         <>
             <div className="setting">
-                {profileData != null && (
-
+                {profileData != null ? (
                     <div className="header_setting">
                         <div className="header_flex">
                             <div className="back_img" onClick={() => navigation(-1)}>
@@ -206,6 +205,12 @@ const Setting = () => {
                             </Modal>
                         </div>
                     </div >
+                ) : (
+                    <div className="setting" style={{ height: "100vh" }}>
+                        <div className="main_loader">
+                            <ClipLoader color={myColors.primaryColor} />
+                        </div>
+                    </div>
                 )}
             </div >
         </>

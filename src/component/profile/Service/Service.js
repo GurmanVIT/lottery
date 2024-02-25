@@ -27,7 +27,6 @@ const Service = () => {
   };
 
   useEffect(() => {
-    console.log(uploadFileData);
     if (uploadFileData != null) {
       setImageUrl(uploadFileData.Location);
     }
@@ -53,7 +52,6 @@ const Service = () => {
         description: description,
         media: imageUrl,
       };
-      console.log(payload);
       dispatch(addQuery(payload));
     }
   };
