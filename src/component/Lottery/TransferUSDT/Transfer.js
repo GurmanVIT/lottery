@@ -1,6 +1,7 @@
 import React from 'react';
 import back from '../../../assets/img/back.svg';
 import { useNavigate } from 'react-router';
+import dollar_img from '../../../assets/img/dollar_img.svg';
 
 
 const Transfer = () => {
@@ -44,7 +45,7 @@ const Transfer = () => {
                             </div>
                         </div>
                         <div className='available_balance'>
-                            <p>Available Balance : <span>$0.0</span></p>
+                            <p>Available Balance : <span><img src={dollar_img} alt='dollar_img' style={{ width: "21px", marginBottom: "2px" }} />{" "}0.0</span></p>
                         </div>
 
                         <div className='confirm_btn'>

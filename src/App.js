@@ -12,7 +12,7 @@ import ModalBottom from "./component/Lottery/BigSmall/OffCanvas/ModalBottom";
 import Profile from "./component/profile/Index";
 import WinPop from "./component/Lottery/WinPop";
 import LossPop from "./component/Lottery/LossPop";
-import Withdraw from "./component/Lottery/Withdraw/Withdraw";
+// import Withdraw from "./component/Lottery/Withdraw/Withdraw";
 import Deposit from "./component/Lottery/Deposit/Deposit";
 import Setting from "./component/profile/Setting/Seting";
 import ChangePassword from "./component/profile/Setting/ChangePassword/ChangePassword";
@@ -57,7 +57,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/winner" element={<WinPop />} />
           <Route path="/loss" element={<LossPop />} />
-          <Route path="/withdraw" element={<Withdraw />} />
+          {/* <Route path="/withdraw" element={<Withdraw />} /> */}
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/settings" element={<Setting />} />
           <Route path="/changePassword" element={<ChangePassword />} />

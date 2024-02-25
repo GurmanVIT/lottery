@@ -36,7 +36,6 @@
             }
 
             .notification {
-                margin-bottom: 10px;
                 // padding: 15px;
                 // background-color: $white;
                 // box-shadow: $input_shadow;
@@ -48,51 +47,6 @@
                 img {
                     width: 100%;
                 }
-
-                p {
-                    width: 100%;
-                    text-align: center;
-                    font-weight: 600;
-                    margin-bottom: 0;
-                    position: relative;
-                    z-index: 0;
-
-                    @media($breakpoint_ESM) {
-                        font-size: 14px;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        background: $white;
-                        width: calc(100% - 27px);
-                        padding: 25px;
-                        z-index: -1;
-                        bottom: -11px;
-                        left: 10px;
-                        border-radius: 0 0 10px 10px;
-                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-
-                        @media(max-width:407px) {
-                            width: calc(100% - 26px);
-                        }
-
-                        @media($breakpoint_ESM) {
-                            width: calc(100% - 24px);
-                            left: 9px;
-                        }
-
-                        @media($breakpoint_350) {
-                            width: calc(100% - 22px);
-                            left: 8px
-                        }
-
-                        @media(max-width:332px) {
-                            width: calc(100% - 21px);
-                        }
-                    }
-                }
-
 
                 // .img_notification {
                 //     @include display(center, center);

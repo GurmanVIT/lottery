@@ -1,5 +1,7 @@
 import React from 'react';
 import card_img2 from '../../../assets/img/card_emoji2.svg';
+import dollar_img from '../../../assets/img/dollar_img.svg';
+
 
 const Winner = () => {
     return (
@@ -14,7 +16,9 @@ const Winner = () => {
                         </div>
 
                         <div className='amount_winning'>
-                            <p><b>$2304.26</b></p>
+                            <p><b>
+                                <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px", marginRight: "2px" }} />2304.26
+                            </b></p>
                         </div>
                     </div>
                 </div>
@@ -28,7 +32,10 @@ const Winner = () => {
                         </div>
 
                         <div className='amount_winning'>
-                            <p><b>$2304.26</b></p>
+                            <p><b>
+                                <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px", marginRight: "2px" }} />
+                                2304.26
+                            </b></p>
                         </div>
                     </div>
                 </div>
@@ -42,7 +49,10 @@ const Winner = () => {
                         </div>
 
                         <div className='amount_winning'>
-                            <p><b>$2304.26</b></p>
+                            <p><b>
+                                <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px", marginRight: "2px" }} />
+                                2304.26
+                            </b></p>
                         </div>
                     </div>
                 </div>

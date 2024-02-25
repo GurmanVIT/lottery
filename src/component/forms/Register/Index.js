@@ -268,7 +268,7 @@ const Register = () => {
                   <input
                     type="radio"
                     value="L"
-                    disabled={selectedOption !== "L"}
+                    disabled={searchParams.size > 0 && selectedOption !== "L"}
                     checked={selectedOption === "L"}
                     onChange={handleOptionChange}
                   />
@@ -280,7 +280,7 @@ const Register = () => {
                     className="ms-3"
                     type="radio"
                     value="R"
-                    disabled={selectedOption !== "R"}
+                    disabled={searchParams.size > 0 && selectedOption !== "R"}
                     checked={selectedOption === "R"}
                     onChange={handleOptionChange}
                   />

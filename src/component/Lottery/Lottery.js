@@ -37,6 +37,8 @@ import { clearOtpData } from "../../redux/otpSlice";
 import { clearResendData } from "../../redux/resendOtpSlice";
 import { Toast } from "react-bootstrap";
 import mark_ex from "../../assets/img/mark_ex.png";
+import dollar_img from "../../assets/img/dollar_img.svg";
+
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -283,6 +285,12 @@ const Lottery = () => {
         socket.off("looserFive");
         socket.off("looserTen");
         socket.off("dummyText");
+        socket.off("touch_server");
+        socket.off("token_expired");
+        socket.off("gameResult");
+        socket.off("gameResultThree");
+        socket.off("gameResultFive");
+        socket.off("gameResultTen");
       };
     }
   }, []);
@@ -366,6 +374,14 @@ const Lottery = () => {
     });
 
     getGameHistory();
+    return () => {
+
+      socket.off("timerForward");
+      socket.off("timerForwardThree");
+      socket.off("timerForwardFive");
+      socket.off("timerForwardTen");
+      socket.off("dummyText");
+    };
   }, [gameType]);
 
   const selectTime = (time) => {
@@ -384,6 +400,9 @@ const Lottery = () => {
     // socket.off("looserTen");
 
     setGameType(time);
+
+
+
   };
 
   function splitIntoArray(num) {
@@ -477,7 +496,10 @@ const Lottery = () => {
             <div className="refresh">
               <img src={refresh} alt="refresh" />
             </div>
-            <h1>${walletBalance}.00</h1>
+            <h1>
+              <img src={dollar_img} alt="dollar_img" style={{ width: "28px", marginBottom: "3px", marginRight: "3px" }} />
+              {walletBalance}.00
+            </h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
               <h4>Wallet Balance</h4>
@@ -593,19 +615,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[1]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[1]
                       : splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]}
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>

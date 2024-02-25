@@ -11,6 +11,8 @@ import secound_gift_img from "../../assets/img/secound_gift_img.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import dollar_img from '../../assets/img/dollar_img.svg';
+
 
 const Home_page = () => {
   // const [token, setToken] = useState(null);
@@ -178,7 +180,10 @@ const Home_page = () => {
                 </div>
                 <div className="card_sec_flex">
                   <h6>Wining Amount</h6>
-                  <h5>$200.16</h5>
+                  <h5>
+                    <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px" }} />
+                    200.16
+                  </h5>
                 </div>
               </div>
             </div>
@@ -210,7 +215,10 @@ const Home_page = () => {
                 </div>
                 <div className="card_sec_flex">
                   <h6>Wining Amount</h6>
-                  <h5>$200.16</h5>
+                  <h5>
+                    <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px" }} />
+                    200.16
+                  </h5>
                 </div>
               </div>
             </div>

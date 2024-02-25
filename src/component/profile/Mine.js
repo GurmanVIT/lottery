@@ -33,7 +33,7 @@ import {
 } from "../../redux/activateAccountSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
-import chips from "../../assets/img/chips.svg";
+import dollar_img from "../../assets/img/dollar_img.svg";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
 
 const Profile = () => {
@@ -332,9 +332,9 @@ const Profile = () => {
                 </div>
                 <div className="next_img">
                   <h6>
-                    <img src={chips} alt="chips" />
+                    <img src={dollar_img} alt="dollar_img" />
                     {refferalDepositData !== null
-                      ? refferalDepositData[0].totalValue
+                      ? refferalDepositData.incomeBalance
                       : 0.0}
                   </h6>
                 </div>

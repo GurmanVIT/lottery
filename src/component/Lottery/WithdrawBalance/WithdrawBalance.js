@@ -11,6 +11,8 @@ import {
 import { resendOtpApi } from "../../../redux/resendOtpSlice";
 import { submitWithdrawRequest } from "../../../redux/submitWithdrawRequestSlice";
 import moment from "moment";
+import dollar_img from "../../../assets/img/dollar_img.svg";
+
 
 const WithdrawBalance = () => {
   const navigation = useNavigate();
@@ -124,7 +126,7 @@ const WithdrawBalance = () => {
               <p>
                 Available Balance :{" "}
                 <span>
-                  $
+                  <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px" }} />
                   {withdrawRequestData != null
                     ? withdrawRequestData.incomeBalance
                     : 0.0}
