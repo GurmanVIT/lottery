@@ -80,17 +80,17 @@ const Setting = () => {
     return (
         <>
             <div className="setting">
-                {profileData != null ? (
-                    <div className="header_setting">
-                        <div className="header_flex">
-                            <div className="back_img" onClick={() => navigation(-1)}>
-                                <img src={back} alt="back" />
-                            </div>
-                            <div className="setting_content">
-                                <h4>Settings Center</h4>
-                            </div>
+                <div className="header_setting">
+                    <div className="header_flex">
+                        <div className="back_img" onClick={() => navigation(-1)}>
+                            <img src={back} alt="back" />
                         </div>
+                        <div className="setting_content">
+                            <h4>Settings Center</h4>
+                        </div>
+                    </div>
 
+                    {profileData != null ? (
                         <div className='setting_section'>
                             <div className='card'>
                                 <div className='card_emoji_img'>
@@ -204,14 +204,14 @@ const Setting = () => {
                                 </div>
                             </Modal>
                         </div>
-                    </div >
-                ) : (
-                    <div className="setting" style={{ height: "100vh" }}>
-                        <div className="main_loader">
-                            <ClipLoader color={myColors.primaryColor} />
+                    ) : (
+                        <div className="setting_section" style={{ height: "100vh" }}>
+                            <div className="main_loader">
+                                <ClipLoader color={myColors.primaryColor} />
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div >
             </div >
         </>
     )

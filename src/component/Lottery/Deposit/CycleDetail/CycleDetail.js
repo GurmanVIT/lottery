@@ -25,7 +25,7 @@ const CycleDetail = () => {
 
 
     useEffect(() => {
-
+        console.log("guramn", data)
         dispatch(usdtDepositTransactions())
 
     }, [])
@@ -66,18 +66,17 @@ const CycleDetail = () => {
     return (
         <>
             <div className="cycle">
-                {transactions != null ? (
-                    <div className="header_cycle">
-                        <div className="header_flex">
-                            <div className="back_img" onClick={() => navigation(-1)}>
-                                <img src={back} alt="back" />
-                            </div>
-                            <div className="cycle_detail">
-                                <h4>Cycle Detail</h4>
-                            </div>
+                <div className="header_cycle">
+                    <div className="header_flex">
+                        <div className="back_img" onClick={() => navigation(-1)}>
+                            <img src={back} alt="back" />
                         </div>
+                        <div className="cycle_detail">
+                            <h4>Cycle Detail</h4>
+                        </div>
+                    </div>
 
-
+                    {transactions != null ? (
                         <div className='detail_section'>
                             {transactions != null && transactions.map((item, index) => (
                                 <div class="dropdown_cycle">
@@ -86,14 +85,14 @@ const CycleDetail = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
-                ) : (
-                    <div className="cycle" style={{ height: "100vh" }}>
-                        <div className="main_loader">
-                            <ClipLoader color={myColors.primaryColor} />
+                    ) : (
+                        <div className="detail_section" >
+                            <div className="main_loader">
+                                <ClipLoader color={myColors.primaryColor} />
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </>
     )

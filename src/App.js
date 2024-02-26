@@ -39,6 +39,7 @@ import BonusPage from "./component/Bonus/Index";
 import InvitationBonus from "./component/Bonus/InvitationBonus";
 import InvitationRules from "./component/Bonus/InvitationRules/InvitationRules";
 import Youtubes from "./component/Bonus/Youtube/Youtubes";
+import PlayEarnRules from "./component/Bonus/PlayEarnRules/PlayEarnRules";
 
 
 // export
@@ -85,6 +86,7 @@ function App() {
           <Route path="/invitation_bonus" element={<InvitationBonus />} />
           <Route path="/invitation_rules" element={<InvitationRules />} />
           <Route path="/youtube" element={<Youtubes />} />
+          <Route path="/play_earn_rule" element={<PlayEarnRules />} />
         </Routes>
       </Router>
 

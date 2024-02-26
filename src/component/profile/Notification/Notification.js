@@ -105,76 +105,80 @@ const Notification = () => {
   return (
     <>
       <div className="notifications">
-        {notificationData != null ? (
-          <div className="header_notification">
-            <div className="header_flex">
-              <div className="back_img" onClick={() => navigation(-1)}>
-                <img src={back} alt="back" />
-              </div>
-              <div className="setting_content">
-                <h4>Settings Center</h4>
-              </div>
+        <div className="header_notification">
+          <div className="header_flex">
+            <div className="back_img" onClick={() => navigation(-1)}>
+              <img src={back} alt="back" />
             </div>
-            <div className="card_notification">
-              {notificationData != null &&
-                notificationData.map((item, index) => (
-                  <div className="card" key={index}>
-                    <p>{getFormattedDateTime(item.upatedAt)}</p>
-                    <div className="login_notification">
-                      <div className="login_time_date">
-                        <h6>{item.title}</h6>
-                        <p>
-                          {item.text} {getFormattedDateTime(item.upatedAt)}
-                        </p>
-                      </div>
-                      <div
-                        className="delete_img"
-                        onClick={() => openDeleteModal(item._id)}
-                      >
-                        <img src={delete_img} alt="delete_img" />
+            <div className="setting_content">
+              <h4>Notifications</h4>
+            </div>
+          </div>
+          {notificationData != null ? (
+
+            <div className="card_notification_load">
+              <div className="card_notification">
+                {notificationData != null &&
+                  notificationData.map((item, index) => (
+                    <div className="card" key={index}>
+                      <p>{getFormattedDateTime(item.upatedAt)}</p>
+                      <div className="login_notification">
+                        <div className="login_time_date">
+                          <h6>{item.title}</h6>
+                          <p>
+                            {item.text} {getFormattedDateTime(item.upatedAt)}
+                          </p>
+                        </div>
+                        <div
+                          className="delete_img"
+                          onClick={() => openDeleteModal(item._id)}
+                        >
+                          <img src={delete_img} alt="delete_img" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-            </div>
+                  ))}
+              </div>
 
-            <Modal
-              isOpen={isWinOpen}
-              style={modal_notification}
-              onRequestClose={() => setWinOpen(false)}
-            >
-              <div className="change_nickname">
-                <h3>Delete Notification</h3>
-                <div className="nick_name">
-                  <div className="group_delete">
-                    <h4 className="delete_this">
-                      Do you want to delete this notification.{" "}
-                    </h4>
-                  </div>
+              <Modal
+                isOpen={isWinOpen}
+                style={modal_notification}
+                onRequestClose={() => setWinOpen(false)}
+              >
+                <div className="change_nickname">
+                  <h3>Delete Notification</h3>
+                  <div className="nick_name">
+                    <div className="group_delete">
+                      <h4 className="delete_this">
+                        Do you want to delete this notification.{" "}
+                      </h4>
+                    </div>
 
-                  <div className="cancel_delete_btn">
-                    <button
-                      className="cancel_btn"
-                      onClick={() => setWinOpen(false)}
-                    >
-                      Cancel
-                    </button>
+                    <div className="cancel_delete_btn">
+                      <button
+                        className="cancel_btn"
+                        onClick={() => setWinOpen(false)}
+                      >
+                        Cancel
+                      </button>
 
-                    <button className="delete_btn" onClick={() => deleteNoti()}>
-                      Delete
-                    </button>
+                      <button className="delete_btn" onClick={() => deleteNoti()}>
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Modal>
-          </div>
-        ) : (
-          <div className="notifications" style={{ height: "100vh" }}>
-            <div className="main_loader">
-              <ClipLoader color={myColors.primaryColor} />
+              </Modal>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="card_notification_load" style={{ height: "100vh" }}>
+              <div className="main_loader">
+                <ClipLoader color={myColors.primaryColor} />
+              </div>
+            </div>
+          )}
+        </div>
+
       </div>
     </>
   );

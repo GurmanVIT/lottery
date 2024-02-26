@@ -22,6 +22,10 @@ const Bonus = () => {
 
                     <div className="bonus_section">
 
+                        <div className="notification" onClick={() => navigation('/play_earn_rule')}>
+                            <img src={play_pause} alt="play_pause" />
+                        </div>
+
                         <div className="notification" onClick={() => navigation('/invitation_bonus')}>
                             <img src={invitation_bonus} alt="invitation_bonus" />
                         </div>
@@ -31,12 +35,25 @@ const Bonus = () => {
                         </div>
 
                         <div className="notification">
-                            <img src={play_pause} alt="play_pause" />
+                            <img src={surprise_gifts} alt="surprise_gifts" />
+                        </div>
+
+                        {/* 
+                        <div className="notification">
+                            <img src={matching_bonus} alt="matching_bonus" />
                         </div>
 
                         <div className="notification">
-                            <img src={surprise_gifts} alt="surprise_gifts" />
+                            <img src={activity_promotion} alt="activity_promotion" />
                         </div>
+
+                        <div className="notification">
+                            <img src={lottery_system} alt="lottery_system" />
+                        </div>
+
+                        <div className="notification">
+                            <img src={level_bonus} alt="level_bonus" />
+                        </div> */}
 
                     </div>
                 </div>

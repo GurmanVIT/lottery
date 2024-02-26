@@ -33,7 +33,7 @@ import {
 } from "../../redux/activateAccountSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
-import dollar_img from "../../assets/img/dollar_img.svg";
+import dollar_img from "../../assets/img/dollar_img.png";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
 
 

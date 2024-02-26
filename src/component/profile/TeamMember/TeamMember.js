@@ -75,17 +75,17 @@ const TeamMember = () => {
   return (
     <>
       <div className="team_member">
-        {dataList != null ? (
-          <div className="header_member">
-            <div className="header_flex">
-              <div className="back_img" onClick={() => navigation(-1)}>
-                <img src={back} alt="back" />
-              </div>
-              <div className="member_content">
-                <h4>Team Member</h4>
-              </div>
+        <div className="header_member">
+          <div className="header_flex">
+            <div className="back_img" onClick={() => navigation(-1)}>
+              <img src={back} alt="back" />
             </div>
+            <div className="member_content">
+              <h4>Team Member</h4>
+            </div>
+          </div>
 
+          {dataList != null ? (
             <div className="team_member_section">
               <Tabs
                 defaultActiveKey="left"
@@ -136,14 +136,14 @@ const TeamMember = () => {
                 </Tab>
               </Tabs>
             </div>
-          </div>
-        ) : (
-          <div className="team_member" style={{ height: "100vh" }}>
-            <div className="main_loader">
-              <ClipLoader color={myColors.primaryColor} />
+          ) : (
+            <div className="team_member_section" style={{ height: "100vh" }}>
+              <div className="main_loader">
+                <ClipLoader color={myColors.primaryColor} />
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

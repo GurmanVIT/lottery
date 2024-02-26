@@ -11,7 +11,7 @@ import secound_gift_img from "../../assets/img/secound_gift_img.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
-import dollar_img from '../../assets/img/dollar_img.svg';
+import dollar_img from '../../assets/img/dollar_img.png';
 
 
 const Home_page = () => {
@@ -175,7 +175,7 @@ const Home_page = () => {
               </div>
               <img src={gift_img} alt="gift_img" className="gift_img" />
 
-              <div className="card_footer">
+              {/* <div className="card_footer">
                 <div className="card_flex">
                   <img src={card_img} alt="card_img" />
                   <h4>John Doe</h4>
@@ -187,7 +187,7 @@ const Home_page = () => {
                     200.16
                   </h5>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Link>
 
@@ -210,7 +210,7 @@ const Home_page = () => {
               </div>
               <img src={secound_gift_img} alt="gift_img" className="gift_img" />
 
-              <div className="card_footer">
+              {/* <div className="card_footer">
                 <div className="card_flex">
                   <img src={card_img} alt="card_img" />
                   <h4>John Doe</h4>
@@ -222,7 +222,7 @@ const Home_page = () => {
                     200.16
                   </h5>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Link>
         </div>

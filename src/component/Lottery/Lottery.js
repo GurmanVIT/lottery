@@ -37,7 +37,7 @@ import { clearOtpData } from "../../redux/otpSlice";
 import { clearResendData } from "../../redux/resendOtpSlice";
 import { Toast } from "react-bootstrap";
 import mark_ex from "../../assets/img/mark_ex.png";
-import dollar_img from "../../assets/img/dollar_img.svg";
+import dollar_img from "../../assets/img/dollar_img.png";
 
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -498,7 +498,7 @@ const Lottery = () => {
             </div>
             <h1>
               <img src={dollar_img} alt="dollar_img" style={{ width: "28px", marginBottom: "3px", marginRight: "3px" }} />
-              {walletBalance}.00
+              {walletBalance}00
             </h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
@@ -970,13 +970,10 @@ const Lottery = () => {
               <div className="how_play_section">
                 <div className="play_this">
                   <p>
-                    1 minutes 1 issue, 45 seconds to order, 15 seconds waiting
-                    for the draw. It opens all day. The total number of trade is
-                    1440 issues.
+                    In all game servers you can participate 5 second before result.
                   </p>
                   <p>
-                    If you spend 100 to trade, after deducting 2 service fee,
-                    your contract amount is 98:
+                    in all the bets 2% will be deducted as tax i.e. your beting amount is 100 DG coin your bet will be placed for 98 DG coins and you will get winning amount according to that.
                   </p>
                   <p>
                     1. Select green: if the result shows 1,3,7,9 you will get

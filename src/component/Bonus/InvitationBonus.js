@@ -6,7 +6,8 @@ import { useNavigate } from "react-router";
 import CloseButton from "../SVG/CloseButton";
 import { useDispatch, useSelector } from "react-redux";
 import { inviteBonusSheet } from "../../redux/inviteBonusSheetSlice";
-
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../utils/Colors";
 
 const InvitationBonus = () => {
 
@@ -47,63 +48,72 @@ const InvitationBonus = () => {
                         </div>
                     </div>
 
-                    <div className="invitaion_bonus_section">
-                        <div className="notification" onClick={() => navigation('/invitation_rules')}>
-                            <div className="img_notification">
-                                <img src={notification} alt="notification" />
-                                <p>Invitation Reward Rules</p>
+                    {inviteBonus != null ? (
+                        <div className="invitaion_bonus_section">
+
+                            <div className="notification" onClick={() => navigation('/invitation_rules')}>
+                                <div className="img_notification">
+                                    <img src={notification} alt="notification" />
+                                    <p>Invitation Reward Rules</p>
+                                </div>
+                                <div className="number_noti">
+                                    <img src={next} alt="next" />
+                                </div>
                             </div>
-                            <div className="number_noti">
-                                <img src={next} alt="next" />
+
+                            <div>
+                                {inviteBonus != null &&
+                                    inviteBonus.map((item) => (
+                                        <div className="bonus_card mb-3">
+                                            <div className="head_bonus">
+                                                <div className="bonus_bg">
+                                                    <p>Bonus <span>{item.level}</span></p>
+                                                    <p className="close_btn"><CloseButton /></p>
+                                                </div>
+                                                <div className="right_number">{item.bonus}</div>
+                                            </div>
+                                            <div className="bonus_around">
+                                                <div className="numbers_one">
+                                                    <p className="text-start">Number of invitees</p>
+                                                    <p>1</p>
+                                                </div>
+
+                                                <div className="recharge_member">
+                                                    <p className="text-start">Recharge per people</p>
+                                                    <p>{item.people}</p>
+                                                </div>
+
+                                                <div className="border_center">
+                                                    <div className="border_width"></div>
+                                                </div>
+
+                                                <div className="invite_deposit">
+                                                    <div className="invited_number">
+                                                        <p className="number_two">0 / 1</p>
+                                                        <p>Number of invitees</p>
+                                                    </div>
+                                                    <div className="deposit_number">
+                                                        <p className="number_two">0 / 1</p>
+                                                        <p>Deposit number</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="finished_btn">
+                                                    <button type="button">Unfinished</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </div>
-
-                        <div>
-                            {inviteBonus != null &&
-                                inviteBonus.map((item) => (
-                                    <div className="bonus_card mb-3">
-                                        <div className="head_bonus">
-                                            <div className="bonus_bg">
-                                                <p>Bonus <span>{item.level}</span></p>
-                                                <p className="close_btn"><CloseButton /></p>
-                                            </div>
-                                            <div className="right_number">{item.bonus}</div>
-                                        </div>
-                                        <div className="bonus_around">
-                                            <div className="numbers_one">
-                                                <p className="text-start">Number of invitees</p>
-                                                <p>1</p>
-                                            </div>
-
-                                            <div className="recharge_member">
-                                                <p className="text-start">Recharge per people</p>
-                                                <p>{item.people}</p>
-                                            </div>
-
-                                            <div className="border_center">
-                                                <div className="border_width"></div>
-                                            </div>
-
-                                            <div className="invite_deposit">
-                                                <div className="invited_number">
-                                                    <p className="number_two">0 / 1</p>
-                                                    <p>Number of invitees</p>
-                                                </div>
-                                                <div className="deposit_number">
-                                                    <p className="number_two">0 / 1</p>
-                                                    <p>Deposit number</p>
-                                                </div>
-                                            </div>
-
-                                            <div className="finished_btn">
-                                                <button type="button">Unfinished</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            }
+                    ) :
+                        <div className="invitaion_bonus_section " >
+                            <div className="main_loader">
+                                <ClipLoader color={myColors.primaryColor} />
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </>

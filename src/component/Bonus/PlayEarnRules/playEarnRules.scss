@@ -1,7 +1,7 @@
-.youtube {
+.play_earn {
     @include display(center, center);
 
-    .header_youtube {
+    .header_play_earn {
         width: 100%;
         max-width: 420px;
         height: 100vh;
@@ -24,7 +24,7 @@
                 width: 25px;
             }
 
-            .youtube_content {
+            .play_earne_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
@@ -34,18 +34,17 @@
             }
         }
 
-        .youtube_section {
-            padding: 70px 15px 25px;
+        .play_earn_section {
+            padding: 70px 15px 15px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding-top: 65px;
+                padding: 65px 10px 10px;
             }
 
-            .youtube_inner_img {
-                img {
-                    width: 100%;
-                }
+            p {
+                margin-bottom: 10px;
+                font-size: 15px;
             }
         }
     }

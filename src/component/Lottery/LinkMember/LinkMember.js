@@ -4,6 +4,9 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { transactionList } from "../../../redux/transactionListSlice";
 import moment from "moment";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
+
 
 const Transaction = () => {
   const navigation = useNavigate();
@@ -69,7 +72,7 @@ const Transaction = () => {
           </div>
 
           <div className="link_member_section">
-            {transactionData != null &&
+            {transactionData != null ? (
               transactionData.map((item, index) => (
                 <div className="card_link">
                   <p>
@@ -86,7 +89,14 @@ const Transaction = () => {
                     </span>
                   </p>
                 </div>
-              ))}
+              ))
+            ) : (
+              <div className="card_notification_load" style={{ height: "100vh" }}>
+                <div className="main_loader">
+                  <ClipLoader color={myColors.primaryColor} />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

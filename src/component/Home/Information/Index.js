@@ -2,7 +2,7 @@ import React from 'react';
 import card_emoji from '../../../assets/img/card_emoji.svg';
 import card_emoji2 from '../../../assets/img/card_emoji2.svg';
 import card_emoji3 from '../../../assets/img/card_emoji3.svg';
-import dollar_img from '../../../assets/img/dollar_img.svg';
+import dollar_img from '../../../assets/img/dollar_img.png';
 
 const Information = () => {
     return (

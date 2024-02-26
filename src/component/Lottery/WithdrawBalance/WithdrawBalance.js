@@ -11,7 +11,10 @@ import {
 import { resendOtpApi } from "../../../redux/resendOtpSlice";
 import { submitWithdrawRequest } from "../../../redux/submitWithdrawRequestSlice";
 import moment from "moment";
-import dollar_img from "../../../assets/img/dollar_img.svg";
+import dollar_img from "../../../assets/img/dollar_img.png";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
+
 
 
 const WithdrawBalance = () => {
@@ -154,10 +157,10 @@ const WithdrawBalance = () => {
                 <img
                   src={copy}
                   alt="copy"
-                // onClick={() => {
-                //     navigator.clipboard.writeText();
-                //     // alert("Address Copied");
-                // }}
+                  onClick={() => {
+                    navigator.clipboard.writeText(address);
+                    alert("Address Copied");
+                  }}
                 />
               </div>
             </div>
@@ -218,7 +221,7 @@ const WithdrawBalance = () => {
               </button>
             </div>
 
-            {withdrawRequestData != null &&
+            {withdrawRequestData != null ? (
               withdrawRequestData.map((item, index) => (
                 <div className="card_amount">
                   <p>
@@ -245,7 +248,14 @@ const WithdrawBalance = () => {
                     Date : <span>{getFormattedDateTime(item.createdAt)}</span>
                   </p>
                 </div>
-              ))}
+              ))
+            ) : (
+              <div className="card_amount " style={{ height: "100vh" }}>
+                <div className="main_loader">
+                  <ClipLoader color={myColors.primaryColor} />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

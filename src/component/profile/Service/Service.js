@@ -74,10 +74,9 @@ const Service = () => {
               aria-label="Default select example"
               onChange={(value) => setSubject(value.target.value)}
             >
-              <option>Open this select menu</option>
-              <option value="One">One</option>
-              <option value="Two">Two</option>
-              <option value="Three">Three</option>
+              <option>Deposit Not Received</option>
+              <option value="One">Withdrawal Pending</option>
+              <option value="Two">Withdrawal Successful Not Received Money</option>
             </Form.Select>
             <div className="text_area">
               <textarea

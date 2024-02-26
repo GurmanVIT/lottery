@@ -40,172 +40,122 @@
             height: 150px;
         }
 
-        // .wallet_section {
-        //     padding-bottom: 60px;
-        //     background-color: $page_bg;
-        //     position: relative;
+        .height_full {
+            background-color: $page_bg;
 
-        //     @media ($breakpoint_450) {
-        //         padding: 15px 10px 60px;
-        //     }
-
-        //     @media ($breakpoint_ESM) {
-        //         padding-bottom: 45px;
-        //     }
-
-        //     .wallet_card {
-        //         padding: 25px 10px;
-        //         border: none;
-        //         width: 93%;
-        //         border-radius: 14px;
-        //         position: absolute;
-        //         top: -92px;
-        //         left: 14px;
-        //         box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
-        //         background-color: $white;
-
-        //         @media($breakpoint_ESM) {
-        //             left: 10px;
-        //             width: 94.1%;
-        //         }
-
-        //         img {
-        //             width: 35px;
-        //             height: 35px;
-        //         }
-
-        //         h1 {
-        //             @include display(center, center);
-        //             color: $primary;
-        //             font-size: 24px;
-        //             font-weight: 600;
-        //             line-height: normal;
-        //             text-transform: uppercase;
-        //             margin: 10px 0;
-
-        //             @media($breakpoint_ESM) {
-        //                 margin: 7px 0;
-        //             }
-
-        //             .dollar_img {
-        //                 width: 27px;
-        //                 height: 27px;
-        //                 margin-right: 5px;
-        //             }
-        //         }
-
-        //         .flat_img {
-        //             @include display(center, center);
-        //         }
-
-        //         h4 {
-        //             text-align: center;
-        //             margin-bottom: 0;
-        //             color: $forgot;
-        //             font-size: 14px;
-        //             font-weight: 600;
-        //             line-height: normal;
-        //         }
-        //     }
-        // }
-
-        .wallet_card {
-            padding: 0 10px;
-            position: relative;
-
-            .card_w {
+            .wallet_section {
+                padding-bottom: 60px;
+                background-color: $page_bg;
                 position: relative;
 
-                img {
-                    position: absolute;
-                    top: -94px;
-                    right: -25px;
+                @media ($breakpoint_450) {
+                    padding: 15px 10px 60px;
                 }
-            }
 
-            .balance {
-                position: absolute;
-                left: 45px;
-                top: -67px;
+                @media ($breakpoint_ESM) {
+                    padding-bottom: 45px;
+                }
 
-                .wallet_balance {
-                    position: relative;
+                .wallet_card {
+                    padding: 25px 10px;
+                    border: none;
+                    width: 93%;
+                    border-radius: 14px;
+                    position: absolute;
+                    top: -92px;
+                    left: 14px;
+                    // box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
+                    background-color: $white;
+                    background-image: url('../../assets//img/withdraw_card.svg');
+                    background-repeat: no-repeat;
 
-                    .flat {
+                    @media($breakpoint_ESM) {
+                        left: 10px;
+                        width: 94.1%;
+                    }
+
+                    img {
                         width: 35px;
                         height: 35px;
-                        margin-bottom: 12px;
-                        margin-left: 15px;
+                    }
+
+                    h1 {
+                        @include display(center, center);
+                        color: $white;
+                        font-size: 28px;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: uppercase;
+                        margin: 10px 0;
+
+                        @media($breakpoint_ESM) {
+                            margin: 7px 0;
+                        }
+
+                        .dollar_img {
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 5px;
+                            margin-bottom: 1px;
+                        }
+                    }
+
+                    .flat_img {
+                        @include display(center, center);
                     }
 
                     h4 {
+                        text-align: center;
+                        margin-bottom: 0;
                         color: $white;
+                        font-size: 17px;
                         font-weight: 600;
-                        margin-bottom: 7px;
-                        @include display(flex-start, center);
-
-                        img {
-                            width: 30px;
-                            height: 30px;
-                            margin-bottom: 2px;
-                        }
+                        line-height: normal;
                     }
-
-                    h6 {
-                        margin-bottom: -7px;
-                        color: $white;
-                        font-weight: 600;
-
-                        @media($breakpoint_ESM) {
-                            font-size: 14px;
-                        }
-                    }
-
                 }
             }
-        }
 
+            .link_member_section {
+                background-color: $page_bg;
+                padding: 20px 15px 20px;
 
-        .link_member_section {
-            background-color: $page_bg;
-            padding: 100px 15px 20px;
+                @media($breakpoint_ESM) {
+                    padding-top: 10px;
+                }
 
-            @media ($breakpoint_ESM) {
-                padding: 15px 10px;
-            }
+                h5 {
+                    font-size: 17px;
+                    font-weight: 600;
+                }
 
-            h5 {
-                font-size: 17px;
-                font-weight: 600;
-            }
-
-            .card_link {
-                font-size: 14px;
-                margin-bottom: 10px;
-                padding: 15px;
-                box-shadow: $input_shadow;
-                border-radius: 4px;
-                background-color: $white;
-
-                p {
+                .card_link {
                     font-size: 14px;
-                    color: $forgot;
-                    margin-bottom: 3px;
+                    margin-bottom: 10px;
+                    padding: 15px;
+                    box-shadow: $input_shadow;
+                    border-radius: 4px;
+                    background-color: $white;
 
-                    @media ($breakpoint_ESM) {
-                        font-size: 13px;
-                    }
-
-                    .ellipsis {
-                        width: 230px;
-                        position: absolute;
+                    p {
+                        font-size: 14px;
+                        color: $forgot;
+                        margin-bottom: 3px;
 
                         @media ($breakpoint_ESM) {
-                            width: 180px;
+                            font-size: 13px;
                         }
 
-                        @media ($breakpoint_350) {
-                            width: 150px;
+                        .ellipsis {
+                            width: 230px;
+                            position: absolute;
+
+                            @media ($breakpoint_ESM) {
+                                width: 180px;
+                            }
+
+                            @media ($breakpoint_350) {
+                                width: 150px;
+                            }
                         }
                     }
                 }

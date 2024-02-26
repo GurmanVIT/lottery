@@ -1,7 +1,7 @@
 import React from 'react';
 import back from '../../../assets/img/back.svg';
 import { useNavigate } from 'react-router';
-import dollar_img from '../../../assets/img/dollar_img.svg';
+import dollar_img from '../../../assets/img/dollar_img.png';
 
 
 const Transfer = () => {

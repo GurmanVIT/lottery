@@ -79,7 +79,7 @@ const ChangePassword = () => {
                             <img src={back} alt="back" />
                         </div>
                         <div className="setting_content">
-                            <h4>Settings Center</h4>
+                            <h4>Change Login Password</h4>
                         </div>
                     </div>
                     <div className='pass_section'>
