@@ -4,6 +4,9 @@ import surprise_gifts from "../../assets/img/surprise_gifts.png";
 import play_pause from "../../assets/img/play_pause.png";
 import invitation_bonus from "../../assets/img/invitation-bonus.png";
 import youtube from "../../assets/img/youtube.png";
+import matching_bonus from "../../assets/img/matching_bonus.png";
+import activity_promotion from "../../assets/img/activity_promotion.png";
+import level_bonus from "../../assets/img/level_bonus.png";
 
 
 const Bonus = () => {
@@ -38,7 +41,6 @@ const Bonus = () => {
                             <img src={surprise_gifts} alt="surprise_gifts" />
                         </div>
 
-                        {/* 
                         <div className="notification">
                             <img src={matching_bonus} alt="matching_bonus" />
                         </div>
@@ -47,13 +49,13 @@ const Bonus = () => {
                             <img src={activity_promotion} alt="activity_promotion" />
                         </div>
 
-                        <div className="notification">
+                        {/* <div className="notification">
                             <img src={lottery_system} alt="lottery_system" />
-                        </div>
+                        </div> */}
 
                         <div className="notification">
                             <img src={level_bonus} alt="level_bonus" />
-                        </div> */}
+                        </div>
 
                     </div>
                 </div>
