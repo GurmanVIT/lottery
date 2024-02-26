@@ -16,7 +16,6 @@ const Bottom_bar = () => {
     const onTabClick = (val, navigateTo) => {
         setValue(val);
         navigation(navigateTo);
-
     };
 
     useEffect(() => {
@@ -26,18 +25,6 @@ const Bottom_bar = () => {
     return (
 
         <div className='bottom_bar'>
-            {/* <Tabs
-                id="uncontrolled-tab-example"
-                className="mb-3"
-                activeKey={Home_page}
-            >
-                <Tab eventKey="Home_page" title="Home"></Tab>
-                <Tab eventKey="game_history" title="Game History"></Tab>
-                <Tab eventKey="game_history" title="Game History"></Tab>
-                <Tab eventKey="game_history" title="Game History"></Tab>
-                <Tab eventKey="game_history" title="Game History"></Tab>
-            </Tabs> */}
-
             <div className="navbar">
                 <div className='bottom_img' onClick={() => onTabClick(0, '/home_page')}>
                     <Home

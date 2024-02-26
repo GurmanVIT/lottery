@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../assets/img/back.svg";
 import flat from "../../assets/img/Flat.svg";
-import chips from "../../assets/img/chips.svg";
+import dollar_img from "../../assets/img/dollar_img.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { transactionList } from "../../redux/transactionListSlice";
 import moment from "moment";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
+import withdraw_card from "../../assets/img/withdraw_card.svg";
+
 
 
 const Wallet = () => {
@@ -78,15 +80,31 @@ const Wallet = () => {
 
                         <div className="dapic_header"></div>
 
-                        <div className="wallet_section">
+                        {/* <div className="wallet_section">
                             <div className="wallet_card">
                                 <div className="flat_img">
                                     <img src={flat} alt="flat" />
                                 </div>
-                                <h1><img src={chips} alt="chips" /> {" "}00</h1>
+                                <h1><img src={dollar_img} alt="dollar_img" className="dollar_img" /> {" "}00</h1>
                                 <h4>Total Balance</h4>
                             </div>
+                        </div> */}
+
+
+                        <div className='wallet_card'>
+                            <div className='card_w'>
+                                <img src={withdraw_card} alt='withdraw_card' />
+                            </div>
+                            <div className='balance'>
+                                <div className='wallet_balance'>
+                                    <img src={flat} alt='flat' className="flat" />
+                                    <h4><img src={dollar_img} alt="dollar_img" className="dollar_img" />{" "} {" "}00</h4>
+                                    <h6>Wallet Balance</h6>
+                                </div>
+                            </div>
                         </div>
+
+
 
                         <div className="link_member_section">
                             <h5>Fund Transactions</h5>

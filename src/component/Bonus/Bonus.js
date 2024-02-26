@@ -10,7 +10,6 @@ const Bonus = () => {
 
     const navigation = useNavigate();
 
-
     return (
         <>
             <div className="bonus">
@@ -27,7 +26,7 @@ const Bonus = () => {
                             <img src={invitation_bonus} alt="invitation_bonus" />
                         </div>
 
-                        <div className="notification">
+                        <div className="notification" onClick={() => navigation('/youtube')}>
                             <img src={youtube} alt="youtube" />
                         </div>
 

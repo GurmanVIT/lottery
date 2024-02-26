@@ -1,7 +1,7 @@
-.bonus {
+.youtube {
     @include display(center, center);
 
-    .header_bonus {
+    .header_youtube {
         width: 100%;
         max-width: 420px;
         height: 100vh;
@@ -17,7 +17,14 @@
             width: 100%;
             max-width: 420px;
 
-            .bonus_content {
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .youtube_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
@@ -27,23 +34,18 @@
             }
         }
 
-        .bonus_section {
-            padding: 70px 15px 100px;
+        .top_img_youtube {
+            .youtube_img {
+                width: 100%;
+            }
+        }
+
+        .youtube_section {
+            padding: 70px 15px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 65px 12px 85px;
-            }
-
-            .notification {
-                border-radius: 9px;
-                @include display(space-between, center);
-                flex-direction: column;
-                cursor: pointer;
-
-                img {
-                    width: 100%;
-                }
+                padding-top: 65px;
             }
         }
     }

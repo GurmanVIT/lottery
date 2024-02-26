@@ -237,6 +237,17 @@
                         font-size: 22px;
                     }
 
+                    .dollar_img {
+                        margin: -2px 3px 0 0;
+                        width: 30px;
+                        height: 30px;
+
+                        @media($breakpoint_ESM) {
+                            width: 28px;
+                            height: 28px;
+                        }
+                    }
+
                     img {
                         color: $white;
                         margin-left: 15px;

@@ -36,6 +36,8 @@ import { myColors } from "../../utils/Colors";
 import dollar_img from "../../assets/img/dollar_img.svg";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
 
+
+
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -193,7 +195,8 @@ const Profile = () => {
               <div className="balance">
                 <p>Total Balance</p>
                 <h3>
-                  ${profileData.walletPoints}{" "}
+                  <img src={dollar_img} alt="dollar_img" className="dollar_img" />
+                  {profileData.walletPoints}{" "}
                   <img src={refresh_2} alt="refresh_2" />
                 </h3>
                 <div className="four_img">

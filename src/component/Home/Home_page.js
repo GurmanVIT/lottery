@@ -18,6 +18,8 @@ const Home_page = () => {
   // const [token, setToken] = useState(null);
   const token = localStorage.getItem("token");
 
+  console.log(token)
+
   return (
     <div className="home_page_section">
       <div className="inner_section">
