@@ -10,8 +10,15 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { profile } from "../../redux/profileSlice";
 import { promotionData } from "../../redux/promotionDataSlice";
+import promotion_banner from "../../assets/img/promotion_banner.svg";
+import promotion_banner2 from "../../assets/img/promotion_banner2.svg";
+import promotion_banner3 from "../../assets/img/promotion_banner3.svg";
+import promotion_banner4 from "../../assets/img/promotion_banner4.svg";
+import share from "../../assets/img/share.svg";
+
 
 const Promotion = () => {
+
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
@@ -129,13 +136,13 @@ const Promotion = () => {
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=L"
+                  profileData.userId +
+                  "&position=L"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=L"
+                  profileData.userId +
+                  "&position=L"
                 );
               }}
             >
@@ -147,18 +154,19 @@ const Promotion = () => {
                 <img src={next} alt="next" />
               </div> */}
             </div>
+
             <div
               className="game"
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=L"
+                  profileData.userId +
+                  "&position=L"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
-                    profileData.userId +
-                    "&position=R"
+                  profileData.userId +
+                  "&position=R"
                 );
               }}
             >
@@ -170,26 +178,6 @@ const Promotion = () => {
                 <img src={next} alt="next" />
               </div> */}
             </div>
-            {/* 
-            <div className="game">
-              <div className="img_game">
-                <img src={subordinate} alt="subordinate" />
-                <p>Subordinate data</p>
-              </div>
-              <div className="next_img">
-                <img src={next} alt="next" />
-              </div>
-            </div>
-
-            <div className="game">
-              <div className="img_game">
-                <img src={commission} alt="commission" />
-                <p>Commission detail</p>
-              </div>
-              <div className="next_img">
-                <img src={next} alt="next" />
-              </div>
-            </div> */}
 
             <div
               className="game"
@@ -239,9 +227,79 @@ const Promotion = () => {
                 </div>
               )}
             </div>
+
+            <div className="banner_shared">
+              <div className="pro_card_two">
+                <div className="promotion_banner_img">
+                  <img src={promotion_banner} alt="promotion_banner" className="promotion_img" />
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+
+                <div className="promotion_banner_img">
+                  <img src={promotion_banner2} alt="promotion_banner2" className="promotion_img" />
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+              </div>
+
+              <div className="pro_card_two">
+                <div className="promotion_banner_img">
+                  <img src={promotion_banner3} alt="promotion_banner3" className="promotion_img" />
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+
+                <div className="promotion_banner_img">
+                  <img src={promotion_banner4} alt="promotion_banner4" className="promotion_img" />
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+              </div>
+            </div>
+
+            <div className="youtube_video_frame">
+              <h5>Promotion videos</h5>
+              <div className="flex_tube">
+                <div className="video_play">
+                  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                  </iframe>
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+                <div className="video_play">
+                  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                  </iframe>
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+              </div>
+
+              <div className="flex_tube">
+                <div className="video_play">
+                  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                  </iframe>
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+                <div className="video_play">
+                  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                  </iframe>
+                  <img src={share} alt="share" className="share_img" />
+                </div>
+              </div>
+            </div>
+
+            {/* <Modal
+              isOpen={isOpenPlay}
+              style={modal_notifications}
+              onRequestClose={() => setOpenPlay(false)}
+            >
+              <div className="how_play">
+                <h3>How to play</h3>
+                <div className="how_play_section">
+                  <div className="play_this">
+
+                  </div>
+                </div>
+              </div>
+            </Modal> */}
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 };

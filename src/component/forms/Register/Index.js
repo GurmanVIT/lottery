@@ -87,6 +87,8 @@ const Register = () => {
       setSelectedOption(searchParams.get("position"));
     }
     if (signupSuccess !== null && signupSuccess.status === 1) {
+      localStorage.clear()
+      localStorage.setItem("token", signupSuccess.token);
       localStorage.setItem("userId", signupSuccess.data._id);
       navigation("/otp");
     } else if (signupSuccess != null) {

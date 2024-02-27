@@ -30,6 +30,10 @@
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
                 }
             }
         }
@@ -165,7 +169,7 @@
 
                         th {
                             color: $white;
-                            font-size: 13px;
+                            font-size: 12px;
                             font-weight: 600;
                             border: none;
                             text-align: center;
@@ -175,6 +179,10 @@
                                 font-size: 11px;
                             }
                         }
+
+                        .status_th {
+                            @include display(flex-start, center);
+                        }
                     }
 
                     tbody {
@@ -183,6 +191,7 @@
                             border: 1px solid $primary;
                             width: 40px;
                             padding: 8px 3px;
+                            text-align: center;
                         }
                     }
                 }

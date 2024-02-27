@@ -28,6 +28,8 @@ import promotionDataReducer from "./promotionDataSlice";
 import refferalDepositReducer from "./refferalDepositSlice";
 import inviteBonusSheetReducer from "./inviteBonusSheetSlice";
 import getInvitationBonusReducer from "./invitationBonusSlice";
+import randomMembersListReducer from "./randomMembersListSlice";
+
 
 const store = configureStore({
   reducer: {
@@ -60,6 +62,7 @@ const store = configureStore({
     refferalDepositReducer: refferalDepositReducer,
     inviteBonusSheetReducer: inviteBonusSheetReducer,
     getInvitationBonusReducer: getInvitationBonusReducer,
+    randomMembersListReducer: randomMembersListReducer,
   },
 });
 

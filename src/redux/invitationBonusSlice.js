@@ -4,7 +4,7 @@ import axios from "axios";
 import {
   ApiBaseUrl,
   gameHistoryApi,
-  inviteBonusSheet,
+  inviteBonusSheetApi,
 } from "../utils/Constants";
 
 export const getInvitationBonus = createAsyncThunk(
@@ -17,7 +17,7 @@ export const getInvitationBonus = createAsyncThunk(
           "Content-Type": "application/json",
         },
       };
-      const url = ApiBaseUrl + inviteBonusSheet;
+      const url = ApiBaseUrl + inviteBonusSheetApi;
       const response = await axios.get(url, config);
       return response.data;
     } catch (error) {

@@ -29,7 +29,7 @@ const profileSlice = createSlice({
     data: null,
   },
   reducers: {
-    clearData: (state) => {
+    clearProfileData: (state) => {
       // Reset the data property to an empty array
       state.data = null;
     },
@@ -49,5 +49,5 @@ const profileSlice = createSlice({
   },
 });
 
-export const { clearData } = profileSlice.actions;
+export const { clearProfileData } = profileSlice.actions;
 export default profileSlice.reducer;

@@ -25,7 +25,6 @@ const CycleDetail = () => {
 
 
     useEffect(() => {
-        console.log("guramn", data)
         dispatch(usdtDepositTransactions())
 
     }, [])

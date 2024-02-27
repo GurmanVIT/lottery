@@ -1,0 +1,72 @@
+.matching_bonus {
+    @include display(center, center);
+
+    .header_matching_bonus {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .matching_bonus_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .matching_bonus_section {
+            padding: 70px 15px 15px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding: 65px 10px 10px;
+            }
+
+            p {
+                margin-bottom: 10px;
+                font-size: 15px;
+            }
+
+            .capping_coin_card {
+                background-color: #5A56C2;
+                padding: 20px;
+                border-radius: 14px;
+                margin-bottom: 20px;
+
+                h6 {
+                    text-align: center;
+                    margin-bottom: 0;
+                    color: $white;
+                    font-weight: 600;
+                    font-size: 15px;
+                }
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 600;
+                margin-bottom: 11px;
+            }
+        }
+    }
+}

@@ -24,7 +24,6 @@ const InvitationBonus = () => {
 
 
     useEffect(() => {
-
         if (
             inviteBonusSheetReducer != null &&
             inviteBonusSheetReducer.status === 1

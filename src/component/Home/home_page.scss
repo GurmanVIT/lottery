@@ -18,6 +18,24 @@
                     .swiper-slide {
                         .card {
                             border: none;
+
+                            .card-img {
+                                img {
+                                    height: 200px;
+
+                                    @media(max-width:411px) {
+                                        height: 191px;
+                                    }
+
+                                    @media($breakpoint_ESM) {
+                                        height: 175px;
+                                    }
+
+                                    @media($breakpoint_350) {
+                                        height: 162px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -131,7 +149,7 @@
                     background-color: $card_primary;
                     border: none;
                     outline: none;
-                    border-radius: 14px 14px 0 0;
+                    border-radius: 14px;
                     display: -webkit-box;
                     overflow: hidden;
                     position: relative;

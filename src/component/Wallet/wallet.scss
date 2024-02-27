@@ -115,12 +115,12 @@
                 }
             }
 
-            .link_member_section {
+            .link_member_sections {
                 background-color: $page_bg;
-                padding: 20px 15px 20px;
+                padding: 20px 15px 95px;
 
                 @media($breakpoint_ESM) {
-                    padding-top: 10px;
+                    padding: 10px 15px 90px;
                 }
 
                 h5 {

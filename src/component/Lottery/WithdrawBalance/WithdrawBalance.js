@@ -62,6 +62,7 @@ const WithdrawBalance = () => {
   }, [resendOtpReducer]);
 
   useEffect(() => {
+    console.log("PRofile ===> ", profileResponse)
     if (profileResponse != null && profileResponse.status === 1) {
       setAddress(profileResponse.data.withdrawAddress);
     }
@@ -149,8 +150,8 @@ const WithdrawBalance = () => {
               </div>
               <div className="input_copy">
                 <input
+                  disabled
                   type="text"
-                  placeholder="uhbbWIP4769JHGhepo739qilmz0"
                   value={address}
                   onChange={(val) => setAddress(val.target.value)}
                 />

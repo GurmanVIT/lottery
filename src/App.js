@@ -40,6 +40,9 @@ import InvitationBonus from "./component/Bonus/InvitationBonus";
 import InvitationRules from "./component/Bonus/InvitationRules/InvitationRules";
 import Youtubes from "./component/Bonus/Youtube/Youtubes";
 import PlayEarnRules from "./component/Bonus/PlayEarnRules/PlayEarnRules";
+import GamePlayBonus from "./component/Bonus/TeamGamePlayBonus/GamePlaYBonus";
+import MatchingBonus from "./component/Bonus/MachingBonus/Matchingbonus";
+import ActivityBonus from "./component/Bonus/ActivityBonus/ActivityBonus";
 
 
 // export
@@ -87,6 +90,9 @@ function App() {
           <Route path="/invitation_rules" element={<InvitationRules />} />
           <Route path="/youtube" element={<Youtubes />} />
           <Route path="/play_earn_rule" element={<PlayEarnRules />} />
+          <Route path="/team_gameplay_bonus" element={<GamePlayBonus />} />
+          <Route path="/matching_bonus" element={<MatchingBonus />} />
+          <Route path="/activity_bonus" element={<ActivityBonus />} />
         </Routes>
       </Router>
 

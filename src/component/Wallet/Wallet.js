@@ -27,6 +27,7 @@ const Wallet = () => {
     }, []);
 
     useEffect(() => {
+        console.log("Wallet ===> ", transactionListData)
         if (transactionListData != null && transactionListData.success === 1) {
             setTransactionData(transactionListData.data.transactions);
         }
@@ -86,12 +87,12 @@ const Wallet = () => {
                                     <div className="flat_img">
                                         <img src={flat} alt="flat" />
                                     </div>
-                                    <h1><img src={dollar_img} alt="dollar_img" className="dollar_img" /> {" "}00</h1>
+                                    <h1><img src={dollar_img} alt="dollar_img" className="dollar_img" />{transactionListData != null ? transactionListData.data.walletPoints : "0.0"}</h1>
                                     <h4>Total Balance</h4>
                                 </div>
                             </div>
 
-                            <div className="link_member_section">
+                            <div className="link_member_sections">
                                 <h5>Fund Transactions</h5>
                                 {transactionData != null &&
                                     transactionData.map((item, index) => (

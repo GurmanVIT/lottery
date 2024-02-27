@@ -28,11 +28,11 @@
         }
 
         .bonus_section {
-            padding: 70px 15px 85px;
+            padding: 70px 15px 120px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 65px 12px 70px;
+                padding: 65px 12px 105px;
             }
 
             .notification {
@@ -43,6 +43,7 @@
 
                 img {
                     width: 100%;
+                    margin-bottom: -15px;
                 }
             }
         }

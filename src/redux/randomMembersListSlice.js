@@ -1,9 +1,9 @@
 // src/redux/slices/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ApiBaseUrl, activateAccountApi } from "../utils/Constants";
+import { ApiBaseUrl, randomMembersListApi } from "../utils/Constants";
 
-export const activateAccount = createAsyncThunk("activateAccount", async () => {
+export const randomMembersList = createAsyncThunk("randomMembersList", async () => {
     try {
         const token = localStorage.getItem("token");
         const config = {
@@ -13,9 +13,9 @@ export const activateAccount = createAsyncThunk("activateAccount", async () => {
                 authorization: token,
             },
         };
-        const url =
-            ApiBaseUrl +
-            activateAccountApi
+        const url = ApiBaseUrl +
+            randomMembersListApi
+            ;
         const response = await axios.get(url, config);
         return response.data;
     } catch (error) {
@@ -23,33 +23,33 @@ export const activateAccount = createAsyncThunk("activateAccount", async () => {
     }
 });
 
-const activateAccountSlice = createSlice({
-    name: "activateAccountReducer",
+const randomMembersListSlice = createSlice({
+    name: "randomMembersListReducer",
 
     initialState: {
         isLoading: false,
         data: null,
     },
     reducers: {
-        clearDataActive: (state) => {
+        clearRandomMembersListData: (state) => {
             // Reset the data property to an empty array
             state.data = null;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(activateAccount.pending, (state) => {
+            .addCase(randomMembersList.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(activateAccount.fulfilled, (state, action) => {
+            .addCase(randomMembersList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.data = action.payload;
             })
-            .addCase(activateAccount.rejected, (state, action) => {
+            .addCase(randomMembersList.rejected, (state, action) => {
                 state.isError = false;
             });
     },
 });
 
-export const { clearDataActive } = activateAccountSlice.actions;
-export default activateAccountSlice.reducer;
+export const { clearRandomMembersListData } = randomMembersListSlice.actions;
+export default randomMembersListSlice.reducer;

@@ -34,4 +34,4 @@ export const walletTransactionsApi = "v1/user/wallet_transactions";
 export const promotionDataApi = "v1/user/promotion_data";
 export const refferalDepositApi = "v1/user/refferal_deposits";
 export const inviteBonusSheetApi = "v1/user/invite_bonus_sheet";
-export const inviteBonusSheet = "v1/user/invite_bonus_sheet";
+export const randomMembersListApi = "v1/user/random_members_list";

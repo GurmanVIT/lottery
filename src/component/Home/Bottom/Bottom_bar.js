@@ -12,10 +12,17 @@ const Bottom_bar = () => {
     const navigation = useNavigate();
 
     const [value, setValue] = useState(0);
+    const token = localStorage.getItem("token");
 
     const onTabClick = (val, navigateTo) => {
-        setValue(val);
-        navigation(navigateTo);
+        console.log("Token ===> ", token)
+        if (token == null && val != 0) {
+            navigation("/login");
+        }
+        else {
+            setValue(val);
+            navigation(navigateTo);
+        }
     };
 
     useEffect(() => {
@@ -34,15 +41,15 @@ const Bottom_bar = () => {
                     <p>Home</p>
                     {/* <p style={{ color: value === 0 ? "#fff" : "#6A6A6A" }}>Home</p> */}
                 </div>
-                <div className='bottom_img' onClick={() => navigation('/bonus')}>
+                <div className='bottom_img' onClick={() => onTabClick(1, '/bonus')}>
                     <Activity />
                     <p>Bonus</p>
                 </div>
-                <div className='promotion_img' onClick={() => navigation('/promotion')} style={{ cursor: "pointer" }}>
+                <div className='promotion_img' onClick={() => onTabClick(2, '/promotion')} style={{ cursor: "pointer" }}>
                     <img src={Promotion} alt="Promotion" className='pro_img' />
                     <p>Promotion</p>
                 </div>
-                <div className='bottom_img' onClick={() => navigation('/wallet')}>
+                <div className='bottom_img' onClick={() => onTabClick(3, '/wallet')}>
                     <Wallet />
                     <p>Wallet</p>
                 </div>

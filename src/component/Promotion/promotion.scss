@@ -28,11 +28,11 @@
         }
 
         .promotions_section {
-            padding: 70px 15px 100px;
+            padding: 70px 15px 90px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 65px 12px 85px;
+                padding: 65px 12px 70px;
             }
 
             .agency {
@@ -303,6 +303,87 @@
                                 @media($breakpoint_ESM) {
                                     font-size: 11px;
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .banner_shared {
+                margin: 20px 0 25px;
+                width: 100%;
+
+                @media($breakpoint_ESM) {
+                    margin-bottom: 15px;
+                }
+
+                .pro_card_two {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    @include display(space-between, center);
+                    gap: 10px;
+
+                    .promotion_banner_img {
+                        border-radius: 14px;
+                        position: relative;
+
+                        .promotion_img {
+                            width: 100%;
+                            max-width: 190px;
+                            border-radius: 14px;
+                        }
+
+                        .share_img {
+                            width: 13%;
+                            background-color: $primary;
+                            padding: 6px;
+                            border-radius: 8px;
+                            box-shadow: 0 4px 6px 0 #909090;
+                            position: absolute;
+                            right: 14px;
+                            top: 13px;
+
+                            @media($breakpoint_ESM) {
+                                width: 16%;
+                                right: 10px;
+                                top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .youtube_video_frame {
+                h5 {
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                    font-size: 18px;
+                }
+
+                .flex_tube {
+                    @include display(space-between, center);
+                    gap: 6px;
+
+                    .video_play {
+                        position: relative;
+
+                        iframe {
+                            width: 100%;
+                            max-width: 190px;
+                        }
+
+                        .share_img {
+                            width: 14%;
+                            background-color: $primary;
+                            padding: 6px;
+                            border-radius: 8px;
+                            box-shadow: 0 4px 6px 0 #909090;
+                            position: absolute;
+                            right: 14px;
+                            top: 17px;
+
+                            @media($breakpoint_ESM) {
+                                width: 16%;
                             }
                         }
                     }

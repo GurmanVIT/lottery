@@ -24,7 +24,7 @@ import { clearSignUpData } from "../../redux/signupSlice";
 import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
 import { clearOtpData } from "../../redux/otpSlice";
 import { clearResendData } from "../../redux/resendOtpSlice";
-import { profile } from "../../redux/profileSlice";
+import { clearProfileData, profile } from "../../redux/profileSlice";
 import moment from "moment-timezone";
 import { toast } from "react-toastify";
 import {
@@ -55,12 +55,15 @@ const Profile = () => {
   const [refferalDepositData, setRefferralDeposit] = useState(null);
 
   const logout = () => {
+    localStorage.setItem("token", "");
+    localStorage.setItem("userId", "");
     localStorage.clear();
     dispatch(clearSignUpData());
     dispatch(clearData());
     dispatch(clearSponsorData());
     dispatch(clearOtpData());
     dispatch(clearResendData());
+    dispatch(clearProfileData())
 
     setTimeout(() => {
       navigation("/login");
@@ -73,18 +76,18 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
+    console.log("profileResponse Data ===>", profileResponse);
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
       setInfoData(profileResponse.userInfo);
       localStorage.setItem("email", profileResponse.data.email);
     } else if (profileResponse != null && profileResponse.status === 0) {
-      // logout();
-      // alert("You logged-in on another device!");
+      logout();
+      alert("You logged-in on another device!");
     }
   }, [profileResponse]);
 
   useEffect(() => {
-    console.log("RefferalDeposit ===>", refferalDepositResponse);
     if (
       refferalDepositResponse != null &&
       refferalDepositResponse.success === 1
@@ -136,8 +139,13 @@ const Profile = () => {
   useEffect(() => {
     console.log("Active Data ===>", activateReducer);
     if (activateReducer != null && activateReducer.status === 1) {
-      // dispatch(profile());
+      dispatch(profile());
       dispatch(clearDataActive());
+    }
+    else {
+      if (activateReducer != null) {
+        alert(activateReducer.message)
+      }
     }
   }, [activateReducer]);
 
@@ -196,7 +204,7 @@ const Profile = () => {
                 <p>Total Balance</p>
                 <h3>
                   <img src={dollar_img} alt="dollar_img" className="dollar_img" />
-                  {profileData.walletPoints}{" "}
+                  {profileData.walletPoints}
                   <img src={refresh_2} alt="refresh_2" />
                 </h3>
                 <div className="four_img">

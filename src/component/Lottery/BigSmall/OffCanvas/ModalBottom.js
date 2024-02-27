@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { myColors } from "../../../../utils/Colors";
 import { Balance } from "@mui/icons-material";
+import dollar_img from "../../../../assets/img/dollar_img.png"
+
 
 const customStyles = {
   content: {
@@ -58,7 +60,7 @@ const ModalBottom = ({
             </div>
 
             <div className="modal_content">
-              <h5>Balance</h5>
+              <h5>DG Coins</h5>
               <div className="rupees_button">
                 <button
                   className="x_one_btn"
@@ -255,7 +257,7 @@ const ModalBottom = ({
             style={{ backgroundColor: myColor }}
             onClick={() => placeBet()}
           >
-            Total amount $ {balance * selectedX}
+            Total Coins <img src={dollar_img} alt="dollar_img" style={{ width: "20px", height: "20px" }} /> {balance * selectedX}
           </button>
         </div>
       </Modal>

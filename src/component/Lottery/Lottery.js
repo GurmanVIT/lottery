@@ -38,6 +38,7 @@ import { clearResendData } from "../../redux/resendOtpSlice";
 import { Toast } from "react-bootstrap";
 import mark_ex from "../../assets/img/mark_ex.png";
 import dollar_img from "../../assets/img/dollar_img.png";
+import { randomMembersList } from "../../redux/randomMembersListSlice";
 
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -457,6 +458,7 @@ const Lottery = () => {
     setOpenModal(false);
   };
 
+
   return (
     <div className="lottery_page">
       <div className="lottery">
@@ -498,7 +500,7 @@ const Lottery = () => {
             </div>
             <h1>
               <img src={dollar_img} alt="dollar_img" style={{ width: "28px", marginBottom: "3px", marginRight: "3px" }} />
-              {walletBalance}00
+              {walletBalance}
             </h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
@@ -933,6 +935,7 @@ const Lottery = () => {
               </div>
             </>
           </Modal>
+
           <Modal
             isOpen={isLoseOpen}
             style={customStyles}

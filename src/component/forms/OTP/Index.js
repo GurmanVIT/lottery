@@ -61,6 +61,7 @@ const Index = () => {
   useEffect(() => {
     if (otpSuccess != null && otpSuccess.status == 1) {
       localStorage.setItem("token", otpSuccess.token);
+      localStorage.setItem("userId", otpSuccess.data._id);
       navigation("/home_page");
     } else if (otpSuccess != null) {
       alert(otpSuccess.message);

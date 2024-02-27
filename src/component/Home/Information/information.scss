@@ -36,14 +36,22 @@
 
                 img {
                     border-radius: 50%;
+                    width: 55px;
+                    height: 55px;
 
                     @media($breakpoint_350) {
                         width: 45px;
+                        height: 45px;
                     }
                 }
 
                 h4 {
                     @include font;
+                    width: 130px;
+
+                    @media($breakpoint_ESM) {
+                        width: 100px;
+                    }
                 }
             }
 

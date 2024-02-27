@@ -68,6 +68,7 @@ const Login = () => {
 
   useEffect(() => {
     if (loginSuccess != null && loginSuccess.status == 1) {
+      localStorage.clear()
       localStorage.setItem("token", loginSuccess.token);
       localStorage.setItem("userId", loginSuccess.data._id);
       navigation("/home_page");

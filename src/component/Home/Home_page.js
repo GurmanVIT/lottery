@@ -4,14 +4,12 @@ import lottery from "../../assets/img/lottery.svg";
 import mini_game from "../../assets/img/mini_game.svg";
 import slots from "../../assets/img/slots.svg";
 import sports from "../../assets/img/sports.svg";
-import card_img from "../../assets/img/card_img.svg";
 import card_bg_img from "../../assets/img/card_bg_img.svg";
 import gift_img from "../../assets/img/gift_img.svg";
 import secound_gift_img from "../../assets/img/secound_gift_img.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
-import dollar_img from '../../assets/img/dollar_img.png';
 
 
 const Home_page = () => {
@@ -27,7 +25,6 @@ const Home_page = () => {
 
         <div className="swiper">
           <Swiper
-            slidesPerView={3}
             spaceBetween={30}
             loop={true}
             autoplay={{
