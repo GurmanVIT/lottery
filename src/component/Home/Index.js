@@ -15,12 +15,13 @@ const Index = () => {
     const [randomMember, setRandomMember] = useState(null);
 
     useEffect(() => {
-        console.log("randomMembersListReducer", randomMembersListReducer)
+
         dispatch(randomMembersList());
     }, []);
 
 
     useEffect(() => {
+        console.log("randomMembersListReducer", randomMembersListReducer)
         if (
             randomMembersListReducer != null &&
             randomMembersListReducer.success === 1
@@ -34,9 +35,9 @@ const Index = () => {
         <main>
             <div className='home_page'>
                 <Home_page />
-                <Information randomMember={randomMember} />
+                {/* <Information randomMember={randomMember} />
                 <Earning randomMember={randomMember} />
-                <Winner randomMember={randomMember} />
+                <Winner randomMember={randomMember} /> */}
                 <Bottom_bar />
             </div>
         </main >

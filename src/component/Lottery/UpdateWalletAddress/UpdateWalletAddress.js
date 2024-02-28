@@ -19,6 +19,15 @@ const UpdateWalletAddress = () => {
     (state) => state.updateWalletAddressReducer.data
   );
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   useEffect(() => {
     dispatch(profile());
   }, []);

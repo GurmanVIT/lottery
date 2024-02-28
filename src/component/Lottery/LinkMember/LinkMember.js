@@ -19,6 +19,15 @@ const Transaction = () => {
 
   const dispatch = useDispatch();
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   useEffect(() => {
     dispatch(transactionList());
   }, []);

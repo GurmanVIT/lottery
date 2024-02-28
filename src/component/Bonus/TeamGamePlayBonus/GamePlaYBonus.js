@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import Table from "react-bootstrap/Table";
-import { useDispatch, useSelector } from "react-redux";
-import { getInvitationBonus } from "../../../redux/invitationBonusSlice";
+
 
 const GamePlayBonus = () => {
     const navigation = useNavigate();
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import youtube_inner from "../../../assets/img/youtube_inner.jpg";
@@ -6,6 +6,14 @@ import youtube_inner from "../../../assets/img/youtube_inner.jpg";
 const Youtubes = () => {
 
   const navigation = useNavigate();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
 
 
   return (

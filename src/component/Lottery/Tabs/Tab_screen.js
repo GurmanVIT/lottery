@@ -11,6 +11,7 @@ import red_voilet from "../../../assets/img/red_voilet.svg";
 import red from "../../../assets/img/red.svg";
 import green from "../../../assets/img/green.svg";
 import green_voilet from "../../../assets/img/green_voilet.svg";
+import { useNavigate } from "react-router";
 
 const Tab_screen = ({
   resultHistoryData,
@@ -24,6 +25,16 @@ const Tab_screen = ({
   walletBalance,
 }) => {
   const dispatch = useDispatch();
+
+  const navigation = useNavigate();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
 
   const myHistoryData = useSelector((state) => state.myHistoryReducer.data);
   const [activeKey, setActiveKey] = useState("game_history");

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../../assets/img/back.svg";
 import { useDispatch } from "react-redux";
@@ -39,6 +39,15 @@ const DepositHistory = () => {
 
         return formattedDate;
     };
+
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
 
     return (
         <>

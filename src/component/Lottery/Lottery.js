@@ -38,7 +38,6 @@ import { clearResendData } from "../../redux/resendOtpSlice";
 import { Toast } from "react-bootstrap";
 import mark_ex from "../../assets/img/mark_ex.png";
 import dollar_img from "../../assets/img/dollar_img.png";
-import { randomMembersList } from "../../redux/randomMembersListSlice";
 
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -921,7 +920,6 @@ const Lottery = () => {
                     <img src={you_win} alt="you_win" className="win_img" />
                     <h4>Won</h4>
                     <h5>{balanceValue * selectedX * 2}</h5>
-                    {/* <p>3 seconds auto close</p> */}
                     <div className="close_btn">
                       <img
                         src={close}

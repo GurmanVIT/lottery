@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { myColors } from "../../../utils/Colors";
 
@@ -13,6 +13,17 @@ const BigSmall = ({ openModal, setSelectedColor, setSelectedValue }) => {
     setSelectedColor(myColors.primaryColor);
     setSelectedValue("Small");
   };
+
+
+  const navigation = useNavigate();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
 
   return (
     <>

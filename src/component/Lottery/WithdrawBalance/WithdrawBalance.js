@@ -26,10 +26,19 @@ const WithdrawBalance = () => {
   const resendOtpReducer = useSelector((state) => state.resendOtpReducer.data);
   const [amount, setAmount] = useState("");
   const [otp, setOtp] = useState("");
+
   const withdrawRequestReducer = useSelector(
     (state) => state.apiWithdrawRequestReducer.data
   );
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
   useEffect(() => {
     dispatch(profile());
   }, []);

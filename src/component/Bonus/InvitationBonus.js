@@ -18,6 +18,15 @@ const InvitationBonus = () => {
 
     const [inviteBonus, setInviteBonus] = useState(null);
 
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
+
     useEffect(() => {
         dispatch(inviteBonusSheet());
     }, []);

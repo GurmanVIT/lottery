@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Modal from "react-modal";
 import { myColors } from "../../../../utils/Colors";
 import { Balance } from "@mui/icons-material";
 import dollar_img from "../../../../assets/img/dollar_img.png"
+import { useNavigate } from "react-router";
 
 
 const customStyles = {
@@ -45,6 +46,15 @@ const ModalBottom = ({
     }
   };
 
+  const navigation = useNavigate();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
   return (
     <>
       <Modal

@@ -17,40 +17,31 @@ const BetHistory = () => {
     const [myBetData, setMyBetData] = useState([])
     const myHistoryData = useSelector((state) => state.myHistoryReducer.data);
     const [activeKey, setActiveKey] = useState(1);
+    const [pageCount, setPageCount] = useState(1)
 
     useEffect(() => {
         getMyHistory();
     }, [skip, activeKey]);
 
-    const getMyHistory = (type) => {
+    const getMyHistory = () => {
         const payload = {
             skip: skip,
             limit: 10,
-            type: type,
+            type: activeKey,
         };
+
+        console.log("Payload ===> ", payload)
 
         dispatch(myHistory(payload));
     };
 
-    const handleSelect = (key) => {
-        // Additional actions based on the clicked tab
-        setSkip(0);
-        if (key === "1_min") {
-            getMyHistory(1)
-        } else if (key === "3_min") {
-            getMyHistory(3)
-        } else if (key === "5_min") {
-            getMyHistory(5)
-        } else if (key === "10_min") {
-            getMyHistory(10)
-        }
-
-    };
-
 
     useEffect(() => {
+        console.log("MY bet data ===> ", myHistoryData)
         if (myHistoryData != null && myHistoryData.status === 1) {
             setMyBetData(myHistoryData.data);
+            const count = Math.floor(myHistoryData.count / 10)
+            setPageCount(count + 1)
         }
     }, [myHistoryData])
 
@@ -134,7 +125,7 @@ const BetHistory = () => {
 
 
                     <div className='tab_btn'>
-                        <button type='button' onClick={() => setActiveKey(1)} style={{
+                        <button type='button' onClick={() => { setActiveKey(1) }} style={{
                             color: activeKey === 1 ? "#0d6efd" : "#707070",
                             background: activeKey === 1 ? "#fff" : "#F7F8FF",
                         }}>1 Min</button>
@@ -211,6 +202,7 @@ const BetHistory = () => {
                     <PaginationComponent
                         skip={skip}
                         setSkip={setSkip}
+                        pageCount={pageCount}
                     />
                 </div>
             </div>

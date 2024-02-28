@@ -10,6 +10,14 @@ const Bottom_bar = () => {
   const navigation = useNavigate();
 
   const [value, setValue] = useState(0);
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
 
   const onTabClick = (val, navigateTo) => {
     setValue(val);

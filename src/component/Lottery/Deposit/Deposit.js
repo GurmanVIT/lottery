@@ -14,6 +14,15 @@ const Deposit = () => {
 
   const data = useSelector((state) => state.depositWalletReducer.data);
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   useEffect(() => {
     dispatch(depositWallet());
   }, []);

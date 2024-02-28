@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 
@@ -6,7 +6,14 @@ import back from "../../../assets/img/back.svg";
 const PlayEarnRules = () => {
 
     const navigation = useNavigate();
+    const token = localStorage.getItem("token");
 
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
 
     return (
         <>

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import surprise_gifts from "../../assets/img/surprise_gifts.png";
 import play_pause from "../../assets/img/play_pause.png";
-import invitation_bonus from "../../assets/img/invitation-bonus.png";
+import invitation_bonus from "../../assets/img/invitation_bonus.png";
 import youtube from "../../assets/img/youtube.png";
 import matching_bonus from "../../assets/img/matching_bonus.png";
 import activity_promotion from "../../assets/img/activity_promotion.png";
@@ -12,6 +12,14 @@ import mysterious_gift from "../../assets/img/mysterious_gift.svg";
 const Bonus = () => {
 
     const navigation = useNavigate();
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
 
     return (
         <>

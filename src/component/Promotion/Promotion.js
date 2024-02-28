@@ -1,11 +1,9 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import team_group from "../../assets/img/team_group.svg";
 import invitation_copy from "../../assets/img/invitation_copy.svg";
 import rules from "../../assets/img/rules.svg";
 import next from "../../assets/img/next.svg";
 import promotion_data from "../../assets/img/promotion_data.svg";
-import commission from "../../assets/img/commission.svg";
-import subordinate from "../../assets/img/subordinate.svg";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { profile } from "../../redux/profileSlice";
@@ -15,11 +13,29 @@ import promotion_banner2 from "../../assets/img/promotion_banner2.svg";
 import promotion_banner3 from "../../assets/img/promotion_banner3.svg";
 import promotion_banner4 from "../../assets/img/promotion_banner4.svg";
 import share from "../../assets/img/share.svg";
+import Modal from "react-modal";
+import close from "../../assets/img/close.svg";
 
+
+const modal_share = {
+  content: {
+    top: "20%",
+    left: "50%",
+    right: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, 0)",
+    maxWidth: "90%",
+    width: "420px",
+    backgroundColor: "#74707008",
+    borderRadius: " 10px",
+  },
+};
 
 const Promotion = () => {
 
   const navigation = useNavigate();
+  const [isOpenPlay, setOpenPlay] = useState(false);
+  const [isShareOpen, setShareOpen] = useState(false);
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
 
@@ -29,6 +45,16 @@ const Promotion = () => {
   );
   const [profileData, setProfileData] = useState(null);
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
+
   useEffect(() => {
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
@@ -50,6 +76,22 @@ const Promotion = () => {
       setPromotion(promotionDataReducerData.data);
     }
   }, [promotionDataReducerData]);
+
+
+  const openPlayModal = () => {
+    setOpenPlay(true);
+  };
+
+  const shareModal = () => {
+    setShareOpen(true);
+  };
+
+
+  const options = [
+    { label: 'Google', url: 'https://www.google.com', image: 'promotion_banner2' },
+    { label: 'Facebook', url: 'https://www.facebook.com', image: 'facebook-image-url' },
+    { label: 'Twitter', url: 'https://www.twitter.com', image: 'twitter-image-url' },
+  ];
 
   return (
     <>
@@ -148,11 +190,8 @@ const Promotion = () => {
             >
               <div className="img_game">
                 <img src={invitation_copy} alt="invitation_copy" />
-                <p>Copy Left invitation code</p>
+                <p>Left invitation code</p>
               </div>
-              {/* <div className="next_img">
-                <img src={next} alt="next" />
-              </div> */}
             </div>
 
             <div
@@ -161,7 +200,7 @@ const Promotion = () => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
                   profileData.userId +
-                  "&position=L"
+                  "&position=R"
                 );
                 alert(
                   "https://dapicgames.com/register?sponser_id=" +
@@ -172,11 +211,8 @@ const Promotion = () => {
             >
               <div className="img_game">
                 <img src={invitation_copy} alt="invitation_copy" />
-                <p>Copy Right invitation code</p>
+                <p>Right invitation code</p>
               </div>
-              {/* <div className="next_img">
-                <img src={next} alt="next" />
-              </div> */}
             </div>
 
             <div
@@ -232,24 +268,24 @@ const Promotion = () => {
               <div className="pro_card_two">
                 <div className="promotion_banner_img">
                   <img src={promotion_banner} alt="promotion_banner" className="promotion_img" />
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
 
                 <div className="promotion_banner_img">
                   <img src={promotion_banner2} alt="promotion_banner2" className="promotion_img" />
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
               </div>
 
               <div className="pro_card_two">
                 <div className="promotion_banner_img">
                   <img src={promotion_banner3} alt="promotion_banner3" className="promotion_img" />
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
 
                 <div className="promotion_banner_img">
                   <img src={promotion_banner4} alt="promotion_banner4" className="promotion_img" />
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
               </div>
             </div>
@@ -260,12 +296,12 @@ const Promotion = () => {
                 <div className="video_play">
                   <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                   </iframe>
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
                 <div className="video_play">
                   <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                   </iframe>
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
               </div>
 
@@ -273,28 +309,102 @@ const Promotion = () => {
                 <div className="video_play">
                   <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                   </iframe>
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
                 <div className="video_play">
                   <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                   </iframe>
-                  <img src={share} alt="share" className="share_img" />
+                  <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
                 </div>
               </div>
             </div>
 
-            {/* <Modal
+            <Modal
               isOpen={isOpenPlay}
-              style={modal_notifications}
+              style={modal_share}
               onRequestClose={() => setOpenPlay(false)}
             >
-              <div className="how_play">
-                <h3>How to play</h3>
-                <div className="how_play_section">
-                  <div className="play_this">
+              <div className="share_modal">
+                <h6 className="share__head">Shareing Code</h6>
+                <div className="left_right_btnn">
+                  <button type="button" className="left_btnn" onClick={() => {
+                    navigator.clipboard.writeText(
+                      "https://dapicgames.com/register?sponser_id=" +
+                      profileData.userId +
+                      "&position=L"
+                    );
+                    alert(
+                      "https://dapicgames.com/register?sponser_id=" +
+                      profileData.userId +
+                      "&position=L"
+                    );
+                  }}>Left</button>
 
-                  </div>
+                  <button type="button" className="right_btnn" onClick={() => {
+                    navigator.clipboard.writeText(
+                      "https://dapicgames.com/register?sponser_id=" +
+                      profileData.userId +
+                      "&position=R"
+                    );
+                    alert(
+                      "https://dapicgames.com/register?sponser_id=" +
+                      profileData.userId +
+                      "&position=R"
+                    );
+                  }}>Right</button>
                 </div>
+              </div>
+
+              <div className="close_btnn">
+                <img
+                  src={close}
+                  alt="close"
+                  className="close_imgs"
+                  onClick={() => setOpenPlay(false)}
+                />
+              </div>
+
+              {/* <div>
+                <p>Click the links below to visit different sites:</p>
+                <ul>
+                  {options.map((option, index) => (
+                    <li key={index}>
+                      <a href={option.url} target="_blank" rel="noopener noreferrer">
+                        {option.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div> */}
+            </Modal>
+            {/* 
+            <Modal
+              isOpen={isShareOpen}
+              style={modal_share}
+              onRequestClose={() => setShareOpen(false)}
+            >
+              <div className="share_google">
+                <p>Click the links below to visit different sites:</p>
+                <ul>
+                  {options.map((option, index) => (
+                    <li key={index}>
+                      <a href={option.url} target="_blank" rel="noopener noreferrer" onClick={() => {
+                        navigator.clipboard.writeText(
+                          "https://dapicgames.com/register?sponser_id=" +
+                          profileData.userId +
+                          "&position=L"
+                        );
+                        alert(
+                          "https://dapicgames.com/register?sponser_id=" +
+                          profileData.userId +
+                          "&position=L"
+                        );
+                      }}>
+                        {option.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Modal> */}
           </div>
