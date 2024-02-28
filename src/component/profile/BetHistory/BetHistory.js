@@ -19,6 +19,15 @@ const BetHistory = () => {
     const [activeKey, setActiveKey] = useState(1);
     const [pageCount, setPageCount] = useState(1)
 
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
+
     useEffect(() => {
         getMyHistory();
     }, [skip, activeKey]);

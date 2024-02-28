@@ -175,6 +175,7 @@ const Promotion = () => {
 
             <div
               className="game"
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
@@ -196,6 +197,7 @@ const Promotion = () => {
 
             <div
               className="game"
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 navigator.clipboard.writeText(
                   "https://dapicgames.com/register?sponser_id=" +
@@ -236,7 +238,7 @@ const Promotion = () => {
                   alt="promotion_data"
                   className="me-2"
                 />{" "}
-                Promotion data
+                MARKTING TOOLS
               </h5>
               {promotion != null && (
                 <div className="data_details">
@@ -265,6 +267,7 @@ const Promotion = () => {
             </div>
 
             <div className="banner_shared">
+              <h5>Markting Banners</h5>
               <div className="pro_card_two">
                 <div className="promotion_banner_img">
                   <img src={promotion_banner} alt="promotion_banner" className="promotion_img" />
@@ -291,7 +294,7 @@ const Promotion = () => {
             </div>
 
             <div className="youtube_video_frame">
-              <h5>Promotion videos</h5>
+              <h5>Markting Videos</h5>
               <div className="flex_tube">
                 <div className="video_play">
                   <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">

@@ -149,6 +149,15 @@ const Profile = () => {
     }
   }, [activateReducer]);
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   return (
     <>
       <div className="profile lottery_page">

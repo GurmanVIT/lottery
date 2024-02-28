@@ -19,6 +19,15 @@ const TeamMember = () => {
   const myData = useSelector((state) => state.directMemberListReducer.data);
   const [dataList, setDataList] = useState(null);
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   useEffect(() => {
     const payload = {
       position: position,

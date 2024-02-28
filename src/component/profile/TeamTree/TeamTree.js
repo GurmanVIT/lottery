@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import { useSelector } from "react-redux";
@@ -8,6 +8,15 @@ const TeamTree = () => {
   const navigation = useNavigate();
 
   const profileResponse = useSelector((state) => state.profileReducer.data);
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
 
 
   return (

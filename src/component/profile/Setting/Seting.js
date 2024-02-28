@@ -15,7 +15,6 @@ import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
 
-
 const modal_setting = {
     content: {
         top: "10%",
@@ -77,6 +76,15 @@ const Setting = () => {
         }
     }, [profileResponse]);
 
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
+
     return (
         <>
             <div className="setting">
@@ -95,7 +103,9 @@ const Setting = () => {
                             <div className='card'>
                                 <div className='card_emoji_img'>
                                     <img src={card_emoji} alt='card_emoji' />
-                                    <p>Change avatar <img src={next} alt='next' /></p>
+                                    <p>Change avatar
+                                        {/* <img src={next} alt='next' /> */}
+                                    </p>
                                 </div>
                                 <div className='nick_name' onClick={() =>
                                     setWinOpen(true)
@@ -105,7 +115,7 @@ const Setting = () => {
                                 </div>
                                 <div className='uid'>
                                     <p>UID</p>
-                                    <h6>{profileData.userId} <img src={copy} alt='copy'
+                                    <h6>{profileData.userId} <img src={copy} alt='copy' style={{ cursor: "pointer" }}
                                         onClick={() => {
                                             navigator.clipboard.writeText(profileData.userId);
                                             alert("User Id Copied");
@@ -134,39 +144,43 @@ const Setting = () => {
                                             <p>Updated version</p>
                                         </div>
                                         <div className='edit'>
-                                            <p>1.0.9<img src={next} alt='next' /></p>
+                                            <p>1.0.9
+                                                {/* <img src={next} alt='next' /> */}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className='card'>
+                                <div className='card' style={{ cursor: "default" }}>
                                     <div className='pass_edit'>
                                         <div className='password_img'>
                                             <img src={update_version} alt='update_version' />
                                             <p> Right Referral Link</p>
                                         </div>
-                                        <div className='edit'>
-                                            <p>{profileData.userId}<img src={copy} alt='copy' className='ms-1' onClick={() => {
+                                        <div className='edit d-flex'>
+                                            <p className='ellipsis_text'>https://dapicgames.com/register?sponser_id=DG390OAJ&position=R
+                                            </p>
+                                            <img src={copy} alt='copy' className='ms-1' onClick={() => {
                                                 navigator.clipboard.writeText("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=R");
                                                 alert("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=R");
                                             }} />
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className='card'>
+                                <div className='card' style={{ cursor: "default" }}>
                                     <div className='pass_edit'>
                                         <div className='password_img'>
                                             <img src={update_version} alt='update_version' />
                                             <p>Left Referral Link</p>
                                         </div>
-                                        <div className='edit'>
-                                            <p>{profileData.userId}<img src={copy} alt='copy' className='ms-1' onClick={() => {
+                                        <div className='edit d-flex'>
+                                            <p className='ellipsis_text'>https://dapicgames.com/register?sponser_id=DG390OAJ&position=L
+                                            </p>
+                                            <img src={copy} alt='copy' className='ms-1' onClick={() => {
                                                 navigator.clipboard.writeText("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=L");
                                                 alert("https://dapicgames.com/register?sponser_id=" + profileData.userId + "&position=L");
                                             }} />
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +219,7 @@ const Setting = () => {
                             </Modal>
                         </div>
                     ) : (
-                        <div className="setting_section" style={{ height: "100vh" }}>
+                        <div className="setting_section">
                             <div className="main_loader">
                                 <ClipLoader color={myColors.primaryColor} />
                             </div>

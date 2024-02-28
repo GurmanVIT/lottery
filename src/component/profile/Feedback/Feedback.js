@@ -16,6 +16,15 @@ const Feedback = () => {
   const feedbackReducer = useSelector((state) => state.submitFeedbackReducer.data);
   const isLoading = useSelector((state) => state.submitFeedbackReducer.isLoading);
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   const sendFeedback = () => {
     if (description === "") {
       alert("Please enter any description!");

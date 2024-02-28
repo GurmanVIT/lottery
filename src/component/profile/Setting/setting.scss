@@ -55,7 +55,7 @@
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding-top: 50px;
+                padding: 50px 10px 10px;
             }
 
             .card {
@@ -257,6 +257,17 @@
                         .edit {
                             a {
                                 font-size: 14px;
+                            }
+
+                            .ellipsis_text {
+                                width: 120px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+
+                                @media($breakpoint_ESM) {
+                                    width: 90px;
+                                }
                             }
 
                             p {

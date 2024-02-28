@@ -7,6 +7,7 @@ import { otpAuth } from "../../../redux/otpSlice";
 import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
 import { clearSponsorData } from "../../../redux/checkSponsorIdSlice";
 import { ClipLoader } from "react-spinners";
+import back_back from '../../../assets/img/back_back.svg';
 
 const Index = () => {
   const [otp, setOtp] = useState("");
@@ -79,6 +80,12 @@ const Index = () => {
     <div className="otp">
       <div className="screen_otp">
         <div className="logo">
+          <img
+            src={back_back}
+            alt="back_back"
+            className="back_back"
+            onClick={() => navigation("/register")}
+          />
           <div className="dg_image">
             <img src={DG} alt="DG" />
             <h2>Dapic games</h2>

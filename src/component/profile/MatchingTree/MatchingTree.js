@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import team_top from "../../../assets/img/team_top.svg";
@@ -12,6 +12,15 @@ import Tooltip from 'react-bootstrap/Tooltip';
 const MatchingTree = () => {
 
     const navigation = useNavigate();
+
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
 
     const leftCounter = (props) => (
         <Tooltip id="button-tooltip" {...props}>

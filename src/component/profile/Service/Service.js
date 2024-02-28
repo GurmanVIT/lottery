@@ -22,6 +22,15 @@ const Service = () => {
   const submitQueryReducer = useSelector((state) => state.addQueryReducer.data);
   const isLoading = useSelector((state) => state.addQueryReducer.isLoading);
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   const setDocumentImage = (pan_image_path) => {
     dispatch(uploadFile(pan_image_path));
   };

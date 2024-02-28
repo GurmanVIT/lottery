@@ -22,6 +22,7 @@ const Wallet = () => {
 
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(transactionList());
     }, []);
@@ -63,6 +64,15 @@ const Wallet = () => {
     };
 
     const [profileData, setProfileData] = useState(null);
+
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        //Check Login
+        if (token == null) {
+            navigation("/login");
+        }
+    })
 
 
     return (

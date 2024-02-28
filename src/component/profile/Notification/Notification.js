@@ -102,6 +102,15 @@ const Notification = () => {
     return formattedDate;
   };
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    //Check Login
+    if (token == null) {
+      navigation("/login");
+    }
+  })
+
   return (
     <>
       <div className="notifications">

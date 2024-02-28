@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import massage from "../../assets/img/massage.svg";
 import DG from "../../assets/img/DG.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,6 +28,10 @@ const Header = () => {
             navigation("/login");
         }, 500);
     };
+
+    // useEffect(()=>{
+
+    // },[])
 
 
     return (
