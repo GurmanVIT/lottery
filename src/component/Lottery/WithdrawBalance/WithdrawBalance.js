@@ -8,7 +8,7 @@ import {
   apiWithdrawRequest,
   withdrawRequest,
 } from "../../../redux/withdrawRequestSlice";
-import { resendOtpApi } from "../../../redux/resendOtpSlice";
+import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
 import { submitWithdrawRequest } from "../../../redux/submitWithdrawRequestSlice";
 import moment from "moment";
 import dollar_img from "../../../assets/img/dollar_img.png";
@@ -30,6 +30,9 @@ const WithdrawBalance = () => {
   const withdrawRequestReducer = useSelector(
     (state) => state.apiWithdrawRequestReducer.data
   );
+  const submitWithdrawRequestReducer = useSelector(
+    (state) => state.submitWithdrawRequestReducer.data
+  );
 
   const token = localStorage.getItem("token");
 
@@ -44,10 +47,11 @@ const WithdrawBalance = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(apiWithdrawRequest());
+    // dispatch(apiWithdrawRequest());
   }, []);
 
   useEffect(() => {
+
     if (
       withdrawRequestReducer != null &&
       withdrawRequestReducer.success === 1
@@ -67,6 +71,7 @@ const WithdrawBalance = () => {
   useEffect(() => {
     if (resendOtpReducer != null && resendOtpReducer.status === 1) {
       alert("Please check otp on your mail");
+      dispatch(clearResendData())
     }
   }, [resendOtpReducer]);
 
@@ -76,6 +81,18 @@ const WithdrawBalance = () => {
       setAddress(profileResponse.data.withdrawAddress);
     }
   });
+
+  useEffect(() => {
+    console.log("submitWithdrawRequestReducer ===> ", submitWithdrawRequestReducer)
+    if (submitWithdrawRequestReducer != null && submitWithdrawRequestReducer.success === 1) {
+      // navigation(-1)
+    }
+    else {
+      if (submitWithdrawRequestReducer != null) {
+        alert(submitWithdrawRequestReducer.status)
+      }
+    }
+  }, [submitWithdrawRequestReducer])
 
   const submitWithdrawRequestData = () => {
     if (address === "") {
@@ -89,6 +106,7 @@ const WithdrawBalance = () => {
         amount: amount,
         otp: otp,
       };
+      console.log("Payload ===> ", payload)
       dispatch(submitWithdrawRequest(payload));
     }
   };
@@ -140,8 +158,8 @@ const WithdrawBalance = () => {
                 Available Balance :{" "}
                 <span>
                   <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px" }} />
-                  {withdrawRequestData != null
-                    ? withdrawRequestData.incomeBalance
+                  {profileResponse != null
+                    ? profileResponse.data.walletPoints
                     : 0.0}
                 </span>
               </p>

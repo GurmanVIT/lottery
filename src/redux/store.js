@@ -29,6 +29,7 @@ import refferalDepositReducer from "./refferalDepositSlice";
 import inviteBonusSheetReducer from "./inviteBonusSheetSlice";
 import getInvitationBonusReducer from "./invitationBonusSlice";
 import randomMembersListReducer from "./randomMembersListSlice";
+import submitWithdrawRequestReducer from "./submitWithdrawRequestSlice";
 
 
 const store = configureStore({
@@ -63,6 +64,7 @@ const store = configureStore({
     inviteBonusSheetReducer: inviteBonusSheetReducer,
     getInvitationBonusReducer: getInvitationBonusReducer,
     randomMembersListReducer: randomMembersListReducer,
+    submitWithdrawRequestReducer: submitWithdrawRequestReducer
   },
 });
 

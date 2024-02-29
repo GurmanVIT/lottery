@@ -3,7 +3,7 @@ import back from "../../../assets/img/back.svg";
 import copy from "../../../assets/img/copy.svg";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { resendOtpApi } from "../../../redux/resendOtpSlice";
+import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
 import { updateWalletAddress } from "../../../redux/updateWalletAddressSlice";
 import { profile } from "../../../redux/profileSlice";
 
@@ -45,6 +45,7 @@ const UpdateWalletAddress = () => {
   useEffect(() => {
     if (resendOtpReducer != null && resendOtpReducer.status === 1) {
       alert("Please check otp on your mail");
+      dispatch(clearResendData())
     }
   }, [resendOtpReducer]);
 
@@ -104,15 +105,15 @@ const UpdateWalletAddress = () => {
                   type="text"
                   placeholder="Please enter address"
                   value={walletAddress}
-                  onChange={(v) => v.target.value}
+                  onChange={(v) => setWalletAddress(v.target.value)}
                 />
                 <img
                   src={copy}
                   alt="copy"
-                // onClick={() => {
-                //     navigator.clipboard.writeText();
-                //     // alert("Address Copied");
-                // }}
+                  onClick={() => {
+                    navigator.clipboard.writeText(walletAddress);
+                    alert("Address Copied");
+                  }}
                 />
               </div>
             </div>

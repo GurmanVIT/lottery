@@ -567,32 +567,26 @@ const Lottery = () => {
                 <div className="coin_img">
                   <div className="text_move">
                     <img src={zero} alt="zero" />
-                    {/* <h6>1</h6> */}
                   </div>
 
                   <div className="text_move">
                     <img src={first} alt="first" />
-                    {/* <h6>2</h6> */}
                   </div>
 
                   <div className="text_move">
                     <img src={secound} alt="secound" />
-                    {/* <h6>3</h6> */}
                   </div>
 
                   <div className="text_move">
                     <img src={third} alt="third" />
-                    {/* <h6>4</h6> */}
                   </div>
 
                   <div className="text_move">
                     <img src={fourth} alt="fourth" />
-                    {/* <h6>5</h6> */}
                   </div>
 
                   <div className="text_move">
                     <img src={fifth} alt="fifth" />
-                    {/* <h6>6</h6> */}
                   </div>
                 </div>
               </div>
@@ -695,7 +689,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={zero} alt="zero" />
-                    {/* <h4>0</h4> */}
                   </div>
 
                   <div
@@ -707,7 +700,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={first} alt="first" />
-                    {/* <h4>1</h4> */}
                   </div>
 
                   <div
@@ -719,7 +711,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={secound} alt="secound" />
-                    {/* <h4>2</h4> */}
                   </div>
 
                   <div
@@ -731,7 +722,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={third} alt="third" />
-                    {/* <h4>3</h4> */}
                   </div>
                   <div
                     className="first_line"
@@ -742,7 +732,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={fourth} alt="fourth" />
-                    {/* <h4>4</h4> */}
                   </div>
                 </div>
                 <div className="ten_coin">
@@ -755,7 +744,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={fifth} alt="fitfh" />
-                    {/* <h4>5</h4> */}
                   </div>
                   <div
                     className="first_line"
@@ -766,7 +754,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={sixth} alt="sixth" />
-                    {/* <h4>6</h4> */}
                   </div>
 
                   <div
@@ -778,7 +765,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={seventh} alt="seventh" />
-                    {/* <h4>7</h4> */}
                   </div>
 
                   <div
@@ -791,7 +777,6 @@ const Lottery = () => {
                     }}
                   >
                     <img src={eight} alt="eight" />
-                    {/* <h4>8</h4> */}
                   </div>
 
                   <div
@@ -946,7 +931,6 @@ const Lottery = () => {
                     <img src={loss_img} alt="loss_img" className="loss_img" />
                     <h4>Lose</h4>
                     <h5>{balanceValue * selectedX}</h5>
-                    {/* <p>3 seconds auto close</p> */}
                     <div className="close_btn">
                       <img
                         src={close}

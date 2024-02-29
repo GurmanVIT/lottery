@@ -1,5 +1,5 @@
 //BASE URL
-// export const ApiBaseUrl = "192.168.1.2:4001/";
+// export const ApiBaseUrl = "http://192.168.1.28:4001/";
 
 export const ApiBaseUrl = "https://dapic-api.virtualittechnology.com/";
 
