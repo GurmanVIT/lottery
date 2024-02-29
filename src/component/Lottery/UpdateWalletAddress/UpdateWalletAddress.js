@@ -94,7 +94,7 @@ const UpdateWalletAddress = () => {
           <div className="withdraw_balance_section">
             <div className="usdt">
               <p>
-                Chain name : <span>USDT (BEP20)</span>
+                Chain name : <span style={{ fontSize: "14px" }}>USDT (BEP20)</span>
               </p>
             </div>
 

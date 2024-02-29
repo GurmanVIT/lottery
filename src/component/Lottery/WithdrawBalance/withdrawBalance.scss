@@ -65,6 +65,16 @@
                         font-size: 14px;
                         margin-bottom: 12px;
                     }
+
+                    span {
+                        font-weight: 600;
+                        margin-left: 4px;
+                        font-size: 17px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 16px;
+                        }
+                    }
                 }
             }
 

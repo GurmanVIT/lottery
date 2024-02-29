@@ -33,6 +33,7 @@ const CycleDetail = () => {
     })
 
     useEffect(() => {
+        console.log("usdtDepositTransactions", data)
         dispatch(usdtDepositTransactions())
 
     }, [])
@@ -79,7 +80,7 @@ const CycleDetail = () => {
                             <img src={back} alt="back" />
                         </div>
                         <div className="cycle_detail">
-                            <h4>Cycle Detail</h4>
+                            <h4>Deposit Details</h4>
                         </div>
                     </div>
 

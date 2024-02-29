@@ -15,6 +15,7 @@ import Header from "../Header/Header";
 const Home_page = () => {
   // const [token, setToken] = useState(null);
   const token = localStorage.getItem("token");
+  console.log("token", token)
 
   console.log(token)
 

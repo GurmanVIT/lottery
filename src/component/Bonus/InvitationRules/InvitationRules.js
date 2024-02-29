@@ -118,8 +118,33 @@ const InvitationRules = () => {
                                         <td>500.00</td>
                                         <td>1,555,555.00</td>
                                     </tr>
+
+                                    <tr>
+                                        <td>50000People
+                                        </td>
+                                        <td>500.00</td>
+                                        <td>3,555,555.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>100000People
+                                        </td>
+                                        <td>500.00</td>
+                                        <td>7,555,555.00</td>
+                                    </tr>
                                 </tbody>
                             </Table>
+                        </div>
+
+                        <div className="account_rules">
+                            <h6>Rules</h6>
+
+                            <ul>
+                                <li>Only when the number of invited accounts is reached and each account can meet the recharge amount can you receive the bonus.</li>
+                                <li>The invitation account meets the requirements, but the recharge amount of the account does not meet the requirements, and the bonus cannot be claimed.</li>
+                                <li>Please claim the event bonus within the event period. All bonuses will be cleared after the event expires.</li>
+                                <li>Please complete the task within the event period. After the event expires, the invitation record will be cleared.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

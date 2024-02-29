@@ -51,7 +51,7 @@ const WithdrawBalance = () => {
   }, []);
 
   useEffect(() => {
-
+    console.log("withdrawRequestReducer", withdrawRequestReducer)
     if (
       withdrawRequestReducer != null &&
       withdrawRequestReducer.success === 1
@@ -95,6 +95,7 @@ const WithdrawBalance = () => {
   }, [submitWithdrawRequestReducer])
 
   const submitWithdrawRequestData = () => {
+    console.log("submitWithdrawRequest", submitWithdrawRequest)
     if (address === "") {
       alert("Please enter address");
     } else if (amount === "") {
@@ -152,12 +153,13 @@ const WithdrawBalance = () => {
               <h4>Withdraw</h4>
             </div>
           </div>
+
           <div className="withdraw_balance_section">
             <div className="usdt">
               <p>
                 Available Balance :{" "}
                 <span>
-                  <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px" }} />
+                  <img src={dollar_img} alt="dollar_img" style={{ width: "21px", marginBottom: "2px", marginRight: "5px" }} />
                   {profileResponse != null
                     ? profileResponse.data.walletPoints
                     : 0.0}
@@ -249,7 +251,7 @@ const WithdrawBalance = () => {
               </button>
             </div>
 
-            {withdrawRequestData != null ? (
+            {withdrawRequestData != null &&
               withdrawRequestData.map((item, index) => (
                 <div className="card_amount">
                   <p>
@@ -264,26 +266,20 @@ const WithdrawBalance = () => {
                   </p>
                   <p>
                     Status :{" "}
-                    <span>
+                    {/* <span>
                       {item.status === 0
                         ? "Pending"
                         : item.status === 1
                           ? "Approved"
                           : "Rejected"}
-                    </span>
+                    </span> */}
                   </p>
                   <p>
                     Date : <span>{getFormattedDateTime(item.createdAt)}</span>
                   </p>
                 </div>
               ))
-            ) : (
-              <div className="card_amount " style={{ height: "100vh" }}>
-                <div className="main_loader">
-                  <ClipLoader color={myColors.primaryColor} />
-                </div>
-              </div>
-            )}
+            }
           </div>
         </div>
       </div>

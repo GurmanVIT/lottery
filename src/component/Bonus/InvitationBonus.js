@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import back from "../../assets/img/back.svg";
-import notification from '../../assets/img/notification.svg';
+import rule_img from '../../assets/img/rule_img.png';
 import next from '../../assets/img/next.svg';
 import { useNavigate } from "react-router";
 import CloseButton from "../SVG/CloseButton";
@@ -61,7 +61,7 @@ const InvitationBonus = () => {
 
                             <div className="notification" onClick={() => navigation('/invitation_rules')}>
                                 <div className="img_notification">
-                                    <img src={notification} alt="notification" />
+                                    <img src={rule_img} alt="rule_img" style={{ width: "40px", height: "40px" }} />
                                     <p>Invitation Reward Rules</p>
                                 </div>
                                 <div className="number_noti">

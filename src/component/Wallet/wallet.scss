@@ -64,7 +64,6 @@
                     position: absolute;
                     top: -92px;
                     left: 14px;
-                    // box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
                     background-color: $white;
                     background-image: url('../../assets//img/withdraw_card.svg');
                     background-repeat: no-repeat;
@@ -82,7 +81,7 @@
                     h1 {
                         @include display(center, center);
                         color: $white;
-                        font-size: 28px;
+                        font-size: 24px;
                         font-weight: 600;
                         line-height: normal;
                         text-transform: uppercase;

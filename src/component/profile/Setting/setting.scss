@@ -51,11 +51,11 @@
         }
 
         .setting_section {
-            padding: 60px 10px 30px;
+            padding: 60px 10px 5px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 50px 10px 10px;
+                padding: 50px 10px 0px;
             }
 
             .card {
