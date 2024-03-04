@@ -1,7 +1,7 @@
-.play_earn {
+.matching_rule {
     @include display(center, center);
 
-    .header_play_earn {
+    .header_matching_rule {
         width: 100%;
         max-width: 420px;
         height: 100vh;
@@ -24,7 +24,7 @@
                 width: 25px;
             }
 
-            .play_earn_content {
+            .matching_rule_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
@@ -34,39 +34,40 @@
             }
         }
 
-        .play_earn_section {
-            padding: 65px 15px 15px;
+        .matching_rule_section {
+            padding: 70px 15px 15px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
                 padding: 65px 10px 10px;
             }
 
-            .card_padding {
+            .capping_border_card {
                 border: 1px solid $primary;
                 border-radius: 14px;
 
-                .rule_card {
+                .capping_coin_card {
                     background-color: #5A56C2;
-                    padding: 13px;
+                    padding: 15px;
                     border-radius: 14px 14px 0 0;
 
                     h6 {
-                        color: $white;
                         text-align: center;
                         margin-bottom: 0;
+                        color: $white;
+                        font-weight: 600;
+                        font-size: 13px;
                     }
                 }
 
-                .play_rules {
+                .card_body {
                     padding: 13px;
-                    border-radius: 13px;
 
                     p {
-                        margin-bottom: 7px;
+                        color: $primary;
+                        margin-bottom: 8px;
                         font: initial;
                         text-align: justify;
-                        color: $primary ;
                     }
                 }
             }

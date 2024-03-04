@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
+import fav_logo from "../../../assets/img/fav_logo.svg";
+import next from "../../../assets/img/next.svg";
+import team_group from "../../../assets/img/team_group.svg";
 
 
 const MatchingBonus = () => {
@@ -26,21 +29,113 @@ const MatchingBonus = () => {
                         <div className="matching_bonus_content">
                             <h4>Matching Bonus</h4>
                         </div>
+                        <div
+                            className="matching_rules"
+                            onClick={() => navigation("/matching_rules")}
+                        >
+                            <p>Rules</p>
+                        </div>
                     </div>
 
                     <div className="matching_bonus_section">
-                        <div className="capping_coin_card">
-                            <h6 className="mb-2">NO CAPPING & INSTANT PAYOUT</h6>
-                            <h6>ONE DOLLAR = 90 DG COINS</h6>
+
+                        <div className="agency">
+                            <h3>
+                                0
+                            </h3>
+                            <div className="bg_total">
+                                <h6>Total Matching Bonus</h6>
+                            </div>
                         </div>
-                        <p>Unbelievable but true "NO CAPPING & INSTANT PAYOUT"</p>
-                        <p style={{ textTransform: "lowercase" }}><span style={{ textTransform: "capitalize" }}>AT</span> THE TIME OF  DEPOSIT SYSTEM WILL GIVE YOU 90<span style={{ textTransform: "capitalize" }}>  DG COINS</span> AGAINST ONE DOLLAR AND WHEN YOU WILL DEPOSIT $10 IN YOUR ID SYSTEM   AUTOMATICALLY ACTIVATE YOUR ID FOR MATCHING BONUS
-                            BY DEDUCTING 900 <span style={{ textTransform: "capitalize" }}> DG COINS</span> FROM YOUR ACCOUNT
-                            OUT OF THIS AMOUNT 180 <span style={{ textTransform: "capitalize" }}> DG COINS</span> will go to admin as fee and rest of the
-                            amount will be distributed at the spot AMONG ALL  the ids which will COMPLETE THEIR
-                            pair at the time of placing that particular id.</p>
-                        <p>So here you can earn unlimited money
-                            from the unlimited depth of your right and left team.</p>
+
+                        <div className="direct_team">
+                            <div className="deposit_direct">
+                                <div className="direct">
+                                    <img src={team_group} alt="team_group" />
+                                    <h6>Left Team</h6>
+                                </div>
+                                <div className="p-3 pb-1">
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>Today</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>This Week</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>This Month</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>Registed Id's</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>Active Id's</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="deposit_direct">
+                                <div className="direct people">
+                                    <img src={team_group} alt="team_group" />
+                                    <h6>Right Team</h6>
+                                </div>
+                                <div className="p-3 pb-1 border_left">
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>Today</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>This Week</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>This Month</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>Registed Id's</p>
+                                    </div>
+                                    <div className="register_number">
+                                        <h6>0</h6>
+                                        <p>Active Id's</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            className="game"
+                            onClick={() => navigation("/team_tree")}
+                            style={{ cursor: "pointer" }}
+                        >
+                            <div className="img_game">
+                                <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                                <p>Matching Tree</p>
+                            </div>
+                            <div className="next_img">
+                                <img src={next} alt="next" />
+                            </div>
+                        </div>
+
+
+                        <div
+                            className="game"
+                            onClick={() => navigation("/team_member")}
+                            style={{ cursor: "pointer" }}
+                        >
+                            <div className="img_game">
+                                <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                                <p>My Left Right Team</p>
+                            </div>
+                            <div className="next_img">
+                                <img src={next} alt="next" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div >

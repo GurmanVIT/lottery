@@ -19,115 +19,60 @@ const GamePlayBonus = () => {
         <>
             <div className="rule">
                 <div className="header_rule">
+
                     <div className="header_flex">
                         <div className="back_img" onClick={() => navigation(-1)}>
                             <img src={back} alt="back" />
                         </div>
-                        <div className="rule_content">
+                        <div className="deposit_content">
                             <h4>Team Gameplay Bonus</h4>
+                        </div>
+                        <div
+                            className="deposit_history"
+                            onClick={() => navigation("/gameplay_rules")}
+                        >
+                            <p>Rule</p>
                         </div>
                     </div>
 
                     <div className="rule_section">
 
-                        <div className="lottery_table">
-                            <Table responsive>
-                                <thead>
-                                    <tr>
-                                        <th>LEV<br />EL</th>
-                                        <th>DIRE<br />CT</th>
-                                        <th>TEAM<br />SIZE</th>
-                                        <th>TOTAL<br />BET</th>
-                                        <th>TEAM<br />RECHARGE</th>
-                                        <th>LEVEL<br />BONUS</th>
-                                        <th className="status_th">STATUS</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <div className="bonus_card mb-3">
+                            <div className="head_bonus">
+                                <div className="bonus_bg">
+                                    <p>Bonus <span>0</span></p>
+                                    {/* <p className="close_btn"><CloseButton /></p> */}
+                                </div>
+                                <div className="right_number">0</div>
+                            </div>
+                            <div className="bonus_around">
+                                <div className="numbers_one">
+                                    <p className="text-start">Number of invitees</p>
+                                    <p>1</p>
+                                </div>
 
-                                    <tr>
-                                        <td>1</td>
+                                <div className="recharge_member">
+                                    <p className="text-start">Recharge per people</p>
+                                    <p>0</p>
+                                </div>
 
-                                        <td>2</td>
-                                        <td>5</td>
-                                        <td>10,000</td>
-                                        <td>10,000</td>
-                                        <td>0.20%</td>
-                                        <td>Achieved</td>
+                                <div className="border_center">
+                                    <div className="border_width"></div>
+                                </div>
 
-                                    </tr>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td>5</td>
-                                        <td>10</td>
-                                        <td>20,000</td>
-                                        <td>20,000</td>
-                                        <td>0.20%</td>
-                                        <td>pending</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>3</td>
-                                        <td>8</td>
-                                        <td>15</td>
-                                        <td>50,000</td>
-                                        <td>50,000</td>
-                                        <td>0,20%</td>
-                                        <td>pending</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>4</td>
-                                        <td>11</td>
-                                        <td>20</td>
-                                        <td>1,50,000</td>
-                                        <td>1,50,000</td>
-                                        <td>0.20%</td>
-                                        <td>pendng</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>5</td>
-                                        <td>14</td>
-                                        <td>25</td>
-                                        <td>4,50,000</td>
-                                        <td>4,50,000</td>
-                                        <td>0.20%</td>
-                                        <td>pending</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>6</td>
-                                        <td>17</td>
-                                        <td>30</td>
-                                        <td>13,50,000</td>
-                                        <td>13,50,000</td>
-                                        <td>0.20%</td>
-                                        <td>pending</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>7</td>
-                                        <td>20</td>
-                                        <td>100</td>
-                                        <td>40,50,000</td>
-                                        <td>40,50,000</td>
-                                        <td>0.20%</td>
-                                        <td>pending</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>50</td>
-                                        <td>500</td>
-                                        <td>1,21,50,000</td>
-                                        <td>1,21,50,000</td>
-                                        <td>0.20%</td>
-                                        <td>pending</td>
-                                    </tr>
-                                </tbody>
-                            </Table>
+                                <div className="invite_deposit">
+                                    <div className="invited_number">
+                                        <p className="number_two">0 / 1</p>
+                                        <p>Number of invitees</p>
+                                    </div>
+                                    <div className="deposit_number">
+                                        <p className="number_two">0 / 1</p>
+                                        <p>Deposit number</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div >

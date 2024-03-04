@@ -10,7 +10,7 @@ import transfer from "../../assets/img/Transfer.svg";
 import bet_img from "../../assets/img/bet.svg";
 import notification from "../../assets/img/notification.svg";
 import next from "../../assets/img/next.svg";
-import game_static from "../../assets/img/game_static.svg";
+import fav_logo from "../../assets/img/fav_logo.svg";
 import setting from "../../assets/img/setting.svg";
 import feedback from "../../assets/img/feedback.svg";
 import about from "../../assets/img/about.svg";
@@ -202,13 +202,8 @@ const Profile = () => {
                     ? "This account is not activate"
                     : "This account is activate"}
                 </p>
-                {/* <p>This account is not activate</p> */}
-                {profileInfo.paidStatus === 0 && (
-                  <button type="button" onClick={() => onActiveClick()}>
-                    Active Now
-                  </button>
-                )}
               </div>
+
               <div className="balance">
                 <p>Total Balance</p>
                 <h3>
@@ -323,7 +318,7 @@ const Profile = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="img_game">
-                  <img src={game_static} alt="game_static" />
+                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
                   <p>My Team Member</p>
                 </div>
                 <div className="next_img">
@@ -337,7 +332,7 @@ const Profile = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="img_game">
-                  <img src={game_static} alt="game_static" />
+                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
                   <p>Matching Tree</p>
                 </div>
                 <div className="next_img">
@@ -347,7 +342,7 @@ const Profile = () => {
 
               <div className="game">
                 <div className="img_game">
-                  <img src={game_static} alt="game_static" />
+                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
                   <p>Refferal Deposit</p>
                 </div>
                 <div className="next_img">

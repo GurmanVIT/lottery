@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
-import activity_bonus from "../../../assets/img/activity_bonus.svg";
 
 
-const ActivityBonus = () => {
+const DirectTree = () => {
 
     const navigation = useNavigate();
     const token = localStorage.getItem("token");
@@ -18,19 +17,20 @@ const ActivityBonus = () => {
 
     return (
         <>
-            <div className="matching_bonus">
-                <div className="header_matching_bonus">
+            <div className="direct_tree">
+                <div className="header_direct_tree">
                     <div className="header_flex">
                         <div className="back_img" onClick={() => navigation(-1)}>
                             <img src={back} alt="back" />
                         </div>
-                        <div className="matching_bonus_content">
-                            <h4>Serial Win Bonus</h4>
+                        <div className="direct_tree_content">
+                            <h4>My Direct Tree</h4>
                         </div>
+
                     </div>
 
-                    <div className="matching_bonus_section">
-                        <img src={activity_bonus} alt="activity_bonus" style={{ width: "100%" }} />
+                    <div className="direct_tree_section">
+
                     </div>
                 </div>
             </div >
@@ -38,4 +38,4 @@ const ActivityBonus = () => {
     );
 };
 
-export default ActivityBonus;
+export default DirectTree;

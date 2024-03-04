@@ -249,7 +249,7 @@ const ModalBottom = ({
             <div className="radio_btn">
               <div className="radio">
                 <label>
-                  <input type="radio" value="option1" />I agree{" "}
+                  I agree{" "}
                   <span color={myColor}>(Pre-sale rule)</span>
                 </label>
               </div>

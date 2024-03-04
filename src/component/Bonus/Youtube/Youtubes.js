@@ -25,7 +25,7 @@ const Youtubes = () => {
               <img src={back} alt="back" />
             </div>
             <div className="youtube_content">
-              <h4>Activity details</h4>
+              <h4>YouTube Promotion Bonus</h4>
             </div>
           </div>
 

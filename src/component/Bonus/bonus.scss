@@ -28,11 +28,135 @@
         }
 
         .bonus_section {
-            padding: 70px 15px 120px;
+            padding: 65px 15px 97px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 65px 12px 105px;
+                padding: 63px 12px 95px;
+            }
+
+            .card_sec {
+                width: 100%;
+                background-color: transparent;
+                position: relative;
+
+                .card {
+                    background-color: $card_primary;
+                    border: none;
+                    outline: none;
+                    border-radius: 14px;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    position: relative;
+
+                    .card_body {
+                        padding: 20px 0 20px 10px;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            z-index: 1;
+                            background-image: url("../../assets//img//gift_img.svg");
+                        }
+
+                        h4 {
+                            margin-bottom: 0;
+                            color: $white;
+                            font-weight: 700;
+                            font-size: 21px;
+                            font-family: system-ui;
+                            position: relative;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                width: 75px;
+                                height: 3px;
+                                bottom: -23px;
+                                background-color: $white;
+                                margin: 10px 0;
+                                border-radius: 15px;
+                            }
+                        }
+
+                        p {
+                            margin: 25px 0 0 0;
+                            color: $white;
+                            font-family: system-ui;
+                            font-weight: 500;
+                            letter-spacing: 1px;
+                            font-size: 14px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 13px;
+                            }
+                        }
+
+                        .purple {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .gift_img {
+                    position: absolute;
+                    top: 3px;
+                    right: 15px;
+                    width: 130px;
+                    height: 130px;
+
+                    @media($breakpoint_ESM) {
+                        top: 15px;
+                        right: 0;
+                        width: 105px;
+                        height: 105px;
+                    }
+                }
+
+                .card_footer {
+                    @include display(space-between, center);
+                    padding: 10px;
+                    border-radius: 0 0 14px 14px;
+                    box-shadow: $input_shadow;
+                    background-color: $white;
+
+                    .card_flex {
+                        @include display(center, center);
+                        gap: 7px;
+
+                        @media($breakpoint_450) {
+                            gap: 5px;
+                        }
+
+                        img {
+                            border-radius: 50%;
+                        }
+
+                        h4 {
+                            @include font;
+                            color: $black;
+                        }
+                    }
+
+                    .card_sec_flex {
+                        @include display(center, center);
+                        gap: 15px;
+
+                        @media($breakpoint_450) {
+                            gap: 7px;
+                        }
+
+                        h6 {
+                            @include font;
+                            color: $black;
+                        }
+
+                        h5 {
+                            @include font;
+                            color: $primary ;
+                        }
+                    }
+                }
             }
 
             .notification {

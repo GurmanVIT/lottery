@@ -127,8 +127,14 @@ const BetHistory = () => {
                         <div className="back_img" onClick={() => navigation(-1)}>
                             <img src={back} alt="back" />
                         </div>
-                        <div className="bets">
-                            <h4>Bet History</h4>
+                        <div className="deposit_content">
+                            <h4>Play & Earn</h4>
+                        </div>
+                        <div
+                            className="deposit_history"
+                            onClick={() => navigation("/play_earn_rule")}
+                        >
+                            <p>Rules</p>
                         </div>
                     </div>
 

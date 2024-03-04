@@ -61,11 +61,12 @@ const Register = () => {
   };
 
   const onSignUpClick = () => {
+    console.log("signupSuccess ===>", signupSuccess)
     if (!isValid) {
       alert("Email not valid");
     } else if (firsName.length == 0) {
       alert("Please enter first name");
-    } else if (firsName.length == 0) {
+    } else if (lastName.length == 0) {
       alert("Please enter last name");
     } else if (password != confirmPassword) {
       alert("Your confirm password not matched");

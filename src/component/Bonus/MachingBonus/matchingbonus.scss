@@ -9,19 +9,22 @@
 
         .header_flex {
             background: $profile_bg;
-            @include display(center, center);
-            padding: 15px 10px;
+            @include display(space-between, center);
+            padding: 12px 10px;
             position: fixed;
             top: 0;
             z-index: 1;
             width: 100%;
             max-width: 420px;
 
-            img {
-                position: absolute;
-                top: 12px;
-                left: 15px;
-                width: 25px;
+            .back_img {
+                img {
+                    width: 25px;
+
+                    @media($breakpoint_ESM) {
+                        width: 20px;
+                    }
+                }
             }
 
             .matching_bonus_content {
@@ -29,6 +32,16 @@
                     color: $white;
                     font-size: 17px;
                     font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+
+            .matching_rules {
+                cursor: pointer;
+
+                p {
+                    color: $white;
+                    font-size: 12px;
                     margin-bottom: 0;
                 }
             }
@@ -42,31 +55,231 @@
                 padding: 65px 10px 10px;
             }
 
-            p {
+            .agency {
                 margin-bottom: 10px;
-                font-size: 15px;
-            }
 
-            .capping_coin_card {
-                background-color: #5A56C2;
-                padding: 20px;
-                border-radius: 14px;
-                margin-bottom: 20px;
-
-                h6 {
+                h3 {
                     text-align: center;
-                    margin-bottom: 0;
-                    color: $white;
-                    font-weight: 600;
-                    font-size: 15px;
+                }
+
+                .bg_total {
+                    @include display(center, center);
+
+                    h6 {
+                        background-color: #6561c069;
+                        padding: 6px 15px;
+                        border-radius: 8px;
+                        margin-bottom: 5px;
+                        max-width: 255px;
+                        font-size: 17px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 15px;
+                        }
+                    }
                 }
             }
 
-            p {
-                font-size: 15px;
-                font-weight: 600;
-                margin-bottom: 11px;
+            .direct_team {
+                @include display(center, center);
+                margin-bottom: 15px;
+
+                .deposit_direct {
+                    background-color: $white;
+                    width: 50%;
+
+                    .border_left {
+                        border-left: 1px solid $dark_watch
+                    }
+
+                    .direct {
+                        @include display(flex-start, center);
+                        gap: 10px;
+                        background-color: $primary;
+                        padding: 10px;
+
+                        @media($breakpoint_ESM) {
+                            padding: 10px 5px;
+                        }
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        h6 {
+                            font-weight: 600;
+                            margin-bottom: 0;
+                            font-size: 14px;
+                            color: $white;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    .people {
+                        border-left: 1px solid $white;
+                    }
+
+                    .register_number {
+                        padding-bottom: 10px;
+
+                        h6 {
+                            text-align: center;
+                            margin-bottom: 0;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 15px;
+                            }
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: 600;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+
+                    .Deposit_number {
+                        padding-bottom: 10px;
+
+                        h6 {
+                            text-align: center;
+                            margin-bottom: 0;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 15px;
+                            }
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            text-align: center;
+                            font-size: 12px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+
+                    .amount_number {
+                        padding-bottom: 10px;
+
+                        h6 {
+                            text-align: center;
+                            margin-bottom: 0;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 15px;
+                            }
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            text-align: center;
+                            font-size: 12px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+
+                    .people_number {
+                        padding-bottom: 10px;
+
+                        h6 {
+                            text-align: center;
+                            margin-bottom: 0;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 15px;
+                            }
+                        }
+
+                        p {
+                            margin-bottom: 0;
+                            text-align: center;
+                            font-size: 12px;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
             }
+
+            .game {
+                margin-bottom: 15px;
+                padding: 15px;
+                background-color: $white;
+                box-shadow: $input_shadow;
+                border-radius: 9px;
+                @include display(space-between, center);
+
+                @media($breakpoint_ESM) {
+                    margin-top: 10px;
+                }
+
+                .img_game {
+                    @include display(center, center);
+                    column-gap: 20px;
+
+                    @media($breakpoint_ESM) {
+                        column-gap: 16px;
+                    }
+
+                    img {
+                        @media($breakpoint_ESM) {
+                            width: 25px;
+                        }
+                    }
+
+                    p {
+                        font-weight: 600;
+                        margin-bottom: 0;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .next_img {
+                    img {
+                        @media($breakpoint_ESM) {
+                            width: 20px;
+                        }
+                    }
+
+                    h6 {
+                        background-color: $primary;
+                        padding: 6px 10px;
+                        font-size: 13px;
+                        margin-bottom: 0;
+                        border-radius: 4px;
+                        color: $white;
+                        @include display(center, center);
+
+                        img {
+                            width: 16px;
+                            height: 16px;
+                            margin-right: 5px;
+                            margin-top: -1px;
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

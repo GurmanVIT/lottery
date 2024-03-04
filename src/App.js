@@ -1,5 +1,5 @@
 import "../src/assets/style/Style.scss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Login from "./component/forms/Login/Index";
 import Register from "./component/forms/Register/Index";
 import Index from "./component/Home/Index";
@@ -43,23 +43,48 @@ import PlayEarnRules from "./component/Bonus/PlayEarnRules/PlayEarnRules";
 import GamePlayBonus from "./component/Bonus/TeamGamePlayBonus/GamePlaYBonus";
 import MatchingBonus from "./component/Bonus/MachingBonus/Matchingbonus";
 import ActivityBonus from "./component/Bonus/ActivityBonus/ActivityBonus";
+import Bottom_bar from "./component/Home/Bottom/Bottom_bar";
+import MatchingRules from "./component/Bonus/MatchingRules/MatchingRules";
+import DirectTree from "./component/Bonus/MyDirectTree/DirectTree";
+import GameplayRules from "./component/Bonus/GameplayRules/GameplayRules";
 
 
 // export
 
 function App() {
+
+  // function PrivancyBottomBar() {
+  //   return (
+  //     <>
+  //       <div className="">
+  //         <Outlet />
+  //         <Bottom_bar className="m-auto" />
+  //       </div>
+  //     </>
+  //   );
+  // }
+
   return (
     <Provider store={store}>
       <Router>
         <Routes>
+
+          {/* <Route element={<PrivancyBottomBar />}> */}
+          <Route path="/home_page" element={<Index />} />
+          <Route path="/bonus" element={<BonusPage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/promotion" element={<PromotionData />} />
+          <Route path="/wallet" element={<WalletPage />} />
+          {/* </Route> */}
+
+
+
           <Route path="*" element={<Login />} />
           <Route path="/lottery" element={<Lottery />} />
-          <Route path="/home_page" element={<Index />} />
           <Route path="/register" element={<Register />} />
           <Route path="/otp" element={<OTP />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/modalbottom" element={<ModalBottom />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/winner" element={<WinPop />} />
           <Route path="/loss" element={<LossPop />} />
           {/* <Route path="/withdraw" element={<Withdraw />} /> */}
@@ -81,11 +106,8 @@ function App() {
           <Route path="/bet_history" element={<BetHistory />} />
           <Route path="/team_member" element={<TeamMember />} />
           <Route path="/team_tree" element={<TeamTree />} />
-          <Route path="/promotion" element={<PromotionData />} />
           <Route path="/rule" element={<Rules />} />
-          <Route path="/wallet" element={<WalletPage />} />
           <Route path="/matching_tree" element={<MatchingTree />} />
-          <Route path="/bonus" element={<BonusPage />} />
           <Route path="/invitation_bonus" element={<InvitationBonus />} />
           <Route path="/invitation_rules" element={<InvitationRules />} />
           <Route path="/youtube" element={<Youtubes />} />
@@ -93,6 +115,9 @@ function App() {
           <Route path="/team_gameplay_bonus" element={<GamePlayBonus />} />
           <Route path="/matching_bonus" element={<MatchingBonus />} />
           <Route path="/activity_bonus" element={<ActivityBonus />} />
+          <Route path="/matching_rules" element={<MatchingRules />} />
+          <Route path="/direct_tree" element={<DirectTree />} />
+          <Route path="/gameplay_rules" element={<GameplayRules />} />
         </Routes>
       </Router>
 
