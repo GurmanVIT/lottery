@@ -48,11 +48,11 @@
         }
 
         .matching_bonus_section {
-            padding: 70px 15px 15px;
+            padding: 65px 15px 15px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 65px 10px 10px;
+                padding: 60px 10px 10px;
             }
 
             .agency {
@@ -71,7 +71,7 @@
                         border-radius: 8px;
                         margin-bottom: 5px;
                         max-width: 255px;
-                        font-size: 17px;
+                        font-size: 16px;
 
                         @media($breakpoint_ESM) {
                             font-size: 15px;
@@ -80,138 +80,47 @@
                 }
             }
 
-            .direct_team {
-                @include display(center, center);
-                margin-bottom: 15px;
+            .promotion_data {
+                background-color: $primary;
+                padding: 20px 15px 10px;
+                margin: 10px 0 20px;
+                border-radius: 14px;
 
-                .deposit_direct {
-                    background-color: $white;
-                    width: 50%;
+                h5 {
+                    font-size: 17px;
+                    font-weight: 600;
+                    color: $white;
+                }
 
-                    .border_left {
-                        border-left: 1px solid $dark_watch
-                    }
+                .data_details {
+                    @include display(space-around, flex-start);
+                    gap: 10px;
 
-                    .direct {
-                        @include display(flex-start, center);
-                        gap: 10px;
-                        background-color: $primary;
-                        padding: 10px;
+                    .total_number {
+                        width: 50%;
 
-                        @media($breakpoint_ESM) {
-                            padding: 10px 5px;
-                        }
+                        .this_week {
+                            margin-bottom: 10px;
 
-                        img {
-                            width: 20px;
-                            height: 20px;
-                        }
+                            h6 {
+                                text-align: center;
+                                margin-bottom: 0;
+                                color: $white;
 
-                        h6 {
-                            font-weight: 600;
-                            margin-bottom: 0;
-                            font-size: 14px;
-                            color: $white;
+                                @media($breakpoint_ESM) {
+                                    font-size: 15px;
+                                }
+                            }
 
-                            @media($breakpoint_ESM) {
+                            p {
+                                margin-bottom: 0;
+                                text-align: center;
                                 font-size: 12px;
-                            }
-                        }
-                    }
+                                color: $white;
 
-                    .people {
-                        border-left: 1px solid $white;
-                    }
-
-                    .register_number {
-                        padding-bottom: 10px;
-
-                        h6 {
-                            text-align: center;
-                            margin-bottom: 0;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 15px;
-                            }
-                        }
-
-                        p {
-                            margin-bottom: 0;
-                            text-align: center;
-                            font-size: 12px;
-                            font-weight: 600;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 11px;
-                            }
-                        }
-                    }
-
-                    .Deposit_number {
-                        padding-bottom: 10px;
-
-                        h6 {
-                            text-align: center;
-                            margin-bottom: 0;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 15px;
-                            }
-                        }
-
-                        p {
-                            margin-bottom: 0;
-                            text-align: center;
-                            font-size: 12px;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 11px;
-                            }
-                        }
-                    }
-
-                    .amount_number {
-                        padding-bottom: 10px;
-
-                        h6 {
-                            text-align: center;
-                            margin-bottom: 0;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 15px;
-                            }
-                        }
-
-                        p {
-                            margin-bottom: 0;
-                            text-align: center;
-                            font-size: 12px;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 11px;
-                            }
-                        }
-                    }
-
-                    .people_number {
-                        padding-bottom: 10px;
-
-                        h6 {
-                            text-align: center;
-                            margin-bottom: 0;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 15px;
-                            }
-                        }
-
-                        p {
-                            margin-bottom: 0;
-                            text-align: center;
-                            font-size: 12px;
-
-                            @media($breakpoint_ESM) {
-                                font-size: 11px;
+                                @media($breakpoint_ESM) {
+                                    font-size: 11px;
+                                }
                             }
                         }
                     }
@@ -279,7 +188,6 @@
                     }
                 }
             }
-
         }
     }
 }

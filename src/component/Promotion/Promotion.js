@@ -170,11 +170,11 @@ const Promotion = () => {
                 </div>
               )}
 
-              <div className="mt-4 link_btn">
+              {/* <div className="mt-4 link_btn">
                 <button type="button" className="login_button">
                   INVITATION LINK
                 </button>
-              </div>
+              </div> */}
 
               <div
                 className="game"
@@ -241,7 +241,7 @@ const Promotion = () => {
                     alt="promotion_data"
                     className="me-2"
                   />{" "}
-                  MARKTING TOOLS
+                  Income Details
                 </h5>
                 {promotion != null && (
                   <div className="data_details">
@@ -271,6 +271,16 @@ const Promotion = () => {
 
               <div className="banner_shared">
                 <h5>Markting Banners</h5>
+                <div className="radio_btn_left_right d-flex">
+                  <div className="me-3 mb-2">
+                    <input type="radio" id="Left" name="fav_language" value="Left" />
+                    <label for="Left" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Left</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="Right" name="fav_language" value="Right" />
+                    <label for="Right" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Right</label>
+                  </div>
+                </div>
                 <div className="pro_card_two">
                   <div className="promotion_banner_img">
                     <img src={promotion_banner} alt="promotion_banner" className="promotion_img" />
@@ -298,6 +308,16 @@ const Promotion = () => {
 
               <div className="youtube_video_frame">
                 <h5>Markting Videos</h5>
+                <div className="radio_btn_left_right d-flex">
+                  <div className="me-3 mb-2">
+                    <input type="radio" id="Lefts" name="fav_language" value="Lefts" />
+                    <label for="Lefts" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Left</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="Rights" name="fav_language" value="Rights" />
+                    <label for="Rights" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Right</label>
+                  </div>
+                </div>
                 <div className="flex_tube">
                   <div className="video_play">
                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
@@ -325,7 +345,7 @@ const Promotion = () => {
                 </div>
               </div>
 
-              <Modal
+              {/* <Modal
                 isOpen={isOpenPlay}
                 style={modal_share}
                 onRequestClose={() => setOpenPlay(false)}
@@ -370,19 +390,19 @@ const Promotion = () => {
                   />
                 </div>
 
-                {/* <div>
-                <p>Click the links below to visit different sites:</p>
-                <ul>
-                  {options.map((option, index) => (
-                    <li key={index}>
-                      <a href={option.url} target="_blank" rel="noopener noreferrer">
-                        {option.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div> */}
-              </Modal>
+                <div>
+                  <p>Click the links below to visit different sites:</p>
+                  <ul>
+                    {options.map((option, index) => (
+                      <li key={index}>
+                        <a href={option.url} target="_blank" rel="noopener noreferrer">
+                          {option.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Modal> */}
 
               {/* <Modal
               isOpen={isShareOpen}

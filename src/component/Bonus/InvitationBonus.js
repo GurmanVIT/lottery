@@ -72,7 +72,7 @@ const InvitationBonus = () => {
                             <div className="notification mb-3" onClick={() => navigation('/direct_tree')}>
                                 <div className="img_notification">
                                     <img src={rule_img} alt="rule_img" style={{ width: "40px", height: "40px" }} />
-                                    <p>My Direct Tree</p>
+                                    <p>My Direct Members</p>
                                 </div>
                                 <div className="number_noti">
                                     <img src={next} alt="next" />

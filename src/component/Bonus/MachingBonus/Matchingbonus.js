@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import fav_logo from "../../../assets/img/fav_logo.svg";
 import next from "../../../assets/img/next.svg";
-import team_group from "../../../assets/img/team_group.svg";
+import promotion_data from "../../../assets/img/promotion_data.svg";
 
 
 const MatchingBonus = () => {
@@ -48,64 +48,39 @@ const MatchingBonus = () => {
                             </div>
                         </div>
 
-                        <div className="direct_team">
-                            <div className="deposit_direct">
-                                <div className="direct">
-                                    <img src={team_group} alt="team_group" />
-                                    <h6>Left Team</h6>
-                                </div>
-                                <div className="p-3 pb-1">
-                                    <div className="register_number">
+                        <div className="promotion_data">
+                            <h5>
+                                <img
+                                    src={promotion_data}
+                                    alt="promotion_data"
+                                    className="me-2"
+                                />{" "}
+                                Income Details
+                            </h5>
+                            {/* {promotion != null && ( */}
+                            <div className="data_details">
+                                <div className="total_number">
+                                    <div className="this_week">
                                         <h6>0</h6>
-                                        <p>Today</p>
+                                        <p>Total Left</p>
                                     </div>
-                                    <div className="register_number">
+                                    <div className="this_week">
                                         <h6>0</h6>
-                                        <p>This Week</p>
-                                    </div>
-                                    <div className="register_number">
-                                        <h6>0</h6>
-                                        <p>This Month</p>
-                                    </div>
-                                    <div className="register_number">
-                                        <h6>0</h6>
-                                        <p>Registed Id's</p>
-                                    </div>
-                                    <div className="register_number">
-                                        <h6>0</h6>
-                                        <p>Active Id's</p>
+                                        <p>Total Left Paid Team</p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className="deposit_direct">
-                                <div className="direct people">
-                                    <img src={team_group} alt="team_group" />
-                                    <h6>Right Team</h6>
-                                </div>
-                                <div className="p-3 pb-1 border_left">
-                                    <div className="register_number">
+                                <div className="total_number">
+                                    <div className="this_week">
                                         <h6>0</h6>
-                                        <p>Today</p>
+                                        <p>Total Right</p>
                                     </div>
-                                    <div className="register_number">
+                                    <div className="this_week">
                                         <h6>0</h6>
-                                        <p>This Week</p>
-                                    </div>
-                                    <div className="register_number">
-                                        <h6>0</h6>
-                                        <p>This Month</p>
-                                    </div>
-                                    <div className="register_number">
-                                        <h6>0</h6>
-                                        <p>Registed Id's</p>
-                                    </div>
-                                    <div className="register_number">
-                                        <h6>0</h6>
-                                        <p>Active Id's</p>
+                                        <p>Total Right Paid Team</p>
                                     </div>
                                 </div>
                             </div>
+                            {/* )} */}
                         </div>
 
                         <div

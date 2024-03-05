@@ -17,14 +17,14 @@ const GamePlayBonus = () => {
 
     return (
         <>
-            <div className="rule">
-                <div className="header_rule">
+            <div className="game_bonus">
+                <div className="header_game_bonus">
 
                     <div className="header_flex">
                         <div className="back_img" onClick={() => navigation(-1)}>
                             <img src={back} alt="back" />
                         </div>
-                        <div className="deposit_content">
+                        <div className="game_bonus_content">
                             <h4>Team Gameplay Bonus</h4>
                         </div>
                         <div
@@ -35,7 +35,7 @@ const GamePlayBonus = () => {
                         </div>
                     </div>
 
-                    <div className="rule_section">
+                    <div className="game_bonus_section">
 
                         <div className="bonus_card mb-3">
                             <div className="head_bonus">

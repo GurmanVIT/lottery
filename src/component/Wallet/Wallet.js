@@ -99,6 +99,20 @@ const Wallet = () => {
                                     </div>
                                     <h1><img src={dollar_img} alt="dollar_img" className="dollar_img" />{transactionListData != null ? transactionListData.data.walletPoints : "0.0"}</h1>
                                     <h4>Total Balance</h4>
+                                    <div className="btn_flex">
+                                        <div
+                                            className="withdraw_btn"
+                                            onClick={() => navigation("/withdraw_balance")}
+                                        >
+                                            <button>Withdraw</button>
+                                        </div>
+                                        <div
+                                            className="deposit_btn"
+                                            onClick={() => navigation("/deposit")}
+                                        >
+                                            <button>Deposit</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

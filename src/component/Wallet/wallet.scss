@@ -44,16 +44,16 @@
             background-color: $page_bg;
 
             .wallet_section {
-                padding-bottom: 60px;
+                padding-bottom: 120px;
                 background-color: $page_bg;
                 position: relative;
 
                 @media ($breakpoint_450) {
-                    padding: 15px 10px 60px;
+                    padding: 15px 10px 105px;
                 }
 
                 @media ($breakpoint_ESM) {
-                    padding-bottom: 45px;
+                    padding-bottom: 100px;
                 }
 
                 .wallet_card {
@@ -110,6 +110,47 @@
                         font-size: 17px;
                         font-weight: 600;
                         line-height: normal;
+                    }
+
+                    .btn_flex {
+                        @include display(space-evenly, center);
+                        margin-top: 15px;
+
+                        .withdraw_btn {
+                            button {
+                                background-color: $green;
+                                border: none;
+                                padding: 12px 35px;
+                                border-radius: 8px;
+                                color: $white;
+                                font-size: 14px;
+                                font-weight: 600;
+                                line-height: normal;
+
+                                @media ($breakpoint_ESM) {
+                                    padding: 10px 29px;
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+
+                        .deposit_btn {
+                            button {
+                                background-color: $deposit_button;
+                                border: none;
+                                padding: 12px 35px;
+                                border-radius: 8px;
+                                color: $white;
+                                font-size: 14px;
+                                font-weight: 600;
+                                line-height: normal;
+
+                                @media ($breakpoint_ESM) {
+                                    padding: 10px 29px;
+                                    font-size: 13px;
+                                }
+                            }
+                        }
                     }
                 }
             }

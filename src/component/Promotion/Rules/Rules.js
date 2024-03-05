@@ -42,11 +42,11 @@ const Rules = () => {
     <>
       <div className="rule">
         <div className="header_rule">
-          <div className="header_flex">
+          <div className="header_flexs">
             <div className="back_img" onClick={() => navigation(-1)}>
               <img src={back} alt="back" />
             </div>
-            <div className="rule_content">
+            <div className="rules_contents">
               <h4>Rules</h4>
             </div>
           </div>

@@ -7,7 +7,7 @@
         height: 100vh;
         background-color: $page_bg;
 
-        .header_flex {
+        .header_flexs {
             background: $profile_bg;
             @include display(center, center);
             padding: 15px 10px;
@@ -16,34 +16,31 @@
             z-index: 1;
             width: 100%;
             max-width: 420px;
+            position: relative;
 
             img {
                 position: absolute;
-                top: 8px;
+                top: 12px;
                 left: 15px;
                 width: 25px;
             }
 
-            .rule_content {
+            .rules_contents {
                 h4 {
                     color: $white;
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
-
-                    @media($breakpoint_ESM) {
-                        font-size: 15px;
-                    }
                 }
             }
         }
 
         .rule_section {
-            padding: 70px 15px 30px;
+            padding: 20px 15px 30px;
             background-color: $page_bg;
 
             @media($breakpoint_ESM) {
-                padding: 65px 10px 20px;
+                padding: 15px 10px 20px;
             }
 
             h5 {

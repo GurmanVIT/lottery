@@ -34,15 +34,55 @@
             }
         }
 
-        .direct_tree_section {
-            padding: 70px 15px 15px;
+        .team_member_section {
+            padding: 50px 0 10px;
             background-color: $page_bg;
 
-            @media($breakpoint_ESM) {
-                padding: 65px 10px 10px;
+            .nav {
+                @include display(space-between, center);
+                width: 100%;
             }
 
+            .nav-tabs {
 
+                .nav-item {
+                    width: 50%;
+                    @include display(center, center);
+
+                    .nav-link {
+                        border: none;
+                        width: 100%;
+                        margin-bottom: 0;
+                        color: #495057;
+                    }
+
+                    .active {
+                        color: #0d6efd;
+                    }
+                }
+            }
+
+            .tab-content {
+                padding: 10px 15px 20px;
+
+                .card_amount {
+                    background-color: $white;
+                    padding: 15px;
+                    box-shadow: $input_shadow;
+                    border-radius: 4px;
+
+                    @media($breakpoint_ESM) {
+                        padding: 11px 8px 8px;
+                        margin-top: 20px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: $forgot;
+                        margin-bottom: 3px;
+                    }
+                }
+            }
         }
     }
 }

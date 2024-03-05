@@ -1,7 +1,7 @@
-.rule {
+.game_bonus {
     @include display(center, center);
 
-    .header_rule {
+    .header_game_bonus {
         width: 100%;
         max-width: 420px;
         height: 100vh;
@@ -27,7 +27,7 @@
                 }
             }
 
-            .deposit_content {
+            .game_bonus_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
@@ -51,7 +51,7 @@
             }
         }
 
-        .rule_section {
+        .game_bonus_section {
             padding: 70px 15px 30px;
             background-color: $page_bg;
 
