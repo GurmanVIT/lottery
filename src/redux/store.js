@@ -31,7 +31,7 @@ import getInvitationBonusReducer from "./invitationBonusSlice";
 import randomMembersListReducer from "./randomMembersListSlice";
 import submitWithdrawRequestReducer from "./submitWithdrawRequestSlice";
 import sponserListReducer from "./sponserListSlice";
-
+import matchingBonusReducer from "./matchingBonusSlice";
 
 const store = configureStore({
   reducer: {
@@ -67,6 +67,7 @@ const store = configureStore({
     randomMembersListReducer: randomMembersListReducer,
     submitWithdrawRequestReducer: submitWithdrawRequestReducer,
     sponserListReducer: sponserListReducer,
+    matchingBonusReducer: matchingBonusReducer,
   },
 });
 

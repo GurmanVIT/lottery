@@ -158,6 +158,11 @@ const Profile = () => {
     }
   })
 
+  const refreshData = () => {
+    dispatch(profile());
+    dispatch(refferalDeposit());
+  }
+
   return (
     <>
       <div className="profile lottery_page">
@@ -209,7 +214,9 @@ const Profile = () => {
                 <h3>
                   <img src={dollar_img} alt="dollar_img" className="dollar_img" />
                   {profileData.walletPoints}
-                  <img src={refresh_2} alt="refresh_2" />
+                  <img src={refresh_2} alt="refresh_2"
+                    onClick={() => refreshData()}
+                  />
                 </h3>
                 <div className="four_img">
                   <div
