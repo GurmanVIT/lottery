@@ -12,6 +12,7 @@ import red from "../../../assets/img/red.svg";
 import green from "../../../assets/img/green.svg";
 import green_voilet from "../../../assets/img/green_voilet.svg";
 import { useNavigate } from "react-router";
+import PaginationComponent from "../Pagination/Pagination";
 
 const Tab_screen = ({
   resultHistoryData,
@@ -237,7 +238,12 @@ const Tab_screen = ({
                   ))}
               </tbody>
             </Table>
-            {/* <PaginationComponent /> */}
+            {/* <PaginationComponent
+            skip={skip}
+            setSkip={setSkip}
+            getGameHistory={getGameHistory}
+            pageCount={pageCount}
+            /> */}
           </Tab>
           <Tab eventKey="chart" title="Chart">
             <div className="chart_table">

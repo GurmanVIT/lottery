@@ -5,7 +5,7 @@ import refresh_2 from "../../assets/img/refresh_2.svg";
 import wallet_2 from "../../assets/img/wallet_2.svg";
 import deposit from "../../assets/img/deposit.svg";
 import withdraw from "../../assets/img/withdraw.svg";
-import vip from "../../assets/img/vip.svg";
+// import vip from "../../assets/img/vip.svg";
 import transfer from "../../assets/img/Transfer.svg";
 import bet_img from "../../assets/img/bet.svg";
 import notification from "../../assets/img/notification.svg";
@@ -233,10 +233,10 @@ const Profile = () => {
                     <img src={withdraw} alt="withdraw" />
                     <h5>Withdraw</h5>
                   </div>
-                  <div className="vip">
+                  {/* <div className="vip">
                     <img src={vip} alt="vip" />
                     <h5>VIP</h5>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 

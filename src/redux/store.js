@@ -30,6 +30,7 @@ import inviteBonusSheetReducer from "./inviteBonusSheetSlice";
 import getInvitationBonusReducer from "./invitationBonusSlice";
 import randomMembersListReducer from "./randomMembersListSlice";
 import submitWithdrawRequestReducer from "./submitWithdrawRequestSlice";
+import sponserListReducer from "./sponserListSlice";
 
 
 const store = configureStore({
@@ -64,7 +65,8 @@ const store = configureStore({
     inviteBonusSheetReducer: inviteBonusSheetReducer,
     getInvitationBonusReducer: getInvitationBonusReducer,
     randomMembersListReducer: randomMembersListReducer,
-    submitWithdrawRequestReducer: submitWithdrawRequestReducer
+    submitWithdrawRequestReducer: submitWithdrawRequestReducer,
+    sponserListReducer: sponserListReducer,
   },
 });
 

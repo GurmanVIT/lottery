@@ -47,6 +47,7 @@ import Bottom_bar from "./component/Home/Bottom/Bottom_bar";
 import MatchingRules from "./component/Bonus/MatchingRules/MatchingRules";
 import DirectTree from "./component/Bonus/MyDirectTree/DirectTree";
 import GameplayRules from "./component/Bonus/GameplayRules/GameplayRules";
+import Bonanza from "./component/Bonus/Bonanza/Bonanza";
 
 
 // export
@@ -118,6 +119,7 @@ function App() {
           <Route path="/matching_rules" element={<MatchingRules />} />
           <Route path="/direct_tree" element={<DirectTree />} />
           <Route path="/gameplay_rules" element={<GameplayRules />} />
+          <Route path="/bonanza" element={<Bonanza />} />
         </Routes>
       </Router>
 

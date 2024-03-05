@@ -875,12 +875,14 @@ const Lottery = () => {
             setPageCount={pageCount}
             walletBalance={walletBalance}
           />
+
           <PaginationComponent
             skip={skip}
             setSkip={setSkip}
             getGameHistory={getGameHistory}
             pageCount={pageCount}
           />
+
           <ModalBottom
             myColor={selectedColor}
             isOpenModal={isOpenModal}

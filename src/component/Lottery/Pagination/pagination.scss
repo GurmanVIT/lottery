@@ -1,69 +1,79 @@
-.pagination {
+.pagination_fixed {
     @include display(center, center);
+    padding: 17px 0;
+    background-color: $white;
+    border-radius: 6px;
 
-    .page-item {
-        box-shadow: none;
-        outline: none;
+    .pagination {
+        @include display(center, center);
+        margin-bottom: 0;
+        // position: fixed;
+        // bottom: 10px;
 
-        .page-link {
-            border: none;
-            padding: 0;
-            background-color: transparent;
-            font-size: 15px;
-            font-weight: 600;
-            color: $forgot;
+        .page-item {
             box-shadow: none;
             outline: none;
 
-            span {
-                margin-right: 20px;
-                background-color: $dark_watch;
-                padding: 0px 12px 2px;
-                border-radius: 6px;
-                font-size: 29px;
+            .page-link {
+                border: none;
+                padding: 0;
+                background-color: transparent;
+                font-size: 15px;
+                font-weight: 600;
                 color: $forgot;
-                font-weight: 500;
+                box-shadow: none;
                 outline: none;
 
-                @media($breakpoint_ESM) {
-                    font-size: 26px;
-                    border-radius: 4px;
+                span {
+                    margin-right: 20px;
+                    background-color: $dark_watch;
+                    padding: 0px 12px 2px;
+                    border-radius: 6px;
+                    font-size: 29px;
+                    color: $forgot;
+                    font-weight: 500;
+                    outline: none;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 26px;
+                        border-radius: 4px;
+                    }
                 }
             }
         }
-    }
 
-    .slash {
-        .page-link {
-            border: none;
-            padding: 0 2px 0 3px;
-            background-color: transparent;
-            font-size: 26px;
-            font-weight: 600;
-            color: $forgot;
+        .slash {
+            .page-link {
+                border: none;
+                padding: 0 2px 0 3px;
+                background-color: transparent;
+                font-size: 26px;
+                font-weight: 600;
+                color: $forgot;
+            }
         }
-    }
 
-    .last_btn {
-        .page-link {
-            border: none;
-            padding: 0;
-            background-color: transparent;
-            box-shadow: none;
-            outline: none;
+        .last_btn {
+            .page-link {
+                border: none;
+                padding: 0;
+                background-color: transparent;
+                box-shadow: none;
+                outline: none;
 
-            span {
-                margin-left: 20px;
-                background-color: $primary;
-                padding: 0px 12px 2px;
-                border-radius: 6px;
-                font-size: 29px;
-                color: $white;
-                font-weight: 500;
+                span {
+                    margin-left: 20px;
+                    background-color: $primary;
+                    padding: 0px 12px 2px;
+                    border-radius: 6px;
+                    font-size: 29px;
+                    color: $white;
+                    font-weight: 500;
 
-                @media($breakpoint_ESM) {
-                    font-size: 26px;
-                    border-radius: 4px;
+                    @media($breakpoint_ESM) {
+                        font-size: 26px;
+                        border-radius: 4px;
+                    }
                 }
             }
         }

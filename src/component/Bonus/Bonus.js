@@ -1,14 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
-import surprise_gifts from "../../assets/img/surprise_gifts.png";
-import play_pause from "../../assets/img/play_pause.png";
-import invitation_bonus from "../../assets/img/invitation_bonus.png";
-import youtube from "../../assets/img/youtube.png";
-import matching_bonus from "../../assets/img/matching_bonus.png";
-import activity_promotion from "../../assets/img/activity_promotion.png";
-import level_bonus from "../../assets/img/level_bonus.png";
-import mysterious_gift from "../../assets/img/mysterious_gift.svg";
-import { Link } from "react-router-dom";
 import card_bg_img from "../../assets/img/card_bg_img.svg";
 import gift_img from "../../assets/img/gift_img.svg";
 
@@ -37,7 +28,7 @@ const Bonus = () => {
 
                     <div className="bonus_section">
 
-                        <div className="card_sec" onClick={() => navigation('/bet_history')}>
+                        <div className="card_sec" onClick={() => navigation('/bet_history')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -56,7 +47,7 @@ const Bonus = () => {
                             <img src={gift_img} alt="gift_img" className="gift_img" />
                         </div>
 
-                        <div className="card_sec mt-2" onClick={() => navigation('/invitation_bonus')}>
+                        <div className="card_sec mt-2" onClick={() => navigation('/invitation_bonus')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -74,7 +65,7 @@ const Bonus = () => {
                             <img src={gift_img} alt="gift_img" className="gift_img" />
                         </div>
 
-                        <div className="card_sec mt-2" onClick={() => navigation('/matching_bonus')}>
+                        <div className="card_sec mt-2" onClick={() => navigation('/matching_bonus')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -92,7 +83,7 @@ const Bonus = () => {
                             <img src={gift_img} alt="gift_img" className="gift_img" />
                         </div>
 
-                        <div className="card_sec mt-2" onClick={() => navigation('/team_gameplay_bonus')}>
+                        <div className="card_sec mt-2" onClick={() => navigation('/team_gameplay_bonus')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -110,7 +101,7 @@ const Bonus = () => {
                             <img src={gift_img} alt="gift_img" className="gift_img" />
                         </div>
 
-                        <div className="card_sec mt-2" onClick={() => navigation('/activity_bonus')}>
+                        <div className="card_sec mt-2" onClick={() => navigation('/activity_bonus')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -128,7 +119,7 @@ const Bonus = () => {
                             <img src={gift_img} alt="gift_img" className="gift_img" />
                         </div>
 
-                        <div className="card_sec mt-2" onClick={() => navigation('/youtube')}>
+                        <div className="card_sec mt-2" onClick={() => navigation('/youtube')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -146,7 +137,7 @@ const Bonus = () => {
                             <img src={gift_img} alt="gift_img" className="gift_img" />
                         </div>
 
-                        <div className="card_sec mt-2" onClick={() => navigation('/activity_bonus')}>
+                        <div className="card_sec mt-2" onClick={() => navigation('/bonanza')} style={{ cursor: "pointer" }}>
                             <div className="card">
                                 <div className="card_body">
                                     <div>
@@ -158,7 +149,7 @@ const Bonus = () => {
                                 <img
                                     src={card_bg_img}
                                     alt="card_bg_img"
-                                    style={{ height: "140px" }}
+                                    style={{ height: "153px" }}
                                 />
                             </div>
                             <img src={gift_img} alt="gift_img" className="gift_img" />

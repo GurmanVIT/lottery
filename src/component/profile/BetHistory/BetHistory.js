@@ -6,6 +6,7 @@ import { myHistory } from '../../../redux/myHistorySlice';
 import { myColors } from '../../../utils/Colors';
 import moment from "moment-timezone";
 import PaginationComponent from '../../Lottery/Pagination/Pagination';
+import no_data from '../../../assets/img/no_data.svg';
 
 
 const BetHistory = () => {
@@ -138,87 +139,101 @@ const BetHistory = () => {
                         </div>
                     </div>
 
-
-                    <div className='tab_btn'>
-                        <button type='button' onClick={() => { setActiveKey(1) }} style={{
-                            color: activeKey === 1 ? "#0d6efd" : "#707070",
-                            background: activeKey === 1 ? "#fff" : "#F7F8FF",
-                        }}>1 Min</button>
-                        <button type='button' onClick={() => setActiveKey(3)} style={{
-                            color: activeKey === 3 ? "#0d6efd" : "#707070",
-                            background: activeKey === 3 ? "#fff" : "#F7F8FF",
-                        }}>3 Min</button>
-                        <button type='button' onClick={() => setActiveKey(5)} style={{
-                            color: activeKey === 5 ? "#0d6efd" : "#707070",
-                            background: activeKey === 5 ? "#fff" : "#F7F8FF",
-                        }}>5 Min</button>
-                        <button type='button' onClick={() => setActiveKey(10)} style={{
-                            color: activeKey === 10 ? "#0d6efd" : "#707070",
-                            background: activeKey === 10 ? "#fff" : "#F7F8FF",
-                        }}>10 Min</button>
-                    </div>
-
-                    <div className='bet_history_section'>
-                        <p>Bet History</p>
-                        <div className="history_table">
-                            {myBetData.length > 0 &&
-                                myBetData.map((item, index) => (
-                                    <div className="table_div">
-                                        <div className="big_id">
-                                            <div
-                                                className="bg_primary"
-                                                style={{
-                                                    height: 40,
-                                                    width: 40,
-                                                    fontSize: getBetValue(item).length > 1 ? 10 : 20,
-                                                    backgroundColor:
-                                                        getBGColor(index) === "green"
-                                                            ? myColors.green_color
-                                                            : getBGColor(index) === "red"
-                                                                ? myColors.red_color
-                                                                : getBGColor(index) === "violet"
-                                                                    ? myColors.primaryColor
-                                                                    : myColors.txtWhite,
-                                                    color:
-                                                        getBGColor(index) === "white"
-                                                            ? myColors.primaryColor
-                                                            : myColors.txtWhite,
-                                                }}
-                                            >
-                                                {getBetValue(item)}
-                                            </div>
-                                            <div className="id_date_number">
-                                                <div className="id_number">{item.gameId}</div>
-                                                <div className="date">
-                                                    {getFormattedDate(item.createdAt)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {item.isCompleted === 1 && (
-                                            <div className="win_loss">
-                                                {item.isWon === 0 ? (
-                                                    <div className="failed">Failed</div>
-                                                ) : (
-                                                    <div className="succeed">Success</div>
-                                                )}
-
-                                                <div className={item.isWon === 0 ? "loss" : "win"}>
-                                                    {item.isWon === 0
-                                                        ? item.finalAmount
-                                                        : item.winningAmount}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
+                    <div className='pagination_fixeds'>
+                        <div className='tab_btn'>
+                            <button type='button' onClick={() => { setActiveKey(1) }} style={{
+                                color: activeKey === 1 ? "#0d6efd" : "#707070",
+                                background: activeKey === 1 ? "#fff" : "#F7F8FF",
+                            }}>1 Min</button>
+                            <button type='button' onClick={() => setActiveKey(3)} style={{
+                                color: activeKey === 3 ? "#0d6efd" : "#707070",
+                                background: activeKey === 3 ? "#fff" : "#F7F8FF",
+                            }}>3 Min</button>
+                            <button type='button' onClick={() => setActiveKey(5)} style={{
+                                color: activeKey === 5 ? "#0d6efd" : "#707070",
+                                background: activeKey === 5 ? "#fff" : "#F7F8FF",
+                            }}>5 Min</button>
+                            <button type='button' onClick={() => setActiveKey(10)} style={{
+                                color: activeKey === 10 ? "#0d6efd" : "#707070",
+                                background: activeKey === 10 ? "#fff" : "#F7F8FF",
+                            }}>10 Min</button>
                         </div>
-                    </div>
 
-                    <PaginationComponent
-                        skip={skip}
-                        setSkip={setSkip}
-                        pageCount={pageCount}
-                    />
+                        <div className='bet_history_section'>
+                            <p>Bet History</p>
+                            {myBetData.length > 0 ?
+                                <div>
+                                    <div className="history_table">
+                                        {myBetData.length > 0 &&
+                                            myBetData.map((item, index) => (
+                                                <div className="table_div">
+                                                    <div className="big_id">
+                                                        <div
+                                                            className="bg_primary"
+                                                            style={{
+                                                                height: 40,
+                                                                width: 40,
+                                                                fontSize: getBetValue(item).length > 1 ? 10 : 20,
+                                                                backgroundColor:
+                                                                    getBGColor(index) === "green"
+                                                                        ? myColors.green_color
+                                                                        : getBGColor(index) === "red"
+                                                                            ? myColors.red_color
+                                                                            : getBGColor(index) === "violet"
+                                                                                ? myColors.primaryColor
+                                                                                : myColors.txtWhite,
+                                                                color:
+                                                                    getBGColor(index) === "white"
+                                                                        ? myColors.primaryColor
+                                                                        : myColors.txtWhite,
+                                                            }}
+                                                        >
+                                                            {getBetValue(item)}
+                                                        </div>
+                                                        <div className="id_date_number">
+                                                            <div className="id_number">{item.gameId}</div>
+                                                            <div className="date">
+                                                                {getFormattedDate(item.createdAt)}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {item.isCompleted === 1 && (
+                                                        <div className="win_loss">
+                                                            {item.isWon === 0 ? (
+                                                                <div className="failed">Failed</div>
+                                                            ) : (
+                                                                <div className="succeed">Success</div>
+                                                            )}
+
+                                                            <div className={item.isWon === 0 ? "loss" : "win"}>
+                                                                {item.isWon === 0
+                                                                    ? item.finalAmount
+                                                                    : item.winningAmount}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                </div>
+                                            ))}
+
+                                    </div>
+                                    <div className="bottom_pagination">
+                                        <PaginationComponent
+                                            skip={skip}
+                                            setSkip={setSkip}
+                                            pageCount={pageCount}
+                                        />
+                                    </div>
+                                </div> :
+
+                                <div className='no_data_img' style={{ display: "flex", height: "70vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                    <div><img src={no_data} alt='no_data' width={120} /></div>
+                                    <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </>

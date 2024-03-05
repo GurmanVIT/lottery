@@ -4,7 +4,7 @@ import back from "../../../assets/img/back.svg";
 import activity_bonus from "../../../assets/img/activity_bonus.svg";
 
 
-const ActivityBonus = () => {
+const Bonanza = () => {
 
     const navigation = useNavigate();
     const token = localStorage.getItem("token");
@@ -25,7 +25,7 @@ const ActivityBonus = () => {
                             <img src={back} alt="back" />
                         </div>
                         <div className="youtube_content">
-                            <h4>Serial Win Bonus</h4>
+                            <h4>Bonanza</h4>
                         </div>
                     </div>
 
@@ -40,4 +40,4 @@ const ActivityBonus = () => {
     );
 };
 
-export default ActivityBonus;
+export default Bonanza;
