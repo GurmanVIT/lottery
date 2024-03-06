@@ -38,7 +38,7 @@ const Index = () => {
                 <Information randomMember={randomMember} />
                 <Earning randomMember={randomMember} />
                 <Winner randomMember={randomMember} />
-                <Bottom_bar />
+                {/* <Bottom_bar /> */}
             </div>
         </main >
     )

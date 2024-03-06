@@ -152,6 +152,12 @@ const WithdrawBalance = () => {
             <div className="withdraw_balance">
               <h4>Withdraw</h4>
             </div>
+            <div
+              className="withdraw_rules"
+              onClick={() => navigation("/withdraw_rule")}
+            >
+              <p>Rules</p>
+            </div>
           </div>
 
           <div className="withdraw_balance_section">

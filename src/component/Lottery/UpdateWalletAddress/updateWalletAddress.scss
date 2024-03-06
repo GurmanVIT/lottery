@@ -1,48 +1,45 @@
-.withdraw_bls {
+.update_address {
     @include display(center, center);
 
-    .header_withdraw_balance {
+    .header_update_address {
         width: 100%;
         max-width: 420px;
         height: 100vh;
         background-color: $page_bg;
 
-        .header_flex {
+        .header_flex_address {
             background: $profile_bg;
-            @include display(space-between, center);
-            padding: 12px 10px;
+            @include display(center, center);
+            padding: 15px 10px;
             position: fixed;
             top: 0;
             z-index: 1;
             width: 100%;
             max-width: 420px;
 
-            .back_img {
-                img {
-                    width: 25px;
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
 
-                    @media($breakpoint_ESM) {
-                        width: 20px;
-                    }
+                @media($breakpoint_ESM) {
+                    top: 13px;
+                    left: 12px;
+                    width: 20px;
                 }
             }
 
-            .withdraw_balance {
+            .update_address_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
-                }
-            }
 
-            .withdraw_rules {
-                cursor: pointer;
-
-                p {
-                    color: $white;
-                    font-size: 12px;
-                    margin-bottom: 0;
+                    @media($breakpoint_ESM) {
+                        font-size: 14px;
+                    }
                 }
             }
         }

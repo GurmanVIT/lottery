@@ -19,7 +19,7 @@ const PromotionData = () => {
         <>
             <div className='home_page'>
                 <Promotion />
-                <Bottom_bar />
+                {/* <Bottom_bar /> */}
             </div>
         </>
     )

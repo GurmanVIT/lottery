@@ -48,35 +48,36 @@ import MatchingRules from "./component/Bonus/MatchingRules/MatchingRules";
 import DirectTree from "./component/Bonus/MyDirectTree/DirectTree";
 import GameplayRules from "./component/Bonus/GameplayRules/GameplayRules";
 import Bonanza from "./component/Bonus/Bonanza/Bonanza";
+import WithdrawRule from "./component/Lottery/WithdrawRule/WithdrawRule";
 
 
 // export
 
 function App() {
 
-  // function PrivancyBottomBar() {
-  //   return (
-  //     <>
-  //       <div className="">
-  //         <Outlet />
-  //         <Bottom_bar className="m-auto" />
-  //       </div>
-  //     </>
-  //   );
-  // }
+  function PrivancyBottomBar() {
+    return (
+      <>
+        <div className="">
+          <Outlet />
+          <Bottom_bar className="m-auto" />
+        </div>
+      </>
+    );
+  }
 
   return (
     <Provider store={store}>
       <Router>
         <Routes>
 
-          {/* <Route element={<PrivancyBottomBar />}> */}
-          <Route path="/home_page" element={<Index />} />
-          <Route path="/bonus" element={<BonusPage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/promotion" element={<PromotionData />} />
-          <Route path="/wallet" element={<WalletPage />} />
-          {/* </Route> */}
+          <Route element={<PrivancyBottomBar />}>
+            <Route path="/home_page" element={<Index />} />
+            <Route path="/bonus" element={<BonusPage />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/promotion" element={<PromotionData />} />
+            <Route path="/wallet" element={<WalletPage />} />
+          </Route>
 
 
 
@@ -120,6 +121,7 @@ function App() {
           <Route path="/direct_tree" element={<DirectTree />} />
           <Route path="/gameplay_rules" element={<GameplayRules />} />
           <Route path="/bonanza" element={<Bonanza />} />
+          <Route path="/withdraw_rule" element={<WithdrawRule />} />
         </Routes>
       </Router>
 

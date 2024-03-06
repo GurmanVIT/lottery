@@ -81,13 +81,13 @@ const UpdateWalletAddress = () => {
 
   return (
     <>
-      <div className="withdraw_bls">
-        <div className="header_withdraw_balance">
-          <div className="header_flex">
+      <div className="update_address">
+        <div className="header_update_address">
+          <div className="header_flex_address">
             <div className="back_img" onClick={() => navigation(-1)}>
               <img src={back} alt="back" />
             </div>
-            <div className="withdraw_balance">
+            <div className="update_address_content">
               <h4>Update Wallet Address</h4>
             </div>
           </div>

@@ -38,6 +38,8 @@ import { clearResendData } from "../../redux/resendOtpSlice";
 import { Toast } from "react-bootstrap";
 import mark_ex from "../../assets/img/mark_ex.png";
 import dollar_img from "../../assets/img/dollar_img.png";
+import { profile } from "../../redux/profileSlice";
+import { refferalDeposit } from "../../redux/refferalDepositSlice";
 
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
@@ -400,9 +402,6 @@ const Lottery = () => {
     // socket.off("looserTen");
 
     setGameType(time);
-
-
-
   };
 
   function splitIntoArray(num) {
@@ -457,6 +456,11 @@ const Lottery = () => {
     setOpenModal(false);
   };
 
+  const refreshData = () => {
+    dispatch(profile());
+    dispatch(refferalDeposit());
+  }
+
 
   return (
     <div className="lottery_page">
@@ -495,7 +499,9 @@ const Lottery = () => {
         <div className="secound_sec">
           <div className="card">
             <div className="refresh">
-              <img src={refresh} alt="refresh" />
+              <img src={refresh} alt="refresh"
+                onClick={() => refreshData()}
+              />
             </div>
             <h1>
               <img src={dollar_img} alt="dollar_img" style={{ width: "28px", marginBottom: "3px", marginRight: "3px" }} />

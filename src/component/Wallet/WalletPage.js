@@ -18,7 +18,7 @@ const WalletPage = () => {
     return (
         <div className='home_page'>
             <Wallet />
-            <Bottom_bar />
+            {/* <Bottom_bar /> */}
         </div>
     )
 }
