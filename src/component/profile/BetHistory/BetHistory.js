@@ -220,7 +220,9 @@ const BetHistory = () => {
                                             pageCount={pageCount}
                                         />
                                     </div>
-                                </div> :
+                                </div>
+
+                                :
 
                                 <div className='no_data_img' style={{ display: "flex", height: "70vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                                     <div><img src={no_data} alt='no_data' width={120} /></div>

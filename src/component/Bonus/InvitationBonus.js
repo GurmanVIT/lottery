@@ -141,6 +141,7 @@ const InvitationBonus = () => {
                                     ))
                                 }
                             </div>
+
                         </div>
                     ) :
                         <div className="invitaion_bonus_section " >
