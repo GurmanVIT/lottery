@@ -188,6 +188,56 @@
                     }
                 }
             }
+
+            .link_member_sections {
+                background-color: $page_bg;
+                padding-top: 10px;
+
+                @media($breakpoint_ESM) {
+                    padding-top: 5px;
+                }
+
+                h5 {
+                    font-size: 17px;
+                    font-weight: 600;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 16;
+                    }
+                }
+
+                .card_link {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                    padding: 15px;
+                    box-shadow: $input_shadow;
+                    border-radius: 4px;
+                    background-color: $white;
+
+                    p {
+                        font-size: 14px;
+                        color: $forgot;
+                        margin-bottom: 3px;
+
+                        @media ($breakpoint_ESM) {
+                            font-size: 13px;
+                        }
+
+                        .ellipsis {
+                            width: 230px;
+                            position: absolute;
+
+                            @media ($breakpoint_ESM) {
+                                width: 180px;
+                            }
+
+                            @media ($breakpoint_350) {
+                                width: 150px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

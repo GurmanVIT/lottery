@@ -21,8 +21,8 @@ const Bottom_bar = () => {
             navigation(navigateTo);
         }
     };
+
     useEffect(() => {
-        console.log(location.pathname);
         if (location.pathname.includes("/home_page")) {
             setValue(0)
         } else if (location.pathname.includes("/bonus")) {
@@ -32,8 +32,11 @@ const Bottom_bar = () => {
         } else if (location.pathname.includes("/wallet")) {
             setValue(3)
         }
-        else {
+        else if (location.pathname.includes("/profile")) {
             setValue(4)
+        }
+        else {
+            setValue(0)
         }
     }, []);
 

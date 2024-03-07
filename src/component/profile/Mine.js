@@ -76,7 +76,6 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    console.log("profileResponse Data ===>", profileResponse);
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
       setInfoData(profileResponse.userInfo);
@@ -137,7 +136,6 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    console.log("Active Data ===>", activateReducer);
     if (activateReducer != null && activateReducer.status === 1) {
       dispatch(profile());
       dispatch(clearDataActive());
@@ -279,14 +277,14 @@ const Profile = () => {
                 <div className="card_flex mt-2">
                   <div
                     className="card"
-                    onClick={() => navigation("/deposit_history")}
+                    onClick={() => navigation("/deposit")}
                   >
                     <div className="deposit_img">
                       <img src={deposit} alt="deposit" />
                     </div>
                     <div className="deposit_content">
                       <h6>Deposit</h6>
-                      <p>My deposit history</p>
+                      <p>My deposit</p>
                     </div>
                   </div>
 

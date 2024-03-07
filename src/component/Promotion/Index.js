@@ -19,7 +19,6 @@ const PromotionData = () => {
         <>
             <div className='home_page'>
                 <Promotion />
-                {/* <Bottom_bar /> */}
             </div>
         </>
     )

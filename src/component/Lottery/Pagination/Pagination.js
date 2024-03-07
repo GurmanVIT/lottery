@@ -13,7 +13,7 @@ const PaginationComponent = ({
         <Pagination.Prev onClick={() => (skip > 0 ? setSkip(skip - 1) : setSkip(0))} />
         <Pagination.Item>{skip + 1}</Pagination.Item>
         <Pagination.Item className="slash">/</Pagination.Item>
-        <Pagination.Item>{pageCount}</Pagination.Item>
+        <Pagination.Item>{pageCount === 0 ? 1 : pageCount}</Pagination.Item>
 
         <Pagination.Next className="last_btn" onClick={() => skip < pageCount - 1 ? setSkip(skip + 1) : ""} />
       </Pagination>

@@ -39,15 +39,11 @@ const BetHistory = () => {
             limit: 10,
             type: activeKey,
         };
-
-        console.log("Payload ===> ", payload)
-
         dispatch(myHistory(payload));
     };
 
 
     useEffect(() => {
-        console.log("MY bet data ===> ", myHistoryData)
         if (myHistoryData != null && myHistoryData.status === 1) {
             setMyBetData(myHistoryData.data);
             const count = Math.floor(myHistoryData.count / 10)

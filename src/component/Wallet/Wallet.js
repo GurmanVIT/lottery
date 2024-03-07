@@ -28,7 +28,6 @@ const Wallet = () => {
     }, []);
 
     useEffect(() => {
-        console.log("Wallet ===> ", transactionListData)
         if (transactionListData != null && transactionListData.success === 1) {
             setTransactionData(transactionListData.data.transactions);
         }
@@ -62,8 +61,6 @@ const Wallet = () => {
 
         return formattedDate;
     };
-
-    const [profileData, setProfileData] = useState(null);
 
     const token = localStorage.getItem("token");
 

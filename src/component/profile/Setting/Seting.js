@@ -103,7 +103,7 @@ const Setting = () => {
                             <div className='card'>
                                 <div className='card_emoji_img'>
                                     <img src={card_emoji} alt='card_emoji' />
-                                    <p>Change avatar
+                                    <p> My Avatar
                                         {/* <img src={next} alt='next' /> */}
                                     </p>
                                 </div>
@@ -111,7 +111,7 @@ const Setting = () => {
                                     setWinOpen(true)
                                 }>
                                     <p>Nickname</p>
-                                    {profileResponse != null && <h6>{profileResponse.data.nickName == "" ? "Add Nick Name" : profileResponse.data.nickName} <img src={next} alt='next' /></h6>}
+                                    {profileResponse != null && <p>{profileResponse.data.nickName == "" ? "Add Nick Name" : profileResponse.data.nickName} <img src={next} alt='next' /></p>}
                                 </div>
                                 <div className='uid'>
                                     <p>UID</p>

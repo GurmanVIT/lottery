@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import Wallet from './Wallet'
-import Bottom_bar from '../Home/Bottom/Bottom_bar'
 import { useNavigate } from 'react-router';
 
 const WalletPage = () => {
@@ -18,7 +17,6 @@ const WalletPage = () => {
     return (
         <div className='home_page'>
             <Wallet />
-            {/* <Bottom_bar /> */}
         </div>
     )
 }

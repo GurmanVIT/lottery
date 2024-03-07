@@ -19,7 +19,6 @@ const Profile = () => {
         <>
             <div className='home_page'>
                 <Mine />
-                {/* <Bottom_bar /> */}
             </div>
         </>
     )

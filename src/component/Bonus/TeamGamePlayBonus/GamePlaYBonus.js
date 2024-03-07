@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
-import Table from "react-bootstrap/Table";
+import { transactionList } from "../../../redux/transactionListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { ClipLoader } from "react-spinners";
+import { myColors } from "../../../utils/Colors";
+import moment from "moment";
 
 
 const GamePlayBonus = () => {
     const navigation = useNavigate();
+    const dispatch = useDispatch();
     const token = localStorage.getItem("token");
 
     useEffect(() => {
@@ -14,6 +19,56 @@ const GamePlayBonus = () => {
             navigation("/login");
         }
     })
+
+    const [transactionData, setTransactionData] = useState(null);
+
+    const transactionListData = useSelector(
+        (state) => state.transactionListReducer.data
+    );
+
+    useEffect(() => {
+        const payload = {
+            type: 'team_play_bonus',
+        }
+        dispatch(transactionList(payload));
+    }, []);
+
+    useEffect(() => {
+        if (transactionListData != null && transactionListData.success === 1) {
+            setTransactionData(transactionListData.data.transactions);
+        }
+    }, [transactionListData]);
+
+
+    const getFormattedDateTime = (utcDate) => {
+        const timestampStr = new Date(utcDate);
+        // Convert to Indian time zone (IST)
+        // const timestamp = moment(timestampStr).tz("Asia/Kolkata");
+        const options = {
+            timeZone: "Asia/Kolkata",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false, // Use 24-hour format
+        };
+
+        // Format the date as "2024-01-30"
+        const formattedDate = timestampStr.toLocaleDateString("en-IN", options);
+
+        const dateData = formattedDate.split(" ");
+
+        const createdTime = moment(dateData[1], "HH:mm:ss")
+            .add(5, "hours")
+            .add(30, "minutes");
+
+        const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
+
+        return formattedDate;
+    };
+
 
     return (
         <>
@@ -25,7 +80,7 @@ const GamePlayBonus = () => {
                             <img src={back} alt="back" />
                         </div>
                         <div className="game_bonus_content">
-                            <h4>Team Gameplay Bonus</h4>
+                            <h4>Team Play Bonus</h4>
                         </div>
                         <div
                             className="deposit_history"
@@ -35,45 +90,38 @@ const GamePlayBonus = () => {
                         </div>
                     </div>
 
-                    <div className="game_bonus_section">
-
-                        <div className="bonus_card mb-3">
-                            <div className="head_bonus">
-                                <div className="bonus_bg">
-                                    <p>Bonus <span>0</span></p>
-                                    {/* <p className="close_btn"><CloseButton /></p> */}
-                                </div>
-                                <div className="right_number">0</div>
+                    {transactionData != null ? (
+                        <div className="game_bonus_section">
+                            <div className="link_members_sections">
+                                <h5> Transactions</h5>
+                                {transactionData != null &&
+                                    transactionData.map((item, index) => (
+                                        <div className="card_links">
+                                            <p>
+                                                Amount : <span className="ellipsis">{item.amount}</span>
+                                            </p>
+                                            <p>
+                                                Description :{" "}
+                                                <span className="ellipsis">{item.description}</span>
+                                            </p>
+                                            <p>
+                                                Date :{" "}
+                                                <span className="ellipsis">
+                                                    {getFormattedDateTime(item.createdAt)}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    ))}
                             </div>
-                            <div className="bonus_around">
-                                <div className="numbers_one">
-                                    <p className="text-start">Number of invitees</p>
-                                    <p>1</p>
-                                </div>
 
-                                <div className="recharge_member">
-                                    <p className="text-start">Recharge per people</p>
-                                    <p>0</p>
-                                </div>
-
-                                <div className="border_center">
-                                    <div className="border_width"></div>
-                                </div>
-
-                                <div className="invite_deposit">
-                                    <div className="invited_number">
-                                        <p className="number_two">0 / 1</p>
-                                        <p>Number of invitees</p>
-                                    </div>
-                                    <div className="deposit_number">
-                                        <p className="number_two">0 / 1</p>
-                                        <p>Deposit number</p>
-                                    </div>
-                                </div>
+                        </div>
+                    ) :
+                        <div className="game_bonus_section " >
+                            <div className="main_loader">
+                                <ClipLoader color={myColors.primaryColor} />
                             </div>
                         </div>
-
-                    </div>
+                    }
                 </div>
             </div >
         </>

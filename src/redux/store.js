@@ -32,6 +32,9 @@ import randomMembersListReducer from "./randomMembersListSlice";
 import submitWithdrawRequestReducer from "./submitWithdrawRequestSlice";
 import sponserListReducer from "./sponserListSlice";
 import matchingBonusReducer from "./matchingBonusSlice";
+import walletTypeReducer from "./walletWithTypeSlice";
+import claimInviteBonusReducer from "./claimInviteBonusSlice";
+
 
 const store = configureStore({
   reducer: {
@@ -68,6 +71,8 @@ const store = configureStore({
     submitWithdrawRequestReducer: submitWithdrawRequestReducer,
     sponserListReducer: sponserListReducer,
     matchingBonusReducer: matchingBonusReducer,
+    walletTypeReducer: walletTypeReducer,
+    claimInviteBonusReducer: claimInviteBonusReducer,
   },
 });
 

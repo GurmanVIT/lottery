@@ -36,4 +36,5 @@ export const refferalDepositApi = "v1/user/refferal_deposits";
 export const inviteBonusSheetApi = "v1/user/invite_bonus_sheet";
 export const randomMembersListApi = "v1/user/random_members_list";
 export const sponserListApi = "api/user/sponser_list";
-export const matchingBonusApi = "v1/user/matching_bonus"
+export const matchingBonusApi = "v1/user/matching_bonus";
+export const claimInviteBonusApi = "v1/user/claim_invite_bonus";

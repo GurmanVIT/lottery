@@ -61,7 +61,6 @@ const Register = () => {
   };
 
   const onSignUpClick = () => {
-    console.log("signupSuccess ===>", signupSuccess)
     if (!isValid) {
       alert("Email not valid");
     } else if (firsName.length == 0) {

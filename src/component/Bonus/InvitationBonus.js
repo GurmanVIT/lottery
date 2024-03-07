@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { inviteBonusSheet } from "../../redux/inviteBonusSheetSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
+import { claimInviteBonus } from "../../redux/claimInviteBonusSlice";
 
 const InvitationBonus = () => {
 
@@ -15,6 +16,7 @@ const InvitationBonus = () => {
     const dispatch = useDispatch();
 
     const inviteBonusSheetReducer = useSelector((state) => state.inviteBonusSheetReducer.data);
+    const claimInviteBonusReducer = useSelector((state) => state.claimInviteBonusReducer.data);
 
     const [inviteBonus, setInviteBonus] = useState(null);
 
@@ -33,14 +35,29 @@ const InvitationBonus = () => {
 
 
     useEffect(() => {
+        console.log("inviteBonusSheetReducer ===> ", inviteBonusSheetReducer)
         if (
             inviteBonusSheetReducer != null &&
             inviteBonusSheetReducer.status === 1
         ) {
-            console.log("inviteBonusSheetReducer ===> ", inviteBonusSheetReducer.data.levelData)
             setInviteBonus(inviteBonusSheetReducer.data.levelData);
         }
     }, [inviteBonusSheetReducer]);
+
+    const claimInviteBonusApi = (item) => {
+
+        const payload = {
+            level: item.level
+        }
+
+        dispatch(claimInviteBonus(payload))
+    }
+
+    useEffect(() => {
+        if (claimInviteBonusReducer != null && claimInviteBonusReducer.status === 1) {
+            dispatch(inviteBonusSheet());
+        }
+    }, [claimInviteBonusReducer])
 
 
     return (
@@ -117,7 +134,7 @@ const InvitationBonus = () => {
                                                 </div>
 
                                                 <div className="finished_btn">
-                                                    <button type="button">Unfinished</button>
+                                                    <button type="button" style={{ backgroundColor: item.status === 1 ? "#6561C0" : "#bfbfbf" }} onClick={() => item.status === 1 ? claimInviteBonusApi(item) : ""}>{item.status === 0 ? "Unfinished" : item.status === 1 ? "Claim" : "Finished"}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +150,7 @@ const InvitationBonus = () => {
                         </div>
                     }
                 </div>
-            </div>
+            </div >
         </>
     );
 };

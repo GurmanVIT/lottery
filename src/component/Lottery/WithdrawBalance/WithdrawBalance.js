@@ -51,7 +51,6 @@ const WithdrawBalance = () => {
   }, []);
 
   useEffect(() => {
-    console.log("withdrawRequestReducer", withdrawRequestReducer)
     if (
       withdrawRequestReducer != null &&
       withdrawRequestReducer.success === 1
@@ -76,14 +75,12 @@ const WithdrawBalance = () => {
   }, [resendOtpReducer]);
 
   useEffect(() => {
-    console.log("PRofile ===> ", profileResponse)
     if (profileResponse != null && profileResponse.status === 1) {
       setAddress(profileResponse.data.withdrawAddress);
     }
   });
 
   useEffect(() => {
-    console.log("submitWithdrawRequestReducer ===> ", submitWithdrawRequestReducer)
     if (submitWithdrawRequestReducer != null && submitWithdrawRequestReducer.success === 1) {
       // navigation(-1)
     }
@@ -95,7 +92,6 @@ const WithdrawBalance = () => {
   }, [submitWithdrawRequestReducer])
 
   const submitWithdrawRequestData = () => {
-    console.log("submitWithdrawRequest", submitWithdrawRequest)
     if (address === "") {
       alert("Please enter address");
     } else if (amount === "") {
@@ -107,7 +103,6 @@ const WithdrawBalance = () => {
         amount: amount,
         otp: otp,
       };
-      console.log("Payload ===> ", payload)
       dispatch(submitWithdrawRequest(payload));
     }
   };

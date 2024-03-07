@@ -6,6 +6,7 @@ import next from "../../assets/img/next.svg";
 import promotion_data from "../../assets/img/promotion_data.svg";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { profile } from "../../redux/profileSlice";
 import { promotionData } from "../../redux/promotionDataSlice";
 import promotion_banner from "../../assets/img/promotion_banner.svg";
@@ -13,8 +14,6 @@ import promotion_banner2 from "../../assets/img/promotion_banner2.svg";
 import promotion_banner3 from "../../assets/img/promotion_banner3.svg";
 import promotion_banner4 from "../../assets/img/promotion_banner4.svg";
 import share from "../../assets/img/share.svg";
-import Modal from "react-modal";
-import close from "../../assets/img/close.svg";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
 
@@ -42,6 +41,7 @@ const Promotion = () => {
   const profileResponse = useSelector((state) => state.profileReducer.data);
 
   const [promotion, setPromotion] = useState(null);
+  const [bannerPosition, setBannerPosition] = useState(null);
   const promotionDataReducerData = useSelector(
     (state) => state.promotionDataReducer.data
   );
@@ -81,7 +81,8 @@ const Promotion = () => {
 
 
   const openPlayModal = () => {
-    setOpenPlay(true);
+
+
   };
 
   const shareModal = () => {
@@ -272,11 +273,11 @@ const Promotion = () => {
               <div className="banner_shared">
                 <h5>Markting Banners</h5>
                 <div className="radio_btn_left_right d-flex">
-                  <div className="me-3 mb-2">
+                  <div className="me-3 mb-2" onClick={() => setBannerPosition("L")}>
                     <input type="radio" id="Left" name="fav_language" value="Left" />
                     <label for="Left" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Left</label>
                   </div>
-                  <div>
+                  <div onClick={() => setBannerPosition("R")}>
                     <input type="radio" id="Right" name="fav_language" value="Right" />
                     <label for="Right" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Right</label>
                   </div>
@@ -284,24 +285,34 @@ const Promotion = () => {
                 <div className="pro_card_two">
                   <div className="promotion_banner_img">
                     <img src={promotion_banner} alt="promotion_banner" className="promotion_img" />
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
+
                   </div>
 
                   <div className="promotion_banner_img">
                     <img src={promotion_banner2} alt="promotion_banner2" className="promotion_img" />
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
                   </div>
                 </div>
 
                 <div className="pro_card_two">
                   <div className="promotion_banner_img">
                     <img src={promotion_banner3} alt="promotion_banner3" className="promotion_img" />
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
                   </div>
 
                   <div className="promotion_banner_img">
                     <img src={promotion_banner4} alt="promotion_banner4" className="promotion_img" />
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -309,11 +320,11 @@ const Promotion = () => {
               <div className="youtube_video_frame">
                 <h5>Markting Videos</h5>
                 <div className="radio_btn_left_right d-flex">
-                  <div className="me-3 mb-2">
+                  <div className="me-3 mb-2" onClick={() => setBannerPosition("L")}>
                     <input type="radio" id="Lefts" name="fav_language" value="Lefts" />
                     <label for="Lefts" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Left</label>
                   </div>
-                  <div>
+                  <div onClick={() => setBannerPosition("R")}>
                     <input type="radio" id="Rights" name="fav_language" value="Rights" />
                     <label for="Rights" style={{ fontWeight: "600", fontSize: "15px" }} className="ms-2">Right</label>
                   </div>
@@ -322,12 +333,17 @@ const Promotion = () => {
                   <div className="video_play">
                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                     </iframe>
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
                   </div>
+
                   <div className="video_play">
                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                     </iframe>
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
                   </div>
                 </div>
 
@@ -335,12 +351,17 @@ const Promotion = () => {
                   <div className="video_play">
                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                     </iframe>
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
+
                   </div>
                   <div className="video_play">
                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                     </iframe>
-                    <img src={share} alt="share" className="share_img" onClick={() => openPlayModal()} />
+                    <Link to={bannerPosition != null ? `https://web.whatsapp.com/send?text=${encodeURIComponent(`https://dapicgames.com/register?sponser_id=${profileData.userId}&position=${bannerPosition}`)}` : ""} target={bannerPosition != null ? "_blank" : ""} onClick={() => bannerPosition != null ? "" : alert("Please select any position!")}>
+                      <img src={share} alt="share" className="share_img" />
+                    </Link>
                   </div>
                 </div>
               </div>

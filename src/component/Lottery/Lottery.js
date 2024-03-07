@@ -100,8 +100,11 @@ const Lottery = () => {
   const [walletBalance, setWalletBalance] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isWinOpen, setWinOpen] = useState(false);
+  const [losePoints, setLosePoints] = useState(0);
+  const [winPoints, setWinPoints] = useState(0);
   const [isLoseOpen, setLoseOpen] = useState(false);
   const [gameType, setGameType] = useState(1);
+  const [activeKey, setActiveKey] = useState("game_history");
   const navigator = useNavigate();
 
   const [isOpenPlay, setOpenPlay] = useState(false);
@@ -122,6 +125,7 @@ const Lottery = () => {
     const payload = {
       skip: skip,
       limit: 10,
+      type: gameType,
     };
 
     dispatch(gameHistory(payload));
@@ -131,7 +135,8 @@ const Lottery = () => {
     if (gameHistoryData != null && gameHistoryData.status === 1) {
       const data = gameHistoryData.data;
       setHistoryData(data);
-      setPageCount(gameHistoryData.count % 10);
+      if (activeKey === "game_history")
+        setPageCount(Math.floor(gameHistoryData.count / 10));
     }
   }, [gameHistoryData]);
 
@@ -206,6 +211,7 @@ const Lottery = () => {
         // if (gameType === 1) {
         setWinOpen(true);
         setResult(!onResult);
+        setWinPoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -214,6 +220,7 @@ const Lottery = () => {
         // if (gameType === 3) {
         setWinOpen(true);
         setResult(!onResult);
+        setWinPoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -222,6 +229,7 @@ const Lottery = () => {
         // if (gameType === 5) {
         setWinOpen(true);
         setResult(!onResult);
+        setWinPoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -230,6 +238,7 @@ const Lottery = () => {
         // if (gameType === 10) {
         setWinOpen(true);
         setResult(!onResult);
+        setWinPoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -238,6 +247,7 @@ const Lottery = () => {
         // if (gameType === 1) {
         setLoseOpen(true);
         setResult(!onResult);
+        setLosePoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -246,6 +256,7 @@ const Lottery = () => {
         // if (gameType === 3) {
         setLoseOpen(true);
         setResult(!onResult);
+        setLosePoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -254,6 +265,7 @@ const Lottery = () => {
         // if (gameType === 5) {
         setLoseOpen(true);
         setResult(!onResult);
+        setLosePoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -262,6 +274,7 @@ const Lottery = () => {
         // if (gameType === 10) {
         setLoseOpen(true);
         setResult(!onResult);
+        setLosePoints(data.winningAmount)
         setWalletBalance(data.walletPoints);
 
         // }
@@ -569,7 +582,7 @@ const Lottery = () => {
           <div className="mixing_card">
             <div className="win_card">
               <div className="win_number">
-                <h3>Win Go 1 min</h3>
+                <h3>Win Go {gameType} min</h3>
                 <div className="coin_img">
                   <div className="text_move">
                     <img src={zero} alt="zero" />
@@ -878,8 +891,10 @@ const Lottery = () => {
             gameType={gameType}
             onResult={onResult}
             pageCount={pageCount}
-            setPageCount={pageCount}
+            setPageCount={setPageCount}
             walletBalance={walletBalance}
+            setActiveKey={setActiveKey}
+            activeKey={activeKey}
           />
 
           <PaginationComponent
@@ -911,8 +926,7 @@ const Lottery = () => {
                 <div className="winner_width">
                   <div className="winner_reward">
                     <img src={you_win} alt="you_win" className="win_img" />
-                    <h4>Won</h4>
-                    <h5>{balanceValue * selectedX * 2}</h5>
+                    <h5>{winPoints}</h5>
                     <div className="close_btn">
                       <img
                         src={close}
@@ -937,8 +951,7 @@ const Lottery = () => {
                 <div className="loss_width">
                   <div className="loss_reward">
                     <img src={loss_img} alt="loss_img" className="loss_img" />
-                    <h4>Lose</h4>
-                    <h5>{balanceValue * selectedX}</h5>
+                    <h5>{losePoints}</h5>
                     <div className="close_btn">
                       <img
                         src={close}

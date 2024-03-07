@@ -4,7 +4,7 @@
   .winner_width {
     width: 100%;
     max-width: 420px;
-    background-color: #74707008;
+    // background-color: #74707008;
     height: 100vh;
     @include display(center, center);
 
@@ -28,9 +28,10 @@
 
       h5 {
         position: absolute;
-        bottom: 110px;
-        left: 98px;
-        font-size: 13px;
+        bottom: 81px;
+        left: 77px;
+        margin-bottom: 0;
+        font-size: 17px;
         color: $white;
         font-weight: 600;
         width: 74px;

@@ -33,7 +33,6 @@ const CycleDetail = () => {
     })
 
     useEffect(() => {
-        console.log("usdtDepositTransactions", data)
         dispatch(usdtDepositTransactions())
 
     }, [])

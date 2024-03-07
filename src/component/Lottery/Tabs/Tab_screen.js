@@ -24,6 +24,8 @@ const Tab_screen = ({
   pageCount,
   setPageCount,
   walletBalance,
+  setActiveKey,
+  activeKey
 }) => {
   const dispatch = useDispatch();
 
@@ -38,7 +40,7 @@ const Tab_screen = ({
   })
 
   const myHistoryData = useSelector((state) => state.myHistoryReducer.data);
-  const [activeKey, setActiveKey] = useState("game_history");
+
 
   const [myBetData, setMyBetData] = useState([]);
   useEffect(() => {
@@ -130,6 +132,8 @@ const Tab_screen = ({
   useEffect(() => {
     if (myHistoryData != null && myHistoryData.status === 1) {
       setMyBetData(myHistoryData.data);
+      if (activeKey === "my_history")
+        setPageCount(Math.floor(myHistoryData.count / 10))
     }
   }, [myHistoryData]);
 

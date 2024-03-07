@@ -18,7 +18,6 @@ const BonusPage = () => {
     return (
         <div className='home_page'>
             <Bonus />
-            {/* <Bottom_bar /> */}
         </div>
     )
 }

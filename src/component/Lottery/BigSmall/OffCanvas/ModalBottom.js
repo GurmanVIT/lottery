@@ -142,6 +142,7 @@ const ModalBottom = ({
                 >
                   -
                 </button>
+                {/* <input type="selectedX" placeholder={selectedX} min={1} max={5} /> */}
                 <h4>{selectedX}</h4>
                 <button
                   style={{ backgroundColor: myColor }}
@@ -270,7 +271,7 @@ const ModalBottom = ({
             Total Coins <img src={dollar_img} alt="dollar_img" style={{ width: "20px", height: "20px" }} /> {balance * selectedX}
           </button>
         </div>
-      </Modal>
+      </Modal >
     </>
   );
 };

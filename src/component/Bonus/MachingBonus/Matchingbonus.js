@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 import { matchingBonus } from "../../../redux/matchingBonusSlice";
+import { transactionList } from "../../../redux/transactionListSlice";
+import moment from "moment";
 
 
 const MatchingBonus = () => {
@@ -27,17 +29,69 @@ const MatchingBonus = () => {
     const matchingBonusData = useSelector((state) => state.matchingBonusReducer.data);
     const [matchingBonusType, setMatchingBonusType] = useState(null);
 
+    const [transactionData, setTransactionData] = useState(null);
+
+    const transactionListData = useSelector(
+        (state) => state.transactionListReducer.data
+    );
+
+    useEffect(() => {
+        dispatch(transactionList());
+    }, []);
+
+    useEffect(() => {
+        if (transactionListData != null && transactionListData.success === 1) {
+            setTransactionData(transactionListData.data.transactions);
+        }
+    }, [transactionListData]);
+
     useEffect(() => {
         dispatch(matchingBonus());
     }, []);
 
     useEffect(() => {
-        console.log("matchingBonus ===> ", matchingBonusData)
+        const payload = {
+            type: 'matching_bonus',
+        }
+        dispatch(transactionList(payload));
+    }, []);
 
+    useEffect(() => {
         if (matchingBonusData != null && matchingBonusData.success === 1) {
             setMatchingBonusType(matchingBonusData.data);
         }
     }, [matchingBonusData]);
+
+
+    const getFormattedDateTime = (utcDate) => {
+        const timestampStr = new Date(utcDate);
+        // Convert to Indian time zone (IST)
+        // const timestamp = moment(timestampStr).tz("Asia/Kolkata");
+        const options = {
+            timeZone: "Asia/Kolkata",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false, // Use 24-hour format
+        };
+
+        // Format the date as "2024-01-30"
+        const formattedDate = timestampStr.toLocaleDateString("en-IN", options);
+
+        const dateData = formattedDate.split(" ");
+
+        const createdTime = moment(dateData[1], "HH:mm:ss")
+            .add(5, "hours")
+            .add(30, "minutes");
+
+        const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
+
+        return formattedDate;
+    };
+
 
     return (
         <>
@@ -132,6 +186,28 @@ const MatchingBonus = () => {
                                 <div className="next_img">
                                     <img src={next} alt="next" />
                                 </div>
+                            </div>
+
+                            <div className="link_member_sections">
+                                <h5> Transactions</h5>
+                                {transactionData != null &&
+                                    transactionData.map((item, index) => (
+                                        <div className="card_link">
+                                            <p>
+                                                Amount : <span className="ellipsis">{item.amount}</span>
+                                            </p>
+                                            <p>
+                                                Description :{" "}
+                                                <span className="ellipsis">{item.description}</span>
+                                            </p>
+                                            <p>
+                                                Date :{" "}
+                                                <span className="ellipsis">
+                                                    {getFormattedDateTime(item.createdAt)}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    ))}
                             </div>
                         </div>
                     ) :

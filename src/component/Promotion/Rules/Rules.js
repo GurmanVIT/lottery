@@ -29,7 +29,6 @@ const Rules = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Invitation data ==>", getInvitationBonusReducerData);
     if (
       getInvitationBonusReducerData != null &&
       getInvitationBonusReducerData.status === 1
