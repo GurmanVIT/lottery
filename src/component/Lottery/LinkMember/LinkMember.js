@@ -6,6 +6,7 @@ import { transactionList } from "../../../redux/transactionListSlice";
 import moment from "moment";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
+import no_data from "../../../assets/img/no_data.svg";
 
 
 const Transaction = () => {
@@ -80,33 +81,43 @@ const Transaction = () => {
             </div>
           </div>
 
-          <div className="link_member_section">
-            {transactionData != null ? (
-              transactionData.map((item, index) => (
-                <div className="card_link">
-                  <p>
-                    Amount : <span className="ellipsis">{item.amount}</span>
-                  </p>
-                  <p>
-                    Description :{" "}
-                    <span className="ellipsis">{item.description}</span>
-                  </p>
-                  <p>
-                    Date :{" "}
-                    <span className="ellipsis">
-                      {getFormattedDateTime(item.createdAt)}
-                    </span>
-                  </p>
+          {transactionData != null ?
+
+            <div className="link_member_section">
+              {transactionData != null ? (
+                transactionData.map((item, index) => (
+                  <div className="card_link">
+                    <p>
+                      Amount : <span className="ellipsis">{item.amount}</span>
+                    </p>
+                    <p>
+                      Description :{" "}
+                      <span className="ellipsis">{item.description}</span>
+                    </p>
+                    <p>
+                      Date :{" "}
+                      <span className="ellipsis">
+                        {getFormattedDateTime(item.createdAt)}
+                      </span>
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <div className="card_notification_load" style={{ height: "100vh" }}>
+                  <div className="main_loader">
+                    <ClipLoader color={myColors.primaryColor} />
+                  </div>
                 </div>
-              ))
-            ) : (
-              <div className="card_notification_load" style={{ height: "100vh" }}>
-                <div className="main_loader">
-                  <ClipLoader color={myColors.primaryColor} />
-                </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+            :
+
+            <div className='no_data_img' style={{ display: "flex", height: "70vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+              <div><img src={no_data} alt='no_data' width={120} /></div>
+              <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+            </div>
+          }
+
         </div>
       </div>
     </>
