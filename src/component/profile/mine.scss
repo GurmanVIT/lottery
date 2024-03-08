@@ -658,11 +658,13 @@
                     h6 {
                         background-color: $primary;
                         padding: 6px 10px;
-                        font-size: 13px;
+                        font-size: 16px;
+                        font-weight: 600;
                         margin-bottom: 0;
                         border-radius: 4px;
                         color: $white;
                         @include display(center, center);
+                        letter-spacing: .3px;
 
                         img {
                             width: 16px;

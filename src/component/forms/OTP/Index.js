@@ -84,7 +84,7 @@ const Index = () => {
             src={back_back}
             alt="back_back"
             className="back_back"
-            onClick={() => navigation("/register")}
+            onClick={() => navigation(-1)}
           />
           <div className="dg_image">
             <img src={DG} alt="DG" />

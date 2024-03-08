@@ -31,7 +31,7 @@ const refferalDepositSlice = createSlice({
         data: null,
     },
     reducers: {
-        clearData: (state) => {
+        clearRefferalDepositData: (state) => {
             // Reset the data property to an empty array
             state.data = null;
         },
@@ -51,5 +51,5 @@ const refferalDepositSlice = createSlice({
     },
 });
 
-export const { clearData } = refferalDepositSlice.actions;
+export const { clearRefferalDepositData } = refferalDepositSlice.actions;
 export default refferalDepositSlice.reducer;

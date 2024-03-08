@@ -1,0 +1,104 @@
+.serial_win {
+    @include display(center, center);
+
+    .header_serial_win {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .serial_win_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .serial_win_section {
+            padding: 70px 15px 25px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding-top: 65px;
+            }
+
+            .card_padding {
+                border: 1px solid $primary;
+                border-radius: 14px;
+
+                .rule_card {
+                    background-color: #5A56C2;
+                    padding: 15px;
+                    border-radius: 14px 14px 0 0;
+
+                    h6 {
+                        color: $white;
+                        text-align: center;
+                        margin-bottom: 0;
+                        font-weight: 600;
+                    }
+                }
+
+                .play_rules {
+                    padding: 13px;
+                    border-radius: 13px;
+
+                    p {
+                        margin-bottom: 7px;
+                        font: initial;
+                        text-align: justify;
+                        color: $primary ;
+                    }
+
+                    ul {
+                        padding-left: 15px;
+
+                        li {
+                            color: $primary;
+                            font: initial;
+                            text-align: justify;
+                            margin-bottom: 8px;
+                        }
+                    }
+
+                    h4 {
+                        text-align: center;
+                        color: $primary;
+                        font-size: 19px;
+                        font-family: auto;
+                        font-weight: 600;
+                    }
+
+                    h5 {
+                        text-align: center;
+                        color: $primary;
+                        font-size: 20px;
+                        font-family: auto;
+                        font-weight: 600;
+                        margin-bottom: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -30,6 +30,14 @@
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
+
+                    @media($breakpoint_350) {
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -42,9 +50,132 @@
                 padding-top: 65px;
             }
 
-            .youtube_inner_img {
-                img {
-                    width: 100%;
+            .card_padding {
+                border: 1px solid $primary;
+                border-radius: 14px;
+
+                .rule_card {
+                    background-color: #5A56C2;
+                    padding: 15px;
+                    border-radius: 14px 14px 0 0;
+
+                    h6 {
+                        color: $white;
+                        text-align: center;
+                        margin-bottom: 0;
+                        font-weight: 600;
+                    }
+                }
+
+                .play_rules {
+                    padding: 13px;
+                    border-radius: 13px;
+
+                    p {
+                        margin-bottom: 7px;
+                        font: initial;
+                        text-align: justify;
+                        color: $primary ;
+                    }
+
+                    ul {
+                        padding-left: 15px;
+
+                        li {
+                            color: $primary;
+                            font: initial;
+                            text-align: justify;
+                            margin-bottom: 8px;
+                        }
+                    }
+
+                    h6 {
+                        text-align: center;
+                        color: $primary;
+                        font-size: 19px;
+                        font-family: auto;
+                        font-weight: 600;
+                    }
+
+                    h4 {
+                        text-align: center;
+                        color: $primary;
+                        font-size: 19px;
+                        font-family: auto;
+                        font-weight: 600;
+                    }
+
+                    h5 {
+                        text-align: center;
+                        color: $primary;
+                        font-size: 19px;
+                        font-family: auto;
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+
+                    .viewer_flex {
+                        @include display(initial, center);
+                        border: 1px solid $primary;
+                        border-radius: 8px;
+                        margin-bottom: 10px;
+
+                        .viewers {
+                            width: 50%;
+
+                            h3 {
+                                text-align: center;
+                                color: $white;
+                                font-size: 17px;
+                                font-family: auto;
+                                font-weight: 600;
+                                margin-bottom: 0;
+                                padding: 12px;
+                                background: $primary;
+                                border-top-left-radius: 8px;
+                            }
+
+                            p {
+                                text-align: center;
+                            }
+                        }
+
+                        .income_view {
+                            width: 50%;
+
+                            h3 {
+                                text-align: center;
+                                color: $white;
+                                font-size: 17px;
+                                font-family: auto;
+                                font-weight: 600;
+                                margin-bottom: 0;
+                                padding: 12px;
+                                background: $primary;
+                                border-top-right-radius: 8px;
+                            }
+
+                            p {
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    .viewer_flexes {
+                        padding: 11px;
+                        border: 1px solid $primary;
+                        border-radius: 8px;
+                        margin-bottom: 10px;
+
+                        h2 {
+                            text-align: justify;
+                            color: $primary;
+                            font-size: 16px;
+                            font-family: auto;
+                            font-weight: 600;
+                            margin-bottom: 5px;
+                        }
+                    }
                 }
             }
         }

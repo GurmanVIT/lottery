@@ -204,7 +204,6 @@ const Notification = () => {
 
           }
         </div>
-
       </div>
     </>
   );

@@ -354,8 +354,8 @@ const Profile = () => {
                   <h6>
                     <img src={dollar_img} alt="dollar_img" />
                     {refferalDepositData !== null
-                      ? refferalDepositData.incomeBalance
-                      : 0.0}
+                      ? refferalDepositResponse.incomeBalance
+                      : 0}
                   </h6>
                 </div>
               </div>

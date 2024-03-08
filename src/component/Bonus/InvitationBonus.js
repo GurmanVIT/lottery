@@ -35,7 +35,6 @@ const InvitationBonus = () => {
 
 
     useEffect(() => {
-        console.log("inviteBonusSheetReducer ===> ", inviteBonusSheetReducer)
         if (
             inviteBonusSheetReducer != null &&
             inviteBonusSheetReducer.status === 1
