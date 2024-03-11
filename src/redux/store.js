@@ -30,7 +30,7 @@ import inviteBonusSheetReducer from "./inviteBonusSheetSlice";
 import getInvitationBonusReducer from "./invitationBonusSlice";
 import randomMembersListReducer from "./randomMembersListSlice";
 import submitWithdrawRequestReducer from "./submitWithdrawRequestSlice";
-import sponserListReducer from "./sponserListSlice";
+import downlineListReducer from "./downlineListSlice";
 import matchingBonusReducer from "./matchingBonusSlice";
 import walletTypeReducer from "./walletWithTypeSlice";
 import claimInviteBonusReducer from "./claimInviteBonusSlice";
@@ -69,7 +69,7 @@ const store = configureStore({
     getInvitationBonusReducer: getInvitationBonusReducer,
     randomMembersListReducer: randomMembersListReducer,
     submitWithdrawRequestReducer: submitWithdrawRequestReducer,
-    sponserListReducer: sponserListReducer,
+    downlineListReducer: downlineListReducer,
     matchingBonusReducer: matchingBonusReducer,
     walletTypeReducer: walletTypeReducer,
     claimInviteBonusReducer: claimInviteBonusReducer,

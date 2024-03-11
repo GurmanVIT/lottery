@@ -46,6 +46,7 @@ const MatchingBonus = () => {
     }, [transactionListData]);
 
     useEffect(() => {
+
         dispatch(matchingBonus());
     }, []);
 
@@ -57,6 +58,7 @@ const MatchingBonus = () => {
     }, []);
 
     useEffect(() => {
+        console.log("matchingBonusData ===> ", matchingBonusData)
         if (matchingBonusData != null && matchingBonusData.success === 1) {
             setMatchingBonusType(matchingBonusData.data);
         }
@@ -176,7 +178,7 @@ const MatchingBonus = () => {
 
                             <div
                                 className="game"
-                                onClick={() => navigation("/team_member")}
+                                onClick={() => navigation("/team_tree")}
                                 style={{ cursor: "pointer" }}
                             >
                                 <div className="img_game">

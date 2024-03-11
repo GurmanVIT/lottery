@@ -1,9 +1,9 @@
 // src/redux/slices/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ApiBaseUrl, sponserListApi, } from "../utils/Constants";
+import { ApiBaseUrl, downlineListApi } from "../utils/Constants";
 
-export const sponserList = createAsyncThunk("sponserList", async () => {
+export const downlineList = createAsyncThunk("downlineList", async (payload) => {
     try {
         const token = localStorage.getItem("token");
         const config = {
@@ -14,42 +14,42 @@ export const sponserList = createAsyncThunk("sponserList", async () => {
             },
         };
         const url = ApiBaseUrl +
-            sponserListApi
+            downlineListApi
             ;
-        const response = await axios.get(url, config);
+        const response = await axios.post(url, payload, config);
         return response.data;
     } catch (error) {
         throw error.response.data;
     }
 });
 
-const sponserListSlice = createSlice({
-    name: "sponserListReducer",
+const downlineListSlice = createSlice({
+    name: "downlineListReducer",
 
     initialState: {
         isLoading: false,
         data: null,
     },
     reducers: {
-        clearSponserListData: (state) => {
+        clearDownlineListData: (state) => {
             // Reset the data property to an empty array
             state.data = null;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(sponserList.pending, (state) => {
+            .addCase(downlineList.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(sponserList.fulfilled, (state, action) => {
+            .addCase(downlineList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.data = action.payload;
             })
-            .addCase(sponserList.rejected, (state, action) => {
+            .addCase(downlineList.rejected, (state, action) => {
                 state.isError = false;
             });
     },
 });
 
-export const { clearSponserListData } = sponserListSlice.actions;
-export default sponserListSlice.reducer;
+export const { clearDownlineListData } = downlineListSlice.actions;
+export default downlineListSlice.reducer;

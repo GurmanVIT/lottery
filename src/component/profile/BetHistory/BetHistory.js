@@ -7,6 +7,9 @@ import { myColors } from '../../../utils/Colors';
 import moment from "moment-timezone";
 import PaginationComponent from '../../Lottery/Pagination/Pagination';
 import no_data from '../../../assets/img/no_data.svg';
+import wallet_2 from '../../../assets/img/wallet_2.svg';
+import withdraw from '../../../assets/img/withdraw.svg';
+import deposit from '../../../assets/img/deposit.svg';
 
 
 const BetHistory = () => {
@@ -156,6 +159,43 @@ const BetHistory = () => {
                         </div>
 
                         <div className='bet_history_section'>
+
+                            <div className="balance">
+                                <p>Total P / L</p>
+                                <div className="four_img">
+                                    <div
+                                        className="wallet_2"
+                                        onClick={() => navigation("/update_wallet_address")}
+                                    >
+                                        <img src={wallet_2} alt="wallet_2" />
+                                        <h5>Today</h5>
+                                        <p className='this_total'>0</p>
+
+                                    </div>
+                                    <div
+                                        className="deposit"
+                                        onClick={() => navigation("/deposit")}
+                                    >
+                                        <img src={deposit} alt="deposit" />
+                                        <h5>Week</h5>
+                                        <p className='this_total'>0</p>
+
+                                    </div>
+                                    <div
+                                        className="withdraw"
+                                        onClick={() => navigation("/withdraw_balance")}
+                                    >
+                                        <img src={withdraw} alt="withdraw" />
+                                        <h5>Month</h5>
+                                        <p className='this_total'>0</p>
+                                    </div>
+                                    {/* <div className="vip">
+                    <img src={vip} alt="vip" />
+                    <h5>VIP</h5>
+                  </div> */}
+                                </div>
+                            </div>
+
                             <p>Bet History</p>
                             {myBetData.length > 0 ?
                                 <div>

@@ -85,6 +85,10 @@
 @import '../../component//lottery/Withdraw/withdraw.scss';
 
 
+//withdrawBalance
+@import '../../component//lottery/WithdrawBalance/withdrawBalance.scss';
+
+
 //deposit
 @import '../../component//lottery/Deposit/deposit.scss';
 
@@ -117,8 +121,12 @@
 @import '../../component//profile/Service/service.scss';
 
 
-//withdrawBalance
-@import '../../component//lottery/WithdrawBalance/withdrawBalance.scss';
+//profile
+@import '../../component//profile/mine.scss';
+
+
+//RefferalDeposit
+@import '../../component//profile/RefferalDeposit/refferalDeposit.scss';
 
 
 //withdrawRule

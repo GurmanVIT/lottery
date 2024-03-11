@@ -118,7 +118,7 @@
 
             .plus_minus {
               @include display(center, center);
-              gap: 20px;
+              gap: 8px;
 
               button {
                 border: none;
@@ -145,10 +145,20 @@
                 }
               }
 
-              h4 {
-                margin-bottom: 0;
+              input {
+                text-align: center;
+                width: 90px;
+                padding: 2px 5px;
                 color: $forgot;
-                font-size: 19px;
+                font-size: 18px;
+                outline: 1px solid $forgot;
+                border: none;
+                border-radius: 3px;
+
+                @media($breakpoint_ESM) {
+                  width: 70px;
+                  font-size: 17px;
+                }
               }
             }
           }

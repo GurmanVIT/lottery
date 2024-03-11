@@ -1,0 +1,50 @@
+.game_bonus {
+    @include display(center, center);
+
+    .header_game_bonus {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flexes {
+            background: $profile_bg;
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            @media($breakpoint_ESM) {
+                padding: 15px 10px;
+            }
+
+            .back_img {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: -3px;
+                    left: 5px;
+                    cursor: pointer;
+                    width: 25px;
+                }
+            }
+
+            .setting_content {
+                h4 {
+                    text-align: center;
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

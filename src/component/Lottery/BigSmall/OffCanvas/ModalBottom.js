@@ -49,6 +49,11 @@ const ModalBottom = ({
   const navigation = useNavigate();
   const token = localStorage.getItem("token");
 
+  const hanldeInputBalance = (value) => {
+    const totalBalance = Number(value) * selectedX
+    setBalance(totalBalance)
+  }
+
   useEffect(() => {
     //Check Login
     if (token == null) {
@@ -142,8 +147,9 @@ const ModalBottom = ({
                 >
                   -
                 </button>
-                {/* <input type="selectedX" placeholder={selectedX} min={1} max={5} /> */}
-                <h4>{selectedX}</h4>
+                <input type="number" value={selectedX} maxLength={4} onChange={() => hanldeInputBalance()} pattern={4}
+                />
+                {/* <h4>{selectedX}</h4> */}
                 <button
                   style={{ backgroundColor: myColor }}
                   onClick={() => setCountValue(true)}

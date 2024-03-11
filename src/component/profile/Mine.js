@@ -345,18 +345,23 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game">
+              <div className="game"
+                onClick={() => navigation("/refferal_deposit")}
+                style={{ cursor: "pointer" }}>
                 <div className="img_game">
                   <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
                   <p>Refferal Deposit</p>
                 </div>
-                <div className="next_img">
+                {/* <div className="next_img">
                   <h6>
                     <img src={dollar_img} alt="dollar_img" />
                     {refferalDepositData !== null
                       ? refferalDepositResponse.incomeBalance
                       : 0}
                   </h6>
+                </div> */}
+                <div className="next_img" >
+                  <img src={next} alt="next" />
                 </div>
               </div>
 

@@ -176,6 +176,142 @@
                     }
                 }
 
+                .balance {
+                    background-color: $primary;
+                    border-radius: 14px;
+                    padding: 20px 20px 15px;
+                    margin-bottom: 10px;
+
+                    @media($breakpoint_ESM) {
+                        padding: 14px 13px 15px;
+                    }
+
+                    p {
+                        color: $white;
+                        margin-bottom: 0;
+                        font-size: 17px;
+
+                        @media($breakpoint_ESM) {
+                            font-size: 15px;
+                        }
+                    }
+
+                    .four_img {
+                        @include display(space-between, baseline);
+                        text-align: center;
+                        margin: 15px 13px 0;
+
+
+                        @media($breakpoint_ESM) {
+                            margin: 12px 0 0;
+                        }
+
+                        .wallet_2 {
+                            @include display(center, center);
+                            flex-direction: column;
+                            cursor: pointer;
+
+                            img {
+                                @media($breakpoint_ESM) {
+                                    width: 30px;
+                                }
+                            }
+
+                            h5 {
+                                margin: 7px 0 0 0;
+                                color: $white;
+                                font-size: 15px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .this_total {
+                                font-size: 16px;
+                                letter-spacing: .3px
+                            }
+                        }
+
+                        .deposit {
+                            @include display(center, center);
+                            flex-direction: column;
+                            cursor: pointer;
+
+                            img {
+                                @media($breakpoint_ESM) {
+                                    width: 30px;
+                                }
+                            }
+
+                            h5 {
+                                margin: 7px 0 0 0;
+                                color: $white;
+                                font-size: 15px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .this_total {
+                                font-size: 16px;
+                                letter-spacing: .3px
+                            }
+                        }
+
+                        .withdraw {
+                            @include display(center, center);
+                            flex-direction: column;
+                            cursor: pointer;
+
+                            img {
+                                @media($breakpoint_ESM) {
+                                    width: 30px;
+                                }
+                            }
+
+                            h5 {
+                                margin: 7px 0 0 0;
+                                color: $white;
+                                font-size: 15px;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .this_total {
+                                font-size: 16px;
+                                letter-spacing: .3px
+                            }
+                        }
+
+                        .vip {
+                            @include display(center, center);
+                            flex-direction: column;
+                            cursor: pointer;
+
+                            img {
+                                @media($breakpoint_ESM) {
+                                    width: 30px;
+                                }
+                            }
+
+                            h5 {
+                                margin: 7px 0 0 0;
+                                color: $white;
+                                font-size: 14px;
+                                font-weight: 600;
+
+                                @media($breakpoint_ESM) {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }

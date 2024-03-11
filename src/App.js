@@ -49,6 +49,7 @@ import DirectTree from "./component/Bonus/MyDirectTree/DirectTree";
 import GameplayRules from "./component/Bonus/GameplayRules/GameplayRules";
 import Bonanza from "./component/Bonus/Bonanza/Bonanza";
 import WithdrawRule from "./component/Lottery/WithdrawRule/WithdrawRule";
+import RefferalDeposit from "./component/profile/RefferalDeposit/RefferalDeposit";
 
 
 // export
@@ -122,6 +123,7 @@ function App() {
           <Route path="/gameplay_rules" element={<GameplayRules />} />
           <Route path="/bonanza" element={<Bonanza />} />
           <Route path="/withdraw_rule" element={<WithdrawRule />} />
+          <Route path="/refferal_deposit" element={<RefferalDeposit />} />
         </Routes>
       </Router>
 
