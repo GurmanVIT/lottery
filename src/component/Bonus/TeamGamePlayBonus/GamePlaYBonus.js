@@ -93,25 +93,32 @@ const GamePlayBonus = () => {
                     {transactionData != null ? (
                         <div className="game_bonus_section">
                             <div className="link_members_sections">
-                                <h5> Transactions</h5>
-                                {transactionData != null &&
-                                    transactionData.map((item, index) => (
-                                        <div className="card_links">
-                                            <p>
-                                                Amount : <span className="ellipsis">{item.amount}</span>
-                                            </p>
-                                            <p>
-                                                Description :{" "}
-                                                <span className="ellipsis">{item.description}</span>
-                                            </p>
-                                            <p>
-                                                Date :{" "}
-                                                <span className="ellipsis">
-                                                    {getFormattedDateTime(item.createdAt)}
-                                                </span>
-                                            </p>
+                                <h5> Commission Details </h5>
+                                <div className="card_Lottery_details">
+                                    <div className="commion_head">
+                                        <p>Lottery commission</p>
+                                        <p>2024-03-10 00:00:00</p>
+                                    </div>
+
+                                    <div className="p-2 commission_radius pt-3">
+                                        <div className="lottery_commission_flexs">
+                                            <p>Number of bettors</p>
+                                            <h6>128 People</h6>
                                         </div>
-                                    ))}
+                                        <div className="lottery_commission_flexs">
+                                            <p>Bet amount</p>
+                                            <h6>113355</h6>
+                                        </div>
+                                        <div className="lottery_commission_flexs">
+                                            <p>Agent level</p>
+                                            <h6>L1</h6>
+                                        </div>
+                                        <div className="lottery_commission_flexs">
+                                            <p>Commion Payout</p>
+                                            <h6>433.29</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

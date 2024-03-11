@@ -8,6 +8,28 @@ import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
 import { clearSponsorData } from "../../../redux/checkSponsorIdSlice";
 import { ClipLoader } from "react-spinners";
 import back_back from '../../../assets/img/back_back.svg';
+import fifty_coins from "../../../assets/img/fifty_coins.svg";
+import close from "../../../assets/img/close.svg";
+import Modal from "react-modal";
+import { clearSignUpData } from "../../../redux/signupSlice";
+
+
+const customStyles = {
+  content: {
+    top: "initial",
+    left: "50%",
+    right: "auto",
+    bottom: "0",
+    marginRight: "-50%",
+    transform: "translate(-50%, 0)",
+    maxWidth: "100%",
+    width: "420px",
+    borderRadius: "5px",
+    backgroundColor: "#74707008",
+    borderRadius: "14px 14px 0 0",
+  },
+};
+
 
 const Index = () => {
   const [otp, setOtp] = useState("");
@@ -20,6 +42,8 @@ const Index = () => {
   );
   const isLoading = useSelector((state) => state.otpReducer.isLoading);
   const userId = localStorage.getItem("userId");
+
+  const [isWinOpen, setWinOpen] = useState(false);
 
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -62,7 +86,9 @@ const Index = () => {
   useEffect(() => {
     if (otpSuccess != null && otpSuccess.status == 1) {
       localStorage.clear();
-      navigation("/login");
+      dispatch(clearSignUpData())
+      setWinOpen(true);
+
     } else if (otpSuccess != null) {
       alert(otpSuccess.message);
     }
@@ -134,6 +160,33 @@ const Index = () => {
             {isLoadingResend ? <ClipLoader color="#6561C0 " /> : "Resend Code"}
           </button>
         </form>
+
+        <Modal
+          isOpen={isWinOpen}
+          style={customStyles}
+          onRequestClose={() => setWinOpen(false)}
+        >
+          <>
+            <div className="you_win">
+              <div className="winner_width">
+                <div className="winner_reward">
+                  <img src={fifty_coins} alt="v" className="win_img" />
+                  <div className="close_btn">
+                    <img
+                      src={close}
+                      alt="close"
+                      className="close_img"
+                      onClick={() => {
+                        setWinOpen(false);
+                        navigation("/login");
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        </Modal>
       </div>
     </div>
   );

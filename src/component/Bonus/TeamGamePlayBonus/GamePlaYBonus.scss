@@ -107,20 +107,55 @@
                         }
                     }
                 }
+
+                .card_Lottery_details {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                    box-shadow: $input_shadow;
+                    border-radius: 5px;
+                    background-color: $white;
+
+                    .commion_head {
+                        background-color: $primary;
+                        padding: 10px;
+                        @include display(space-between, center);
+                        border-radius: 5px 5px 0 0;
+
+                        p {
+                            margin-bottom: 0;
+                            color: $white;
+
+                            @media($breakpoint_ESM) {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+
+                    .commission_radius {
+                        border-radius: 0 0 5px 5px;
+
+                        .lottery_commission_flexs {
+                            @include display (space-between, center);
+                            background-color: $dark_watch;
+                            padding: 7px;
+                            margin-bottom: 8px;
+                            border-radius: 4px;
+
+                            p {
+                                margin-bottom: 0;
+                                font-size: 13px;
+                            }
+
+                            h6 {
+                                margin-bottom: 0;
+                                font-weight: 600;
+                                font-size: 13px;
+                                color: $forgot;
+                            }
+                        }
+                    }
+                }
             }
-
-            // h5 {
-            //     font-size: 16px;
-            //     text-align: center;
-            //     font-weight: 600;
-            //     margin-bottom: 5px;
-            // }
-
-            // p {
-            //     font-size: 13px;
-            //     text-align: center;
-            //     margin-bottom: 20px;
-            // }
 
             .card_subordination {
                 background-color: $white;

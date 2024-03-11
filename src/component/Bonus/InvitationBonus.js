@@ -63,19 +63,26 @@ const InvitationBonus = () => {
         <>
             <div className="invitaion_bonus">
                 <div className="header_invitaion_bonus">
+
                     <div className="header_flex">
                         <div className="back_img" onClick={() => navigation(-1)}>
                             <img src={back} alt="back" />
                         </div>
-                        <div className="invitaion_bonus_content">
+                        <div className="game_bonus_content">
                             <h4>Invitation Bonus</h4>
+                        </div>
+                        <div
+                            className="deposit_history"
+                            onClick={() => navigation("/invitation_rules")}
+                        >
+                            <p>Rule</p>
                         </div>
                     </div>
 
                     {inviteBonus != null ? (
                         <div className="invitaion_bonus_section">
 
-                            <div className="notification" onClick={() => navigation('/invitation_rules')}>
+                            {/* <div className="notification" onClick={() => navigation('/invitation_rules')}>
                                 <div className="img_notification">
                                     <img src={rule_img} alt="rule_img" style={{ width: "40px", height: "40px" }} />
                                     <p>Invitation Reward Rules</p>
@@ -83,7 +90,7 @@ const InvitationBonus = () => {
                                 <div className="number_noti">
                                     <img src={next} alt="next" />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="notification mb-3" onClick={() => navigation('/direct_tree')}>
                                 <div className="img_notification">

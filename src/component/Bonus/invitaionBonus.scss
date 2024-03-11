@@ -9,30 +9,48 @@
 
         .header_flex {
             background: $profile_bg;
-            @include display(center, center);
-            padding: 15px 10px;
+            @include display(space-between, center);
+            padding: 12px 10px;
             position: fixed;
             top: 0;
             z-index: 1;
             width: 100%;
             max-width: 420px;
 
-            img {
-                position: absolute;
-                top: 12px;
-                left: 15px;
-                width: 25px;
+            .back_img {
+                img {
+                    width: 25px;
+
+                    @media($breakpoint_ESM) {
+                        width: 20px;
+                    }
+                }
             }
 
-            .invitaion_bonus_content {
+            .game_bonus_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            .deposit_history {
+                cursor: pointer;
+
+                p {
+                    color: $white;
+                    font-size: 12px;
+                    margin-bottom: 0;
                 }
             }
         }
+
 
         .invitaion_bonus_section {
             padding: 70px 15px 25px;

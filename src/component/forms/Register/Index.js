@@ -15,6 +15,7 @@ import { checkSponsor } from "../../../redux/checkSponsorIdSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
+
 const Register = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -27,6 +28,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [sponsorId, setSponsorId] = useState("");
   const [position, setPosition] = useState();
+
 
   const [isValid, setIsValid] = useState(false);
 
@@ -249,6 +251,7 @@ const Register = () => {
                   )}
                 </button>
               </FloatingLabel>
+
               <FloatingLabel
                 controlId="floatingInput"
                 label="ENTER SPONSOR ID"
@@ -265,6 +268,7 @@ const Register = () => {
               </FloatingLabel>
 
               <h6 className="select_position">Select Position</h6>
+
               <div className="position_left_right">
                 <label className="left">
                   <input
@@ -289,6 +293,7 @@ const Register = () => {
                   {"   "}Right
                 </label>
               </div>
+
               <div className="checkbox">
                 <label>
                   <input
@@ -303,6 +308,7 @@ const Register = () => {
                   </p>
                 </label>
               </div>
+
               <div className="login_link mt-3">
                 <button
                   className="login_button"
@@ -317,6 +323,7 @@ const Register = () => {
                   )}
                 </button>
               </div>
+
               <div className="register_link">
                 <button
                   className="register_button"
@@ -327,10 +334,12 @@ const Register = () => {
                   I have an account <span>Login</span>
                 </button>
               </div>
+
               <div className="upper">
                 <img src={support} alt="support" />
                 <h5>Customer Support</h5>
               </div>
+
             </div>
           </div>
         </div>
