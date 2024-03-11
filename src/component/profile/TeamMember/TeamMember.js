@@ -10,15 +10,14 @@ import { clearData } from "../../../redux/transactionListSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 import no_data from "../../../assets/img/no_data.svg";
-
+import { downlineList } from "../../../redux/downlineListSlice";
 
 const TeamMember = () => {
-
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const [position, setPosition] = useState("L");
 
-  const myData = useSelector((state) => state.directMemberListReducer.data);
+  const myData = useSelector((state) => state.downlineListReducer.data);
   const [dataList, setDataList] = useState(null);
 
   const token = localStorage.getItem("token");
@@ -28,19 +27,22 @@ const TeamMember = () => {
     if (token == null) {
       navigation("/login");
     }
-  })
+  });
 
   useEffect(() => {
+    const sponsorId = localStorage.getItem("sponsorId");
     const payload = {
-      position: position,
+      position: position == "L" ? "left" : "right",
+      sponsorId: sponsorId,
     };
 
-    dispatch(directMemberList(payload));
+    dispatch(downlineList(payload));
   }, [position]);
 
   useEffect(() => {
+    console.log("My Data ===> ", myData);
     if (myData != null && myData.success === 1) {
-      setDataList(myData.data);
+      setDataList(myData.data.downlineData);
     }
   }, [myData]);
 
@@ -105,7 +107,7 @@ const TeamMember = () => {
                 onSelect={handleSelect}
               >
                 <Tab eventKey="left" title="Left">
-                  {dataList != null ?
+                  {dataList != null ? (
                     <div>
                       {dataList != null &&
                         dataList.map((item, index) => (
@@ -121,24 +123,42 @@ const TeamMember = () => {
                             </p>
                             <p>
                               Joining Date :{" "}
-                              <span>{getFormattedDateTime(item.createdAt)}</span>
+                              <span>
+                                {getFormattedDateTime(item.createdAt)}
+                              </span>
                             </p>
                           </div>
                         ))}
                     </div>
-
-                    :
-
-                    <div className='no_data_img' style={{ display: "flex", height: "70vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                      <div><img src={no_data} alt='no_data' width={120} /></div>
-                      <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                  ) : (
+                    <div
+                      className="no_data_img"
+                      style={{
+                        display: "flex",
+                        height: "70vh",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <div>
+                        <img src={no_data} alt="no_data" width={120} />
+                      </div>
+                      <p
+                        style={{
+                          fontSize: "14px",
+                          color: "gray",
+                          marginRight: "20px",
+                        }}
+                      >
+                        No Data Found
+                      </p>
                     </div>
-                  }
+                  )}
                 </Tab>
 
                 <Tab eventKey="right" title="Right">
-
-                  {dataList != null ?
+                  {dataList != null ? (
                     <div>
                       {dataList != null &&
                         dataList.map((item, index) => (
@@ -154,18 +174,38 @@ const TeamMember = () => {
                             </p>
                             <p>
                               Joining Date :{" "}
-                              <span>{getFormattedDateTime(item.createdAt)}</span>
+                              <span>
+                                {getFormattedDateTime(item.createdAt)}
+                              </span>
                             </p>
                           </div>
-                        ))
-                      }
+                        ))}
                     </div>
-                    :
-                    <div className='no_data_img' style={{ display: "flex", height: "70vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                      <div><img src={no_data} alt='no_data' width={120} /></div>
-                      <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                  ) : (
+                    <div
+                      className="no_data_img"
+                      style={{
+                        display: "flex",
+                        height: "70vh",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <div>
+                        <img src={no_data} alt="no_data" width={120} />
+                      </div>
+                      <p
+                        style={{
+                          fontSize: "14px",
+                          color: "gray",
+                          marginRight: "20px",
+                        }}
+                      >
+                        No Data Found
+                      </p>
                     </div>
-                  }
+                  )}
                 </Tab>
               </Tabs>
             </div>
@@ -177,7 +217,7 @@ const TeamMember = () => {
             </div>
           )}
         </div>
-      </div >
+      </div>
     </>
   );
 };
