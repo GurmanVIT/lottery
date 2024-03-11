@@ -3,52 +3,54 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ApiBaseUrl, downlineListApi } from "../utils/Constants";
 
-export const downlineList = createAsyncThunk("downlineList", async (payload) => {
+export const downlineList = createAsyncThunk(
+  "downlineList",
+  async (payload) => {
     try {
-        const token = localStorage.getItem("token");
-        const config = {
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json",
-                authorization: token,
-            },
-        };
-        const url = ApiBaseUrl +
-            downlineListApi
-            ;
-        const response = await axios.post(url, payload, config);
-        return response.data;
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          authorization: token,
+        },
+      };
+      const url = ApiBaseUrl + downlineListApi;
+      const response = await axios.post(url, payload, config);
+      console.log("response Down ==> ", response.data);
+      return response.data;
     } catch (error) {
-        throw error.response.data;
+      throw error.response.data;
     }
-});
+  }
+);
 
 const downlineListSlice = createSlice({
-    name: "downlineListReducer",
+  name: "downlineListReducer",
 
-    initialState: {
-        isLoading: false,
-        data: null,
+  initialState: {
+    isLoading: false,
+    data: null,
+  },
+  reducers: {
+    clearDownlineListData: (state) => {
+      // Reset the data property to an empty array
+      state.data = null;
     },
-    reducers: {
-        clearDownlineListData: (state) => {
-            // Reset the data property to an empty array
-            state.data = null;
-        },
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(downlineList.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(downlineList.fulfilled, (state, action) => {
-                state.isLoading = false;
-                state.data = action.payload;
-            })
-            .addCase(downlineList.rejected, (state, action) => {
-                state.isError = false;
-            });
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(downlineList.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(downlineList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.data = action.payload;
+      })
+      .addCase(downlineList.rejected, (state, action) => {
+        state.isError = false;
+      });
+  },
 });
 
 export const { clearDownlineListData } = downlineListSlice.actions;

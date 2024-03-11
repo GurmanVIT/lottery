@@ -36,8 +36,6 @@ import { myColors } from "../../utils/Colors";
 import dollar_img from "../../assets/img/dollar_img.png";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
 
-
-
 const Profile = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -51,6 +49,7 @@ const Profile = () => {
   );
   const [profileData, setProfileData] = useState(null);
   const [profileInfo, setInfoData] = useState(null);
+  const [walletPoints, setWalletPoints] = useState(null);
   const [changeActive, setChangeActive] = useState(true);
   const [refferalDepositData, setRefferralDeposit] = useState(null);
 
@@ -63,7 +62,7 @@ const Profile = () => {
     dispatch(clearSponsorData());
     dispatch(clearOtpData());
     dispatch(clearResendData());
-    dispatch(clearProfileData())
+    dispatch(clearProfileData());
 
     setTimeout(() => {
       navigation("/login");
@@ -78,6 +77,7 @@ const Profile = () => {
   useEffect(() => {
     if (profileResponse != null && profileResponse.status === 1) {
       setProfileData(profileResponse.data);
+      setWalletPoints(profileResponse.data.walletPoints);
       setInfoData(profileResponse.userInfo);
       localStorage.setItem("email", profileResponse.data.email);
     } else if (profileResponse != null && profileResponse.status === 0) {
@@ -139,10 +139,9 @@ const Profile = () => {
     if (activateReducer != null && activateReducer.status === 1) {
       dispatch(profile());
       dispatch(clearDataActive());
-    }
-    else {
+    } else {
       if (activateReducer != null) {
-        alert(activateReducer.message)
+        alert(activateReducer.message);
       }
     }
   }, [activateReducer]);
@@ -154,12 +153,13 @@ const Profile = () => {
     if (token == null) {
       navigation("/login");
     }
-  })
+  });
 
   const refreshData = () => {
+    setWalletPoints(null);
     dispatch(profile());
     dispatch(refferalDeposit());
-  }
+  };
 
   return (
     <>
@@ -210,9 +210,19 @@ const Profile = () => {
               <div className="balance">
                 <p>Total Balance</p>
                 <h3>
-                  <img src={dollar_img} alt="dollar_img" className="dollar_img" />
-                  {profileData.walletPoints}
-                  <img src={refresh_2} alt="refresh_2"
+                  <img
+                    src={dollar_img}
+                    alt="dollar_img"
+                    className="dollar_img"
+                  />
+                  {walletPoints != null ? (
+                    <span>{profileData.walletPoints}</span>
+                  ) : (
+                    <ClipLoader color={myColors.txtWhite} size={25} />
+                  )}
+                  <img
+                    src={refresh_2}
+                    alt="refresh_2"
                     onClick={() => refreshData()}
                   />
                 </h3>
@@ -275,10 +285,7 @@ const Profile = () => {
                 </div>
 
                 <div className="card_flex mt-2">
-                  <div
-                    className="card"
-                    onClick={() => navigation("/deposit")}
-                  >
+                  <div className="card" onClick={() => navigation("/deposit")}>
                     <div className="deposit_img">
                       <img src={deposit} alt="deposit" />
                     </div>
@@ -345,9 +352,11 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="game"
+              <div
+                className="game"
                 onClick={() => navigation("/refferal_deposit")}
-                style={{ cursor: "pointer" }}>
+                style={{ cursor: "pointer" }}
+              >
                 <div className="img_game">
                   <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
                   <p>Refferal Deposit</p>
@@ -360,7 +369,7 @@ const Profile = () => {
                       : 0}
                   </h6>
                 </div> */}
-                <div className="next_img" >
+                <div className="next_img">
                   <img src={next} alt="next" />
                 </div>
               </div>

@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import Modal from "react-modal";
 import { myColors } from "../../../../utils/Colors";
 import { Balance } from "@mui/icons-material";
-import dollar_img from "../../../../assets/img/dollar_img.png"
+import dollar_img from "../../../../assets/img/dollar_img.png";
 import { useNavigate } from "react-router";
-
 
 const customStyles = {
   content: {
@@ -50,16 +49,18 @@ const ModalBottom = ({
   const token = localStorage.getItem("token");
 
   const hanldeInputBalance = (value) => {
-    const totalBalance = Number(value) * selectedX
-    setBalance(totalBalance)
-  }
+    if (value.length < 5) {
+      const number = parseInt(value);
+      setSelectedX(number);
+    }
+  };
 
   useEffect(() => {
     //Check Login
     if (token == null) {
       navigation("/login");
     }
-  })
+  });
   return (
     <>
       <Modal
@@ -147,7 +148,10 @@ const ModalBottom = ({
                 >
                   -
                 </button>
-                <input type="number" value={selectedX} maxLength={4} onChange={() => hanldeInputBalance()} pattern={4}
+                <input
+                  type="number"
+                  value={selectedX}
+                  onChange={(val) => hanldeInputBalance(val.target.value)}
                 />
                 {/* <h4>{selectedX}</h4> */}
                 <button
@@ -256,8 +260,7 @@ const ModalBottom = ({
             <div className="radio_btn">
               <div className="radio">
                 <label>
-                  I agree{" "}
-                  <span color={myColor}>(Pre-sale rule)</span>
+                  I agree <span color={myColor}>(Pre-sale rule)</span>
                 </label>
               </div>
             </div>
@@ -274,10 +277,16 @@ const ModalBottom = ({
             style={{ backgroundColor: myColor }}
             onClick={() => placeBet()}
           >
-            Total Coins <img src={dollar_img} alt="dollar_img" style={{ width: "20px", height: "20px" }} /> {balance * selectedX}
+            Total Coins{" "}
+            <img
+              src={dollar_img}
+              alt="dollar_img"
+              style={{ width: "20px", height: "20px" }}
+            />{" "}
+            {balance * selectedX}
           </button>
         </div>
-      </Modal >
+      </Modal>
     </>
   );
 };

@@ -40,7 +40,7 @@ import mark_ex from "../../assets/img/mark_ex.png";
 import dollar_img from "../../assets/img/dollar_img.png";
 import { profile } from "../../redux/profileSlice";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
-
+import { ClipLoader } from "react-spinners";
 
 export const socket = io("https://dapic-api.virtualittechnology.com/");
 
@@ -97,7 +97,7 @@ const Lottery = () => {
   const [isOpenModal, setOpenModal] = useState(false);
   const [historyData, setHistoryData] = useState([]);
   const [pageCount, setPageCount] = useState(1);
-  const [walletBalance, setWalletBalance] = useState(0);
+  const [walletBalance, setWalletBalance] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isWinOpen, setWinOpen] = useState(false);
   const [losePoints, setLosePoints] = useState(0);
@@ -120,6 +120,8 @@ const Lottery = () => {
   const navigation = useNavigate();
 
   const gameHistoryData = useSelector((state) => state.gameHistoryReducer.data);
+
+  const profileResponse = useSelector((state) => state.profileReducer.data);
   const dispatch = useDispatch();
   useEffect(() => {
     const payload = {
@@ -211,7 +213,7 @@ const Lottery = () => {
         // if (gameType === 1) {
         setWinOpen(true);
         setResult(!onResult);
-        setWinPoints(data.winningAmount)
+        setWinPoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -220,7 +222,7 @@ const Lottery = () => {
         // if (gameType === 3) {
         setWinOpen(true);
         setResult(!onResult);
-        setWinPoints(data.winningAmount)
+        setWinPoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -229,7 +231,7 @@ const Lottery = () => {
         // if (gameType === 5) {
         setWinOpen(true);
         setResult(!onResult);
-        setWinPoints(data.winningAmount)
+        setWinPoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -238,7 +240,7 @@ const Lottery = () => {
         // if (gameType === 10) {
         setWinOpen(true);
         setResult(!onResult);
-        setWinPoints(data.winningAmount)
+        setWinPoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -247,7 +249,7 @@ const Lottery = () => {
         // if (gameType === 1) {
         setLoseOpen(true);
         setResult(!onResult);
-        setLosePoints(data.winningAmount)
+        setLosePoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -256,7 +258,7 @@ const Lottery = () => {
         // if (gameType === 3) {
         setLoseOpen(true);
         setResult(!onResult);
-        setLosePoints(data.winningAmount)
+        setLosePoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -265,7 +267,7 @@ const Lottery = () => {
         // if (gameType === 5) {
         setLoseOpen(true);
         setResult(!onResult);
-        setLosePoints(data.winningAmount)
+        setLosePoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -274,7 +276,7 @@ const Lottery = () => {
         // if (gameType === 10) {
         setLoseOpen(true);
         setResult(!onResult);
-        setLosePoints(data.winningAmount)
+        setLosePoints(data.winningAmount);
         setWalletBalance(data.walletPoints);
 
         // }
@@ -390,7 +392,6 @@ const Lottery = () => {
 
     getGameHistory();
     return () => {
-
       socket.off("timerForward");
       socket.off("timerForwardThree");
       socket.off("timerForwardFive");
@@ -470,10 +471,16 @@ const Lottery = () => {
   };
 
   const refreshData = () => {
+    setWalletBalance(null);
     dispatch(profile());
     dispatch(refferalDeposit());
-  }
+  };
 
+  useEffect(() => {
+    if (profileResponse != null && profileResponse.status === 1) {
+      setWalletBalance(profileResponse.data.walletPoints);
+    }
+  }, [profileResponse]);
 
   return (
     <div className="lottery_page">
@@ -512,13 +519,23 @@ const Lottery = () => {
         <div className="secound_sec">
           <div className="card">
             <div className="refresh">
-              <img src={refresh} alt="refresh"
-                onClick={() => refreshData()}
-              />
+              <img src={refresh} alt="refresh" onClick={() => refreshData()} />
             </div>
             <h1>
-              <img src={dollar_img} alt="dollar_img" style={{ width: "28px", marginBottom: "3px", marginRight: "3px" }} />
-              {walletBalance}
+              <img
+                src={dollar_img}
+                alt="dollar_img"
+                style={{
+                  width: "28px",
+                  marginBottom: "3px",
+                  marginRight: "3px",
+                }}
+              />
+              {walletBalance != null ? (
+                <span>{walletBalance}</span>
+              ) : (
+                <ClipLoader color={myColors.primaryColor} size={25} />
+              )}
             </h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
@@ -629,19 +646,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[1]
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[1]
                       : splitIntoArray(
-                        gameTimer - Math.floor(gameTimer / 60) * 60
-                      )[0]}
+                          gameTimer - Math.floor(gameTimer / 60) * 60
+                        )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>
@@ -976,10 +993,13 @@ const Lottery = () => {
               <div className="how_play_section">
                 <div className="play_this">
                   <p>
-                    In all game servers you can participate 5 second before result.
+                    In all game servers you can participate 5 second before
+                    result.
                   </p>
                   <p>
-                    in all the bets 2% will be deducted as tax i.e. your beting amount is 100 DG coin your bet will be placed for 98 DG coins and you will get winning amount according to that.
+                    in all the bets 2% will be deducted as tax i.e. your beting
+                    amount is 100 DG coin your bet will be placed for 98 DG
+                    coins and you will get winning amount according to that.
                   </p>
                   <p>
                     1. Select green: if the result shows 1,3,7,9 you will get
