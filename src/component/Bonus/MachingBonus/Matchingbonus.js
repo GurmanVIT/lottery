@@ -119,7 +119,7 @@ const MatchingBonus = () => {
 
                             <div className="agency">
                                 <h3>
-                                    {matchingBonusType.leftBusiness > matchingBonusType.rightBusiness ? matchingBonusType.rightBusiness : matchingBonusType.leftBusiness}
+                                    {matchingBonusType.sumBinaryAmount}
                                 </h3>
                                 <div className="bg_total">
                                     <h6>Total Matching Bonus</h6>

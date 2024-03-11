@@ -190,11 +190,20 @@
                         color: $white;
                         margin-bottom: 0;
                         font-size: 17px;
+                        letter-spacing: .5px;
 
                         @media($breakpoint_ESM) {
                             font-size: 15px;
                         }
                     }
+
+                    // .loss {
+                    //     color: $green;
+                    // }
+
+                    // .win {
+                    //     color: $red;
+                    // }
 
                     .four_img {
                         @include display(space-between, baseline);
@@ -229,7 +238,7 @@
 
                             .this_total {
                                 font-size: 16px;
-                                letter-spacing: .3px
+                                letter-spacing: .5px;
                             }
                         }
 
@@ -256,7 +265,7 @@
 
                             .this_total {
                                 font-size: 16px;
-                                letter-spacing: .3px
+                                letter-spacing: .5px;
                             }
                         }
 
@@ -283,7 +292,7 @@
 
                             .this_total {
                                 font-size: 16px;
-                                letter-spacing: .3px
+                                letter-spacing: .5px;
                             }
                         }
 
