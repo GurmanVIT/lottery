@@ -326,6 +326,20 @@ const Profile = () => {
 
               <div
                 className="game"
+                onClick={() => navigation("/customer")}
+                style={{ cursor: "pointer" }}
+              >
+                <div className="img_game">
+                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                  <p>Contact us</p>
+                </div>
+                <div className="next_img">
+                  <img src={next} alt="next" />
+                </div>
+              </div>
+
+              <div
+                className="game"
                 onClick={() => navigation("/team_member")}
                 style={{ cursor: "pointer" }}
               >
@@ -359,7 +373,7 @@ const Profile = () => {
               >
                 <div className="img_game">
                   <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
-                  <p>Refferal Deposit</p>
+                  <p>Referral Deposit</p>
                 </div>
                 {/* <div className="next_img">
                   <h6>

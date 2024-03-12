@@ -74,7 +74,7 @@ const Service = () => {
               <img src={back} alt="back" />
             </div>
             <div className="service_content">
-              <h4>Generate Token</h4>
+              <h4>Support Ticket</h4>
             </div>
           </div>
 

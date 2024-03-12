@@ -134,7 +134,7 @@ const Rules = () => {
                   </tr>
 
                   <tr>
-                    <td>Lvl-7
+                    <td>Lvl-2
                       {/* <img src={level_0} alt="level_0" /> */}
                     </td>
                     <td>0</td>
@@ -146,7 +146,7 @@ const Rules = () => {
                   </tr>
 
                   <tr>
-                    <td>Lvl-7
+                    <td>Lvl-3
                       {/* <img src={level_0} alt="level_0" /> */}
                     </td>
                     <td>0</td>
@@ -158,7 +158,7 @@ const Rules = () => {
                   </tr>
 
                   <tr>
-                    <td>Lvl-7
+                    <td>Lvl-4
                       {/* <img src={level_0} alt="level_0" /> */}
                     </td>
                     <td>0</td>
@@ -170,7 +170,7 @@ const Rules = () => {
                   </tr>
 
                   <tr>
-                    <td>Lvl-7
+                    <td>Lvl-5
                       {/* <img src={level_0} alt="level_0" /> */}
                     </td>
                     <td>0</td>
@@ -182,7 +182,7 @@ const Rules = () => {
                   </tr>
 
                   <tr>
-                    <td>Lvl-7
+                    <td>Lvl-6
                       {/* <img src={level_0} alt="level_0" /> */}
                     </td>
                     <td>0</td>

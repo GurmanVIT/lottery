@@ -37,6 +37,29 @@ body {
   }
 }
 
+.float {
+  position: fixed;
+  bottom: 65px;
+  left: 59%;
+  font-size: 30px;
+  line-height: 60px;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+
+  @media(max-width:992px) {
+    left: 63%;
+  }
+
+  @media(max-width:650px) {
+    left: 69%;
+  }
+
+  @media(max-width:500px) {
+    left: 77%;
+  }
+}
+
 
 //home_page
 .home_page {
