@@ -15,12 +15,22 @@
             width: 100%;
             max-width: 420px;
 
+            .back_img {
+                img {
+                    width: 25px;
+                }
+            }
+
             .deposit_content {
                 h4 {
                     color: $white;
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
                 }
             }
 

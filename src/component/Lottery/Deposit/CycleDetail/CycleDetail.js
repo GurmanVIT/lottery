@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { usdtDepositTransactions } from '../../../../redux/usdtDepositTransactionsSlice';
 import { ClipLoader } from "react-spinners";
 import { myColors } from '../../../../utils/Colors'
+import no_data from '../../../../assets/img/no_data.svg';
 
 
 const CycleDetail = () => {
@@ -85,12 +86,23 @@ const CycleDetail = () => {
 
                     {transactions != null ? (
                         <div className='detail_section'>
-                            {transactions != null && transactions.map((item, index) => (
-                                <div class="dropdown_cycle">
-                                    <button onClick={() => toggleDropdown(item, index)}>{formatDate(item.createdAt)} <span><KeyboardArrowDownIcon className={isOpen && selectedIndex === index ? 'rotate' : ''} /></span></button>
-                                    {selectedIndex === index && dropdownContent}
+                            {transactions.length > 0 ? (
+                                <div>
+                                    {transactions != null &&
+                                        transactions.map((item, index) => (
+                                            <div class="dropdown_cycle">
+                                                <button onClick={() => toggleDropdown(item, index)}>{formatDate(item.createdAt)} <span><KeyboardArrowDownIcon className={isOpen && selectedIndex === index ? 'rotate' : ''} /></span></button>
+                                                {selectedIndex === index && dropdownContent}
+                                            </div>
+                                        ))
+                                    }
                                 </div>
-                            ))}
+                            ) : (
+                                <div className='no_data_img' style={{ display: "flex", height: "80vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                    <div><img src={no_data} alt='no_data' width={120} /></div>
+                                    <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                                </div>
+                            )}
                         </div>
                     ) : (
                         <div className="detail_section" >

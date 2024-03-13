@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
-import fav_logo from "../../../assets/img/fav_logo.svg";
+import matching_tree from "../../../assets/img/matching_tree.svg";
+import team_left_right from "../../../assets/img/team_left_right.svg";
 import next from "../../../assets/img/next.svg";
 import promotion_data from "../../../assets/img/promotion_data.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +11,7 @@ import { myColors } from "../../../utils/Colors";
 import { matchingBonus } from "../../../redux/matchingBonusSlice";
 import { transactionList } from "../../../redux/transactionListSlice";
 import moment from "moment";
+import no_data from "../../../assets/img/no_data.svg";
 
 
 const MatchingBonus = () => {
@@ -167,7 +169,7 @@ const MatchingBonus = () => {
                                 style={{ cursor: "pointer" }}
                             >
                                 <div className="img_game">
-                                    <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                                    <img src={matching_tree} alt="matching_tree" style={{ width: "28px", height: "28px" }} />
                                     <p>Matching Tree</p>
                                 </div>
                                 <div className="next_img">
@@ -182,7 +184,7 @@ const MatchingBonus = () => {
                                 style={{ cursor: "pointer" }}
                             >
                                 <div className="img_game">
-                                    <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                                    <img src={team_left_right} alt="team_left_right" style={{ width: "28px", height: "28px" }} />
                                     <p>My Left Right Team</p>
                                 </div>
                                 <div className="next_img">
@@ -192,24 +194,35 @@ const MatchingBonus = () => {
 
                             <div className="link_member_sections">
                                 <h5> Transactions</h5>
-                                {transactionData != null &&
-                                    transactionData.map((item, index) => (
-                                        <div className="card_link">
-                                            <p>
-                                                Amount : <span className="ellipsis">{item.amount}</span>
-                                            </p>
-                                            <p>
-                                                Description :{" "}
-                                                <span className="ellipsis">{item.description}</span>
-                                            </p>
-                                            <p>
-                                                Date :{" "}
-                                                <span className="ellipsis">
-                                                    {getFormattedDateTime(item.createdAt)}
-                                                </span>
-                                            </p>
-                                        </div>
-                                    ))}
+                                {transactionData.length > 0 ? (
+
+                                    <div>
+                                        {transactionData != null &&
+                                            transactionData.map((item, index) => (
+                                                <div className="card_link">
+                                                    <p>
+                                                        Amount : <span className="ellipsis">{item.amount}</span>
+                                                    </p>
+                                                    <p>
+                                                        Description :{" "}
+                                                        <span className="ellipsis">{item.description}</span>
+                                                    </p>
+                                                    <p>
+                                                        Date :{" "}
+                                                        <span className="ellipsis">
+                                                            {getFormattedDateTime(item.createdAt)}
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            ))}
+                                    </div>
+                                ) : (
+                                    <div className='no_data_img' style={{ display: "flex", height: "40vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                        <div><img src={no_data} alt='no_data' width={120} /></div>
+                                        <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                                    </div>
+                                )}
+
                             </div>
                         </div>
                     ) :

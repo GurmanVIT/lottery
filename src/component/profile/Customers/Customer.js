@@ -4,7 +4,9 @@ import back from "../../../assets/img/back.svg";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import email_icon from "../../../assets/img/email_icon.svg";
+import name_c from "../../../assets/img/name_c.svg";
+import email_c from "../../../assets/img/email_c.svg";
+import contact_img from "../../../assets/img/contact_img.svg";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 
@@ -44,7 +46,7 @@ const Customer = () => {
                             label="NAME"
                             className="mb-3"
                         >
-                            <img src={email_icon} alt="email" />
+                            <img src={name_c} alt="name_icon" className="name_icon" />
                             <Form.Control
                                 type="text"
                                 placeholder="name"
@@ -56,7 +58,7 @@ const Customer = () => {
                             label="EMAIL"
                             className="mb-3"
                         >
-                            <img src={email_icon} alt="email" />
+                            <img src={email_c} alt="email_icon" className="email_c" />
                             <Form.Control
                                 type="email"
                                 placeholder="name@example.com"
@@ -68,7 +70,7 @@ const Customer = () => {
                             label="CONTACT US"
                             className="mb-3"
                         >
-                            <img src={email_icon} alt="email" />
+                            <img src={contact_img} alt="contact_icon" className="contact_img" />
                             <Form.Control
                                 type="number"
                                 placeholder="contact us"

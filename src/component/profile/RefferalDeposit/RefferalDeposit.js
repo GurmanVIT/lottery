@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 import moment from "moment";
+import no_data from "../../../assets/img/no_data.svg";
 
 
 const RefferalDeposit = () => {
@@ -86,26 +87,33 @@ const RefferalDeposit = () => {
 
                     {transactionData != null ? (
                         <div className="game_bonus_section">
-                            <div className="link_members_sections">
-                                {transactionData != null &&
-                                    transactionData.map((item, index) => (
-                                        <div className="card_links">
-                                            <p>
-                                                Amount : <span className="ellipsis">{item.amount}</span>
-                                            </p>
-                                            <p>
-                                                Description :{" "}
-                                                <span className="ellipsis">{item.description}</span>
-                                            </p>
-                                            <p>
-                                                Date :{" "}
-                                                <span className="ellipsis">
-                                                    {getFormattedDateTime(item.createdAt)}
-                                                </span>
-                                            </p>
-                                        </div>
-                                    ))}
-                            </div>
+                            {transactionData.length > 0 ? (
+                                <div className="link_members_sections">
+                                    {transactionData != null &&
+                                        transactionData.map((item, index) => (
+                                            <div className="card_links">
+                                                <p>
+                                                    Amount : <span className="ellipsis">{item.amount}</span>
+                                                </p>
+                                                <p>
+                                                    Description :{" "}
+                                                    <span className="ellipsis">{item.description}</span>
+                                                </p>
+                                                <p>
+                                                    Date :{" "}
+                                                    <span className="ellipsis">
+                                                        {getFormattedDateTime(item.createdAt)}
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        ))}
+                                </div>
+                            ) : (
+                                <div className='no_data_img' style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                    <div><img src={no_data} alt='no_data' width={120} /></div>
+                                    <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                                </div>
+                            )}
 
                         </div>
                     ) :

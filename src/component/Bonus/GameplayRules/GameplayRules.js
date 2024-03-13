@@ -42,7 +42,6 @@ const GameplayRules = () => {
                                         <th>TOTAL<br />BET</th>
                                         <th>TEAM<br />RECHARGE</th>
                                         <th>LEVEL<br />BONUS</th>
-                                        <th className="status_th">STATUS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,7 +54,6 @@ const GameplayRules = () => {
                                         <td>10,000</td>
                                         <td>10,000</td>
                                         <td>0.20%</td>
-                                        <td>Achieved</td>
 
                                     </tr>
 
@@ -66,7 +64,6 @@ const GameplayRules = () => {
                                         <td>20,000</td>
                                         <td>20,000</td>
                                         <td>0.20%</td>
-                                        <td>pending</td>
                                     </tr>
 
                                     <tr>
@@ -76,7 +73,6 @@ const GameplayRules = () => {
                                         <td>50,000</td>
                                         <td>50,000</td>
                                         <td>0,20%</td>
-                                        <td>pending</td>
                                     </tr>
 
                                     <tr>
@@ -86,7 +82,6 @@ const GameplayRules = () => {
                                         <td>1,50,000</td>
                                         <td>1,50,000</td>
                                         <td>0.20%</td>
-                                        <td>pendng</td>
                                     </tr>
 
                                     <tr>
@@ -96,7 +91,6 @@ const GameplayRules = () => {
                                         <td>4,50,000</td>
                                         <td>4,50,000</td>
                                         <td>0.20%</td>
-                                        <td>pending</td>
                                     </tr>
 
                                     <tr>
@@ -106,7 +100,6 @@ const GameplayRules = () => {
                                         <td>13,50,000</td>
                                         <td>13,50,000</td>
                                         <td>0.20%</td>
-                                        <td>pending</td>
                                     </tr>
 
                                     <tr>
@@ -116,7 +109,6 @@ const GameplayRules = () => {
                                         <td>40,50,000</td>
                                         <td>40,50,000</td>
                                         <td>0.20%</td>
-                                        <td>pending</td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
@@ -125,7 +117,6 @@ const GameplayRules = () => {
                                         <td>1,21,50,000</td>
                                         <td>1,21,50,000</td>
                                         <td>0.20%</td>
-                                        <td>pending</td>
                                     </tr>
                                 </tbody>
                             </Table>

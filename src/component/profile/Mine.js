@@ -10,7 +10,6 @@ import transfer from "../../assets/img/Transfer.svg";
 import bet_img from "../../assets/img/bet.svg";
 import notification from "../../assets/img/notification.svg";
 import next from "../../assets/img/next.svg";
-import fav_logo from "../../assets/img/fav_logo.svg";
 import setting from "../../assets/img/setting.svg";
 import feedback from "../../assets/img/feedback.svg";
 import about from "../../assets/img/about.svg";
@@ -35,6 +34,11 @@ import { ClipLoader } from "react-spinners";
 import { myColors } from "../../utils/Colors";
 import dollar_img from "../../assets/img/dollar_img.png";
 import { refferalDeposit } from "../../redux/refferalDepositSlice";
+import contact_us from "../../assets/img/contact_us.svg";
+import team_member from "../../assets/img/team_member.svg";
+import matching_tree from "../../assets/img/matching_tree.svg";
+import referral_deposit from "../../assets/img/referral_deposit.svg";
+
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -315,7 +319,7 @@ const Profile = () => {
                 onClick={() => navigation("/notification")}
               >
                 <div className="img_notification">
-                  <img src={notification} alt="notification" />
+                  <img src={notification} alt="notification" style={{ width: "28px", height: "28px" }} />
                   <p>Notification</p>
                 </div>
                 <div className="number_noti">
@@ -330,7 +334,7 @@ const Profile = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="img_game">
-                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                  <img src={contact_us} alt="contact_us" style={{ width: "28px", height: "28px" }} />
                   <p>Contact us</p>
                 </div>
                 <div className="next_img">
@@ -344,7 +348,7 @@ const Profile = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="img_game">
-                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                  <img src={team_member} alt="team_member" style={{ width: "28px", height: "28px" }} />
                   <p>My Team Member</p>
                 </div>
                 <div className="next_img">
@@ -358,7 +362,7 @@ const Profile = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="img_game">
-                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                  <img src={matching_tree} alt="matching_tree" style={{ width: "28px", height: "28px" }} />
                   <p>Matching Tree</p>
                 </div>
                 <div className="next_img">
@@ -372,7 +376,7 @@ const Profile = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="img_game">
-                  <img src={fav_logo} alt="logo" style={{ width: "28px" }} />
+                  <img src={referral_deposit} alt="referral_deposit" style={{ width: "28px", height: "28px" }} />
                   <p>Referral Deposit</p>
                 </div>
                 {/* <div className="next_img">

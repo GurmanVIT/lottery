@@ -84,7 +84,7 @@ const Transaction = () => {
           {transactionData != null ?
 
             <div className="link_member_section">
-              {transactionData != null ? (
+              {transactionData.length > 0 ? (
                 transactionData.map((item, index) => (
                   <div className="card_link">
                     <p>
@@ -103,19 +103,21 @@ const Transaction = () => {
                   </div>
                 ))
               ) : (
-                <div className="card_notification_load" style={{ height: "100vh" }}>
-                  <div className="main_loader">
-                    <ClipLoader color={myColors.primaryColor} />
-                  </div>
+                <div className='no_data_img' style={{ display: "flex", height: "90vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                  <div><img src={no_data} alt='no_data' width={120} /></div>
+                  <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
                 </div>
+
               )}
             </div>
-            :
 
-            <div className='no_data_img' style={{ display: "flex", height: "70vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-              <div><img src={no_data} alt='no_data' width={120} /></div>
-              <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+            :
+            <div className="card_notification_load" style={{ height: "100vh" }}>
+              <div className="main_loader">
+                <ClipLoader color={myColors.primaryColor} />
+              </div>
             </div>
+
           }
 
         </div>

@@ -20,10 +20,6 @@
             .back_img {
                 img {
                     width: 25px;
-
-                    @media($breakpoint_ESM) {
-                        width: 20px;
-                    }
                 }
             }
 
@@ -33,6 +29,10 @@
                     font-size: 17px;
                     font-weight: 600;
                     margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
                 }
             }
 

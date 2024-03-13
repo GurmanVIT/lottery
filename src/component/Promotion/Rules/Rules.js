@@ -110,99 +110,87 @@ const Rules = () => {
               <Table responsive>
                 <thead>
                   <tr>
-                    <th>Lvl</th>
-                    <th>Dir</th>
-                    <th>T-Size</th>
-                    <th>T-Bet</th>
-                    <th>T-Rec</th>
-                    <th>L-Bonus</th>
-                    <th>Sta</th>
+                    <th>LEV<br />EL</th>
+                    <th>DIRE<br />CT</th>
+                    <th>TEAM<br />SIZE</th>
+                    <th>TOTAL<br />BET</th>
+                    <th>TEAM<br />RECHARGE</th>
+                    <th>LEVEL<br />BONUS</th>
                   </tr>
                 </thead>
                 <tbody>
+
                   <tr>
-                    <td>Lvl-1
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1</td>
+
+                    <td>2</td>
+                    <td>5</td>
+                    <td>10,000</td>
+                    <td>10,000</td>
+                    <td>0.20%</td>
 
                   </tr>
 
                   <tr>
-                    <td>Lvl-2
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>20,000</td>
+                    <td>20,000</td>
+                    <td>0.20%</td>
                   </tr>
 
                   <tr>
-                    <td>Lvl-3
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>3</td>
+                    <td>8</td>
+                    <td>15</td>
+                    <td>50,000</td>
+                    <td>50,000</td>
+                    <td>0,20%</td>
                   </tr>
 
                   <tr>
-                    <td>Lvl-4
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>4</td>
+                    <td>11</td>
+                    <td>20</td>
+                    <td>1,50,000</td>
+                    <td>1,50,000</td>
+                    <td>0.20%</td>
                   </tr>
 
                   <tr>
-                    <td>Lvl-5
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>5</td>
+                    <td>14</td>
+                    <td>25</td>
+                    <td>4,50,000</td>
+                    <td>4,50,000</td>
+                    <td>0.20%</td>
                   </tr>
 
                   <tr>
-                    <td>Lvl-6
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>6</td>
+                    <td>17</td>
+                    <td>30</td>
+                    <td>13,50,000</td>
+                    <td>13,50,000</td>
+                    <td>0.20%</td>
                   </tr>
 
                   <tr>
-                    <td>Lvl-7
-                      {/* <img src={level_0} alt="level_0" /> */}
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>7</td>
+                    <td>20</td>
+                    <td>100</td>
+                    <td>40,50,000</td>
+                    <td>40,50,000</td>
+                    <td>0.20%</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>50</td>
+                    <td>500</td>
+                    <td>1,21,50,000</td>
+                    <td>1,21,50,000</td>
+                    <td>0.20%</td>
                   </tr>
                 </tbody>
               </Table>

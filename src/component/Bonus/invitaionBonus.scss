@@ -20,10 +20,6 @@
             .back_img {
                 img {
                     width: 25px;
-
-                    @media($breakpoint_ESM) {
-                        width: 20px;
-                    }
                 }
             }
 

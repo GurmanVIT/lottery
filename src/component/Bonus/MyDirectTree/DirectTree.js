@@ -9,6 +9,8 @@ import moment from "moment";
 import { clearData } from "../../../redux/transactionListSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
+import no_data from "../../../assets/img/no_data.svg";
+
 
 const DirectTree = () => {
 
@@ -104,45 +106,64 @@ const DirectTree = () => {
                                 onSelect={handleSelect}
                             >
                                 <Tab eventKey="left" title="Left">
-                                    {dataList != null &&
-                                        dataList.map((item, index) => (
-                                            <div className="card_amount mb-2">
-                                                <p>
-                                                    Name :{" "}
-                                                    <span>
-                                                        {item.firstName} {item.lastName}
-                                                    </span>
-                                                </p>
-                                                <p>
-                                                    UserId : <span>{item.userId}</span>
-                                                </p>
-                                                <p>
-                                                    Joining Date :{" "}
-                                                    <span>{getFormattedDateTime(item.createdAt)}</span>
-                                                </p>
-                                            </div>
-                                        ))}
+                                    {dataList.length > 0 ? (
+                                        <div>
+                                            {dataList != null &&
+                                                dataList.map((item, index) => (
+
+                                                    <div className="card_amount mb-2">
+                                                        <p>
+                                                            Name :{" "}
+                                                            <span>
+                                                                {item.firstName} {item.lastName}
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            UserId : <span>{item.userId}</span>
+                                                        </p>
+                                                        <p>
+                                                            Joining Date :{" "}
+                                                            <span>{getFormattedDateTime(item.createdAt)}</span>
+                                                        </p>
+                                                    </div>
+                                                ))}
+                                        </div>
+                                    ) : (
+                                        <div className='no_data_img' style={{ display: "flex", height: "80vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                            <div><img src={no_data} alt='no_data' width={120} /></div>
+                                            <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                                        </div>
+                                    )}
                                 </Tab>
 
                                 <Tab eventKey="right" title="Right">
-                                    {dataList != null &&
-                                        dataList.map((item, index) => (
-                                            <div className="card_amount mb-2">
-                                                <p>
-                                                    Name :{" "}
-                                                    <span>
-                                                        {item.firstName} {item.lastName}
-                                                    </span>
-                                                </p>
-                                                <p>
-                                                    UserId : <span>{item.userId}</span>
-                                                </p>
-                                                <p>
-                                                    Joining Date :{" "}
-                                                    <span>{getFormattedDateTime(item.createdAt)}</span>
-                                                </p>
-                                            </div>
-                                        ))}
+                                    {dataList.length > 0 ? (
+                                        <div>
+                                            {dataList != null &&
+                                                dataList.map((item, index) => (
+                                                    <div className="card_amount mb-2">
+                                                        <p>
+                                                            Name :{" "}
+                                                            <span>
+                                                                {item.firstName} {item.lastName}
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            UserId : <span>{item.userId}</span>
+                                                        </p>
+                                                        <p>
+                                                            Joining Date :{" "}
+                                                            <span>{getFormattedDateTime(item.createdAt)}</span>
+                                                        </p>
+                                                    </div>
+                                                ))}
+                                        </div>
+                                    ) : (
+                                        <div className='no_data_img' style={{ display: "flex", height: "80vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                            <div><img src={no_data} alt='no_data' width={120} /></div>
+                                            <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
+                                        </div>
+                                    )}
                                 </Tab>
                             </Tabs>
                         </div>

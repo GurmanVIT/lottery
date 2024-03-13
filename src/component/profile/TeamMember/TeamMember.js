@@ -107,7 +107,7 @@ const TeamMember = () => {
                 onSelect={handleSelect}
               >
                 <Tab eventKey="left" title="Left">
-                  {dataList != null ? (
+                  {dataList.length > 0 ? (
                     <div>
                       {dataList != null &&
                         dataList.map((item, index) => (
@@ -131,34 +131,15 @@ const TeamMember = () => {
                         ))}
                     </div>
                   ) : (
-                    <div
-                      className="no_data_img"
-                      style={{
-                        display: "flex",
-                        height: "70vh",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <div>
-                        <img src={no_data} alt="no_data" width={120} />
-                      </div>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          color: "gray",
-                          marginRight: "20px",
-                        }}
-                      >
-                        No Data Found
-                      </p>
+                    <div className='no_data_img' style={{ display: "flex", height: "75vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                      <div><img src={no_data} alt='no_data' width={120} /></div>
+                      <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
                     </div>
                   )}
                 </Tab>
 
                 <Tab eventKey="right" title="Right">
-                  {dataList != null ? (
+                  {dataList.length > 0 ? (
                     <div>
                       {dataList != null &&
                         dataList.map((item, index) => (
@@ -182,28 +163,9 @@ const TeamMember = () => {
                         ))}
                     </div>
                   ) : (
-                    <div
-                      className="no_data_img"
-                      style={{
-                        display: "flex",
-                        height: "70vh",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <div>
-                        <img src={no_data} alt="no_data" width={120} />
-                      </div>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          color: "gray",
-                          marginRight: "20px",
-                        }}
-                      >
-                        No Data Found
-                      </p>
+                    <div className='no_data_img' style={{ display: "flex", height: "75vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                      <div><img src={no_data} alt='no_data' width={120} /></div>
+                      <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
                     </div>
                   )}
                 </Tab>

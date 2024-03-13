@@ -12,7 +12,7 @@ import red from "../../../assets/img/red.svg";
 import green from "../../../assets/img/green.svg";
 import green_voilet from "../../../assets/img/green_voilet.svg";
 import { useNavigate } from "react-router";
-import PaginationComponent from "../Pagination/Pagination";
+import no_data from "../../../assets/img/no_data.svg";
 
 const Tab_screen = ({
   resultHistoryData,
@@ -249,6 +249,7 @@ const Tab_screen = ({
             pageCount={pageCount}
             /> */}
           </Tab>
+
           <Tab eventKey="chart" title="Chart">
             <div className="chart_table">
               <div className="table_head">
@@ -431,57 +432,68 @@ const Tab_screen = ({
 
           <Tab eventKey="my_history" title="My History">
             <div className="history_table">
-              {myBetData.length > 0 &&
-                myBetData.map((item, index) => (
-                  <div className="table_div">
-                    <div className="big_id">
-                      <div
-                        className="bg_primary"
-                        style={{
-                          height: 40,
-                          width: 40,
-                          fontSize: getBetValue(item).length > 1 ? 10 : 20,
-                          backgroundColor:
-                            getBGColor(index) === "green"
-                              ? myColors.green_color
-                              : getBGColor(index) === "red"
-                                ? myColors.red_color
-                                : getBGColor(index) === "violet"
-                                  ? myColors.primaryColor
-                                  : myColors.txtWhite,
-                          color:
-                            getBGColor(index) === "white"
-                              ? myColors.primaryColor
-                              : myColors.txtWhite,
-                        }}
-                      >
-                        {getBetValue(item)}
-                      </div>
-                      <div className="id_date_number">
-                        <div className="id_number">{item.gameId}</div>
-                        <div className="date">
-                          {getFormattedDate(item.createdAt)}
-                        </div>
-                      </div>
-                    </div>
-                    {item.isCompleted === 1 && (
-                      <div className="win_loss">
-                        {item.isWon === 0 ? (
-                          <div className="failed">Failed</div>
-                        ) : (
-                          <div className="succeed">Success</div>
-                        )}
+              {myBetData.length > 0 ?
 
-                        <div className={item.isWon === 0 ? "loss" : "win"}>
-                          {item.isWon === 0
-                            ? item.finalAmount
-                            : item.winningAmount}
+
+                myBetData.length > 0 && (
+                  myBetData.map((item, index) => (
+                    <div className="table_div">
+                      <div className="big_id">
+                        <div
+                          className="bg_primary"
+                          style={{
+                            height: 40,
+                            width: 40,
+                            fontSize: getBetValue(item).length > 1 ? 10 : 20,
+                            backgroundColor:
+                              getBGColor(index) === "green"
+                                ? myColors.green_color
+                                : getBGColor(index) === "red"
+                                  ? myColors.red_color
+                                  : getBGColor(index) === "violet"
+                                    ? myColors.primaryColor
+                                    : myColors.txtWhite,
+                            color:
+                              getBGColor(index) === "white"
+                                ? myColors.primaryColor
+                                : myColors.txtWhite,
+                          }}
+                        >
+                          {getBetValue(item)}
+                        </div>
+                        <div className="id_date_number">
+                          <div className="id_number">{item.gameId}</div>
+                          <div className="date">
+                            {getFormattedDate(item.createdAt)}
+                          </div>
                         </div>
                       </div>
-                    )}
+                      {item.isCompleted === 1 && (
+                        <div className="win_loss">
+                          {item.isWon === 0 ? (
+                            <div className="failed">Failed</div>
+                          ) : (
+                            <div className="succeed">Success</div>
+                          )}
+
+                          <div className={item.isWon === 0 ? "loss" : "win"}>
+                            {item.isWon === 0
+                              ? item.finalAmount
+                              : item.winningAmount}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))
+
+                ) : (
+                  <div className='no_data_img' style={{ display: "flex", height: "50vh", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                    <div><img src={no_data} alt='no_data' width={120} /></div>
+                    <p style={{ fontSize: "14px", color: "gray", marginRight: "20px" }}>No Data Found</p>
                   </div>
-                ))}
+                )}
             </div>
+
             {/* <PaginationComponent /> */}
           </Tab>
         </Tabs>

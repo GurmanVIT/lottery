@@ -90,45 +90,45 @@ const GamePlayBonus = () => {
                         </div>
                     </div>
 
-                    {transactionData != null ? (
-                        <div className="game_bonus_section">
-                            <div className="link_members_sections">
-                                <h5> Commission Details </h5>
-                                <div className="card_Lottery_details">
-                                    <div className="commion_head">
-                                        <p>Lottery commission</p>
-                                        <p>2024-03-10 00:00:00</p>
-                                    </div>
+                    {/* {transactionData != null ? ( */}
+                    <div className="game_bonus_section">
+                        <div className="link_members_sections">
+                            <h5> Commission Details </h5>
+                            <div className="card_Lottery_details">
+                                <div className="commion_head">
+                                    <p>Lottery commission</p>
+                                    <p>2024-03-10 00:00:00</p>
+                                </div>
 
-                                    <div className="p-2 commission_radius pt-3">
-                                        <div className="lottery_commission_flexs">
-                                            <p>Number of bettors</p>
-                                            <h6>128 People</h6>
-                                        </div>
-                                        <div className="lottery_commission_flexs">
-                                            <p>Bet amount</p>
-                                            <h6>113355</h6>
-                                        </div>
-                                        <div className="lottery_commission_flexs">
-                                            <p>Agent level</p>
-                                            <h6>L1</h6>
-                                        </div>
-                                        <div className="lottery_commission_flexs">
-                                            <p>Commion Payout</p>
-                                            <h6>433.29</h6>
-                                        </div>
+                                <div className="p-2 commission_radius pt-3">
+                                    <div className="lottery_commission_flexs">
+                                        <p>Number of bettors</p>
+                                        <h6>128 People</h6>
+                                    </div>
+                                    <div className="lottery_commission_flexs">
+                                        <p>Bet amount</p>
+                                        <h6>113355</h6>
+                                    </div>
+                                    <div className="lottery_commission_flexs">
+                                        <p>Agent level</p>
+                                        <h6>L1</h6>
+                                    </div>
+                                    <div className="lottery_commission_flexs">
+                                        <p>Commion Payout</p>
+                                        <h6>433.29</h6>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                        </div>
-                    ) :
-                        <div className="game_bonus_section " >
-                            <div className="main_loader">
-                                <ClipLoader color={myColors.primaryColor} />
-                            </div>
-                        </div>
-                    }
+                    </div>
+                    {/* // ) :
+                    //     <div className="game_bonus_section " >
+                    //         <div className="main_loader">
+                    //             <ClipLoader color={myColors.primaryColor} />
+                    //         </div>
+                    //     </div>
+                    // } */}
                 </div>
             </div >
         </>
