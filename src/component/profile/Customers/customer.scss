@@ -1,0 +1,150 @@
+.customer {
+    @include display(center, center);
+
+    .header_customer {
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        background-color: $page_bg;
+
+        .header_flex {
+            background: $profile_bg;
+            @include display(center, center);
+            padding: 15px 10px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            max-width: 420px;
+
+            img {
+                position: absolute;
+                top: 12px;
+                left: 15px;
+                width: 25px;
+            }
+
+            .customer_content {
+                h4 {
+                    color: $white;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+
+                    @media($breakpoint_ESM) {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .customer_section {
+            padding: 70px 15px 30px;
+            background-color: $page_bg;
+
+            @media($breakpoint_ESM) {
+                padding-top: 65px;
+            }
+
+            .form-floating>.form-control,
+            .form-floating>.form-select {
+                height: calc(2.9rem + 1px);
+            }
+
+            .form-floating {
+                position: relative;
+
+                label {
+                    font-size: 12px;
+                    padding-top: 15px;
+                    padding-left: 46px;
+                    margin-bottom: 5px;
+                    color: $forgot;
+
+                    @media($breakpoint_350) {
+                        padding-left: 45px;
+                        font-size: 11px;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    top: 16px;
+                    left: 11px;
+
+                    @media($breakpoint_350) {
+                        left: 11px;
+                    }
+                }
+
+                .password {
+                    position: absolute;
+                    top: 12px;
+                    left: 7px;
+                }
+
+                input {
+                    border: none;
+                    border-radius: 7px;
+                    font-size: 14px;
+                    padding: 13px 40px 0px 43px;
+                    font-weight: 500;
+                    box-shadow: $input_shadow;
+                    letter-spacing: .5px;
+
+                    @media($breakpoint_350) {
+                        padding-left: 43px;
+                    }
+
+                    &:focus {
+                        padding-left: 43px;
+                        box-shadow: none;
+                    }
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+                }
+
+                .passwod_btn {
+                    position: absolute;
+                    right: 15px;
+                    top: 11px;
+                    border: none;
+                    background-color: transparent;
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+
+                    svg {
+                        width: 22px;
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .text_area {
+                background-color: $white;
+                box-shadow: $input_shadow;
+
+                textarea {
+                    width: 100%;
+                    padding: 15px;
+                    border: none;
+                    outline: none;
+                    font-size: 14px;
+                }
+            }
+
+            .sumnit_btn {
+                margin-top: 20px;
+
+                button {
+                    @include login_button;
+                }
+            }
+        }
+    }
+}

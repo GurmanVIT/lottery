@@ -26,44 +26,34 @@ const Customer = () => {
 
     return (
         <>
-            <div className="service_customer">
-                <div className="header_service">
+            <div className="customer">
+                <div className="header_customer">
                     <div className="header_flex">
                         <div className="back_img" onClick={() => navigation(-1)} style={{ cursor: "pointer" }}>
                             <img src={back} alt="back" />
                         </div>
-                        <div className="service_content">
+                        <div className="customer_content">
                             <h4>Contact us</h4>
                         </div>
                     </div>
 
-                    <div className="service_section">
+                    <div className="customer_section">
 
-                        {/* <FloatingLabel
-                            controlId="floatingInput"
-                            label="ENTER YOUR  EMAIL ADDRESS"
-                            className="mb-3"
-                        >
-                            <img src={email_icon} alt="email" />
-                            <Form.Control
-                                type="email"
-                                placeholder="name@example.com"
-                            />
-                        </FloatingLabel>
                         <FloatingLabel
                             controlId="floatingInput"
-                            label="ENTER YOUR  EMAIL ADDRESS"
+                            label="NAME"
                             className="mb-3"
                         >
                             <img src={email_icon} alt="email" />
                             <Form.Control
-                                type="email"
-                                placeholder="name@example.com"
+                                type="text"
+                                placeholder="name"
                             />
                         </FloatingLabel>
+
                         <FloatingLabel
                             controlId="floatingInput"
-                            label="ENTER YOUR  EMAIL ADDRESS"
+                            label="EMAIL"
                             className="mb-3"
                         >
                             <img src={email_icon} alt="email" />
@@ -72,8 +62,40 @@ const Customer = () => {
                                 placeholder="name@example.com"
                             />
                         </FloatingLabel>
- */}
 
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="CONTACT US"
+                            className="mb-3"
+                        >
+                            <img src={email_icon} alt="email" />
+                            <Form.Control
+                                type="number"
+                                placeholder="contact us"
+                            />
+                        </FloatingLabel>
+
+                        <div className="text_area">
+                            <textarea
+                                rows={10}
+                                placeholder="Message"
+                            >
+                            </textarea>
+                        </div>
+
+                        <div className="sumnit_btn">
+                            <button
+                                type="button"
+                                className="login_button"
+                            >
+                                Submit
+                                {/* {isLoading ? (
+                                    <ClipLoader color={myColors.txtWhite} />
+                                ) : (
+                                    "Submit"
+                                )} */}
+                            </button>
+                        </div>
 
                     </div>
                 </div>
