@@ -34,7 +34,8 @@ import downlineListReducer from "./downlineListSlice";
 import matchingBonusReducer from "./matchingBonusSlice";
 import walletTypeReducer from "./walletWithTypeSlice";
 import claimInviteBonusReducer from "./claimInviteBonusSlice";
-
+import teamPlayBonusReducer from "./teamPlayBonusSlice";
+import contactUsReducer from "./contactUsSlice";
 
 const store = configureStore({
   reducer: {
@@ -73,6 +74,8 @@ const store = configureStore({
     matchingBonusReducer: matchingBonusReducer,
     walletTypeReducer: walletTypeReducer,
     claimInviteBonusReducer: claimInviteBonusReducer,
+    teamPlayBonusReducer: teamPlayBonusReducer,
+    contactUsReducer: contactUsReducer,
   },
 });
 

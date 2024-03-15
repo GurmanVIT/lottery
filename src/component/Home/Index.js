@@ -10,9 +10,7 @@ import { profile } from "../../redux/profileSlice";
 const Index = () => {
   const dispatch = useDispatch();
 
-  const randomMembersListReducer = useSelector(
-    (state) => state.randomMembersListReducer.data
-  );
+  const randomMembersListReducer = useSelector((state) => state.randomMembersListReducer.data);
   const profileResponse = useSelector((state) => state.profileReducer.data);
   const [randomMember, setRandomMember] = useState(null);
 

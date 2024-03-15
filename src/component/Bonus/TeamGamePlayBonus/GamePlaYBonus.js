@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
 import moment from "moment";
+import { teamPlayBonus } from "../../../redux/teamPlayBonusSlice";
 
 
 const GamePlayBonus = () => {
@@ -20,54 +21,51 @@ const GamePlayBonus = () => {
         }
     })
 
-    const [transactionData, setTransactionData] = useState(null);
+    const [teamGameplayBonus, setTeamGameplayBonus] = useState(null);
 
-    const transactionListData = useSelector(
-        (state) => state.transactionListReducer.data
-    );
+
+    const teamPlayBonusData = useSelector((state) => state.teamPlayBonusReducer.data);
 
     useEffect(() => {
-        const payload = {
-            type: 'team_play_bonus',
-        }
-        dispatch(transactionList(payload));
+        dispatch(teamPlayBonus());
     }, []);
 
     useEffect(() => {
-        if (transactionListData != null && transactionListData.success === 1) {
-            setTransactionData(transactionListData.data.transactions);
+        console.log("teamPlayBonusData  ===>", teamPlayBonusData)
+        if (teamPlayBonusData != null && teamPlayBonusData.status === 1) {
+            setTeamGameplayBonus(teamPlayBonusData.data);
         }
-    }, [transactionListData]);
+    }, [teamPlayBonusData]);
 
 
-    const getFormattedDateTime = (utcDate) => {
-        const timestampStr = new Date(utcDate);
-        // Convert to Indian time zone (IST)
-        // const timestamp = moment(timestampStr).tz("Asia/Kolkata");
-        const options = {
-            timeZone: "Asia/Kolkata",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false, // Use 24-hour format
-        };
+    // const getFormattedDateTime = (utcDate) => {
+    //     const timestampStr = new Date(utcDate);
+    //     // Convert to Indian time zone (IST)
+    //     // const timestamp = moment(timestampStr).tz("Asia/Kolkata");
+    //     const options = {
+    //         timeZone: "Asia/Kolkata",
+    //         year: "numeric",
+    //         month: "2-digit",
+    //         day: "2-digit",
+    //         hour: "2-digit",
+    //         minute: "2-digit",
+    //         second: "2-digit",
+    //         hour12: false, // Use 24-hour format
+    //     };
 
-        // Format the date as "2024-01-30"
-        const formattedDate = timestampStr.toLocaleDateString("en-IN", options);
+    //     // Format the date as "2024-01-30"
+    //     const formattedDate = timestampStr.toLocaleDateString("en-IN", options);
 
-        const dateData = formattedDate.split(" ");
+    //     const dateData = formattedDate.split(" ");
 
-        const createdTime = moment(dateData[1], "HH:mm:ss")
-            .add(5, "hours")
-            .add(30, "minutes");
+    //     const createdTime = moment(dateData[1], "HH:mm:ss")
+    //         .add(5, "hours")
+    //         .add(30, "minutes");
 
-        const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
+    //     const finalDate = dateData[0] + " " + createdTime.format("HH:mm:ss");
 
-        return formattedDate;
-    };
+    //     return formattedDate;
+    // };
 
 
     return (
@@ -90,45 +88,40 @@ const GamePlayBonus = () => {
                         </div>
                     </div>
 
-                    {/* {transactionData != null ? ( */}
+
                     <div className="game_bonus_section">
                         <div className="link_members_sections">
                             <h5> Commission Details </h5>
-                            <div className="card_Lottery_details">
-                                <div className="commion_head">
-                                    <p>Lottery commission</p>
-                                    <p>2024-03-10 00:00:00</p>
-                                </div>
+                            {teamGameplayBonus != null &&
+                                teamGameplayBonus.levelData.map((item, index) => (
+                                    <div className="card_Lottery_details">
+                                        <div className="commion_head">
+                                            <p>Lottery commission</p>
+                                        </div>
 
-                                <div className="p-2 commission_radius pt-3">
-                                    <div className="lottery_commission_flexs">
-                                        <p>Number of bettors</p>
-                                        <h6>128 People</h6>
+                                        <div className="p-2 commission_radius pt-3">
+                                            <div className="lottery_commission_flexs">
+                                                <p>Number of bettors</p>
+                                                <h6>{item.uniqueBettorIds}</h6>
+                                            </div>
+                                            <div className="lottery_commission_flexs">
+                                                <p>Bet amount</p>
+                                                <h6>{item.totalBettAmount}</h6>
+                                            </div>
+                                            <div className="lottery_commission_flexs">
+                                                <p>Agent level</p>
+                                                <h6>{item.level}</h6>
+                                            </div>
+                                            <div className="lottery_commission_flexs">
+                                                <p>Commission Payout</p>
+                                                <h6>{item.totalpayOut}</h6>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="lottery_commission_flexs">
-                                        <p>Bet amount</p>
-                                        <h6>113355</h6>
-                                    </div>
-                                    <div className="lottery_commission_flexs">
-                                        <p>Agent level</p>
-                                        <h6>L1</h6>
-                                    </div>
-                                    <div className="lottery_commission_flexs">
-                                        <p>Commion Payout</p>
-                                        <h6>433.29</h6>
-                                    </div>
-                                </div>
-                            </div>
+                                ))
+                            }
                         </div>
-
                     </div>
-                    {/* // ) :
-                    //     <div className="game_bonus_section " >
-                    //         <div className="main_loader">
-                    //             <ClipLoader color={myColors.primaryColor} />
-                    //         </div>
-                    //     </div>
-                    // } */}
                 </div>
             </div >
         </>

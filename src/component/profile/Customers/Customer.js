@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back from "../../../assets/img/back.svg";
 import Form from "react-bootstrap/Form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import name_c from "../../../assets/img/name_c.svg";
 import email_c from "../../../assets/img/email_c.svg";
 import contact_img from "../../../assets/img/contact_img.svg";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
+import { contactUs } from "../../../redux/contactUsSlice";
 
 
 const Customer = () => {
@@ -26,6 +27,30 @@ const Customer = () => {
     })
 
 
+    const [number, setNumber] = useState("");
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [message, setMessage] = useState("");
+
+    const contactUsData = useSelector((state) => state.contactUsReducer.data);
+
+
+    const onLoginClick = () => {
+        const payload = {
+            name: name,
+            email: email,
+            contactNumber: number,
+            message: message,
+        };
+        dispatch(contactUs(payload));
+    };
+
+    useEffect(() => {
+        if (contactUsData != null) {
+            navigation(-1)
+        }
+    })
+
     return (
         <>
             <div className="customer">
@@ -38,18 +63,18 @@ const Customer = () => {
                             <h4>Contact us</h4>
                         </div>
                     </div>
-
                     <div className="customer_section">
-
                         <FloatingLabel
                             controlId="floatingInput"
                             label="NAME"
                             className="mb-3"
+
                         >
                             <img src={name_c} alt="name_icon" className="name_icon" />
                             <Form.Control
                                 type="text"
                                 placeholder="name"
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </FloatingLabel>
 
@@ -62,6 +87,7 @@ const Customer = () => {
                             <Form.Control
                                 type="email"
                                 placeholder="name@example.com"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </FloatingLabel>
 
@@ -74,6 +100,7 @@ const Customer = () => {
                             <Form.Control
                                 type="number"
                                 placeholder="contact us"
+                                onChange={(e) => setNumber(e.target.value)}
                             />
                         </FloatingLabel>
 
@@ -81,6 +108,7 @@ const Customer = () => {
                             <textarea
                                 rows={10}
                                 placeholder="Message"
+                                onChange={(e) => setMessage(e.target.value)}
                             >
                             </textarea>
                         </div>
@@ -89,6 +117,7 @@ const Customer = () => {
                             <button
                                 type="button"
                                 className="login_button"
+                                onClick={() => onLoginClick()}
                             >
                                 Submit
                                 {/* {isLoading ? (
@@ -98,8 +127,8 @@ const Customer = () => {
                                 )} */}
                             </button>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </>

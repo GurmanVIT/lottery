@@ -38,3 +38,5 @@ export const randomMembersListApi = "v1/user/random_members_list";
 export const downlineListApi = "api/user/downline_list";
 export const matchingBonusApi = "v1/user/matching_bonus";
 export const claimInviteBonusApi = "v1/user/claim_invite_bonus";
+export const teamPlayBonusApi = "v1/user/team_play_bonus";
+export const contactUsApi = "v1/user/contactUs";
