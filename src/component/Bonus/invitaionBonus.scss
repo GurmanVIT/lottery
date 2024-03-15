@@ -125,12 +125,12 @@
                     .bonus_bg {
                         background-color: #babfe0;
                         padding: 11px 12px 11px 10px;
-                        width: 150px;
+                        width: 115px;
                         @include display(space-between, center);
                         border-top-left-radius: 14px;
 
                         @media($breakpoint_ESM) {
-                            width: 135px;
+                            width: 110px;
                             padding-right: 7px;
                             padding: 9px 12px 9px 10px;
                         }
@@ -148,18 +148,18 @@
                                 border-radius: 50%;
                                 position: absolute;
                                 text-align: center;
-                                margin-left: 8px;
+                                margin-left: 20px;
                                 font-weight: 600;
                                 color: #babfe0;
                             }
                         }
 
-                        .close_btn {
-                            svg {
-                                width: 20px;
-                                height: 20px;
-                            }
-                        }
+                        // .close_btn {
+                        //     svg {
+                        //         width: 20px;
+                        //         height: 20px;
+                        //     }
+                        // }
                     }
 
                     .right_number {

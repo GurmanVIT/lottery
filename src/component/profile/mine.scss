@@ -205,9 +205,32 @@
                 background-color: $primary;
                 border-radius: 14px;
                 padding: 20px 20px 15px;
+                position: relative;
 
                 @media($breakpoint_ESM) {
                     padding: 14px 13px 15px;
+                }
+
+                .toast_refresh {
+                    width: 170px;
+                    position: absolute;
+                    top: 40%;
+                    left: 26.6%;
+                    z-index: 1;
+                    background-color: rgba(0, 0, 0, 0.79);
+                    transition: all 0.3s linear 0s;
+                    border-radius: 10px;
+
+                    .toast_refresh_body {
+                        .toast_refresh_content {
+                            color: rgb(255, 255, 255);
+                            font-size: 13px;
+                            font-weight: 600;
+                            text-align: center;
+                            margin-bottom: 0px;
+                            letter-spacing: .3px;
+                        }
+                    }
                 }
 
                 p {

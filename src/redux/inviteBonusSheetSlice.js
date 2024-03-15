@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ApiBaseUrl, inviteBonusSheetApi } from "../utils/Constants";
 
-export const inviteBonusSheet = createAsyncThunk("inviteBonusSheet", async () => {
+export const inviteBonusSheet = createAsyncThunk("inviteBonusSheet", async (payload) => {
     try {
         const token = localStorage.getItem("token");
         const config = {
@@ -15,7 +15,7 @@ export const inviteBonusSheet = createAsyncThunk("inviteBonusSheet", async () =>
         };
         const url = ApiBaseUrl +
             inviteBonusSheetApi;
-        const response = await axios.get(url, config);
+        const response = await axios.post(url, payload, config);
         return response.data;
     } catch (error) {
         throw error.response.data;

@@ -31,7 +31,7 @@ const MatchingBonus = () => {
     const matchingBonusData = useSelector((state) => state.matchingBonusReducer.data);
     const [matchingBonusType, setMatchingBonusType] = useState(null);
 
-    const [transactionData, setTransactionData] = useState(null);
+    const [transactionData, setTransactionData] = useState([]);
 
     const transactionListData = useSelector(
         (state) => state.transactionListReducer.data
@@ -180,7 +180,7 @@ const MatchingBonus = () => {
 
                             <div
                                 className="game"
-                                onClick={() => navigation("/team_tree")}
+                                onClick={() => navigation("/team_member")}
                                 style={{ cursor: "pointer" }}
                             >
                                 <div className="img_game">

@@ -17,6 +17,7 @@ const InvitationBonus = () => {
 
     const inviteBonusSheetReducer = useSelector((state) => state.inviteBonusSheetReducer.data);
     const claimInviteBonusReducer = useSelector((state) => state.claimInviteBonusReducer.data);
+    const profileResponse = useSelector((state) => state.profileReducer.data);
 
     const [inviteBonus, setInviteBonus] = useState(null);
 
@@ -30,33 +31,108 @@ const InvitationBonus = () => {
     })
 
     useEffect(() => {
-        dispatch(inviteBonusSheet());
+
+        const userId = localStorage.getItem("sponsorId");
+        const payload = {
+            userId: userId
+        }
+        console.log("Payload ===>", payload)
+        dispatch(inviteBonusSheet(payload));
+
     }, []);
 
 
     useEffect(() => {
+        console.log("inviteBonusSheetReducer", inviteBonusSheetReducer)
         if (
             inviteBonusSheetReducer != null &&
-            inviteBonusSheetReducer.status === 1
+            inviteBonusSheetReducer.success === 1
         ) {
-            setInviteBonus(inviteBonusSheetReducer.data.levelData);
+            setInviteBonus(inviteBonusSheetReducer.data.bonusData);
         }
     }, [inviteBonusSheetReducer]);
 
     const claimInviteBonusApi = (item) => {
 
+
+        const userId = localStorage.getItem("sponsorId");
         const payload = {
-            level: item.level
+            user_Id: userId,
+            bonus_Level: item.level
+
         }
 
+        console.log("Payload ===> ", payload)
         dispatch(claimInviteBonus(payload))
     }
 
     useEffect(() => {
         if (claimInviteBonusReducer != null && claimInviteBonusReducer.status === 1) {
-            dispatch(inviteBonusSheet());
+            const userId = localStorage.getItem("sponsorId");
+            const payload = {
+                userId: userId
+            }
+            dispatch(inviteBonusSheet(payload));
         }
     }, [claimInviteBonusReducer])
+
+    const getPeople = (index) => {
+        const caseVal = index + 1
+        switch (caseVal) {
+            case 1:
+                console.log("numberOfInvitees ===>", inviteBonusSheetReducer.data.numberOfInvitees)
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 1 ? 1 : 0
+            case 2:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 3 ? 3 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 3:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 10 ? 10 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 4:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 30 ? 30 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 5:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 70 ? 70 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 6:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 200 ? 200 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 7:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 500 ? 500 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 8:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 1000 ? 1000 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 9:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 5000 ? 5000 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 10:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 10000 ? 10000 : inviteBonusSheetReducer.data.numberOfInvitees
+            case 11:
+                return inviteBonusSheetReducer.data.numberOfInvitees >= 20000 ? 20000 : inviteBonusSheetReducer.data.numberOfInvitees
+        }
+    }
+
+    const getDeposit = (index) => {
+        const caseVal = index + 1
+        switch (caseVal) {
+            case 1:
+                console.log("numberOfInvitees ===>", inviteBonusSheetReducer.data.rechargePerPepole)
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 1 ? 1 : 0
+            case 2:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 3 ? 3 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 3:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 10 ? 10 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 4:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 30 ? 30 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 5:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 70 ? 70 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 6:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 200 ? 200 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 7:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 500 ? 500 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 8:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 1000 ? 1000 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 9:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 5000 ? 5000 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 10:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 10000 ? 10000 : inviteBonusSheetReducer.data.rechargePerPepole
+            case 11:
+                return inviteBonusSheetReducer.data.rechargePerPepole >= 20000 ? 20000 : inviteBonusSheetReducer.data.rechargePerPepole
+        }
+    }
 
 
     return (
@@ -104,19 +180,19 @@ const InvitationBonus = () => {
 
                             <div>
                                 {inviteBonus != null &&
-                                    inviteBonus.map((item) => (
+                                    inviteBonus.map((item, index) => (
                                         <div className="bonus_card mb-3">
                                             <div className="head_bonus">
                                                 <div className="bonus_bg">
                                                     <p>Bonus <span>{item.level}</span></p>
-                                                    <p className="close_btn"><CloseButton /></p>
+                                                    {/* <p className="close_btn"><CloseButton /></p> */}
                                                 </div>
                                                 <div className="right_number">{item.bonus}</div>
                                             </div>
                                             <div className="bonus_around">
                                                 <div className="numbers_one">
                                                     <p className="text-start">Number of invitees</p>
-                                                    <p>1</p>
+                                                    <p>{item.people}</p>
                                                 </div>
 
                                                 <div className="recharge_member">
@@ -130,11 +206,11 @@ const InvitationBonus = () => {
 
                                                 <div className="invite_deposit">
                                                     <div className="invited_number">
-                                                        <p className="number_two">0 / 1</p>
+                                                        <p className="number_two">{getPeople(index)} / {item.people}</p>
                                                         <p>Number of invitees</p>
                                                     </div>
                                                     <div className="deposit_number">
-                                                        <p className="number_two">0 / 1</p>
+                                                        <p className="number_two">{getDeposit(index)} / {item.people}</p>
                                                         <p>Deposit number</p>
                                                     </div>
                                                 </div>

@@ -42,7 +42,7 @@ const Earning = ({ randomMember }) => {
                 <h3>Today's earnings chart</h3>
 
                 <div className='flex_frame'>
-                    {randomMember != null &&
+                    {randomMember != null && randomMember.todays_earning_list.length > 0 &&
                         <div className='frame_sec'>
                             <div className='img_frame'>
                                 <img src={getImage(Math.floor(Math.random() * 8) + 1)} alt='frame_img_1' className='frame_img_1' />
@@ -52,7 +52,7 @@ const Earning = ({ randomMember }) => {
                         </div>
                     }
 
-                    {randomMember != null &&
+                    {randomMember != null && randomMember.todays_earning_list.length > 1 &&
                         <div className='frame_sec_secound'>
                             <div className='img_frame_secound'>
                                 <img src={getImage(Math.floor(Math.random() * 8) + 1)} alt='frame_image_2' className='frame_img_2' />
@@ -62,7 +62,7 @@ const Earning = ({ randomMember }) => {
                         </div>
                     }
 
-                    {randomMember != null &&
+                    {randomMember != null && randomMember.todays_earning_list.length > 2 &&
                         <div className='frame_sec'>
                             <div className='img_frame'>
                                 <img src={getImage(Math.floor(Math.random() * 8) + 1)} alt='frame_img_1' className='frame_img_1' />

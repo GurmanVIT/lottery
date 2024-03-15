@@ -82,6 +82,8 @@ const Lottery = () => {
   const [gameId, setGameId] = useState("");
   const [gameTableId, setGameTableId] = useState("");
   const [show, setShow] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
   const [messageText, setMessageText] = useState("");
 
   const [gameTimer, setGamerTimer] = useState(0);
@@ -470,7 +472,7 @@ const Lottery = () => {
     setOpenModal(false);
   };
 
-  const refreshData = () => {
+  const refreshDataT = () => {
     setWalletBalance(null);
     dispatch(profile());
     dispatch(refferalDeposit());
@@ -481,6 +483,16 @@ const Lottery = () => {
       setWalletBalance(profileResponse.data.walletPoints);
     }
   }, [profileResponse]);
+
+
+  const refreshDataImg = () => {
+    dispatch(profile());
+    dispatch(refferalDeposit());
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2000);
+  };
 
   return (
     <div className="lottery_page">
@@ -517,9 +529,18 @@ const Lottery = () => {
         </div>
         <div className="dapic_header"></div>
         <div className="secound_sec">
+          <Toast
+            onClose={() => setShowToast(true)}
+            show={showToast}
+            style={{ width: "170px", position: "absolute", top: "14%", left: "28.6%", zIndex: "1", backgroundColor: "#000000c9", transition: "all .3s linear", borderRadius: "10px" }}
+          >
+            <Toast.Body>
+              <p style={{ color: "#fff", fontSize: "13px", fontWeight: "600", textAlign: "center", marginBottom: "0" }}>refresh successfully</p>
+            </Toast.Body>
+          </Toast>
           <div className="card">
             <div className="refresh">
-              <img src={refresh} alt="refresh" onClick={() => refreshData()} />
+              <img src={refresh} alt="refresh" onClick={() => refreshDataImg()} />
             </div>
             <h1>
               <img
@@ -531,11 +552,7 @@ const Lottery = () => {
                   marginRight: "3px",
                 }}
               />
-              {walletBalance != null ? (
-                <span>{walletBalance}</span>
-              ) : (
-                <ClipLoader color={myColors.primaryColor} size={25} />
-              )}
+              <span>{walletBalance}</span>
             </h1>
             <div className="img_content">
               <img src={flat} alt="flat" />
@@ -646,19 +663,19 @@ const Lottery = () => {
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length === 2
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]
                       : 0}
                   </div>
                   <div className="zero_number">
                     {splitIntoArray(gameTimer - Math.floor(gameTimer / 60) * 60)
                       .length > 1
                       ? splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[1]
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[1]
                       : splitIntoArray(
-                          gameTimer - Math.floor(gameTimer / 60) * 60
-                        )[0]}
+                        gameTimer - Math.floor(gameTimer / 60) * 60
+                      )[0]}
                   </div>
                 </div>
                 <div className="text_number">{gameId}</div>

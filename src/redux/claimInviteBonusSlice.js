@@ -14,11 +14,14 @@ export const claimInviteBonus = createAsyncThunk("claimInviteBonus", async (payl
             },
         };
         const url = ApiBaseUrl +
-            claimInviteBonusApi
-            ;
+            claimInviteBonusApi;
+
+        console.log("headers ===> ", config, "      url ====>", url)
         const response = await axios.post(url, payload, config);
+        console.log("Claim Response ===> ", response.data)
         return response.data;
     } catch (error) {
+        console.log("Error ===> ", error.response.data)
         throw error.response.data;
     }
 });

@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
   ApiBaseUrl,
-  gameHistoryApi,
   inviteBonusSheetApi,
 } from "../utils/Constants";
 

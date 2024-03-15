@@ -3,12 +3,12 @@ import DG from "../../../assets/img/DG.svg";
 import OTPInput from "react-otp-input";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { otpAuth } from "../../../redux/otpSlice";
+import { clearOtpData, otpAuth } from "../../../redux/otpSlice";
 import { clearResendData, resendOtpApi } from "../../../redux/resendOtpSlice";
 import { clearSponsorData } from "../../../redux/checkSponsorIdSlice";
 import { ClipLoader } from "react-spinners";
 import back_back from '../../../assets/img/back_back.svg';
-import fifty_coins from "../../../assets/img/fifty_coins.svg";
+import fifty_coins2 from "../../../assets/img/fifty_coins2.svg";
 import close from "../../../assets/img/close.svg";
 import Modal from "react-modal";
 import { clearSignUpData } from "../../../redux/signupSlice";
@@ -68,6 +68,7 @@ const Index = () => {
 
   useEffect(() => {
     return () => {
+      dispatch(clearOtpData());
       dispatch(clearResendData());
       dispatch(clearSponsorData());
     };
@@ -86,7 +87,7 @@ const Index = () => {
   useEffect(() => {
     if (otpSuccess != null && otpSuccess.status == 1) {
       localStorage.clear();
-      dispatch(clearSignUpData())
+      dispatch(clearOtpData())
       setWinOpen(true);
 
     } else if (otpSuccess != null) {
@@ -170,18 +171,18 @@ const Index = () => {
             <div className="you_win">
               <div className="winner_width">
                 <div className="winner_reward">
-                  <img src={fifty_coins} alt="v" className="win_img" />
-                  <div className="close_btn">
+                  <img src={fifty_coins2} alt="fifty_coins2" className="win_img" onClick={() => {
+                    setWinOpen(false);
+                    navigation("/login");
+                  }} />
+                  {/* <div className="close_btn">
                     <img
                       src={close}
                       alt="close"
                       className="close_img"
-                      onClick={() => {
-                        setWinOpen(false);
-                        navigation("/login");
-                      }}
+
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

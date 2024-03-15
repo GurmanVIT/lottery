@@ -29,6 +29,7 @@ const Index = () => {
   }, [profileResponse]);
 
   useEffect(() => {
+    console.log("randomMembersListReducer ===> ", randomMembersListReducer);
     if (
       randomMembersListReducer != null &&
       randomMembersListReducer.success === 1

@@ -1,5 +1,5 @@
 //BASE URL
-// export const ApiBaseUrl = "http://192.168.1.28:4001/";
+// export const ApiBaseUrl = "http://192.168.1.3:4001/";
 
 export const ApiBaseUrl = "https://dapic-api.virtualittechnology.com/";
 
@@ -33,7 +33,7 @@ export const directMembersListApi = "v1/user/direct_members_list";
 // export const walletTransactionsApi = "v1/user/wallet_transactions";
 export const promotionDataApi = "v1/user/promotion_data";
 export const refferalDepositApi = "v1/user/refferal_deposits";
-export const inviteBonusSheetApi = "v1/user/invite_bonus_sheet";
+export const inviteBonusSheetApi = "v1/user/InviteBonusDetails";
 export const randomMembersListApi = "v1/user/random_members_list";
 export const downlineListApi = "api/user/downline_list";
 export const matchingBonusApi = "v1/user/matching_bonus";

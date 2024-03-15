@@ -38,6 +38,7 @@ import contact_us from "../../assets/img/contact_us.svg";
 import team_member from "../../assets/img/team_member.svg";
 import matching_tree from "../../assets/img/matching_tree.svg";
 import referral_deposit from "../../assets/img/referral_deposit.svg";
+import { Toast } from "react-bootstrap";
 
 
 const Profile = () => {
@@ -56,6 +57,7 @@ const Profile = () => {
   const [walletPoints, setWalletPoints] = useState(null);
   const [changeActive, setChangeActive] = useState(true);
   const [refferalDepositData, setRefferralDeposit] = useState(null);
+  const [showToastProfile, setShowToastProfile] = useState(false);
 
   const logout = () => {
     localStorage.setItem("token", "");
@@ -159,10 +161,13 @@ const Profile = () => {
     }
   });
 
-  const refreshData = () => {
-    setWalletPoints(null);
+  const refreshDataImgs = () => {
     dispatch(profile());
     dispatch(refferalDeposit());
+    setShowToastProfile(true);
+    setTimeout(() => {
+      setShowToastProfile(false);
+    }, 2000);
   };
 
   return (
@@ -202,7 +207,9 @@ const Profile = () => {
               </div>
             </div>
 
+
             <div className="sec_padding">
+
               <div className="active_card">
                 <p>
                   {profileInfo.paidStatus === 0
@@ -212,22 +219,29 @@ const Profile = () => {
               </div>
 
               <div className="balance">
+                <Toast
+                  onClose={() => setShowToastProfile(true)}
+                  show={showToastProfile}
+                  className="toast_refresh"
+                >
+                  <Toast.Body className="toast_refresh_body">
+                    <p className="toast_refresh_content">refresh successfully</p>
+                  </Toast.Body>
+                </Toast>
                 <p>Total Balance</p>
                 <h3>
+
                   <img
                     src={dollar_img}
                     alt="dollar_img"
                     className="dollar_img"
                   />
-                  {walletPoints != null ? (
-                    <span>{profileData.walletPoints}</span>
-                  ) : (
-                    <ClipLoader color={myColors.txtWhite} size={25} />
-                  )}
+                  <span>{profileData.walletPoints}</span>
+
                   <img
                     src={refresh_2}
                     alt="refresh_2"
-                    onClick={() => refreshData()}
+                    onClick={() => refreshDataImgs()}
                   />
                 </h3>
                 <div className="four_img">
