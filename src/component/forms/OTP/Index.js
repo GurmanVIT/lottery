@@ -174,7 +174,7 @@ const Index = () => {
                   <img src={fifty_coins2} alt="fifty_coins2" className="win_img" onClick={() => {
                     setWinOpen(false);
                     navigation("/login");
-                  }} />
+                  }} style={{ height: "400px", maxWidth: "350px" }} />
                   {/* <div className="close_btn">
                     <img
                       src={close}

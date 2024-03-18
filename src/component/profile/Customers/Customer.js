@@ -7,9 +7,9 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import name_c from "../../../assets/img/name_c.svg";
 import email_c from "../../../assets/img/email_c.svg";
 import contact_img from "../../../assets/img/contact_img.svg";
+import { contactUs } from "../../../redux/contactUsSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
-import { contactUs } from "../../../redux/contactUsSlice";
 
 
 const Customer = () => {
