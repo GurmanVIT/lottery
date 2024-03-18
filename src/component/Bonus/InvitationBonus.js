@@ -53,8 +53,6 @@ const InvitationBonus = () => {
     }, [inviteBonusSheetReducer]);
 
     const claimInviteBonusApi = (item) => {
-
-
         const userId = localStorage.getItem("sponsorId");
         const payload = {
             user_Id: userId,
