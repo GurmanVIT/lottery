@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { myColors } from "../../../../utils/Colors";
 import { Balance } from "@mui/icons-material";
 import dollar_img from "../../../../assets/img/dollar_img.png";
 import { useNavigate } from "react-router";
+import { Toast } from "react-bootstrap";
+
 
 const customStyles = {
   content: {
@@ -31,6 +33,7 @@ const ModalBottom = ({
   setBalance,
   balance,
   placeBet,
+  betToast
 }) => {
   const closeModal = () => {
     setOpenModal(false);
@@ -51,7 +54,11 @@ const ModalBottom = ({
   const hanldeInputBalance = (value) => {
     if (value.length < 5) {
       const number = parseInt(value);
-      setSelectedX(number);
+      if (number < 1) {
+        setSelectedX("");
+      } else {
+        setSelectedX(number)
+      }
     }
   };
 
@@ -61,6 +68,8 @@ const ModalBottom = ({
       navigation("/login");
     }
   });
+
+
   return (
     <>
       <Modal
@@ -275,7 +284,7 @@ const ModalBottom = ({
             type="button"
             className="amount"
             style={{ backgroundColor: myColor }}
-            onClick={() => placeBet()}
+            onClick={() => { betToast(); placeBet() }}
           >
             Total Coins{" "}
             <img
@@ -285,6 +294,7 @@ const ModalBottom = ({
             />{" "}
             {balance * selectedX}
           </button>
+
         </div>
       </Modal>
     </>

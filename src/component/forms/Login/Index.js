@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../../redux/loginSlice";
 import { ClipLoader } from "react-spinners";
 import { myColors } from "../../../utils/Colors";
+import { clearSignUpData } from "../../../redux/signupSlice";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -46,6 +47,7 @@ const Login = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    dispatch(clearSignUpData())
     if (token?.length > 0) {
       navigation("/home_page");
     }
@@ -134,6 +136,7 @@ const Login = () => {
                   onChange={(e) => {
                     handleEmailChange(e);
                   }}
+                  autocomplete="off"
                 />
               </FloatingLabel>
 
@@ -156,6 +159,7 @@ const Login = () => {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
+                  autocomplete="off"
                   required
                 />
                 <button

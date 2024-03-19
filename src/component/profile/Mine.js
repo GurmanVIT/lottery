@@ -370,7 +370,7 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div
+              {/* <div
                 className="game"
                 onClick={() => navigation("/team_tree")}
                 style={{ cursor: "pointer" }}
@@ -382,7 +382,7 @@ const Profile = () => {
                 <div className="next_img">
                   <img src={next} alt="next" />
                 </div>
-              </div>
+              </div> */}
 
               <div
                 className="game"

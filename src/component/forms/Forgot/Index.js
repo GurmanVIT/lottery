@@ -82,6 +82,7 @@ const Forgot = () => {
               placeholder="name@example.com"
               disabled={isLoading}
               onChange={(e) => handleEmailChange(e)}
+              autocomplete="off"
             />
           </FloatingLabel>
           {email.length != 0 && !isValid ? (

@@ -76,6 +76,7 @@ const modal_notifications = {
 };
 
 const Lottery = () => {
+
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
   const [isSocketConnected, setSocketConnected] = useState(false);
@@ -107,6 +108,7 @@ const Lottery = () => {
   const [isLoseOpen, setLoseOpen] = useState(false);
   const [gameType, setGameType] = useState(1);
   const [activeKey, setActiveKey] = useState("game_history");
+
   const navigator = useNavigate();
 
   const [isOpenPlay, setOpenPlay] = useState(false);
@@ -424,52 +426,68 @@ const Lottery = () => {
     return Array.from(String(num), Number);
   }
 
+  const betToast = () => {
+    setShowToastLottery(true);
+    setTimeout(() => {
+      setShowToastLottery(false);
+    }, 500);
+  };
+
   const placeBet = () => {
-    if (
-      selectedValue === "Violet" ||
-      selectedValue === "Green" ||
-      selectedValue === "Red"
-    ) {
-      const betData = {
-        userId: userId,
-        amount: balanceValue * selectedX,
-        multiplier: selectedX,
-        color:
-          selectedValue === "Green" ? 1 : selectedValue === "Violet" ? 2 : 3,
-        gameId: gameId,
-        gameTableId: gameTableId,
-        gameType: gameType,
-        authorization: token,
-      };
+    if (selectedX > 0) {
+      if (
+        selectedValue === "Violet" ||
+        selectedValue === "Green" ||
+        selectedValue === "Red"
+      ) {
+        const betData = {
+          userId: userId,
+          amount: balanceValue * selectedX,
+          multiplier: selectedX,
+          color:
+            selectedValue === "Green" ? 1 : selectedValue === "Violet" ? 2 : 3,
+          gameId: gameId,
+          gameTableId: gameTableId,
+          gameType: gameType,
+          authorization: token,
+        };
 
-      socket.emit("bet_place", betData);
-    } else if (selectedValue === "Big" || selectedValue === "Small") {
-      const betData = {
-        userId: userId,
-        amount: balanceValue * selectedX,
-        multiplier: selectedX,
-        type: selectedValue === "Big" ? 1 : 2,
-        gameId: gameId,
-        gameTableId: gameTableId,
-        gameType: gameType,
-        authorization: token,
-      };
-      socket.emit("bet_place", betData);
+        socket.emit("bet_place", betData);
+      } else if (selectedValue === "Big" || selectedValue === "Small") {
+        const betData = {
+          userId: userId,
+          amount: balanceValue * selectedX,
+          multiplier: selectedX,
+          type: selectedValue === "Big" ? 1 : 2,
+          gameId: gameId,
+          gameTableId: gameTableId,
+          gameType: gameType,
+          authorization: token,
+        };
+        socket.emit("bet_place", betData);
+      } else {
+        const betData = {
+          userId: userId,
+          amount: balanceValue * selectedX,
+          multiplier: selectedX,
+          betNumber: selectedValue,
+          gameId: gameId,
+          gameTableId: gameTableId,
+          gameType: gameType,
+          authorization: token,
+        };
+        socket.emit("bet_place", betData);
+      }
+
+      setOpenModal(false);
+
+      betToast(false);
+
     } else {
-      const betData = {
-        userId: userId,
-        amount: balanceValue * selectedX,
-        multiplier: selectedX,
-        betNumber: selectedValue,
-        gameId: gameId,
-        gameTableId: gameTableId,
-        gameType: gameType,
-        authorization: token,
-      };
-      socket.emit("bet_place", betData);
-    }
+      setOpenModal(false);
 
-    setOpenModal(false);
+      betToast();
+    }
   };
 
   const refreshDataT = () => {
@@ -493,6 +511,9 @@ const Lottery = () => {
       setShowToast(false);
     }, 2000);
   };
+
+
+  const [showToastLottery, setShowToastLottery] = useState(false);
 
   return (
     <div className="lottery_page">
@@ -948,6 +969,7 @@ const Lottery = () => {
             setBalance={setBalanceValue}
             balance={balanceValue}
             placeBet={placeBet}
+            betToast={betToast}
           />
 
           <Modal
@@ -959,8 +981,10 @@ const Lottery = () => {
               <div className="you_win">
                 <div className="winner_width">
                   <div className="winner_reward">
-                    <img src={you_win} alt="you_win" className="win_img" />
-                    <h5>{winPoints}</h5>
+                    <div style={{ position: "relative" }}>
+                      <img src={you_win} alt="you_win" className="win_img" />
+                      <h5>{winPoints}</h5>
+                    </div>
                     <div className="close_btn">
                       <img
                         src={close}
@@ -984,8 +1008,10 @@ const Lottery = () => {
               <div className="you_loss">
                 <div className="loss_width">
                   <div className="loss_reward">
-                    <img src={loss_img} alt="loss_img" className="loss_img" />
-                    <h5>{losePoints}</h5>
+                    <div style={{ position: "relative" }}>
+                      <img src={loss_img} alt="loss_img" className="loss_img" />
+                      <h5>{losePoints}</h5>
+                    </div>
                     <div className="close_btn">
                       <img
                         src={close}
@@ -1055,6 +1081,16 @@ const Lottery = () => {
               </div>
             </div>
           </Modal>
+
+          <Toast
+            onClose={() => setShowToastLottery(true)}
+            show={showToastLottery}
+            className="toast_refresh"
+          >
+            <Toast.Body className="toast_refresh_body">
+              <p className="toast_refresh_content">bet successfully</p>
+            </Toast.Body>
+          </Toast>
         </div>
       </div>
     </div>

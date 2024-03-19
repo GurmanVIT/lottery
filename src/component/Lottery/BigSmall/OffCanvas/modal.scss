@@ -199,6 +199,7 @@
       .cancel_amount {
         padding: 0 20px 20px;
         @include display(space-between, center);
+        position: relative;
 
         @media ($breakpoint_ESM) {
           padding: 0 15px 15px;

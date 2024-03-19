@@ -4,13 +4,11 @@
     .loss_width {
         width: 100%;
         max-width: 420px;
-        // background-color: #747070bf;
         height: 100vh;
         @include display(center, center);
 
 
         .loss_reward {
-            position: relative;
 
             .loss_img {
                 width: 100%;
@@ -18,33 +16,15 @@
                 height: 300px;
             }
 
-            h4 {
-                position: absolute;
-                bottom: 140px;
-                left: 118px;
-                font-size: 16px;
-                color: $white;
-                font-weight: 600;
-            }
-
             h5 {
                 position: absolute;
-                bottom: 82px;
-                left: 77px;
+                bottom: 32px;
                 margin-bottom: 0;
                 font-size: 17px;
                 color: $white;
                 font-weight: 600;
-                width: 74px;
+                width: 100%;
                 text-align: center;
-            }
-
-            p {
-                position: absolute;
-                bottom: 69px;
-                left: 77px;
-                font-size: 12px;
-                color: $white;
             }
 
             .close_btn {

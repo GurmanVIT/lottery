@@ -4,12 +4,10 @@
   .winner_width {
     width: 100%;
     max-width: 420px;
-    // background-color: #74707008;
     height: 100vh;
     @include display(center, center);
 
     .winner_reward {
-      position: relative;
 
       .win_img {
         width: 100%;
@@ -17,33 +15,15 @@
         height: 300px;
       }
 
-      h4 {
-        position: absolute;
-        bottom: 140px;
-        left: 118px;
-        font-size: 16px;
-        color: $white;
-        font-weight: 600;
-      }
-
       h5 {
         position: absolute;
-        bottom: 81px;
-        left: 77px;
+        bottom: 30px;
         margin-bottom: 0;
         font-size: 17px;
         color: $white;
         font-weight: 600;
-        width: 74px;
+        width: 100%;
         text-align: center;
-      }
-
-      p {
-        position: absolute;
-        bottom: 69px;
-        left: 77px;
-        font-size: 12px;
-        color: $white;
       }
 
       .close_btn {

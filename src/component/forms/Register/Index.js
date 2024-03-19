@@ -151,6 +151,7 @@ const Register = () => {
                     className="first_name"
                     disabled={isLoading}
                     onChange={(e) => setFirstName(e.target.value)}
+                    autocomplete="off"
                   />
                 </FloatingLabel>
 
@@ -165,6 +166,7 @@ const Register = () => {
                     placeholder="name@example.com"
                     disabled={isLoading}
                     onChange={(e) => setLastName(e.target.value)}
+                    autocomplete="off"
                   />
                 </FloatingLabel>
               </div>
@@ -180,6 +182,7 @@ const Register = () => {
                   placeholder="name@example.com"
                   disabled={isLoading}
                   onChange={(e) => handleEmailChange(e)}
+                  autocomplete="off"
                 />
               </FloatingLabel>
 
@@ -204,6 +207,7 @@ const Register = () => {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
+                  autocomplete="off"
                   required
                 />
                 <button
@@ -235,6 +239,7 @@ const Register = () => {
                   onChange={(e) => {
                     setConfirmPassword(e.target.value);
                   }}
+                  autocomplete="off"
                   required
                 />
                 <button
@@ -264,6 +269,7 @@ const Register = () => {
                   disabled={isLoading || searchParams.size > 0}
                   value={sponsorId}
                   onChange={(e) => setSponsorId(e.target.value)}
+                  autocomplete="off"
                 />
               </FloatingLabel>
 
