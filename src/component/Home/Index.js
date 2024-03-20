@@ -20,14 +20,12 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    console.log("profileResponse ===> ", profileResponse);
     if (profileResponse != null && profileResponse.status === 1) {
       localStorage.setItem("sponsorId", profileResponse.data.userId);
     }
   }, [profileResponse]);
 
   useEffect(() => {
-    console.log("randomMembersListReducer ===> ", randomMembersListReducer);
     if (
       randomMembersListReducer != null &&
       randomMembersListReducer.success === 1

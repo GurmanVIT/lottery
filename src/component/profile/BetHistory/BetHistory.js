@@ -48,7 +48,6 @@ const BetHistory = () => {
 
 
     useEffect(() => {
-        console.log("myHistoryData ===> ", myHistoryData)
         if (myHistoryData != null && myHistoryData.status === 1) {
             setMyBetData(myHistoryData.data);
             const count = Math.floor(myHistoryData.count / 10)

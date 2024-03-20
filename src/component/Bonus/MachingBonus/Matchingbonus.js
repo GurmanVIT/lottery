@@ -60,7 +60,6 @@ const MatchingBonus = () => {
     }, []);
 
     useEffect(() => {
-        console.log("matchingBonusData ===> ", matchingBonusData)
         if (matchingBonusData != null && matchingBonusData.success === 1) {
             setMatchingBonusType(matchingBonusData.data);
         }

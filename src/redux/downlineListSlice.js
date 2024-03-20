@@ -17,7 +17,6 @@ export const downlineList = createAsyncThunk(
       };
       const url = ApiBaseUrl + downlineListApi;
       const response = await axios.post(url, payload, config);
-      console.log("response Down ==> ", response.data);
       return response.data;
     } catch (error) {
       throw error.response.data;

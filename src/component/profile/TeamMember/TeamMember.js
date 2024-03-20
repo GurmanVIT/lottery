@@ -40,7 +40,6 @@ const TeamMember = () => {
   }, [position]);
 
   useEffect(() => {
-    console.log("My Data ===> ", myData);
     if (myData != null && myData.success === 1) {
       setDataList(myData.data.downlineData);
     }

@@ -36,14 +36,12 @@ const InvitationBonus = () => {
         const payload = {
             userId: userId
         }
-        console.log("Payload ===>", payload)
         dispatch(inviteBonusSheet(payload));
 
     }, []);
 
 
     useEffect(() => {
-        console.log("inviteBonusSheetReducer", inviteBonusSheetReducer)
         if (
             inviteBonusSheetReducer != null &&
             inviteBonusSheetReducer.success === 1
@@ -60,7 +58,6 @@ const InvitationBonus = () => {
 
         }
 
-        console.log("Payload ===> ", payload)
         dispatch(claimInviteBonus(payload))
     }
 
@@ -78,7 +75,6 @@ const InvitationBonus = () => {
         const caseVal = index + 1
         switch (caseVal) {
             case 1:
-                console.log("numberOfInvitees ===>", inviteBonusSheetReducer.data.numberOfInvitees)
                 return inviteBonusSheetReducer.data.numberOfInvitees >= 1 ? 1 : 0
             case 2:
                 return inviteBonusSheetReducer.data.numberOfInvitees >= 3 ? 3 : inviteBonusSheetReducer.data.numberOfInvitees
@@ -107,7 +103,6 @@ const InvitationBonus = () => {
         const caseVal = index + 1
         switch (caseVal) {
             case 1:
-                console.log("numberOfInvitees ===>", inviteBonusSheetReducer.data.rechargePerPepole)
                 return inviteBonusSheetReducer.data.rechargePerPepole >= 1 ? 1 : 0
             case 2:
                 return inviteBonusSheetReducer.data.rechargePerPepole >= 3 ? 3 : inviteBonusSheetReducer.data.rechargePerPepole

@@ -31,7 +31,6 @@ const GamePlayBonus = () => {
     }, []);
 
     useEffect(() => {
-        console.log("teamPlayBonusData  ===>", teamPlayBonusData)
         if (teamPlayBonusData != null && teamPlayBonusData.status === 1) {
             setTeamGameplayBonus(teamPlayBonusData.data);
         }
