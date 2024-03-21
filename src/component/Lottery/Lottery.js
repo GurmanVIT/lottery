@@ -27,9 +27,9 @@ import { gameHistory } from "../../redux/gameHistorySlice";
 import PaginationComponent from "./Pagination/Pagination";
 import audioFile from "../../assets/audio/five_sec.mp3";
 import Modal from "react-modal";
-import you_win from "../../assets/img/you_win.svg";
+import you_win from "../../assets/img/you_win.webp";
 import close from "../../assets/img/close.svg";
-import loss_img from "../../assets/img/loss_img.svg";
+import loss_img from "../../assets/img/loss_img.webp";
 import { clearSignUpData } from "../../redux/signupSlice";
 import { clearData } from "../../redux/loginSlice";
 import { clearSponsorData } from "../../redux/checkSponsorIdSlice";
@@ -982,17 +982,18 @@ const Lottery = () => {
                 <div className="winner_width">
                   <div className="winner_reward">
                     <div style={{ position: "relative" }}>
-                      <img src={you_win} alt="you_win" className="win_img" />
+                      <img src={you_win} alt="you_win" className="win_img" onClick={() => setWinOpen(false)}
+                      />
                       <h5>{winPoints}</h5>
                     </div>
-                    <div className="close_btn">
+                    {/* <div className="close_btn">
                       <img
                         src={close}
                         alt="close"
                         className="close_img"
                         onClick={() => setWinOpen(false)}
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -1009,17 +1010,18 @@ const Lottery = () => {
                 <div className="loss_width">
                   <div className="loss_reward">
                     <div style={{ position: "relative" }}>
-                      <img src={loss_img} alt="loss_img" className="loss_img" />
+                      <img src={loss_img} alt="loss_img" className="loss_img" onClick={() => setLoseOpen(false)}
+                      />
                       <h5>{losePoints}</h5>
                     </div>
-                    <div className="close_btn">
+                    {/* <div className="close_btn">
                       <img
                         src={close}
                         alt="close"
                         className="close_img"
                         onClick={() => setLoseOpen(false)}
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
