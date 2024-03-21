@@ -33,8 +33,6 @@ const Tab_screen = ({
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-
-    console.log("resultHistoryData ===> ", resultHistoryData)
     //Check Login
     if (token == null) {
       navigation("/login");
