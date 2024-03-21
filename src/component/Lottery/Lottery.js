@@ -519,6 +519,7 @@ const Lottery = () => {
     <div className="lottery_page">
       <div className="lottery">
         <div className="header_flex">
+
           <Toast
             onClose={() => setShow(false)}
             show={show}
@@ -976,6 +977,7 @@ const Lottery = () => {
             isOpen={isWinOpen}
             style={customStyles}
             onRequestClose={() => setWinOpen(false)}
+
           >
             <>
               <div className="you_win">
