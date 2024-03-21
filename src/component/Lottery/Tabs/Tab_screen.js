@@ -33,6 +33,8 @@ const Tab_screen = ({
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+
+    console.log("resultHistoryData ===> ", resultHistoryData)
     //Check Login
     if (token == null) {
       navigation("/login");
@@ -297,135 +299,77 @@ const Tab_screen = ({
                   <div className="flex_winning_number">
                     <div className="win_number_one">Avg missing</div>
                     <div className="missing">
-                      <p className="table_selected_number">12</p>
-                      <p className="table_selected_number">30</p>
-                      <p className="table_selected_number">2</p>
-                      <p className="table_selected_number">36</p>
+                      <p className="table_selected_number">3</p>
+                      <p className="table_selected_number">1</p>
                       <p className="table_selected_number">8</p>
-                      <p className="table_selected_number">18</p>
+                      <p className="table_selected_number">16</p>
+                      <p className="table_selected_number">19</p>
                       <p className="table_selected_number">9</p>
-                      <p className="table_selected_number">11</p>
-                      <p className="table_selected_number">36</p>
-                      <p className="table_selected_number">8</p>
+                      <p className="table_selected_number">13</p>
+                      <p className="table_selected_number">1</p>
+                      <p className="table_selected_number">5</p>
+                      <p className="table_selected_number">2</p>
                     </div>
                   </div>
 
                   <div className="flex_winning_number">
                     <div className="win_number_one">Frequency</div>
                     <div className="missing">
-                      <p className="table_selected_number">12</p>
-                      <p className="table_selected_number">30</p>
-                      <p className="table_selected_number">2</p>
-                      <p className="table_selected_number">36</p>
+                      <p className="table_selected_number">14</p>
+                      <p className="table_selected_number">6</p>
                       <p className="table_selected_number">8</p>
-                      <p className="table_selected_number">18</p>
-                      <p className="table_selected_number">9</p>
+                      <p className="table_selected_number">3</p>
                       <p className="table_selected_number">11</p>
-                      <p className="table_selected_number">36</p>
                       <p className="table_selected_number">8</p>
+                      <p className="table_selected_number">6</p>
+                      <p className="table_selected_number">15</p>
+                      <p className="table_selected_number">6</p>
+                      <p className="table_selected_number">14</p>
                     </div>
                   </div>
 
                   <div className="flex_winning_number">
                     <div className="win_number_one">Max consecutive</div>
                     <div className="missing">
-                      <p className="table_selected_number">12</p>
-                      <p className="table_selected_number">30</p>
+                      <p className="table_selected_number">1</p>
+                      <p className="table_selected_number">1</p>
                       <p className="table_selected_number">2</p>
-                      <p className="table_selected_number">36</p>
-                      <p className="table_selected_number">8</p>
-                      <p className="table_selected_number">18</p>
-                      <p className="table_selected_number">9</p>
-                      <p className="table_selected_number">11</p>
-                      <p className="table_selected_number">36</p>
-                      <p className="table_selected_number">8</p>
+                      <p className="table_selected_number">1</p>
+                      <p className="table_selected_number">1</p>
+                      <p className="table_selected_number">2</p>
+                      <p className="table_selected_number">1</p>
+                      <p className="table_selected_number">2</p>
+                      <p className="table_selected_number">2</p>
+                      <p className="table_selected_number">1</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="result_row">
-                  <div className="issue_number">20240125010758</div>
-                  <div className="result_number">
-                    <div className="d-flex">
-                      <p className="table_number_sec">0</p>
-                      <p className="table_number_sec">1</p>
-                      <p className="table_number_sec">2</p>
-                      <p className="table_number_sec">3</p>
-                      <p className="table_number_sec">4</p>
-                      <p className="table_number_sec">5</p>
-                      <p className="table_number_sec">6</p>
-                      <p className="table_number_sec">7</p>
-                      <p className="table_number_sec">8</p>
-                      <p className="table_number_sec">9</p>
-                    </div>
-                    <div className="result_big_small">
-                      <p>S</p>
-                    </div>
-                  </div>
-                </div>
+                {resultHistoryData.length > 0 &&
+                  resultHistoryData.map((item) => (
+                    <div className="result_row">
+                      <div className="issue_number">{item.gameId}</div>
+                      <div className="result_number">
 
-                <div className="result_row">
-                  <div className="issue_number">20240125010758</div>
-                  <div className="result_number">
-                    <div className="d-flex">
-                      <p className="table_number_sec">0</p>
-                      <p className="table_number_sec">1</p>
-                      <p className="table_number_sec">2</p>
-                      <p className="table_number_sec">3</p>
-                      <p className="table_number_sec">4</p>
-                      <p className="table_number_sec">5</p>
-                      <p className="table_number_sec">6</p>
-                      <p className="table_number_sec">7</p>
-                      <p className="table_number_sec">8</p>
-                      <p className="table_number_sec">9</p>
-                    </div>
-                    <div className="result_big_small">
-                      <p>S</p>
-                    </div>
-                  </div>
-                </div>
+                        <div className="d-flex">
+                          <p className={item.result.betNumber == 0 ? "result_big_small" : "table_number_sec"}>0</p>
+                          <p className={item.result.betNumber == 1 ? "result_big_small" : "table_number_sec"}>1</p>
+                          <p className={item.result.betNumber == 2 ? "result_big_small" : "table_number_sec"}>2</p>
+                          <p className={item.result.betNumber == 3 ? "result_big_small" : "table_number_sec"}>3</p>
+                          <p className={item.result.betNumber == 4 ? "result_big_small" : "table_number_sec"}>4</p>
+                          <p className={item.result.betNumber == 5 ? "result_big_small" : "table_number_sec"}>5</p>
+                          <p className={item.result.betNumber == 6 ? "result_big_small" : "table_number_sec"}>6</p>
+                          <p className={item.result.betNumber == 7 ? "result_big_small" : "table_number_sec"}>7</p>
+                          <p className={item.result.betNumber == 8 ? "result_big_small" : "table_number_sec"}>8</p>
+                          <p className={item.result.betNumber == 9 ? "result_big_small" : "table_number_sec"}>9</p>
+                        </div>
 
-                <div className="result_row">
-                  <div className="issue_number">20240125010758</div>
-                  <div className="result_number">
-                    <div className="d-flex">
-                      <p className="table_number_sec">0</p>
-                      <p className="table_number_sec">1</p>
-                      <p className="table_number_sec">2</p>
-                      <p className="table_number_sec">3</p>
-                      <p className="table_number_sec">4</p>
-                      <p className="table_number_sec">5</p>
-                      <p className="table_number_sec">6</p>
-                      <p className="table_number_sec">7</p>
-                      <p className="table_number_sec">8</p>
-                      <p className="table_number_sec">9</p>
+                        <div className="result_big_small">
+                          <p>{item.result.type === 1 ? "B" : "S"}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="result_big_small">
-                      <p>S</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="result_row">
-                  <div className="issue_number">20240125010758</div>
-                  <div className="result_number">
-                    <div className="d-flex">
-                      <p className="table_number_sec">0</p>
-                      <p className="table_number_sec">1</p>
-                      <p className="table_number_sec">2</p>
-                      <p className="table_number_sec">3</p>
-                      <p className="table_number_sec">4</p>
-                      <p className="table_number_sec">5</p>
-                      <p className="table_number_sec">6</p>
-                      <p className="table_number_sec">7</p>
-                      <p className="table_number_sec">8</p>
-                      <p className="table_number_sec">9</p>
-                    </div>
-                    <div className="result_big_small">
-                      <p>S</p>
-                    </div>
-                  </div>
-                </div>
+                  ))}
               </div>
             </div>
           </Tab>

@@ -55,7 +55,7 @@ const Header = () => {
                         ) : (
                             <div className="logout">
                                 <Link onClick={() => logout()}>
-                                    <h6>Logout</h6>
+                                    <h6>{""}</h6>
                                 </Link>
                             </div>
                         )}
