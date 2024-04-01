@@ -517,10 +517,10 @@ const Lottery = () => {
 
   return (
     <div className="lottery_page">
-      <div className="lottery">
+      <div className="lottery" style={{ backgroundColor: "#f7f8ff" }}>
         <div className="header_flex">
 
-          <Toast
+          {/* <Toast
             onClose={() => setShow(false)}
             show={show}
             delay={2000}
@@ -531,7 +531,7 @@ const Lottery = () => {
               <img src={mark_ex} alt="mark_ex" />
               {messageText}
             </Toast.Body>
-          </Toast>
+          </Toast> */}
           <div className="back_img">
             <Link to="/Home_page">
               <img src={back} alt="back" />
@@ -554,28 +554,30 @@ const Lottery = () => {
           <Toast
             onClose={() => setShowToast(true)}
             show={showToast}
-            style={{ width: "170px", position: "absolute", top: "14%", left: "28.6%", zIndex: "1", backgroundColor: "#000000c9", transition: "all .3s linear", borderRadius: "10px" }}
+            style={{ width: "170px", position: "absolute", top: "-5%", left: "28.6%", zIndex: "1", backgroundColor: "#000000c9", transition: "all .3s linear", borderRadius: "10px" }}
           >
             <Toast.Body>
               <p style={{ color: "#fff", fontSize: "13px", fontWeight: "600", textAlign: "center", marginBottom: "0" }}>refresh successfully</p>
             </Toast.Body>
           </Toast>
           <div className="card">
-            <div className="refresh">
-              <img src={refresh} alt="refresh" onClick={() => refreshDataImg()} />
+            <div className="refresh_tag">
+              <h1>
+                <img
+                  src={dollar_img}
+                  alt="dollar_img"
+                  style={{
+                    width: "28px",
+                    marginBottom: "3px",
+                    marginRight: "3px",
+                  }}
+                />
+                <span>{walletBalance}</span>
+              </h1>
+              <img src={refresh} alt="refresh" onClick={() => refreshDataImg()} className="refresh_imgs" />
             </div>
-            <h1>
-              <img
-                src={dollar_img}
-                alt="dollar_img"
-                style={{
-                  width: "28px",
-                  marginBottom: "3px",
-                  marginRight: "3px",
-                }}
-              />
-              <span>{walletBalance}</span>
-            </h1>
+
+
             <div className="img_content">
               <img src={flat} alt="flat" />
               <h4>Wallet Balance</h4>
@@ -595,6 +597,20 @@ const Lottery = () => {
               </div>
             </div>
           </div>
+
+          <Toast
+            // onClose={() => setShow(false)}
+            // show={show}
+            // delay={2000}
+            // autohide
+            style={{ width: "68%", marginLeft: 36, marginTop: 10 }}
+            className="toast_card_bottom"
+          >
+            <Toast.Body className="toast_body">
+              <img src={mark_ex} alt="mark_ex" />
+              {messageText}
+            </Toast.Body>
+          </Toast>
 
           <div className="watch_flex_card">
             <div

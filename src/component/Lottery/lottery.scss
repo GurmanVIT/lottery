@@ -15,29 +15,6 @@
       width: 100%;
       max-width: 420px;
 
-      .toast {
-        position: absolute;
-        width: 95.5%;
-        background-color: transparent;
-        top: -7px;
-
-        @media ($breakpoint_350) {
-          width: 94.5%;
-        }
-
-        .toast-body {
-          border-radius: 8px;
-
-          img {
-            height: 25px;
-          }
-
-          text-align: center;
-          font-weight: 600;
-          background-color: rgb(255 255 255 / 72%);
-        }
-      }
-
       .music_headphone {
         @include display(center, center);
         gap: 10px;
@@ -51,7 +28,8 @@
     .dapic_header {
       background: linear-gradient(91deg, #6561c0 0.85%, #9a97d6 99.57%);
       padding: 0 10px 10px;
-      height: 160px;
+      height: 340px;
+      border-radius: 0 0 45px 45px;
     }
 
     .secound_sec {
@@ -60,17 +38,23 @@
       position: relative;
 
       .card {
-        padding: 10px 10px 20px;
+        padding: 8px 10px 15px;
         border: none;
-        width: 92%;
-        border-radius: 14px;
+        width: 95%;
+        border-radius: 25px;
         position: absolute;
-        top: -92px;
-        left: 16px;
+        top: -274px;
+        left: 10px;
         box-shadow: 0px 0px 4px 1px rgb(225 221 221 / 73%);
 
-        .refresh {
-          text-align: end;
+        .refresh_tag {
+          @include display(center, center);
+          gap: 10px;
+          margin-bottom: 5px;
+
+          .refresh_imgs {
+            margin-bottom: 5px;
+          }
         }
 
         h1 {
@@ -80,7 +64,7 @@
           line-height: normal;
           text-transform: uppercase;
           text-align: center;
-          margin-bottom: 5px;
+          margin-bottom: 0;
         }
 
         .img_content {
@@ -105,7 +89,7 @@
               background-color: $primary;
               border: none;
               padding: 12px 35px;
-              border-radius: 8px;
+              border-radius: 24px;
               color: $white;
               font-size: 14px;
               font-weight: 600;
@@ -123,7 +107,7 @@
               background-color: $deposit_button;
               border: none;
               padding: 12px 35px;
-              border-radius: 8px;
+              border-radius: 24px;
               color: $white;
               font-size: 14px;
               font-weight: 600;
@@ -138,17 +122,39 @@
         }
       }
 
+      .toast_card_bottom {
+        // position: absolute;
+        width: 100% !important;
+        // top: -7px;
+        text-align: center;
+        font-weight: 600;
+        background-color: rgb(255 255 255);
+        margin-top: -135px !important;
+        margin-left: 0 !important;
+        margin-bottom: 15px;
+        border-radius: 28px;
+
+        @media ($breakpoint_ESM) {
+          margin-top: -140px !important;
+          margin-bottom: 13px;
+        }
+
+        .toast_body {
+          border-radius: 8px;
+          font-size: 15px;
+
+          img {
+            height: 25px;
+          }
+        }
+      }
+
       .watch_flex_card {
         @include display(space-between, center);
         gap: 15px;
-        margin-top: 75px;
 
         @media ($breakpoint_450) {
           gap: 5px;
-        }
-
-        @media ($breakpoint_ESM) {
-          margin-top: 70px;
         }
 
         .watch_active {
