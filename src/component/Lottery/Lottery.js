@@ -327,11 +327,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        // if (second < 7) {
-        //   setIsPlaying(true);
-        // } else if (data.gameTimer === 1) {
-        //   setIsPlaying(false);
-        // }
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
       }
     });
 
@@ -345,11 +345,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        // if (second < 7) {
-        //   setIsPlaying(true);
-        // } else if (data.gameTimer === 1) {
-        //   setIsPlaying(false);
-        // }
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
       }
     });
 
@@ -363,11 +363,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        // if (second < 7) {
-        //   setIsPlaying(true);
-        // } else if (data.gameTimer === 1) {
-        //   setIsPlaying(false);
-        // }
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
       }
     });
 
@@ -381,11 +381,11 @@ const Lottery = () => {
           setGameTableId(data.gameTableId);
         }
 
-        // if (second < 7) {
-        //   setIsPlaying(true);
-        // } else if (data.gameTimer === 1) {
-        //   setIsPlaying(false);
-        // }
+        if (second < 7) {
+          setIsPlaying(true);
+        } else if (data.gameTimer === 1) {
+          setIsPlaying(false);
+        }
       }
     });
 
